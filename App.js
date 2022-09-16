@@ -17,6 +17,9 @@ import LoginScreen from './components/LoginScreen';
 
 const Tab = createBottomTabNavigator();
 import Top from './components/top';
+import {LogBox} from 'react-native';
+
+LogBox.ignoreAllLogs();
 
 const theme = {
   ...DefaultTheme,
