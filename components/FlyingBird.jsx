@@ -29,8 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   bird: {
-    position: 'absolute',
-    top: 180,
+    top: 450,
     left: 100,
     width: 200,
     height: 250,

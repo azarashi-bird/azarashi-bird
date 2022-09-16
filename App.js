@@ -50,17 +50,6 @@ export default function App() {
     // </PaperProvider>
     <PaperProvider theme="{theme}">
       <FlyingBird />
-      {/* <View style={styles.container}>
-        
-        <StatusBar style="auto" />
-      </View> */}
-      {/* <NavigationContainer> */
-      /* <Tab.Navigator>
-          <Tab.Screen name="Home" component={Top} />
-          <Tab.Screen name="LogView" component={LogView} />
-          <Tab.Screen name="People" component={PeopleLog} />
-        </Tab.Navigator>
-      </NavigationContainer> */}
 
       {/* <NavigationContainer>
         <Stack.Navigator>
@@ -71,8 +60,7 @@ export default function App() {
           />
           <Stack.Screen name="Home" component={Main} />
         </Stack.Navigator>
-      </NavigationContainer>
-      */}
+      </NavigationContainer> */}
     </PaperProvider>
   );
 }
