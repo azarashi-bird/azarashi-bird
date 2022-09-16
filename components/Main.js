@@ -11,11 +11,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 export default function Main() {
   return (
     // <NavigationContainer>
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen name="Home" component={Top} />
       <Tab.Screen name="LogView" component={LogView} />
       <Tab.Screen name="People" component={PeopleLog} />
     </Tab.Navigator>
-    // </NavigationContainer>
+    // {/* </NavigationContainer> */}
   );
 }

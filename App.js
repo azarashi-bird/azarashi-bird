@@ -11,7 +11,7 @@ import LogView from './components/LogView';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
+import PeopleLog from './components/PeopleLog';
 import HomeScreen from './components/HomeScreen';
 import LoginScreen from './components/LoginScreen';
 import Top from './components/top';
@@ -33,7 +33,7 @@ export default function App() {
   return (
     <PaperProvider theme="{theme}">
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen
             options={{headerShown: false}}
             name="Login"
