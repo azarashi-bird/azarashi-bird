@@ -14,10 +14,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomeScreen from './components/HomeScreen';
 import LoginScreen from './components/LoginScreen';
-
-const Tab = createBottomTabNavigator();
 import Top from './components/top';
-import PeopleLog from './components/PeopleLog';
+import Main from './components/Main';
 
 const theme = {
   ...DefaultTheme,
@@ -63,6 +61,18 @@ export default function App() {
           <Tab.Screen name="People" component={PeopleLog} />
         </Tab.Navigator>
       </NavigationContainer> */}
+
+      {/* <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Login"
+            component={LoginScreen}
+          />
+          <Stack.Screen name="Home" component={Main} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      */}
     </PaperProvider>
   );
 }
