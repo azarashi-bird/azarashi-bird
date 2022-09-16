@@ -10,7 +10,6 @@ import LogView from './components/LogView';
 // メモ：npm install @react-navigation/bottom-tabs
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {styles} from './components/css';
 
 const Tab = createBottomTabNavigator();
 import Top from './components/top';
@@ -55,3 +54,11 @@ export default function App() {
 //     </PaperProvider>
 //   );
 // }
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 100,
+  },
+});
