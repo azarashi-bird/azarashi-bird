@@ -1,3 +1,4 @@
+import {FlyingBird} from './components/FlyingBird';
 import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, Text, View} from 'react-native';
 import {
@@ -30,8 +31,10 @@ export default function App() {
           mode="contained"
           onPress={() => console.log('Pressed')}>
           Press me
-        </Button>
-        <StatusBar style="auto" />
+
+        </Button> */}
+      <FlyingBird />
+      {/* <StatusBar style="auto" />
       </View> */}
     </PaperProvider>
   );
