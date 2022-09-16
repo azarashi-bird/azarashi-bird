@@ -17,6 +17,7 @@ import LoginScreen from './components/LoginScreen';
 
 const Tab = createBottomTabNavigator();
 import Top from './components/top';
+import PeopleLog from './components/PeopleLog';
 
 const theme = {
   ...DefaultTheme,
@@ -47,6 +48,11 @@ export default function App() {
           <FlyingBird />
           <StatusBar style="auto" />
         </View>
+        <Tab.Navigator>
+          <Tab.Screen name="Home" component={Top} />
+          <Tab.Screen name="LogView" component={LogView} />
+          <Tab.Screen name="People" component={PeopleLog} />
+        </Tab.Navigator>
       </NavigationContainer>
     </PaperProvider>
   );
