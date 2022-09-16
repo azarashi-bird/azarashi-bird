@@ -10,6 +10,7 @@ import LogView from './components/LogView';
 // メモ：npm install @react-navigation/bottom-tabs
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {styles} from './components/css';
 
 const Tab = createBottomTabNavigator();
 import Top from './components/top';
@@ -29,17 +30,9 @@ const theme = {
 export default function App() {
   return (
     <PaperProvider theme="{theme}">
-      <Top></Top>
-      {/* <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Button
-          icon="camera"
-          mode="contained"
-          onPress={() => console.log('Pressed')}>
-          Press me
-
-        </Button>
-         <FlyingBird />
+      <Top />
+      <View style={styles.container}>
+        <FlyingBird />
         <StatusBar style="auto" />
       </View>
     </PaperProvider>
@@ -62,5 +55,3 @@ export default function App() {
 //     </PaperProvider>
 //   );
 // }
-
-
