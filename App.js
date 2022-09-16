@@ -2,7 +2,7 @@ import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, Text, View} from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {Button} from 'react-native-paper';
-import LogView from './LogView';
+import LogView from './components/LogView';
 // メモ：npm install @react-navigation/bottom-tabs
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
