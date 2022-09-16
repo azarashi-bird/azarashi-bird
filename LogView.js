@@ -9,7 +9,7 @@ export default function LogView() {
         ユーザー名の来世　歩くタコのお寿司
       </Text>
       <Image
-        source={require('./img/takosushi.gif')}
+        source={require('./assets/afterLifes/takosushi.gif')}
         style={styles.mainImage}></Image>
       <Text style={styles.mainText} variant="titleLarge">
         ユーザー名の徳　77徳
