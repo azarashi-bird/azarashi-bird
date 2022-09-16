@@ -16,6 +16,9 @@ import HomeScreen from './components/HomeScreen';
 import LoginScreen from './components/LoginScreen';
 import Top from './components/top';
 import Main from './components/Main';
+import {LogBox} from 'react-native';
+
+LogBox.ignoreAllLogs();
 
 const theme = {
   ...DefaultTheme,

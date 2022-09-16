@@ -1,3 +1,3 @@
 # azarashi-bird
 
-firebase接続に必要なENV.js　ファイルを作成する
+firebase 接続に必要な ENV.js 　ファイルを作成する
