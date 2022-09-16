@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import * as firebase from 'firebase';
-// require('firebase/firestore');
+require('firebase/firestore');
 import {ENV} from './ENV';
 
 // TODO: Add SDKs for Firebase products that you want to use
