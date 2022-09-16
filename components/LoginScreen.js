@@ -24,12 +24,15 @@ const LoginScreen = () => {
     return unsubscribe;
   }, []);
 
+  //POST firestore ver.8
+  const doc = firestore.collection('virtue');
+
   const postNote = async () => {
     const value = {
       note: 'test',
       createdAt: new Date(),
     };
-    await firestore.collection('virtue').add(value);
+    await doc.add(value);
     console.log('POSTします！');
   };
 
