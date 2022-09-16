@@ -24,7 +24,7 @@ const FlyingBird = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'aliceblue',
+    backgroundColor: '#F6F3CF',
     alignItems: 'center',
     justifyContent: 'center',
   },

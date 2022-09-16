@@ -51,32 +51,18 @@ export default function App() {
     //   </NavigationContainer>
     // </PaperProvider>
     <PaperProvider theme="{theme}">
-      //{' '}
-      <View style={styles.container}>
-        // <FlyingBird />
-        // <StatusBar style="auto" />
-        //{' '}
-      </View>
-      <NavigationContainer>
-        {/* <Stack.Navigator>
-          <Stack.Screen
-            options={{headerShown: false}}
-            name="Login"
-            component={LoginScreen}
-          />
-          <Stack.Screen name="Home" component={HomeScreen} />
-        </Stack.Navigator> */}
-        {/* <Top /> */}
-        {/* <View style={styles.container}>
-          <FlyingBird />
-          <StatusBar style="auto" />
-        </View> */}
-        <Tab.Navigator>
+      <FlyingBird />
+      {/* <View style={styles.container}>
+        
+        <StatusBar style="auto" />
+      </View> */}
+      {/* <NavigationContainer> */
+      /* <Tab.Navigator>
           <Tab.Screen name="Home" component={Top} />
           <Tab.Screen name="LogView" component={LogView} />
           <Tab.Screen name="People" component={PeopleLog} />
         </Tab.Navigator>
-      </NavigationContainer>
+      </NavigationContainer> */}
     </PaperProvider>
   );
 }
