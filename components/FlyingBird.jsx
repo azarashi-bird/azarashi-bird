@@ -1,20 +1,11 @@
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Animated, View, Image} from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
-import {Button} from 'react-native-paper';
 
-const FlyingBird = function () {
+const FlyingBird = () => {
   return (
     <PaperProvider>
       <View style={styles.container}>
-        <StatusBar style="auto" />
-        {/* <Text>flyingBird</Text> */}
-        {/* <Button
-          icon="camera"
-          mode="contained"
-          onPress={() => console.log('Pressed')}>
-          Press me
-        </Button> */}
         <View style={styles.innerContainer}>
           <Image
             source={require('../assets/homePage/bird.gif')}
@@ -38,19 +29,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   bird: {
-    // flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
     position: 'absolute',
     top: 180,
     left: 100,
-    // backgroundColor: 'yellow',
     width: 200,
     height: 250,
   },
   cage: {
-    // position: 'absolute',
-    // backgroundColor: 'pink',
     width: 400,
     height: 550,
   },
