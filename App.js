@@ -34,14 +34,14 @@ export default function App() {
   return (
     <PaperProvider theme="{theme}">
       <NavigationContainer>
-        <Stack.Navigator>
+        {/* <Stack.Navigator>
           <Stack.Screen
             options={{headerShown: false}}
             name="Login"
             component={LoginScreen}
           />
           <Stack.Screen name="Home" component={HomeScreen} />
-        </Stack.Navigator>
+        </Stack.Navigator> */}
         <Top />
         <View style={styles.container}>
           <FlyingBird />
