@@ -27,12 +27,10 @@ const FlyingBird = function ({navigation}) {
           />
         </View>
         <Button
-          mode="contained"
-          icon="home"
+          icon="close-circle-outline"
           title="back"
-          onPress={() => navigation.goBack()}>
-          Home
-        </Button>
+          onPress={() => navigation.goBack()}
+        />
       </View>
     </PaperProvider>
   );
