@@ -36,6 +36,7 @@ export default function PeopleLog() {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -45,6 +46,7 @@ const styles = StyleSheet.create({
   },
   topContent: {
     marginTop: 100,
+    marginBottom: 20,
   },
   logs: {
     backgroundColor: '#FFFF',

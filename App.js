@@ -40,6 +40,8 @@ export default function App() {
             component={LoginScreen}
           />
           <Stack.Screen name="Home" component={Main} />
+          <Stack.Screen name="Top" component={Top} />
+          <Stack.Screen name="FlyingBird" component={FlyingBird} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

@@ -11,7 +11,7 @@ import {Ionicons} from '@expo/vector-icons';
 
 export default function Main() {
   return (
-    // iconiconsのicon名
+    // ioniconsのicon名
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color, size}) => {

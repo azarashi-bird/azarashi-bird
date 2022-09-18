@@ -2,8 +2,9 @@ import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {Button} from 'react-native-paper';
+import {NavigationContainer} from '@react-navigation/native';
 
-const FlyingBird = function () {
+const FlyingBird = function ({navigation}) {
   return (
     <PaperProvider>
       <View style={styles.container}>
@@ -25,6 +26,13 @@ const FlyingBird = function () {
             style={styles.cage}
           />
         </View>
+        <Button
+          mode="contained"
+          icon="home"
+          title="back"
+          onPress={() => navigation.goBack()}>
+          Home
+        </Button>
       </View>
     </PaperProvider>
   );
