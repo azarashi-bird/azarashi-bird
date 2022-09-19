@@ -1,15 +1,24 @@
-import {StatusBar} from 'expo-status-bar';
+import React, {useEffect, useRef} from 'react';
 import {StyleSheet, Animated, View, Image} from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
 
-const FlyingBird = () => {
+const FlyingBird = (props) => {
+  const animatedValue = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(animatedValue, {
+      toValue: 1,
+      duration: 10000,
+    }).start();
+  }, [animatedValue]);
+
   return (
     <PaperProvider>
       <View style={styles.container}>
         <View style={styles.innerContainer}>
-          <Image
+          <Animated.Image
             source={require('../assets/homePage/bird.gif')}
-            style={styles.bird}
+            style={{...styles.bird, opacity: animatedValue}}
           />
           <Image
             source={require('../assets/homePage/cage.png')}
