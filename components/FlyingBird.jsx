@@ -1,10 +1,19 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {StyleSheet, Animated, View, Image, Button} from 'react-native';
+import {
+  StyleSheet,
+  Animated,
+  InteractionManager,
+  View,
+  Image,
+  Text,
+  Button,
+} from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
 
 const FlyingBird = (props) => {
   // const animatedValue = useRef(new Animated.Value(0)).current;
   const altitude = useState(new Animated.Value(0))[0];
+  const [isFlied, setIsFlied] = useState(false);
 
   // useEffect(() => {
   //   Animated.timing(leftValue, {
@@ -16,10 +25,16 @@ const FlyingBird = (props) => {
 
   function fly() {
     Animated.timing(altitude, {
-      toValue: -350,
-      duration: 1500,
+      toValue: -700,
+      duration: 3000,
       useNativeDriver: true,
     }).start();
+    InteractionManager.runAfterInteractions(() => {
+      setTimeout(() => {
+        setIsFlied(true);
+        // alert('isFlied:', isFlied);
+      }, 3000);
+    });
   }
 
   return (
@@ -28,18 +43,27 @@ const FlyingBird = (props) => {
         {/* <View style={styles.innerContainer2}> */}
         {/* <Button onPress={fly} title="Press me" /> */}
         {/* </View> */}
-        <View style={styles.innerContainer}>
-          <Animated.Image
-            source={require('../assets/homePage/bird.gif')}
-            style={[{...styles.bird, transform: [{translateY: altitude}]}]}
-            // style={{...styles.bird, opacity: leftValue}}
-          />
-          <Image
-            source={require('../assets/homePage/cage.png')}
-            style={styles.cage}
-          />
-        </View>
-        <Button onPress={fly} title="Press me" />
+        {!isFlied ? (
+          <>
+            <View style={styles.innerContainer}>
+              <Animated.Image
+                source={require('../assets/homePage/bird.gif')}
+                style={[{...styles.bird, transform: [{translateY: altitude}]}]}
+              />
+              <Image
+                source={require('../assets/homePage/cage.png')}
+                style={styles.cage}
+              />
+            </View>
+            <Button onPress={fly} title="Press me" />
+          </>
+        ) : (
+          <>
+            <Text>おめでとう！🎉</Text>
+            <Text>今日世界で◯羽の鳥が放たれました。</Text>
+            <Button title="やったね🙌"></Button>
+          </>
+        )}
       </View>
     </PaperProvider>
   );
