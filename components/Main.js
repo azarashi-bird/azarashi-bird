@@ -1,11 +1,8 @@
-import {StyleSheet, View, Image} from 'react-native';
-import {Text} from 'react-native-paper';
-import LogTable from './LogTable';
 import LogView from './LogView';
 const Tab = createBottomTabNavigator();
 import Top from './top';
 import PeopleLog from './PeopleLog';
-import {NavigationContainer} from '@react-navigation/native';
+
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Ionicons} from '@expo/vector-icons';
 

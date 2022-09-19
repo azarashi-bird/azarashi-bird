@@ -1,18 +1,13 @@
 import {FlyingBird} from './components/FlyingBird';
-import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, Text, View} from 'react-native';
 import {
   MD3LightTheme as DefaultTheme,
   Provider as PaperProvider,
 } from 'react-native-paper';
-import {Button} from 'react-native-paper';
-import LogView from './components/LogView';
+
 // メモ：npm install @react-navigation/bottom-tabs
 import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import PeopleLog from './components/PeopleLog';
-import HomeScreen from './components/HomeScreen';
 import LoginScreen from './components/LoginScreen';
 import Top from './components/top';
 import Main from './components/Main';
