@@ -23,7 +23,7 @@ const FlyingBird = (props) => {
   //   }).start();
   // }, [leftValue]);
 
-  function fly() {
+  useEffect(() => {
     Animated.timing(altitude, {
       toValue: -700,
       duration: 3000,
@@ -35,7 +35,20 @@ const FlyingBird = (props) => {
         // alert('isFlied:', isFlied);
       }, 3000);
     });
-  }
+  }, [altitude]);
+  // function fly() {
+  //   Animated.timing(altitude, {
+  //     toValue: -700,
+  //     duration: 3000,
+  //     useNativeDriver: true,
+  //   }).start();
+  //   InteractionManager.runAfterInteractions(() => {
+  //     setTimeout(() => {
+  //       setIsFlied(true);
+  //       // alert('isFlied:', isFlied);
+  //     }, 3000);
+  //   });
+  // }
 
   return (
     <PaperProvider>
@@ -55,7 +68,7 @@ const FlyingBird = (props) => {
                 style={styles.cage}
               />
             </View>
-            <Button onPress={fly} title="Press me" />
+            {/* <Button onPress={fly} title="Press me" /> */}
           </>
         ) : (
           <>
