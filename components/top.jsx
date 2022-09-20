@@ -4,12 +4,22 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import {Button} from 'react-native-paper';
 import styles from './css';
+import {Suggest} from './Suggest';
+import {useState} from 'react';
 
 const Top = ({navigation}) => {
+  const [isEntering, setIsEntering] = useState(false);
+
   return (
     <View style={styles.container}>
       <Text style={styles.appTitle}>Birdonation</Text>
-      <TextInput mode="outlined" label="input" style={styles.input}></TextInput>
+      <TextInput
+        mode="outlined"
+        label="input"
+        style={styles.input}
+        onPress={() => setIsEntering(!isEntering)}></TextInput>
+
+      {isEntering ? <Suggest /> : ''}
 
       <Button
         mode="contained"
