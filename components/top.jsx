@@ -38,7 +38,7 @@ import styles from './css';
 
 // });
 
-const top = ({navigation}) => {
+const Top = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.appTitle}>Birdonation</Text>
@@ -59,9 +59,8 @@ const top = ({navigation}) => {
         source={require('../assets/homePage/cage.png')}
         style={styles.cage}
       />
-
     </View>
   );
 };
 
-export default top;
+export default Top;

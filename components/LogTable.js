@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {DataTable} from 'react-native-paper';
+import styles from './css';
 
 export default function LogView() {
   const sampleLog = [
@@ -16,7 +17,7 @@ export default function LogView() {
   ];
 
   return (
-    <DataTable style={styles.container}>
+    <DataTable style={styles.tableContainer}>
       <DataTable.Header>
         <DataTable.Title>徳</DataTable.Title>
         <DataTable.Title numeric>日付</DataTable.Title>
@@ -39,13 +40,3 @@ export default function LogView() {
     </DataTable>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    margin: 30,
-    backgroundColor: '#fff',
-    paddingRight: 10,
-    paddingLeft: 10,
-    maxWidth: 350,
-  },
-});

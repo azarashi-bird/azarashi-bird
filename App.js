@@ -9,7 +9,7 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from './components/LoginScreen';
-import Top from './components/top';
+import Top from './components/Top';
 import Main from './components/Main';
 import {LogBox} from 'react-native';
 
@@ -47,13 +47,8 @@ export default function App() {
     //   </NavigationContainer>
     // </PaperProvider>
     <PaperProvider theme="{theme}">
-
-   
-
-
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-
           <Stack.Screen
             options={{headerShown: false}}
             name="Login"
@@ -63,7 +58,7 @@ export default function App() {
           <Stack.Screen name="Top" component={Top} />
           <Stack.Screen name="FlyingBird" component={FlyingBird} />
         </Stack.Navigator>
-      </NavigationContainer> 
+      </NavigationContainer>
     </PaperProvider>
   );
 }

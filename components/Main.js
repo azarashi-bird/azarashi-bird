@@ -1,6 +1,6 @@
 import LogView from './LogView';
 const Tab = createBottomTabNavigator();
-import Top from './top';
+import Top from './Top';
 import PeopleLog from './PeopleLog';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
