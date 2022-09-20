@@ -14,9 +14,20 @@ const styles = StyleSheet.create({
     height: 250,
     // transform: [{translateX: 100}],
   },
+  topBird: {
+    top: 250,
+    left: 90,
+    width: 200,
+    height: 250,
+  },
   cage: {
     width: 400,
     height: 550,
+  },
+  topCage: {
+    width: 400,
+    height: 550,
+    top: -200,
   },
   innerContainer: {
     position: 'relative',
