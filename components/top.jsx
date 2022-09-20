@@ -1,5 +1,5 @@
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import {Button} from 'react-native-paper';
 import styles from './css';
@@ -16,6 +16,24 @@ import styles from './css';
 //   input: {
 //     width: 100,
 //   },
+//   bird: {
+//     // flex: 1,
+//     // alignItems: 'center',
+//     // justifyContent: 'center',
+//     position: 'absolute',
+//     top: 50,
+//     right: 30,
+//     // backgroundColor: 'yellow',
+//     width: 200,
+//     height: 250,
+//   },
+//   cage: {
+//     // position: 'absolute',
+//     // backgroundColor: 'pink',
+//     width: 400,
+//     height: 550,
+//   },
+
 // });
 const top = () => {
   return (
@@ -25,6 +43,14 @@ const top = () => {
       <Button mode="contained" icon="notebook">
         記録する
       </Button>
+      <Image
+        source={require('../assets/homePage/bird.gif')}
+        style={styles.bird}
+      />
+      <Image
+        source={require('../assets/homePage/cage.png')}
+        style={styles.cage}
+      />
     </View>
   );
 };

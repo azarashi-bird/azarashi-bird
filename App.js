@@ -10,9 +10,12 @@ import LogView from './components/LogView';
 // メモ：npm install @react-navigation/bottom-tabs
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-const Tab = createBottomTabNavigator();
+import HomeScreen from './components/HomeScreen';
+import LoginScreen from './components/LoginScreen';
 import Top from './components/top';
+import Main from './components/Main';
 
 const theme = {
   ...DefaultTheme,
@@ -29,15 +32,21 @@ const theme = {
 export default function App() {
   return (
     <PaperProvider theme="{theme}">
-      <Top />
-      <View style={styles.container}>
-        <FlyingBird />
-        <StatusBar style="auto" />
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            options={{headerShown: false}}
+            name="Login"
+            component={LoginScreen}
+          />
+          <Stack.Screen name="Home" component={Main} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </PaperProvider>
   );
 }
 
+const Stack = createNativeStackNavigator();
 // export default function App() {
 //   return (
 //     <PaperProvider>
