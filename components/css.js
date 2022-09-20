@@ -62,11 +62,11 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   tableContainer: {
-    margin: 30,
+    margin: 8,
     backgroundColor: '#fff',
     paddingRight: 10,
     paddingLeft: 10,
-    maxWidth: 350,
+    width: 350,
   },
   loginContainer: {
     flex: 1,
