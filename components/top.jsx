@@ -1,8 +1,10 @@
+import {createStackNavigator} from '@react-navigation/stack';
 import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import {Button} from 'react-native-paper';
 import styles from './css';
+
 // const styles = StyleSheet.create({
 //   container: {
 //     alignItems: 'center',
@@ -35,14 +37,20 @@ import styles from './css';
 //   },
 
 // });
-const top = () => {
+
+const top = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.appTitle}>Birdonation</Text>
       <TextInput mode="outlined" label="input" style={styles.input}></TextInput>
-      <Button mode="contained" icon="notebook">
+
+      <Button
+        mode="contained"
+        icon="notebook"
+        onPress={() => navigation.navigate('FlyingBird')}>
         記録する
       </Button>
+
       <Image
         source={require('../assets/homePage/bird.gif')}
         style={styles.bird}
@@ -51,7 +59,9 @@ const top = () => {
         source={require('../assets/homePage/cage.png')}
         style={styles.cage}
       />
+
     </View>
   );
 };
+
 export default top;
