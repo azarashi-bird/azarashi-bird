@@ -11,6 +11,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from './components/LoginScreen';
 import Top from './components/top';
 import Main from './components/Main';
+import {LogBox} from 'react-native';
+
+LogBox.ignoreAllLogs();
 
 const theme = {
   ...DefaultTheme,
@@ -26,9 +29,31 @@ const theme = {
 
 export default function App() {
   return (
+    // <PaperProvider theme="{theme}">
+    //   <NavigationContainer>
+    //     <Stack.Navigator>
+    //       <Stack.Screen
+    //         options={{headerShown: false}}
+    //         name="Login"
+    //         component={LoginScreen}
+    //       />
+    //       <Stack.Screen name="Home" component={HomeScreen} />
+    //     </Stack.Navigator>
+    //     <Top />
+    //     <View style={styles.container}>
+    //       <FlyingBird />
+    //       <StatusBar style="auto" />
+    //     </View>
+    //   </NavigationContainer>
+    // </PaperProvider>
     <PaperProvider theme="{theme}">
+
+   
+
+
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
+
           <Stack.Screen
             options={{headerShown: false}}
             name="Login"
@@ -38,7 +63,7 @@ export default function App() {
           <Stack.Screen name="Top" component={Top} />
           <Stack.Screen name="FlyingBird" component={FlyingBird} />
         </Stack.Navigator>
-      </NavigationContainer>
+      </NavigationContainer> 
     </PaperProvider>
   );
 }

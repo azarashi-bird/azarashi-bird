@@ -1,6 +1,7 @@
 # azarashi-bird
 
 
+
 ## icon
 
 Ionicons(https://ionic.io/ionicons)
@@ -14,4 +15,5 @@ React Navigation(https://reactnavigation.org/)
 React Native Paper(https://callstack.github.io/react-native-paper/index.html)
 
 firebase 接続に必要な ENV.js 　ファイルを作成する
+
 
