@@ -23,7 +23,6 @@ const Top = ({navigation}) => {
 
       <Button
         mode="contained"
-        icon="notebook"
         onPress={() => navigation.navigate('FlyingBird')}>
         徳を積む
       </Button>
