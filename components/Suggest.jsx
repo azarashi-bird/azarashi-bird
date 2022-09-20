@@ -1,4 +1,5 @@
 import {View, Text} from 'react-native';
+import {Provider as PaperProvider} from 'react-native-paper';
 
 const Suggest = () => {
   const suggests = [
@@ -18,7 +19,7 @@ const Suggest = () => {
     <PaperProvider>
       <View>
         {suggests.map((item) => (
-          <Text>item</Text>
+          <Text>{item}</Text>
         ))}
       </View>
     </PaperProvider>
