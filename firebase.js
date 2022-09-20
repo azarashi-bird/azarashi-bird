@@ -38,4 +38,27 @@ const postToku = async (userId, toku) => {
   console.log('added to firebase!');
 };
 
-export {auth, firestore, postToku};
+//getAllToku (UerId,Toku,Date)
+
+/* 
+  const test = async () => {
+    const list = await getAllToku();
+    console.log(list[0].createdAt, 'risuto');
+  };
+
+onPress={() => test()}
+
+*/
+const getAllToku = async () => {
+  const tokuList = [];
+  await tokuTable.get().then((querySnapshot) => {
+    querySnapshot.forEach((toku) => {
+      // doc.data() is never undefined for query doc snapshots
+      // console.log(toku.id, ' => ', toku.data());
+      tokuList.push(toku.data());
+    });
+  });
+  return tokuList;
+};
+
+export {auth, firestore, postToku, getAllToku};

@@ -8,7 +8,7 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import {auth, postToku} from '../firebase';
+import {auth, postToku, getAllToku} from '../firebase';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -78,11 +78,9 @@ const LoginScreen = () => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => {
-            postToku(userId, toku);
-          }}
+          onPress={async () => console.log(await getAllToku())}
           style={styles.button}>
-          <Text style={styles.buttonText}>POST to firebase</Text>
+          <Text style={styles.buttonText}>TEST</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
