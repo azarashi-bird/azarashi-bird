@@ -24,16 +24,15 @@ const LoginScreen = () => {
     return unsubscribe;
   }, []);
 
-  //POST firestore ver.8
+  //POST 'test' to firebase ver.8
   const doc = firestore.collection('virtue');
-
   const postNote = async () => {
     const value = {
       note: 'test',
       createdAt: new Date(),
     };
     await doc.add(value);
-    console.log('POSTします！');
+    console.log('added to firebase！');
   };
 
   const handleSignUp = () => {
@@ -85,7 +84,7 @@ const LoginScreen = () => {
         </TouchableOpacity>
 
         <TouchableOpacity onPress={postNote} style={styles.button}>
-          <Text style={styles.buttonText}>POST</Text>
+          <Text style={styles.buttonText}>POST to firebase</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
