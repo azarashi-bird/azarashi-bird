@@ -5,39 +5,6 @@ import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import {Button} from 'react-native-paper';
 import styles from './css';
 
-// const styles = StyleSheet.create({
-//   container: {
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     marginTop: 100,
-//   },
-//   appTitle: {
-//     fontSize: 30,
-//     fontWeight: 'bold',
-//   },
-//   input: {
-//     width: 100,
-//   },
-//   bird: {
-//     // flex: 1,
-//     // alignItems: 'center',
-//     // justifyContent: 'center',
-//     position: 'absolute',
-//     top: 50,
-//     right: 30,
-//     // backgroundColor: 'yellow',
-//     width: 200,
-//     height: 250,
-//   },
-//   cage: {
-//     // position: 'absolute',
-//     // backgroundColor: 'pink',
-//     width: 400,
-//     height: 550,
-//   },
-
-// });
-
 const Top = ({navigation}) => {
   return (
     <View style={styles.container}>
@@ -48,17 +15,18 @@ const Top = ({navigation}) => {
         mode="contained"
         icon="notebook"
         onPress={() => navigation.navigate('FlyingBird')}>
-        記録する
+        徳を積む
       </Button>
-
-      <Image
-        source={require('../assets/homePage/bird.gif')}
-        style={styles.bird}
-      />
-      <Image
-        source={require('../assets/homePage/cage.png')}
-        style={styles.cage}
-      />
+      <View style={styles.innerContainer}>
+        <Image
+          source={require('../assets/homePage/bird.gif')}
+          style={styles.topBird}
+        />
+        <Image
+          source={require('../assets/homePage/cage.png')}
+          style={styles.topCage}
+        />
+      </View>
     </View>
   );
 };
