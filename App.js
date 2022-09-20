@@ -14,9 +14,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomeScreen from './components/HomeScreen';
 import LoginScreen from './components/LoginScreen';
-
-const Tab = createBottomTabNavigator();
 import Top from './components/top';
+import Main from './components/Main';
+import {LogBox} from 'react-native';
+
+LogBox.ignoreAllLogs();
 
 const theme = {
   ...DefaultTheme,
@@ -40,13 +42,8 @@ export default function App() {
             name="Login"
             component={LoginScreen}
           />
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Home" component={Main} />
         </Stack.Navigator>
-        <Top />
-        <View style={styles.container}>
-          <FlyingBird />
-          <StatusBar style="auto" />
-        </View>
       </NavigationContainer>
     </PaperProvider>
   );
