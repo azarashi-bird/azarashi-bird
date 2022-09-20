@@ -9,7 +9,7 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from './components/LoginScreen';
-import Top from './components/top';
+import Top from './components/Top';
 import Main from './components/Main';
 import {LogBox} from 'react-native';
 

@@ -38,7 +38,7 @@ import styles from './css';
 
 // });
 
-const top = ({navigation}) => {
+const Top = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.appTitle}>Birdonation</Text>
@@ -63,4 +63,4 @@ const top = ({navigation}) => {
   );
 };
 
-export default top;
+export default Top;

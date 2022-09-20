@@ -9,6 +9,7 @@ import {
   Button,
 } from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
+import styles from './css';
 
 const FlyingBird = ({navigation}) => {
   // const animatedValue = useRef(new Animated.Value(0)).current;
@@ -88,31 +89,31 @@ const FlyingBird = ({navigation}) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F6F3CF',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  bird: {
-    top: 450,
-    left: 100,
-    width: 200,
-    height: 250,
-    // transform: [{translateX: 100}],
-  },
-  cage: {
-    width: 400,
-    height: 550,
-  },
-  innerContainer: {
-    position: 'relative',
-    flex: 1,
-  },
-  // innerContainer2: {
-  //   flex: 1,
-  // },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#F6F3CF',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   bird: {
+//     top: 450,
+//     left: 100,
+//     width: 200,
+//     height: 250,
+//     // transform: [{translateX: 100}],
+//   },
+//   cage: {
+//     width: 400,
+//     height: 550,
+//   },
+//   innerContainer: {
+//     position: 'relative',
+//     flex: 1,
+//   },
+//   // innerContainer2: {
+//   //   flex: 1,
+//   // },
+// });
 
 export {FlyingBird};

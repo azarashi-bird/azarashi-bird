@@ -1,10 +1,11 @@
 import {StyleSheet, View, Image} from 'react-native';
 import {Text} from 'react-native-paper';
 import LogTable from './LogTable';
+import styles from './css';
 
 export default function LogView() {
   return (
-    <View style={styles.container}>
+    <View style={styles.logContainer}>
       <Text style={styles.topContent} variant="titleLarge">
         あなたの来世　<Text style={styles.strongText}>歩くタコのお寿司</Text>
       </Text>
@@ -19,25 +20,11 @@ export default function LogView() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F6F3CF',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  topContent: {
-    marginTop: 100,
-  },
-  mainImage: {
-    height: 300,
-    width: 300,
-  },
-  mainText: {
-    marginTop: 50,
-  },
-  strongText: {
-    fontWeight: 'bold',
-    fontSize: 28,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#F6F3CF',
+//     alignItems: 'center',
+//     justifyContent: 'flex-start',
+//   },
+// });
