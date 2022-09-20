@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
 
+
 const FlyingBird = (props) => {
   // const animatedValue = useRef(new Animated.Value(0)).current;
   const altitude = useState(new Animated.Value(0))[0];
@@ -77,6 +78,14 @@ const FlyingBird = (props) => {
             <Button title="やったね🙌"></Button>
           </>
         )}
+
+
+        <Button
+          icon="close-circle-outline"
+          title="back"
+          onPress={() => navigation.goBack()}
+        />
+
       </View>
     </PaperProvider>
   );

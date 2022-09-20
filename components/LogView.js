@@ -6,13 +6,13 @@ export default function LogView() {
   return (
     <View style={styles.container}>
       <Text style={styles.topContent} variant="titleLarge">
-        ユーザー名の来世　歩くタコのお寿司
+        あなたの来世　<Text style={styles.strongText}>歩くタコのお寿司</Text>
       </Text>
       <Image
         source={require('../assets/afterLifes/takosushi.gif')}
         style={styles.mainImage}></Image>
       <Text style={styles.mainText} variant="titleLarge">
-        ユーザー名の徳　77徳
+        あなたの徳　<Text style={styles.strongText}>77</Text>徳
       </Text>
       <LogTable />
     </View>
@@ -35,5 +35,9 @@ const styles = StyleSheet.create({
   },
   mainText: {
     marginTop: 50,
+  },
+  strongText: {
+    fontWeight: 'bold',
+    fontSize: 28,
   },
 });
