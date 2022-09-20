@@ -1,7 +1,7 @@
-import { useNavigation } from "@react-navigation/core";
-import react from "react";
-import { TouchableOpacity, StyleSheet, Text, View } from "react-native";
-import { auth } from "../firebase";
+import {useNavigation} from '@react-navigation/core';
+import react from 'react';
+import {TouchableOpacity, StyleSheet, Text, View} from 'react-native';
+import {auth, firestore} from '../firebase';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -10,7 +10,7 @@ const HomeScreen = () => {
     auth
       .signOut()
       .then(() => {
-        navigation.replace("Login");
+        navigation.replace('Login');
       })
       .catch((e) => alert(e.message));
   };
@@ -29,20 +29,20 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   button: {
-    backgroundColor: "#0782f9",
-    width: "60%",
+    backgroundColor: '#0782f9',
+    width: '60%',
     padding: 15,
     borderRadius: 10,
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: 40,
   },
   buttonText: {
-    color: "white",
-    fontWeight: "700",
+    color: 'white',
+    fontWeight: '700',
     fontSize: 16,
   },
 });
