@@ -15,7 +15,7 @@ const Top = ({navigation}) => {
         mode="contained"
         icon="notebook"
         onPress={() => navigation.navigate('FlyingBird')}>
-        記録する
+        徳を積む
       </Button>
       <View style={styles.innerContainer}>
         <Image

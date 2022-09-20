@@ -27,14 +27,15 @@ const styles = StyleSheet.create({
   topCage: {
     width: 400,
     height: 550,
-    top: -200,
+    top: -220,
   },
   innerContainer: {
     position: 'relative',
     flex: 1,
   },
   input: {
-    width: 100,
+    width: '80%',
+    margin: 10,
   },
   appTitle: {
     marginTop: 100,
