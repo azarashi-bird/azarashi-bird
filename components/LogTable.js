@@ -6,6 +6,13 @@ export default function LogView() {
     ['公道を掃除した', '07/21'],
     ['寄付をした', '07/10'],
     ['歯を磨いた', '07/06'],
+    ['ゴミを分別した', '07/01'],
+    ['迷子を保護した', '06/25'],
+    ['赤子を拾った', '06/10'],
+    ['雛を巣に戻した', '05/25'],
+    ['道案内をした', '05/08'],
+    ['火事を防いだ', '04/01'],
+    ['みみずを土に入れた', '03/20'],
   ];
 
   return (
@@ -15,9 +22,9 @@ export default function LogView() {
         <DataTable.Title numeric>日付</DataTable.Title>
       </DataTable.Header>
       {sampleLog ? (
-        sampleLog.map((doing) => {
+        sampleLog.map((doing, index) => {
           return (
-            <DataTable.Row>
+            <DataTable.Row key={index}>
               <DataTable.Cell>{doing[0]}</DataTable.Cell>
               <DataTable.Cell numeric>{doing[1]}</DataTable.Cell>
             </DataTable.Row>

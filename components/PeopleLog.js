@@ -14,9 +14,9 @@ export default function PeopleLog() {
       <Text style={styles.topContent}>みんなの徳</Text>
       <DataTable style={styles.logs}>
         {samplePeople ? (
-          samplePeople.map((doing) => {
+          samplePeople.map((doing, index) => {
             return (
-              <DataTable.Row>
+              <DataTable.Row key={index}>
                 <DataTable.Cell>{doing[0]}</DataTable.Cell>
                 <DataTable.Cell>{doing[1]}</DataTable.Cell>
                 <DataTable.Cell>{doing[2]}</DataTable.Cell>
