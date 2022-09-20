@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import styles from './css';
+
 import {auth, postToku, getAllToku} from '../firebase';
 
 const LoginScreen = () => {
@@ -81,8 +82,8 @@ const LoginScreen = () => {
 
         <TouchableOpacity
           onPress={async () => console.log(await getAllToku())}
-          style={styles.button}>
-          <Text style={styles.buttonText}>TEST</Text>
+          style={styles.button1}>
+          <Text style={styles.button1Text}>TEST</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
