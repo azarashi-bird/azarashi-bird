@@ -20,6 +20,9 @@ if (firebase.apps.length === 0) {
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
+const tokuTable = firestore.collection('toku_table');
+const uid = auth.currentUser?.uid;
+
 /* 
 　徳をPost 使い方
   onPress={() => {
@@ -27,10 +30,9 @@ const firestore = firebase.firestore();
   }}
   */
 
-const tokuTable = firestore.collection('toku_table');
-const postToku = async (userId, toku) => {
+const postToku = async (toku) => {
   const value = {
-    user_id: userId,
+    user_id: uid,
     toku: toku,
     createdAt: new Date(),
   };
@@ -38,9 +40,8 @@ const postToku = async (userId, toku) => {
   console.log('added to firebase!');
 };
 
-//getAllToku (UerId,Toku,Date)
-
 /* 
+  getAllToku  返ってくる物(UerId,Toku,Date)
   const test = async () => {
     const list = await getAllToku();
     console.log(list[0].createdAt, 'risuto');
