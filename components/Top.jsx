@@ -10,6 +10,11 @@ import {useState} from 'react';
 const Top = ({navigation}) => {
   const [isEntering, setIsEntering] = useState(false);
 
+  const focus = () => {
+    setIsEntering(!isEntering);
+    console.log(isEntering, ' isEntering');
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.appTitle}>Birdonation</Text>
@@ -17,7 +22,8 @@ const Top = ({navigation}) => {
         mode="outlined"
         label="input"
         style={styles.input}
-        onPress={() => setIsEntering(!isEntering)}></TextInput>
+        onFocus={focus}
+        onBlur={() => setIsEntering(!isEntering)}></TextInput>
 
       {isEntering ? <Suggest /> : ''}
 
