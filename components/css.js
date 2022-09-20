@@ -14,16 +14,28 @@ const styles = StyleSheet.create({
     height: 250,
     // transform: [{translateX: 100}],
   },
+  topBird: {
+    top: 250,
+    left: 90,
+    width: 200,
+    height: 250,
+  },
   cage: {
     width: 400,
     height: 550,
+  },
+  topCage: {
+    width: 400,
+    height: 550,
+    top: -220,
   },
   innerContainer: {
     position: 'relative',
     flex: 1,
   },
   input: {
-    width: 100,
+    width: '80%',
+    margin: 10,
   },
   appTitle: {
     marginTop: 100,
