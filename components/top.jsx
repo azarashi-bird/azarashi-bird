@@ -59,7 +59,6 @@ const top = ({navigation}) => {
         source={require('../assets/homePage/cage.png')}
         style={styles.cage}
       />
-
     </View>
   );
 };

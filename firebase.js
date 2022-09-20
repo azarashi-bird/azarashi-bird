@@ -20,4 +20,22 @@ if (firebase.apps.length === 0) {
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
-export {auth, firestore};
+/* 
+　徳をPost 使い方
+  onPress={() => {
+    postToku(userId, toku);
+  }}
+  */
+
+const tokuTable = firestore.collection('toku_table');
+const postToku = async (userId, toku) => {
+  const value = {
+    user_id: userId,
+    toku: toku,
+    createdAt: new Date(),
+  };
+  await tokuTable.add(value);
+  console.log('added to firebase!');
+};
+
+export {auth, firestore, postToku};

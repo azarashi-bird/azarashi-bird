@@ -8,7 +8,7 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import {auth, firestore} from '../firebase';
+import {auth, postToku} from '../firebase';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -23,17 +23,6 @@ const LoginScreen = () => {
     });
     return unsubscribe;
   }, []);
-
-  //POST 'test' to firebase ver.8
-  const doc = firestore.collection('virtue');
-  const postNote = async () => {
-    const value = {
-      note: 'test',
-      createdAt: new Date(),
-    };
-    await doc.add(value);
-    console.log('added to firebase！');
-  };
 
   const handleSignUp = () => {
     auth
@@ -54,6 +43,11 @@ const LoginScreen = () => {
       })
       .catch((error) => alert(error.message));
   };
+
+  // postToku の引数に使ってる仮データ
+  const userId = '12345';
+  const toku = 'niwasouzi';
+
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <View style={styles.inputContainer}>
@@ -83,7 +77,11 @@ const LoginScreen = () => {
           <Text style={styles.buttonOutlineText}>Register</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={postNote} style={styles.button}>
+        <TouchableOpacity
+          onPress={() => {
+            postToku(userId, toku);
+          }}
+          style={styles.button}>
           <Text style={styles.buttonText}>POST to firebase</Text>
         </TouchableOpacity>
       </View>
