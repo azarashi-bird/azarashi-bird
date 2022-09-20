@@ -47,13 +47,8 @@ export default function App() {
     //   </NavigationContainer>
     // </PaperProvider>
     <PaperProvider theme="{theme}">
-
-   
-
-
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-
           <Stack.Screen
             options={{headerShown: false}}
             name="Login"
@@ -63,7 +58,7 @@ export default function App() {
           <Stack.Screen name="Top" component={Top} />
           <Stack.Screen name="FlyingBird" component={FlyingBird} />
         </Stack.Navigator>
-      </NavigationContainer> 
+      </NavigationContainer>
     </PaperProvider>
   );
 }

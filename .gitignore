@@ -15,3 +15,5 @@ ENV.ts
 ENV.js
 # macOS
 .DS_Store
+
+.vscode
