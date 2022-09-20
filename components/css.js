@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   mainImage: {
     height: 300,
     width: 300,
+    resizeMode: 'contain',
   },
   mainText: {
     marginTop: 50,
