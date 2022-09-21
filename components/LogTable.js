@@ -2,7 +2,7 @@ import {ScrollView, StyleSheet, View} from 'react-native';
 import {DataTable} from 'react-native-paper';
 import styles from './css';
 
-export default function LogView() {
+export default function LogView({tokuDatas, tokusValue}) {
   const sampleLog = [
     ['公道を掃除した', '07/21'],
     ['寄付をした', '07/10'],
@@ -15,7 +15,15 @@ export default function LogView() {
     ['火事を防いだ', '04/01'],
     ['みみずを土に入れた', '03/20'],
   ];
+  console.log(tokuDatas, tokusValue);
+  const tokusArray = tokuDatas.map((obj) => {
+    const array = [];
+    array.push(obj.toku);
+    array.push(obj.createdAt.seconds);
+    return array;
+  });
 
+  console.log(tokusArray);
   return (
     <ScrollView style={styles.tableContainer}>
       <DataTable>
@@ -23,12 +31,12 @@ export default function LogView() {
           <DataTable.Title>徳</DataTable.Title>
           <DataTable.Title numeric>日付</DataTable.Title>
         </DataTable.Header>
-        {sampleLog ? (
-          sampleLog.map((doing, index) => {
+        {tokusArray ? (
+          tokusArray.map((arr, index) => {
             return (
               <DataTable.Row key={index}>
-                <DataTable.Cell>{doing[0]}</DataTable.Cell>
-                <DataTable.Cell numeric>{doing[1]}</DataTable.Cell>
+                <DataTable.Cell>{arr[0]}</DataTable.Cell>
+                <DataTable.Cell numeric>{arr[1]}</DataTable.Cell>
               </DataTable.Row>
             );
           })
