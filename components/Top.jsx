@@ -21,6 +21,15 @@ const Top = ({navigation}) => {
   };
   const bluer = () => setIsEntering(!isEntering);
 
+  const submit = () => {
+    if (toku !== '') {
+      postToku(toku)
+        ? navigation.navigate('FlyingBird')
+        : console.log('post failed!');
+    } else {
+      console.log('input is blank!');
+    }
+  };
   return (
     <PaperProvider>
       <View style={styles.container}>
@@ -38,13 +47,7 @@ const Top = ({navigation}) => {
           <Suggest setToku={setToku} />
         ) : (
           <>
-            <Button
-              mode="contained"
-              onPress={() => {
-                postToku(toku);
-                setToku('');
-                navigation.navigate('FlyingBird');
-              }}>
+            <Button mode="contained" onPress={submit}>
               徳を積む
             </Button>
             <View style={styles.innerContainer}>
