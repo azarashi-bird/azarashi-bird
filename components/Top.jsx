@@ -33,9 +33,9 @@ const Top = ({navigation}) => {
 
       <Button
         mode="contained"
-        onPress={async () => {
+        onPress={() => {
           console.log(toku);
-          await postToku(toku);
+          postToku(toku);
           navigation.navigate('FlyingBird');
         }}>
         徳を積む
