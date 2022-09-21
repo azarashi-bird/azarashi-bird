@@ -1,7 +1,11 @@
 import {ScrollView, View, Button} from 'react-native';
-import {Provider as PaperProvider} from 'react-native-paper';
+// import {Provider as PaperProvider} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import styles from './css';
+import {
+  MD3LightTheme as DefaultTheme,
+  Provider as PaperProvider,
+} from 'react-native-paper';
 
 const Suggest = (props) => {
   const navigation = useNavigation();
