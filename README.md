@@ -64,7 +64,7 @@ $ npm init
 $ touch .ENV.local
 ```
 
-8.Copy & paste config from Firebase project setting at .ENV.local
+8. Copy & paste config from Firebase project setting at .ENV.local
 
 ```bash
 export const ENV = {
@@ -77,7 +77,7 @@ export const ENV = {
     }
 ```
 
-5. Run
+9. Run
 
 ```bash
 $ npm run ios

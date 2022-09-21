@@ -37,37 +37,35 @@ Firebase(https://firebase.google.com/?hl=ja)
 
 # Downloading and installing steps
 
-1. Clone this repository
+1. このレポジトリをクローンします
 
 ```bash
 $ git clone https://github.com/azarashi-bird/azarashi-bird.git
 ```
 
-2. Go into the repository
+2. このレポジトリに移動します
 
 ```bash
 $ cd azarashi-bird
 ```
 
-3. Install dependencies
+3. dependencies をインストールします
 
 ```bash
 $ npm init
 ```
 
-4. Create Firebase Account(https://firebase.google.com/?hl=ja)
+4. Firebase のアカウントを作成します(https://firebase.google.com/?hl=ja)
 
-5. Create Firebase Account
+5. Use Firebase Authentication と Firestore Database を利用します。
 
-6. Use Firebase Authentication and Firestore Database.
-
-7. make .ENV.local
+6. .ENV.local ファイルを作成します
 
 ```bash
 $ touch .ENV.local
 ```
 
-8.Copy & paste config from Firebase project setting at .ENV.local
+8. Firebase のプロジェクト設定から、config をコピーし、.ENV.local に字貼り付けます。
 
 ```bash
 export const ENV = {
@@ -80,7 +78,7 @@ export const ENV = {
     }
 ```
 
-5. Run
+9. expo を起動します
 
 ```bash
 $ npm run ios
