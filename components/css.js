@@ -5,14 +5,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F6F3CF',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'top',
   },
   bird: {
     top: 450,
     left: 100,
     width: 200,
     height: 250,
-    // transform: [{translateX: 100}],
   },
   topBird: {
     top: 250,
@@ -123,9 +122,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 40,
   },
-  // innerContainer2: {
-  //   flex: 1,
-  // },
+  suggestContainer: {
+    alignItems: 'left',
+    width: '80%',
+  },
+  suggestText: {
+    fontSize: '18px',
+    marginTop: 5,
+    width: '100%',
+  },
+  FBInnerContainer: {
+    paddingTop: 10,
+  },
 });
 
 export default styles;
