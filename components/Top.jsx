@@ -18,7 +18,6 @@ const Top = ({navigation}) => {
 
   const focus = () => {
     setIsEntering(!isEntering);
-    // console.log(isEntering, ' isEntering');
   };
   const bluer = () => setIsEntering(!isEntering);
 
@@ -43,6 +42,7 @@ const Top = ({navigation}) => {
               mode="contained"
               onPress={() => {
                 postToku(toku);
+                setToku('');
                 navigation.navigate('FlyingBird');
               }}>
               徳を積む

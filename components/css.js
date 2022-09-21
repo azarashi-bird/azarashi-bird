@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F6F3CF',
     alignItems: 'center',
-    // justifyContent: 'center',
     justifyContent: 'top',
   },
   bird: {
@@ -13,7 +12,6 @@ const styles = StyleSheet.create({
     left: 100,
     width: 200,
     height: 250,
-    // transform: [{translateX: 100}],
   },
   topBird: {
     top: 250,
