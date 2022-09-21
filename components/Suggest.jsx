@@ -1,7 +1,13 @@
-import {View, Text} from 'react-native';
+import {View, Button} from 'react-native';
+import {useState} from 'react';
 import {Provider as PaperProvider} from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
+import styles from './css';
 
 const Suggest = () => {
+  const navigation = useNavigation();
+  const [text, setText] = useState();
+
   const suggests = [
     '部屋を掃除した',
     '駅前の募金で寄付してみた',
@@ -17,9 +23,22 @@ const Suggest = () => {
 
   return (
     <PaperProvider>
-      <View>
-        {suggests.map((item) => (
-          <Text>{item}</Text>
+      <View style={styles.suggestContainer}>
+        {suggests.map((item, key) => (
+          <Button
+            title={item}
+            style={styles.suggestText}
+            key={key}
+            // onChangeText={setText}
+            onPress={(event) => {
+              // console.log(
+              //   event.target._internalFiberInstanceHandleDEV.child.memoizedProps
+              // );
+              setText(
+                event.target._internalFiberInstanceHandleDEV.child.memoizedProps
+              );
+              navigation.navigate('Top', {params: {input: text}});
+            }}></Button>
         ))}
       </View>
     </PaperProvider>

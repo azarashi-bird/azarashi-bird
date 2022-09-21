@@ -14,34 +14,40 @@ const Top = ({navigation}) => {
     setIsEntering(!isEntering);
     console.log(isEntering, ' isEntering');
   };
+  const bluer = () => setIsEntering(!isEntering);
 
   return (
     <View style={styles.container}>
+      {console.log(navigation)}
       <Text style={styles.appTitle}>Birdonation</Text>
       <TextInput
         mode="outlined"
         label="input"
         style={styles.input}
         onFocus={focus}
-        onBlur={() => setIsEntering(!isEntering)}></TextInput>
-
-      {isEntering ? <Suggest /> : ''}
-
-      <Button
-        mode="contained"
-        onPress={() => navigation.navigate('FlyingBird')}>
-        徳を積む
-      </Button>
-      <View style={styles.innerContainer}>
-        <Image
-          source={require('../assets/homePage/bird.gif')}
-          style={styles.topBird}
-        />
-        <Image
-          source={require('../assets/homePage/cage.png')}
-          style={styles.topCage}
-        />
-      </View>
+        onBlur={bluer}
+        text=""></TextInput>
+      {isEntering ? (
+        <Suggest />
+      ) : (
+        <>
+          <Button
+            mode="contained"
+            onPress={() => navigation.navigate('FlyingBird')}>
+            徳を積む
+          </Button>
+          <View style={styles.innerContainer}>
+            <Image
+              source={require('../assets/homePage/bird.gif')}
+              style={styles.topBird}
+            />
+            <Image
+              source={require('../assets/homePage/cage.png')}
+              style={styles.topCage}
+            />
+          </View>
+        </>
+      )}
     </View>
   );
 };

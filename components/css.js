@@ -122,9 +122,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 40,
   },
-  // innerContainer2: {
-  //   flex: 1,
-  // },
+  suggestContainer: {
+    alignItems: 'left',
+    width: '80%',
+  },
+  suggestText: {
+    fontSize: '18px',
+    marginTop: 5,
+    width: '100%',
+  },
 });
 
 export default styles;
