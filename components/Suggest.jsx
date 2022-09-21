@@ -20,7 +20,6 @@ const Suggest = (props) => {
           style={styles.suggestText}
           key={key}
           onPress={(event) => {
-            console.log(event);
             props.setToku(
               event.target._internalFiberInstanceHandleDEV.child.memoizedProps
             );

@@ -6,8 +6,8 @@ import {
   View,
   Image,
   Text,
-  Button,
 } from 'react-native';
+import {Button} from 'react-native-paper';
 import {Provider as PaperProvider} from 'react-native-paper';
 import styles from './css';
 import allTokusData from './PeopleTokus';
@@ -54,12 +54,14 @@ const FlyingBird = ({navigation}) => {
               <Text style={styles.FBMessage}>
                 今日世界で{allTokuCount}羽の鳥が放たれました。
               </Text>
-              <Button
-                mode="contained"
-                // style={styles.button2}
-                title="やったね🙌"
-                onPress={() => navigation.goBack()}
-              />
+              <View style={styles.FBButtonWrapper}>
+                <Button
+                  mode="contained"
+                  // style={styles.button2}
+                  onPress={() => navigation.goBack()}>
+                  やったね🙌
+                </Button>
+              </View>
             </View>
           )}
         </View>
