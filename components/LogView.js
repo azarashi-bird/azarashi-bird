@@ -3,6 +3,7 @@ import {Text} from 'react-native-paper';
 import LogTable from './LogTable';
 import styles from './css';
 import afterViews from './afterLifes';
+import {getUserToku} from '../firebase';
 
 export default function LogView() {
   let tokus = 4;
