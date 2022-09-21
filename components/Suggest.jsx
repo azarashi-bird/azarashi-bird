@@ -1,12 +1,10 @@
-import {View, Button} from 'react-native';
-import {useState} from 'react';
+import {ScrollView, View, Button} from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import styles from './css';
 
-const Suggest = () => {
+const Suggest = (props) => {
   const navigation = useNavigation();
-  const [text, setText] = useState();
 
   const suggests = [
     '部屋を掃除した',
@@ -22,6 +20,7 @@ const Suggest = () => {
   ];
 
   return (
+    // <ScrollView>
     <PaperProvider>
       <View style={styles.suggestContainer}>
         {suggests.map((item, key) => (
@@ -29,19 +28,18 @@ const Suggest = () => {
             title={item}
             style={styles.suggestText}
             key={key}
-            // onChangeText={setText}
             onPress={(event) => {
-              // console.log(
-              //   event.target._internalFiberInstanceHandleDEV.child.memoizedProps
-              // );
-              setText(
+              console.log(event);
+              props.setToku(
+                // event
                 event.target._internalFiberInstanceHandleDEV.child.memoizedProps
               );
-              navigation.navigate('Top', {params: {input: text}});
+              navigation.navigate('Top');
             }}></Button>
         ))}
       </View>
     </PaperProvider>
+    // </ScrollView>
   );
 };
 

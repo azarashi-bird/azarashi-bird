@@ -14,14 +14,14 @@ const Top = ({navigation}) => {
 
   const focus = () => {
     setIsEntering(!isEntering);
-    console.log(isEntering, ' isEntering');
+    // console.log(isEntering, ' isEntering');
   };
   const bluer = () => setIsEntering(!isEntering);
 
   return (
     <View style={styles.container}>
-      {console.log(navigation)}
       <Text style={styles.appTitle}>Birdonation</Text>
+      {console.log('toku:', toku)}
       <TextInput
         mode="outlined"
         label="input"
@@ -29,10 +29,9 @@ const Top = ({navigation}) => {
         value={toku}
         onChangeText={(Text) => setToku(Text)}
         onFocus={focus}
-        onBlur={bluer}
-        text=""></TextInput>
+        onBlur={bluer}></TextInput>
       {isEntering ? (
-        <Suggest />
+        <Suggest setToku={setToku} />
       ) : (
         <>
           <Button
