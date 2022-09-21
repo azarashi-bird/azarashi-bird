@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     height: 250,
   },
   topBird: {
-    top: 250,
+    top: 170,
     left: 90,
     width: 200,
     height: 250,
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   topCage: {
     width: 400,
     height: 550,
-    top: -220,
+    top: -260,
   },
   innerContainer: {
     position: 'relative',
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
   input: {
     width: '80%',
     margin: 10,
+    marginBottom: 0,
   },
   appTitle: {
     marginTop: 100,
@@ -118,24 +119,37 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button2: {
-    backgroundColor: '#0782f9',
-    width: '60%',
-    padding: 15,
+    // width: '60%',
+    padding: 10,
     borderRadius: 10,
     alignItems: 'center',
     marginTop: 40,
+    fontSize: '18px',
+    color: 'white',
+  },
+  FBMessage: {
+    fontSize: '18px',
+    marginTop: 5,
   },
   suggestContainer: {
     alignItems: 'left',
     width: '80%',
+    backgroundColor: 'white',
+    marginTop: 0,
+    padding: 10,
   },
   suggestText: {
     fontSize: '18px',
     marginTop: 5,
     width: '100%',
   },
-  FBInnerContainer: {
-    paddingTop: 10,
+  FBMessageContainer: {
+    marginTop: 50,
+  },
+  buttonWrapper: {
+    marginTop: 20,
+    width: '50%',
+    alignItems: 'center',
   },
 });
 

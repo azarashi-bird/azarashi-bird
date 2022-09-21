@@ -6,8 +6,8 @@ import {
   View,
   Image,
   Text,
-  Button,
 } from 'react-native';
+import {Button} from 'react-native-paper';
 import {Provider as PaperProvider} from 'react-native-paper';
 import styles from './css';
 import allTokusData from './PeopleTokus';
@@ -18,7 +18,7 @@ const FlyingBird = ({navigation}) => {
   const allTokuCount = allTokusData['_3'].length;
   useEffect(() => {
     Animated.timing(altitude, {
-      toValue: -700,
+      toValue: -900,
       duration: 3000,
       useNativeDriver: true,
     }).start();
@@ -32,7 +32,7 @@ const FlyingBird = ({navigation}) => {
   return (
     <PaperProvider>
       <SafeAreaView style={styles.container}>
-        <View style={styles.FBInnerContainer}>
+        <View>
           {!isFlied ? (
             <>
               <View style={styles.innerContainer}>
@@ -49,15 +49,20 @@ const FlyingBird = ({navigation}) => {
               </View>
             </>
           ) : (
-            <>
-              <Text>おめでとう！🎉</Text>
-              <Text>今日世界で{allTokuCount}羽の鳥が放たれました。</Text>
-              <Button
-                style={styles.button2}
-                title="やったね🙌"
-                onPress={() => navigation.goBack()}
-              />
-            </>
+            <View style={styles.FBMessageContainer}>
+              <Text style={styles.FBMessage}>おめでとう！🎉</Text>
+              <Text style={styles.FBMessage}>
+                今日世界で{allTokuCount}羽の鳥が放たれました。
+              </Text>
+              <View style={styles.buttonWrapper}>
+                <Button
+                  mode="contained"
+                  // style={styles.button2}
+                  onPress={() => navigation.goBack()}>
+                  やったね🙌
+                </Button>
+              </View>
+            </View>
           )}
         </View>
       </SafeAreaView>
