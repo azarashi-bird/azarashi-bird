@@ -7,6 +7,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  peopleTable: {
+    backgroundColor: '#F6F3CF',
+  },
   bird: {
     top: 450,
     left: 100,

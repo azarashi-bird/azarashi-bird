@@ -6,12 +6,14 @@ import afterViews from './afterLifes';
 import userTokus from './TargetTokus';
 
 export default function LogView() {
-  let tokus = 7;
+  // let tokus = 7;
   // userTokus['_3]の中身がデータ
+  // console.log(userTokus);
   const tokuDatas = userTokus['_3'];
   const tokusValue = tokuDatas.map((obj) => obj['toku']);
   const tokusNum = tokusValue.length;
-  console.log(tokusValue, tokusNum);
+  // const tokusNum = 9;
+  // console.log(tokuDatas);
 
   return (
     <View style={styles.logContainer}>
@@ -23,6 +25,7 @@ export default function LogView() {
       <Text style={styles.mainText} variant="titleLarge">
         あなたの徳　<Text style={styles.strongText}>{tokusNum}</Text>徳
       </Text>
+      {/* <LogTable /> */}
       <LogTable tokuDatas={tokuDatas} tokusValue={tokusValue} />
     </View>
   );
