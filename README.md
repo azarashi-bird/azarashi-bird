@@ -1,6 +1,6 @@
-# azarashi-bird
+# Birdonation
 
-"birdonation" development team
+by Team Azarashi
 
 ## What is birdnation?
 
