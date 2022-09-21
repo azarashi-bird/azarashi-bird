@@ -25,7 +25,7 @@ const tokuTable = firestore.collection('toku_table');
 /* 
 　徳をPost 使い方
   onPress={() => {
-    postToku(userId, toku);
+    postToku(toku);
   }}
   */
 
