@@ -1,4 +1,5 @@
 import {View, Text} from 'react-native';
+import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 
 const Suggest = () => {
   const suggests = [
