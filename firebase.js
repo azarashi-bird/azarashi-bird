@@ -21,16 +21,18 @@ const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 const tokuTable = firestore.collection('toku_table');
-const uid = auth.currentUser?.uid;
 
 /* 
 　徳をPost 使い方
   onPress={() => {
-    postToku(userId, toku);
+    postToku(toku);
   }}
   */
 
 const postToku = async (toku) => {
+  const uid = auth.currentUser?.uid;
+  console.log(uid);
+
   const value = {
     user_id: uid,
     toku: toku,
