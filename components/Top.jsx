@@ -18,7 +18,6 @@ const Top = ({navigation}) => {
 
   const focus = () => {
     setIsEntering(!isEntering);
-    // console.log(isEntering, ' isEntering');
   };
   const bluer = () => setIsEntering(!isEntering);
 
