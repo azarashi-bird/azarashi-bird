@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     height: 250,
   },
   topBird: {
-    top: 250,
+    top: 170,
     left: 90,
     width: 200,
     height: 250,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   topCage: {
     width: 400,
     height: 550,
-    top: -220,
+    top: -260,
   },
   innerContainer: {
     position: 'relative',
@@ -131,8 +131,8 @@ const styles = StyleSheet.create({
     marginTop: 5,
     width: '100%',
   },
-  FBInnerContainer: {
-    paddingTop: 10,
+  FBMessageContainer: {
+    marginTop: 50,
   },
 });
 

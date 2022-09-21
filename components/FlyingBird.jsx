@@ -17,7 +17,7 @@ const FlyingBird = ({navigation}) => {
 
   useEffect(() => {
     Animated.timing(altitude, {
-      toValue: -700,
+      toValue: -900,
       duration: 3000,
       useNativeDriver: true,
     }).start();
@@ -31,7 +31,7 @@ const FlyingBird = ({navigation}) => {
   return (
     <PaperProvider>
       <SafeAreaView style={styles.container}>
-        <View style={styles.FBInnerContainer}>
+        <View>
           {!isFlied ? (
             <>
               <View style={styles.innerContainer}>
@@ -48,7 +48,7 @@ const FlyingBird = ({navigation}) => {
               </View>
             </>
           ) : (
-            <>
+            <View style={styles.FBMessageContainer}>
               <Text>おめでとう！🎉</Text>
               <Text>今日世界で◯羽の鳥が放たれました。</Text>
               <Button
@@ -56,7 +56,7 @@ const FlyingBird = ({navigation}) => {
                 title="やったね🙌"
                 onPress={() => navigation.goBack()}
               />
-            </>
+            </View>
           )}
         </View>
       </SafeAreaView>
