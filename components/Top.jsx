@@ -41,7 +41,10 @@ const Top = ({navigation}) => {
           <>
             <Button
               mode="contained"
-              onPress={() => navigation.navigate('FlyingBird')}>
+              onPress={() => {
+                postToku(toku);
+                navigation.navigate('FlyingBird');
+              }}>
               徳を積む
             </Button>
             <View style={styles.innerContainer}>
