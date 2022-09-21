@@ -22,6 +22,7 @@ const Top = ({navigation}) => {
   const bluer = () => setIsEntering(!isEntering);
 
   const submit = () => {
+    setToku('');
     if (toku !== '') {
       postToku(toku)
         ? navigation.navigate('FlyingBird')

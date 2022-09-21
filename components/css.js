@@ -115,12 +115,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button2: {
-    backgroundColor: '#0782f9',
+    backgroundColor: 'black',
+    color: '#0782f9',
     width: '60%',
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
     marginTop: 40,
+    fontSize: '18px',
+  },
+  FBMessage: {
+    fontSize: '18px',
+    marginTop: 5,
   },
   suggestContainer: {
     alignItems: 'left',

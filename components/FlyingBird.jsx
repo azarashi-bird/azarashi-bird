@@ -50,10 +50,13 @@ const FlyingBird = ({navigation}) => {
             </>
           ) : (
             <View style={styles.FBMessageContainer}>
-              <Text>おめでとう！🎉</Text>
-              <Text>今日世界で{allTokuCount}羽の鳥が放たれました。</Text>
+              <Text style={styles.FBMessage}>おめでとう！🎉</Text>
+              <Text style={styles.FBMessage}>
+                今日世界で{allTokuCount}羽の鳥が放たれました。
+              </Text>
               <Button
-                style={styles.button2}
+                mode="contained"
+                // style={styles.button2}
                 title="やったね🙌"
                 onPress={() => navigation.goBack()}
               />
