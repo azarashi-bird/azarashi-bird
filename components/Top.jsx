@@ -48,9 +48,11 @@ const Top = ({navigation}) => {
           <Suggest setToku={setToku} />
         ) : (
           <>
-            <Button mode="contained" onPress={submit}>
-              徳を積む
-            </Button>
+            <View style={styles.buttonWrapper}>
+              <Button mode="contained" onPress={submit}>
+                徳を積む
+              </Button>
+            </View>
             <View style={styles.innerContainer}>
               <Image
                 source={require('../assets/homePage/bird.gif')}

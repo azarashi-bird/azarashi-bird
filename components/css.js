@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
   input: {
     width: '80%',
     margin: 10,
+    marginBottom: 0,
   },
   appTitle: {
     marginTop: 100,
@@ -130,6 +131,9 @@ const styles = StyleSheet.create({
   suggestContainer: {
     alignItems: 'left',
     width: '80%',
+    backgroundColor: 'white',
+    marginTop: 0,
+    padding: 10,
   },
   suggestText: {
     fontSize: '18px',
@@ -139,7 +143,7 @@ const styles = StyleSheet.create({
   FBMessageContainer: {
     marginTop: 50,
   },
-  FBButtonWrapper: {
+  buttonWrapper: {
     marginTop: 20,
     width: '50%',
     alignItems: 'center',

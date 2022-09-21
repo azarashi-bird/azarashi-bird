@@ -16,6 +16,7 @@ const Suggest = (props) => {
     <View style={styles.suggestContainer}>
       {suggests.map((item, key) => (
         <Button
+          color="black"
           title={item}
           style={styles.suggestText}
           key={key}

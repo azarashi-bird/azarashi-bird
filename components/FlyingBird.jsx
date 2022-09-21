@@ -54,7 +54,7 @@ const FlyingBird = ({navigation}) => {
               <Text style={styles.FBMessage}>
                 今日世界で{allTokuCount}羽の鳥が放たれました。
               </Text>
-              <View style={styles.FBButtonWrapper}>
+              <View style={styles.buttonWrapper}>
                 <Button
                   mode="contained"
                   // style={styles.button2}
