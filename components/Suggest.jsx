@@ -1,4 +1,8 @@
 import {View, Text} from 'react-native';
+import {
+  MD3LightTheme as DefaultTheme,
+  Provider as PaperProvider,
+} from 'react-native-paper';
 
 const Suggest = () => {
   const suggests = [
