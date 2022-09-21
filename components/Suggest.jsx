@@ -2,10 +2,6 @@ import {ScrollView, View, Button} from 'react-native';
 // import {Provider as PaperProvider} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import styles from './css';
-import {
-  MD3LightTheme as DefaultTheme,
-  Provider as PaperProvider,
-} from 'react-native-paper';
 
 const Suggest = (props) => {
   const navigation = useNavigation();
@@ -17,32 +13,30 @@ const Suggest = (props) => {
     'ゴミを分別した',
     '迷子を保護した',
     '赤ちゃんを笑顔にした',
-    '道案内をした',
-    'ガスの元栓を閉めた',
-    'お皿を洗った',
-    '世界を救ってみた',
+    // '道案内をした',
+    // 'ガスの元栓を閉めた',
+    // 'お皿を洗った',
+    // '世界を救ってみた',
   ];
 
   return (
     // <ScrollView>
-    <PaperProvider>
-      <View style={styles.suggestContainer}>
-        {suggests.map((item, key) => (
-          <Button
-            title={item}
-            style={styles.suggestText}
-            key={key}
-            onPress={(event) => {
-              console.log(event);
-              props.setToku(
-                // event
-                event.target._internalFiberInstanceHandleDEV.child.memoizedProps
-              );
-              navigation.navigate('Top');
-            }}></Button>
-        ))}
-      </View>
-    </PaperProvider>
+    <View style={styles.suggestContainer}>
+      {suggests.map((item, key) => (
+        <Button
+          title={item}
+          style={styles.suggestText}
+          key={key}
+          onPress={(event) => {
+            console.log(event);
+            props.setToku(
+              // event
+              event.target._internalFiberInstanceHandleDEV.child.memoizedProps
+            );
+            navigation.navigate('Top');
+          }}></Button>
+      ))}
+    </View>
     // </ScrollView>
   );
 };

@@ -5,7 +5,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F6F3CF',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
+    justifyContent: 'top',
   },
   bird: {
     top: 450,
@@ -131,6 +132,9 @@ const styles = StyleSheet.create({
     fontSize: '18px',
     marginTop: 5,
     width: '100%',
+  },
+  FBInnerContainer: {
+    paddingTop: 10,
   },
 });
 
