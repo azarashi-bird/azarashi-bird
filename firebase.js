@@ -21,7 +21,6 @@ const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 const tokuTable = firestore.collection('toku_table');
-const uid = auth.currentUser?.uid;
 
 /* 
 　徳をPost 使い方
@@ -31,6 +30,7 @@ const uid = auth.currentUser?.uid;
   */
 
 const postToku = async (toku) => {
+  const uid = auth.currentUser?.uid;
   const value = {
     user_id: uid,
     toku: toku,
@@ -68,17 +68,16 @@ const getAllToku = async () => {
 const userTokus = await getUserToku();
 const userTokuNUmber = userTokus.length;
 */
+
 const getUserToku = async () => {
-  // uid にid名が入っている
-  // select * from toku_table where user_id = uid
+  const uid = auth.currentUser?.uid;
   const tokuList = [];
-  await tokuTable.get().then((querySnapshot) => {
-    querySnapshot.forEach((toku) => {
-      if (toku.data().user_id === uid) {
-        tokuList.push(toku.data());
-      }
+  await tokuTable
+    .where('user_id', '==', uid)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
-  });
   return tokuList;
 };
 
