@@ -21,7 +21,6 @@ const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 const tokuTable = firestore.collection('toku_table');
-const uid = auth.currentUser?.uid;
 
 /* 
 　徳をPost 使い方
@@ -31,11 +30,13 @@ const uid = auth.currentUser?.uid;
   */
 
 const postToku = async (toku) => {
+  const uid = auth.currentUser?.uid;
   const value = {
     user_id: uid,
     toku: toku,
     createdAt: new Date(),
   };
+  console.log(value, 'postTokuValue');
   await tokuTable.add(value);
   console.log('added to firebase!');
 };
@@ -55,11 +56,29 @@ const getAllToku = async () => {
   await tokuTable.get().then((querySnapshot) => {
     querySnapshot.forEach((toku) => {
       // doc.data() is never undefined for query doc snapshots
-      // console.log(toku.id, ' => ', toku.data());
+      console.log(toku.id, ' => ', toku.data());
       tokuList.push(toku.data());
     });
   });
   return tokuList;
 };
 
-export {auth, firestore, postToku, getAllToku};
+/* getTokuById
+
+const userTokus = await getUserToku();
+const userTokuNUmber = userTokus.length;
+*/
+
+const getUserToku = async () => {
+  const uid = auth.currentUser?.uid;
+  const tokuList = [];
+  await tokuTable
+    .where('user_id', '==', uid)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((toku) => tokuList.push(toku.data()));
+    });
+  return tokuList;
+};
+
+export {auth, firestore, postToku, getAllToku, getUserToku};
