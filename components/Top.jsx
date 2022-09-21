@@ -6,9 +6,11 @@ import {Button} from 'react-native-paper';
 import styles from './css';
 import {Suggest} from './Suggest';
 import {useState} from 'react';
+import {postToku} from '../firebase';
 
 const Top = ({navigation}) => {
   const [isEntering, setIsEntering] = useState(false);
+  const [toku, setToku] = useState('');
 
   const focus = () => {
     setIsEntering(!isEntering);
@@ -22,6 +24,8 @@ const Top = ({navigation}) => {
         mode="outlined"
         label="input"
         style={styles.input}
+        value={toku}
+        onChangeText={(Text) => setToku(Text)}
         onFocus={focus}
         onBlur={() => setIsEntering(!isEntering)}></TextInput>
 
@@ -29,7 +33,11 @@ const Top = ({navigation}) => {
 
       <Button
         mode="contained"
-        onPress={() => navigation.navigate('FlyingBird')}>
+        onPress={() => {
+          console.log(toku);
+          postToku(toku);
+          navigation.navigate('FlyingBird');
+        }}>
         徳を積む
       </Button>
       <View style={styles.innerContainer}>
