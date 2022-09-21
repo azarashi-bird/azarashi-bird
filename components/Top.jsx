@@ -6,9 +6,11 @@ import {Button} from 'react-native-paper';
 import styles from './css';
 import {Suggest} from './Suggest';
 import {useState} from 'react';
+import {postToku} from '../firebase';
 
 const Top = ({navigation}) => {
   const [isEntering, setIsEntering] = useState(false);
+  const [toku, setToku] = useState('');
 
   const focus = () => {
     setIsEntering(!isEntering);
@@ -24,6 +26,8 @@ const Top = ({navigation}) => {
         mode="outlined"
         label="input"
         style={styles.input}
+        value={toku}
+        onChangeText={(Text) => setToku(Text)}
         onFocus={focus}
         onBlur={bluer}
         text=""></TextInput>

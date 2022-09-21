@@ -2,6 +2,8 @@ import {StyleSheet, View, Image} from 'react-native';
 import {Text} from 'react-native-paper';
 import {DataTable} from 'react-native-paper';
 // import styles from './css';
+import {getAllToku} from '../firebase';
+import afterViews from './afterLifes';
 
 export default function PeopleLog() {
   const samplePeople = [
