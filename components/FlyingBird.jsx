@@ -10,11 +10,12 @@ import {
 } from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
 import styles from './css';
+import allTokusData from './PeopleTokus';
 
 const FlyingBird = ({navigation}) => {
   const altitude = useState(new Animated.Value(0))[0];
   const [isFlied, setIsFlied] = useState(false);
-
+  const allTokuCount = allTokusData['_3'].length;
   useEffect(() => {
     Animated.timing(altitude, {
       toValue: -700,
@@ -47,7 +48,7 @@ const FlyingBird = ({navigation}) => {
         ) : (
           <>
             <Text>おめでとう！🎉</Text>
-            <Text>今日世界で◯羽の鳥が放たれました。</Text>
+            <Text>今日世界で{allTokuCount}羽の鳥が放たれました。</Text>
             <Button
               style={styles.button2}
               title="やったね🙌"
