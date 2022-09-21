@@ -2,8 +2,7 @@ import {ScrollView, StyleSheet, View, Image} from 'react-native';
 import {Text} from 'react-native-paper';
 import {DataTable} from 'react-native-paper';
 // import styles from './css';
-import {getAllToku} from '../firebase';
-import afterViews from './afterLifes';
+// まだ独自のスタイル設定！！
 
 import allTokusData from './PeopleTokus';
 
@@ -34,9 +33,9 @@ export default function PeopleLog() {
     mainArr.push(arr);
   }
   // style外したため、要再設定
-  console.log(mainArr);
+  // console.log(mainArr);
   return (
-    <ScrollView>
+    <ScrollView style={styles.peopleTable}>
       <Text style={styles.topContent}>みんなの徳</Text>
       <DataTable style={styles.logs}>
         {mainArr ? (
@@ -71,6 +70,9 @@ const styles = StyleSheet.create({
   topContent: {
     marginTop: 100,
     marginBottom: 20,
+  },
+  peopleTable: {
+    backgroundColor: '#F6F3CF',
   },
   logs: {
     backgroundColor: '#FFFF',

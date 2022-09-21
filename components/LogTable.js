@@ -15,7 +15,7 @@ export default function LogView({tokuDatas, tokusValue}) {
     ['火事を防いだ', '04/01'],
     ['みみずを土に入れた', '03/20'],
   ];
-  console.log(tokuDatas, tokusValue);
+  // console.log(tokuDatas, tokusValue);
   const tokusArray = tokuDatas.map((obj) => {
     const array = [];
     array.push(obj.toku);
@@ -23,7 +23,7 @@ export default function LogView({tokuDatas, tokusValue}) {
     return array;
   });
 
-  console.log(tokusArray);
+  // console.log(tokusArray);
   return (
     <ScrollView style={styles.tableContainer}>
       <DataTable>
