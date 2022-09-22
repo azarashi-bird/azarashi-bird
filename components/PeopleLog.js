@@ -1,39 +1,46 @@
+import {useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, View, Image} from 'react-native';
 import {Text} from 'react-native-paper';
 import {DataTable} from 'react-native-paper';
+import {getAllToku} from '../firebase';
+import {useIsFocused} from '@react-navigation/native';
 // import styles from './css';
 // まだ独自のスタイル設定！！
 
-import allTokusData from './PeopleTokus';
-
 export default function PeopleLog() {
-  const samplePeople = [
-    ['img', 'username', '犬を助けた', '06/12'],
-    ['img2', 'Moomin', '帽子を見つけてあげた', '06/10'],
-    ['img3', 'Sloth', '苗を植えた', '06/01'],
-  ];
-  const allData = allTokusData['_3'];
+  const [allUserTokus, setAllUserTokus] = useState([]);
+  const isFocused = useIsFocused();
+  // const samplePeople = [
+  //   ['img', 'username', '犬を助けた', '06/12'],
+  //   ['img2', 'Moomin', '帽子を見つけてあげた', '06/10'],
+  //   ['img3', 'Sloth', '苗を植えた', '06/01'],
+  // ];
+
+  useEffect(() => {
+    const allList = async () => {
+      const allUserDatas = await getAllToku();
+      setAllUserTokus(allUserDatas);
+    };
+    allList();
+  }, [isFocused]);
+  // console.log({allUserTokus});
+
   // mapで配列を作ると配列の中身が順不同になったので、要素ごとに配列を作成中。
   // index番号で結びつける
   // 全員の徳
-  const allTokuArr = allData.map((obj) => obj.toku);
+  const allTokuArr = allUserTokus.map((obj) => obj.toku);
   // 全員の投稿日時
-  const allTimeArr = allData.map((obj) => obj.createdAt.seconds);
+  const allTimeArr = allUserTokus.map((obj) => obj.createdAt.seconds);
   // 全員のユーザー🆔
-  const allUserArr = allData.map((obj) => obj.user_id);
-  // console.log('People', allTokuArr);
-  // console.log(allTimeArr);
-  // console.log(allUserArr);
-  // console.log(allData[0].createdAt.seconds);
+  const allUserArr = allUserTokus.map((obj) => obj['user_id']);
   const mainArr = [];
-  for (let i = 0; i < allData.length; i++) {
+  for (let i = 0; i < allTokuArr.length; i++) {
     let arr = [];
     arr.push(allTokuArr[i]);
     arr.push(allTimeArr[i]);
     mainArr.push(arr);
   }
   // style外したため、要再設定
-  // console.log(mainArr);
   return (
     <ScrollView style={styles.peopleTable}>
       <Text style={styles.topContent}>みんなの徳</Text>

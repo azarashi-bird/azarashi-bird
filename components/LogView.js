@@ -18,7 +18,7 @@ export default function LogView() {
     };
     getUserTokus();
   }, [isFocused]);
-  console.log({userTokus});
+  // console.log({userTokus});
 
   return (
     <View style={styles.logContainer}>
