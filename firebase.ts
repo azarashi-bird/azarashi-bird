@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
-import * as firebase from 'firebase';
-require('firebase/firestore');
+import firebase from 'firebase/app';
+// require('firebase/firestore');
 import {ENV} from './ENV';
+import 'firebase/auth';
+import 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries

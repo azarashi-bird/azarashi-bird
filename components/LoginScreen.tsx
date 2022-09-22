@@ -1,3 +1,4 @@
+import {StackNavigationProp} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/core';
 import React, {useState, useEffect} from 'react';
 import {
@@ -13,10 +14,14 @@ import styles from './css';
 
 import {auth, postToku, getAllToku} from '../firebase';
 
+type RootStackParamList = {
+  Home: undefined;
+};
+
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {

@@ -18,12 +18,10 @@ const Suggest = (props) => {
         <Button
           color="black"
           title={item}
-          style={styles.suggestText}
+          // style={styles.suggestText}
           key={key}
-          onPress={(event) => {
-            props.setToku(
-              event.target._internalFiberInstanceHandleDEV.child.memoizedProps
-            );
+          onPress={() => {
+            props.setToku(item);
           }}></Button>
       ))}
     </View>
