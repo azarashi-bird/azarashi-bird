@@ -50,7 +50,7 @@ export default function PeopleLog() {
             return (
               <DataTable.Row key={index}>
                 <DataTable.Cell>{tokuData[0]}</DataTable.Cell>
-                <DataTable.Cell numeric>{tokuData[1]}</DataTable.Cell>
+                <DataTable.Cell>{tokuData[1]}</DataTable.Cell>
               </DataTable.Row>
             );
           })
@@ -59,7 +59,7 @@ export default function PeopleLog() {
             <DataTable.Cell>画像</DataTable.Cell>
             <DataTable.Cell>ユーザー名</DataTable.Cell>
             <DataTable.Cell>徳</DataTable.Cell>
-            <DataTable.Cell numeric>00/00</DataTable.Cell>
+            <DataTable.Cell>00/00</DataTable.Cell>
           </DataTable.Row>
         )}
       </DataTable>
