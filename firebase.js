@@ -56,9 +56,7 @@ const getAllToku = async () => {
   await tokuTable.get().then((querySnapshot) => {
     querySnapshot.forEach((toku) => {
       // doc.data() is never undefined for query doc snapshots
-
       // console.log(toku.id, ' => ', toku.data());
-
       tokuList.push(toku.data());
     });
   });
