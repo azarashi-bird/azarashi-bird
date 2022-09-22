@@ -6,7 +6,11 @@ export default function LogView({userTokus}) {
   const tokusArray = userTokus.map((obj) => {
     const array = [];
     array.push(obj.toku);
-    array.push(obj.createdAt.seconds);
+    const date = obj.createdAt.toDate();
+    const day = date.getDate();
+    const month = date.getMonth();
+    const formatted = ` ${month}/${day}`;
+    array.push(formatted);
     return array;
   });
 
@@ -22,7 +26,7 @@ export default function LogView({userTokus}) {
             return (
               <DataTable.Row key={index}>
                 <DataTable.Cell>{arr[0]}</DataTable.Cell>
-                <DataTable.Cell numeric>{arr[1]}</DataTable.Cell>
+                <DataTable.Cell>{arr[1]}</DataTable.Cell>
               </DataTable.Row>
             );
           })
