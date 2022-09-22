@@ -83,3 +83,14 @@ export const ENV = {
 ```bash
 $ npm run ios
 ```
+
+## TypeScript を使用しての型チェック方法
+
+この章は上のインストール、起動まで完了している想定です。
+
+1. グローバルで　 TypeScript をインストールしてください。
+2. `npx tsc` コマンドを走らせます
+
+```bash
+$ npx tsc
+```
