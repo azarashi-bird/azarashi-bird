@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F6F3CF',
     alignItems: 'center',
-    justifyContent: 'top',
+    justifyContent: 'flex-start',
   },
   peopleTable: {
     backgroundColor: '#F6F3CF',
@@ -124,24 +124,23 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     marginTop: 40,
-    fontSize: '18px',
+    fontSize: 18,
     color: 'white',
   },
   FBMessage: {
-    fontSize: '18px',
+    fontSize: 18,
     marginTop: 5,
   },
   suggestContainer: {
-    alignItems: 'left',
+    alignItems: 'flex-start',
     width: '80%',
     backgroundColor: 'white',
     marginTop: 0,
     padding: 10,
   },
   suggestText: {
-    fontSize: '18px',
+    fontSize: 18,
     marginTop: 5,
-    width: '100%',
   },
   FBMessageContainer: {
     marginTop: 50,

@@ -34,37 +34,39 @@ const Top = ({navigation}) => {
   return (
     <PaperProvider>
       <View style={styles.container}>
-        <Text style={styles.appTitle}>Birdonation</Text>
-        {console.log('toku:', toku)}
-        <TextInput
-          mode="outlined"
-          label="input"
-          style={styles.input}
-          value={toku}
-          onChangeText={(Text) => setToku(Text)}
-          onFocus={focus}
-          onBlur={bluer}></TextInput>
-        {isEntering ? (
-          <Suggest setToku={setToku} />
-        ) : (
-          <>
-            <View style={styles.buttonWrapper}>
-              <Button mode="contained" onPress={submit}>
-                徳を積む
-              </Button>
-            </View>
-            <View style={styles.innerContainer}>
-              <Image
-                source={require('../assets/homePage/bird.gif')}
-                style={styles.topBird}
-              />
-              <Image
-                source={require('../assets/homePage/cage.png')}
-                style={styles.topCage}
-              />
-            </View>
-          </>
-        )}
+        <>
+          <Text style={styles.appTitle}>Birdonation</Text>
+          {console.log('toku:', toku)}
+          <TextInput
+            mode="outlined"
+            label="input"
+            style={styles.input}
+            value={toku}
+            onChangeText={(Text) => setToku(Text)}
+            onFocus={focus}
+            onBlur={bluer}></TextInput>
+          {isEntering ? (
+            <Suggest setToku={setToku} />
+          ) : (
+            <>
+              <View style={styles.buttonWrapper}>
+                <Button mode="contained" onPress={submit}>
+                  徳を積む
+                </Button>
+              </View>
+              <View style={styles.innerContainer}>
+                <Image
+                  source={require('../assets/homePage/bird.gif')}
+                  style={styles.topBird}
+                />
+                <Image
+                  source={require('../assets/homePage/cage.png')}
+                  style={styles.topCage}
+                />
+              </View>
+            </>
+          )}
+        </>
       </View>
     </PaperProvider>
   );

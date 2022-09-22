@@ -1,11 +1,16 @@
+import {StackNavigationProp} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/core';
 import react from 'react';
 import {TouchableOpacity, StyleSheet, Text, View} from 'react-native';
 import {auth, firestore} from '../firebase';
 import styles from './css';
 
+type RootStackParamList = {
+  Login: undefined;
+};
+
 const HomeScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   const handleSignOut = () => {
     auth
