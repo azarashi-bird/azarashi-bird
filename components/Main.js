@@ -2,7 +2,6 @@ import LogView from './LogView';
 const Tab = createBottomTabNavigator();
 import Top from './Top';
 import PeopleLog from './PeopleLog';
-
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Ionicons} from '@expo/vector-icons';
 
