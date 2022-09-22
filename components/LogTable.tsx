@@ -6,8 +6,12 @@ export default function LogView({userTokus}) {
   const tokusArray = userTokus.map((obj) => {
     const array = [];
     array.push(obj.toku);
-    array.push(obj.createdAt.seconds);
-    console.log('DATE', obj.createdAt.toDate());
+
+    const date = obj.createdAt.toDate();
+    const day = date.getDate();
+    const month = date.getMonth();
+    const formatted = ` ${month}/${day}`;
+    array.push(formatted);
     return array;
   });
 

@@ -30,7 +30,14 @@ export default function PeopleLog() {
   // 全員の徳
   const allTokuArr = allUserTokus.map((obj) => obj.toku);
   // 全員の投稿日時
-  const allTimeArr = allUserTokus.map((obj) => obj.createdAt.seconds);
+
+  const allTimeArr = allUserTokus.map((obj) => {
+    const date = obj.createdAt.toDate();
+    const day = date.getDate();
+    const month = date.getMonth();
+    const formatted = ` ${month}/${day}`;
+    return formatted;
+  });
   // 全員のユーザー🆔
   const allUserArr = allUserTokus.map((obj) => obj['user_id']);
   const mainArr = [];
