@@ -89,8 +89,13 @@ $ npm run ios
 この章は上のインストール、起動まで完了している想定です。
 
 1. グローバルで　 TypeScript をインストールしてください。
+
+```zsh
+npm install -g typescript
+```
+
 2. `npx tsc` コマンドを走らせます
 
-```bash
+```zsh
 $ npx tsc
 ```
