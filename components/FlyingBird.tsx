@@ -7,10 +7,11 @@ import {
   Image,
   Text,
 } from 'react-native';
-import {Button} from 'react-native-paper';
+
 import {Provider as PaperProvider} from 'react-native-paper';
 import styles from './css';
 import allTokusData from './PeopleTokus';
+import AfterFlying from './AfterFlying';
 
 const FlyingBird = ({navigation}) => {
   const altitude = useState(new Animated.Value(0))[0];
@@ -49,20 +50,7 @@ const FlyingBird = ({navigation}) => {
               </View>
             </>
           ) : (
-            <View style={styles.FBMessageContainer}>
-              <Text style={styles.FBMessage}>おめでとう！🎉</Text>
-              <Text style={styles.FBMessage}>
-                今日世界で{allTokuCount}羽の鳥が放たれました。
-              </Text>
-              <View style={styles.buttonWrapper}>
-                <Button
-                  mode="contained"
-                  // style={styles.button2}
-                  onPress={() => navigation.goBack()}>
-                  やったね🙌
-                </Button>
-              </View>
-            </View>
+            <AfterFlying isFlied={isFlied} navigation={navigation} />
           )}
         </View>
       </SafeAreaView>
