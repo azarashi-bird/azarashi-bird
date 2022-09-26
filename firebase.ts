@@ -5,11 +5,6 @@ import {ENV} from './ENV';
 import 'firebase/auth';
 import 'firebase/firestore';
 
-import moment from 'moment';
-import 'moment/locale/ja';
-
-moment.locale('ja');
-
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -88,15 +83,36 @@ const getUserToku = async () => {
   return tokuList;
 };
 
-// const getTokuOfTheMonth = async()=>{
-//   let startDate = moment()
-//   let endDate = new Date().
+function getFirstDate(date) {
+  return new Date(date.getFullYear(), date.getMonth(), 1);
+}
 
-//   const uid = auth.currentUser?.uid;
-//   const tokuList = [];
-//   await tokuTable
-//   .where('user_id', '==', uid)
+function getLastDate(date) {
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0);
+}
 
-// }
+const getMonthlyToku = async () => {
+  const startDate = getFirstDate(new Date());
+  const endDate = getLastDate(new Date());
 
-export {auth, firestore, postToku, getAllToku, getUserToku};
+  //new Date('September 22, 2022')
+  console.log(startDate);
+  console.log(endDate);
+
+  const uid = auth.currentUser?.uid;
+  const tokuList = [];
+
+  await tokuTable
+    .where('user_id', '==', uid)
+    .orderBy('createdAt', 'asc')
+    .startAt(startDate)
+    .endAt(endDate)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((toku) => tokuList.push(toku.data()));
+    });
+
+  return tokuList;
+};
+
+export {auth, firestore, postToku, getAllToku, getUserToku, getMonthlyToku};
