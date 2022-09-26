@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     width: 300,
     resizeMode: 'contain',
     // borderRadius: 50,
-    opacity: 0.6,
+    // opacity: 0.6,
     // backgroundColor:"rgba(255, 255, 255, 0.5)",    // overflow: "hidden"
   },
   afterPostBg2: {
@@ -176,14 +176,14 @@ const styles = StyleSheet.create({
     width: 300,
     resizeMode: 'contain',
     // borderRadius: 50,
-    opacity: 1,
+    // opacity: 1,
   },
   afterPostBg3: {
     height: 300,
     width: 300,
     resizeMode: 'contain',
     // borderRadius: 50,
-    opacity: 0.3,
+    // opacity: 0.3,
     // backgroundColor:"rgba(255, 255, 255, 0.3)",    // overflow: "hidden"
   },
   afterInnerContainer: {

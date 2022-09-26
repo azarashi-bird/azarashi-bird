@@ -19,7 +19,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
             <ImageBackground
               source={require('../assets/icon-bg.jpeg')}
               style={styles.afterPostBg}
-              imageStyle={{borderRadius: 50}}>
+              imageStyle={{borderRadius: 50, opacity: 0.6}}>
               <Image
                 source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
                 style={styles.afterPostIcon}
@@ -38,7 +38,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
             <ImageBackground
               source={require('../assets/icon-bg.jpeg')}
               style={styles.afterPostBg2}
-              imageStyle={{borderRadius: 50}}>
+              imageStyle={{borderRadius: 50, opacity: 1}}>
               <Image
                 source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
                 style={styles.afterPostIcon}
@@ -54,7 +54,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
           <ImageBackground
             source={require('../assets/icon-bg.jpeg')}
             style={styles.afterPostBg3}
-            imageStyle={{borderRadius: 50}}>
+            imageStyle={{borderRadius: 50, opacity: 0.3}}>
             <Image
               source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
               style={styles.afterPostIcon}
