@@ -96,8 +96,6 @@ const getMonthlyToku = async () => {
   const endDate = getLastDate(new Date());
 
   //new Date('September 22, 2022')
-  console.log(startDate);
-  console.log(endDate);
 
   const uid = auth.currentUser?.uid;
   const tokuList = [];
