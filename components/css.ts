@@ -154,9 +154,11 @@ const styles = StyleSheet.create({
     width: '90%',
     borderWidth: 1,
     borderColor: 'gray',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
   calenderCell: {
-    width: '18%',
+    width: '20%',
   },
   calenderCellEmpty: {
     justifyContent: 'center',
