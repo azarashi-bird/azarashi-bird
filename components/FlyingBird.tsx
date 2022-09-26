@@ -22,7 +22,15 @@ const FlyingBird = ({navigation, route}) => {
 
   const getALlUsersToku = async () => {
     const dataOfAllTokus = await getAllToku();
-    setAllTokus(dataOfAllTokus.length);
+    //今（Thu Sep 06 2012 09:04:30 GMT+0900）
+    const _d = new Date();
+    //同日の0時0分0秒
+    const d = new Date(_d.getFullYear(), _d.getMonth(), _d.getDate(), 0, 0, 0);
+    const todayTokus = dataOfAllTokus.filter((obj) => {
+      // obj.createdAt.toDate()　が dより遅いものだけを取り出す
+      return obj.createdAt.toDate() > d;
+    });
+    setAllTokus(todayTokus.length);
   };
 
   useLayoutEffect(() => {
