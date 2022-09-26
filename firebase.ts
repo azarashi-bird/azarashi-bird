@@ -80,6 +80,7 @@ const getUserToku = async () => {
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
+  // console.log({uid})
   return tokuList;
 };
 

@@ -8,6 +8,11 @@ import {useEffect, useState} from 'react';
 import {useIsFocused} from '@react-navigation/native';
 import Calender from './Calender';
 
+/*
+userTokus.length % 15でエラーが出る人は、とりあえず5などベタ打ちで
+対処お願いします。
+*/
+
 export default function LogView() {
   const [userTokus, setUserTokus] = useState([]);
   const isFocused = useIsFocused();
@@ -25,14 +30,17 @@ export default function LogView() {
     <View style={styles.logContainer}>
       <Text style={styles.topContent} variant="titleLarge">
         あなたの来世
-        <Text style={styles.strongText}>{afterViews[userTokus.length][1]}</Text>
+        <Text style={styles.strongText}>
+          {afterViews[Math.floor((userTokus.length % 45) / 3)][1]}
+        </Text>
       </Text>
       <Image
-        source={afterViews[userTokus.length][0]}
+        source={afterViews[Math.floor((userTokus.length % 45) / 3)][0]}
         style={styles.mainImage}></Image>
       <Calender />
       <Text style={styles.mainText} variant="titleLarge">
-        あなたの徳　<Text style={styles.strongText}>{userTokus.length}</Text>徳
+        あなたの徳　
+        <Text style={styles.strongText}>{userTokus.length}</Text>徳
       </Text>
       <LogTable userTokus={userTokus} />
     </View>

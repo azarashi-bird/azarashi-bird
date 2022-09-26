@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     left: 100,
     width: 200,
     height: 250,
+    resizeMode: 'contain',
   },
   topBird: {
     top: 170,
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   FBMessageContainer: {
-    marginTop: 50,
+    marginTop: 100,
   },
   buttonWrapper: {
     marginTop: 20,
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   calender: {
-    width: '90%',
+    width: '70%',
     borderWidth: 1,
     borderColor: 'gray',
     flexDirection: 'row',
@@ -159,17 +160,61 @@ const styles = StyleSheet.create({
   },
   calenderCell: {
     width: '20%',
+    height: 50,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#dddddd',
   },
   calenderCellEmpty: {
-    justifyContent: 'center',
     backgroundColor: 'inherit',
   },
   calenderCellMarked: {
-    justifyContent: 'center',
     backgroundColor: 'orange',
   },
   calenderText: {
     display: 'none',
+  },
+  afterButtonWrapper: {
+    left: 80,
+    bottom: 100,
+    width: '50%',
+    alignItems: 'center',
+  },
+  afterPostIcon: {
+    height: 300,
+    width: 300,
+    resizeMode: 'contain',
+    opacity: 1,
+  },
+  afterPostBg: {
+    height: 300,
+    width: 300,
+    resizeMode: 'contain',
+    borderRadius: 50,
+    opacity: 0.6,
+    // backgroundColor:"rgba(255, 255, 255, 0.5)",    // overflow: "hidden"
+  },
+  afterPostBg2: {
+    height: 300,
+    width: 300,
+    resizeMode: 'contain',
+    borderRadius: 50,
+    opacity: 1,
+  },
+  afterPostBg3: {
+    height: 300,
+    width: 300,
+    resizeMode: 'contain',
+    borderRadius: 50,
+    opacity: 0.3,
+    // backgroundColor:"rgba(255, 255, 255, 0.3)",    // overflow: "hidden"
+  },
+  afterInnerContainer: {
+    top: 100,
+    position: 'relative',
+    flex: 1,
+    borderRadius: 50,
+    overflow: 'hidden',
   },
 });
 
