@@ -5,55 +5,41 @@ import {getMonthlyToku, getUserToku} from '../firebase';
 import {useEffect, useState} from 'react';
 
 export default function Calender() {
-  const [MonthlyTokus, setMonthlyTokus] = useState([]);
+  const [monthlyTokus, setMonthlyTokus] = useState<any[]>([]);
 
   let calenderData = Array(30).fill(0);
 
   useEffect(() => {
-    getThisMonthTokus();
-  });
-
-  async function getThisMonthTokus() {
-    const monthlyTokus = await getMonthlyToku();
-
-    for (const toku of monthlyTokus) {
-      calenderData[toku.createdAt.toDate().getDate() - 1]++;
-      calenderData[20] = calenderData[20] + 1;
+    async function setTokus() {
+      const target = await getMonthlyToku();
+      setMonthlyTokus(target);
     }
-    // monthlyTokus.forEach(toku => {
-    //   console.log(calenderData[toku.createdAt.toDate().getDate()-1])
-    //   calenderData[toku.createdAt.toDate().getDate()-1]++;
-    // })
-    return calenderData;
-  }
+    setTokus();
+  }, []);
 
-  const anothercalenderData = getThisMonthTokus();
-
-  // const test = async () => {
-  //   console.log(getMonthlyToku);
-  //   const data = await getMonthlyToku();
-
-  //   const fixedTimeArr = data.map((obj) => {
-  //     const toku = obj.toku;
-  //     const date = obj.createdAt.toDate();
-  //     const day = date.getDate();
-  //     const formatted = {day, toku};
-  //     return formatted;
-  //   });
-  //   // console.log(fixedTimeArr);
-
-  //   const daylyToku = fixedTimeArr.filter((obj) => obj.day === 21);
-  //   console.log(daylyToku);
-  // };
+  monthlyTokus.forEach((toku) => {
+    console.log(calenderData[toku.createdAt.toDate().getDate() - 1]);
+    calenderData[toku.createdAt.toDate().getDate() - 1]++;
+  });
+  console.log(calenderData);
 
   return (
-    <View style={styles.calender}>
-      {calenderData.map((element, index) => (
-        <View style={styles.calenderCell}>
-          <Text>{index}</Text>
-        </View>
-      ))}
-    </View>
+    <>
+      <Text>今月の徳</Text>
+      <View style={styles.calender}>
+        {calenderData.map((element, index) => (
+          <View
+            style={[
+              styles.calenderCell,
+              element === 0
+                ? styles.calenderCellEmpty
+                : styles.calenderCellMarked,
+            ]}>
+            <Text style={styles.calenderText}>{element}</Text>
+          </View>
+        ))}
+      </View>
+    </>
     // <DataTable style={styles.calender}>
     //   <DataTable.Row style={styles.calenderRow}>
     //     <DataTable.Cell style={styles.calenderCellEmpty} textStyle={styles.calenderText}>1</DataTable.Cell>
