@@ -1,22 +1,31 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useLayoutEffect} from 'react';
 import {
   SafeAreaView,
   Animated,
   InteractionManager,
   View,
   Image,
-  Text,
 } from 'react-native';
-
 import {Provider as PaperProvider} from 'react-native-paper';
 import styles from './css';
-import allTokusData from './PeopleTokus';
 import AfterFlying from './AfterFlying';
 
-const FlyingBird = ({navigation}) => {
+const FlyingBird = ({navigation, route}) => {
   const altitude = useState(new Animated.Value(0))[0];
   const [isFlied, setIsFlied] = useState(false);
-  const allTokuCount = allTokusData['_3'].length;
+  const tokuCount = route.params.targetTokus + 1;
+  const [flyingImg, setFlyingImg] = useState(
+    require('../assets/homePage/bird.gif')
+  );
+
+  useLayoutEffect(() => {
+    if (tokuCount % 3 !== 0) {
+      setFlyingImg(require('../assets/homePage/bird.gif'));
+    } else {
+      setFlyingImg(require('../assets/homePage/mazuru-1.gif'));
+    }
+  }, []);
+
   useEffect(() => {
     Animated.timing(altitude, {
       toValue: -900,
@@ -38,7 +47,7 @@ const FlyingBird = ({navigation}) => {
             <>
               <View style={styles.innerContainer}>
                 <Animated.Image
-                  source={require('../assets/homePage/bird.gif')}
+                  source={flyingImg}
                   style={[
                     {...styles.bird, transform: [{translateY: altitude}]},
                   ]}
