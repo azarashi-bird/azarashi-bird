@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     height: 300,
     width: 300,
     resizeMode: 'contain',
-    borderRadius: 50,
+    // borderRadius: 50,
     opacity: 0.6,
     // backgroundColor:"rgba(255, 255, 255, 0.5)",    // overflow: "hidden"
   },
@@ -175,14 +175,14 @@ const styles = StyleSheet.create({
     height: 300,
     width: 300,
     resizeMode: 'contain',
-    borderRadius: 50,
+    // borderRadius: 50,
     opacity: 1,
   },
   afterPostBg3: {
     height: 300,
     width: 300,
     resizeMode: 'contain',
-    borderRadius: 50,
+    // borderRadius: 50,
     opacity: 0.3,
     // backgroundColor:"rgba(255, 255, 255, 0.3)",    // overflow: "hidden"
   },
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     top: 100,
     position: 'relative',
     flex: 1,
-    borderRadius: 50,
+    // borderRadius: 50,
     overflow: 'hidden',
   },
 });
