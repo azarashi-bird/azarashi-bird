@@ -24,9 +24,7 @@ export default function Calender() {
       const day = date.getDate();
       const formatted = {day, toku};
       return formatted;
-    });
-    // console.log(fixedTimeArr);
-
+    }); //console.log(fixedTimeArr);
     const daylyToku = fixedTimeArr.filter((obj) => obj.day === 21);
     console.log(daylyToku);
   };
