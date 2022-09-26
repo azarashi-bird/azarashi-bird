@@ -9,7 +9,7 @@ export default function LogView({userTokus}) {
 
     const date = obj.createdAt.toDate();
     const day = date.getDate();
-    const month = date.getMonth();
+    const month = date.getMonth() + 1;
     const formatted = ` ${month}/${day}`;
     array.push(formatted);
     return array;
