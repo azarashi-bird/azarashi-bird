@@ -34,7 +34,7 @@ export default function PeopleLog() {
   const allTimeArr = allUserTokus.map((obj) => {
     const date = obj.createdAt.toDate();
     const day = date.getDate();
-    const month = date.getMonth();
+    const month = date.getMonth() + 1;
     const formatted = ` ${month}/${day}`;
     return formatted;
   });
