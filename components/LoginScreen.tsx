@@ -85,11 +85,11 @@ const LoginScreen = () => {
           <Text style={styles.loginButtonOutlineText}>Register</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={async () => console.log(await getAllToku())}
           style={styles.button1}>
           <Text style={styles.button1Text}>TEST</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </KeyboardAvoidingView>
   );
