@@ -7,6 +7,11 @@ import {getUserToku} from '../firebase';
 import {useEffect, useState} from 'react';
 import {useIsFocused} from '@react-navigation/native';
 
+/*
+userTokus.lengthでエラーが出る人は、とりあえず5などベタ打ちで
+対処お願いします。
+*/
+
 export default function LogView() {
   const [userTokus, setUserTokus] = useState([]);
   const isFocused = useIsFocused();
