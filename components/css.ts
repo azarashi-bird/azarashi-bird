@@ -150,6 +150,10 @@ const styles = StyleSheet.create({
     width: '50%',
     alignItems: 'center',
   },
+  calenderText: {
+    fontWeight: 'normal',
+    backgroundColor: 'green',
+  },
 });
 
 export default styles;
