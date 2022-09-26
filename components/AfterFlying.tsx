@@ -19,10 +19,12 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
             <ImageBackground
               source={require('../assets/icon-bg.jpeg')}
               style={styles.afterPostBg}>
-              <Image
-                source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
-                style={styles.afterPostIcon}
-              />
+              <View style={styles.afterPostOpacity}>
+                <Image
+                  source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
+                  style={styles.afterPostIcon}
+                />
+              </View>
             </ImageBackground>
           </View>
         </>
@@ -36,11 +38,13 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
           <View style={styles.afterInnerContainer}>
             <ImageBackground
               source={require('../assets/icon-bg.jpeg')}
-              style={styles.afterPostBg2}>
-              <Image
-                source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
-                style={styles.afterPostIcon}
-              />
+              style={styles.afterPostBg}>
+              <View>
+                <Image
+                  source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
+                  style={styles.afterPostIcon}
+                />
+              </View>
             </ImageBackground>
           </View>
         </>
@@ -51,11 +55,13 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
         <View style={styles.afterInnerContainer}>
           <ImageBackground
             source={require('../assets/icon-bg.jpeg')}
-            style={styles.afterPostBg3}>
-            <Image
-              source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
-              style={styles.afterPostIcon}
-            />
+            style={styles.afterPostBg}>
+            <View style={styles.afterPostOpacity2}>
+              <Image
+                source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
+                style={styles.afterPostIcon}
+              />
+            </View>
           </ImageBackground>
         </View>
       </>
