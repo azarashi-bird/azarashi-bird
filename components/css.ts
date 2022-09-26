@@ -150,9 +150,24 @@ const styles = StyleSheet.create({
     width: '50%',
     alignItems: 'center',
   },
+  calender: {
+    width: '90%',
+    borderWidth: 1,
+    borderColor: 'gray',
+  },
+  calenderCell: {
+    width: '18%',
+  },
+  calenderCellEmpty: {
+    justifyContent: 'center',
+    backgroundColor: 'inherit',
+  },
+  calenderCellMarked: {
+    justifyContent: 'center',
+    backgroundColor: 'orange',
+  },
   calenderText: {
-    fontWeight: 'normal',
-    backgroundColor: 'green',
+    display: 'none',
   },
 });
 
