@@ -1,19 +1,10 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useLayoutEffect} from 'react';
 import {getAllToku} from '../firebase';
 import {View, Text} from 'react-native';
 import styles from './css';
 import {Button} from 'react-native-paper';
 
-export default function AfterFlying({isFlied, navigation}) {
-  const [allTokus, setAllTokus] = useState(0);
-
-  useEffect(() => {
-    const getALlUsersToku = async () => {
-      const dataOfAllTokus = await getAllToku();
-      setAllTokus(dataOfAllTokus.length);
-    };
-    getALlUsersToku();
-  }, [isFlied]);
+export default function AfterFlying({navigation, allTokus}) {
   return (
     <View style={styles.FBMessageContainer}>
       <Text style={styles.FBMessage}>おめでとう！🎉</Text>

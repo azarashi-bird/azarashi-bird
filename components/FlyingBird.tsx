@@ -9,14 +9,21 @@ import {
 import {Provider as PaperProvider} from 'react-native-paper';
 import styles from './css';
 import AfterFlying from './AfterFlying';
+import {getAllToku} from '../firebase';
 
 const FlyingBird = ({navigation, route}) => {
   const altitude = useState(new Animated.Value(0))[0];
   const [isFlied, setIsFlied] = useState(false);
   const tokuCount = route.params.targetTokus + 1;
+  const [allTokus, setAllTokus] = useState(0);
   const [flyingImg, setFlyingImg] = useState(
     require('../assets/homePage/bird.gif')
   );
+
+  const getALlUsersToku = async () => {
+    const dataOfAllTokus = await getAllToku();
+    setAllTokus(dataOfAllTokus.length);
+  };
 
   useLayoutEffect(() => {
     if (tokuCount % 3 !== 0) {
@@ -24,6 +31,7 @@ const FlyingBird = ({navigation, route}) => {
     } else {
       setFlyingImg(require('../assets/homePage/mazuru-1.gif'));
     }
+    getALlUsersToku();
   }, []);
 
   useEffect(() => {
@@ -59,7 +67,7 @@ const FlyingBird = ({navigation, route}) => {
               </View>
             </>
           ) : (
-            <AfterFlying isFlied={isFlied} navigation={navigation} />
+            <AfterFlying navigation={navigation} allTokus={allTokus} />
           )}
         </View>
       </SafeAreaView>
