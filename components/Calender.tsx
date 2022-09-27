@@ -31,7 +31,7 @@ export default function Calender() {
     <>
       <Text style={{fontSize: 22, marginBottom: 5}}>徳積み カレンダー</Text>
       <View style={styles.calender}>
-        {calenderData2.map((element) => (
+        {calenderData2.map((element, index) => (
           <View
             key={index}
             style={[
