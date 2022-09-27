@@ -30,9 +30,9 @@ export default function LogView() {
     <ScrollView contentContainerStyle={styles.logContainer}>
       <Text style={styles.topContent} variant="titleLarge">
         あなたの来世
-        <Text style={styles.strongText}>
-          {afterViews[Math.floor((userTokus.length % 45) / 3)][1]}
-        </Text>
+      </Text>
+      <Text style={styles.strongText}>
+        {afterViews[Math.floor((userTokus.length % 45) / 3)][1]}
       </Text>
       <Image
         source={afterViews[Math.floor((userTokus.length % 45) / 3)][0]}
