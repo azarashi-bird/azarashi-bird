@@ -151,6 +151,29 @@ const styles = StyleSheet.create({
     width: '50%',
     alignItems: 'center',
   },
+  calender: {
+    width: '70%',
+    borderWidth: 1,
+    borderColor: 'gray',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  calenderCell: {
+    width: '20%',
+    height: 50,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#dddddd',
+  },
+  calenderCellEmpty: {
+    backgroundColor: 'inherit',
+  },
+  calenderCellMarked: {
+    backgroundColor: 'orange',
+  },
+  calenderText: {
+    display: 'none',
+  },
   afterButtonWrapper: {
     left: 80,
     bottom: 100,

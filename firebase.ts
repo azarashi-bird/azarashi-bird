@@ -84,4 +84,34 @@ const getUserToku = async () => {
   return tokuList;
 };
 
-export {auth, firestore, postToku, getAllToku, getUserToku};
+function getFirstDate(date) {
+  return new Date(date.getFullYear(), date.getMonth(), 1);
+}
+
+function getLastDate(date) {
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0);
+}
+
+const getMonthlyToku = async () => {
+  const startDate = getFirstDate(new Date());
+  const endDate = getLastDate(new Date());
+
+  //new Date('September 22, 2022')
+
+  const uid = auth.currentUser?.uid;
+  const tokuList = [];
+
+  await tokuTable
+    .where('user_id', '==', uid)
+    .orderBy('createdAt', 'asc')
+    .startAt(startDate)
+    .endAt(endDate)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((toku) => tokuList.push(toku.data()));
+    });
+
+  return tokuList;
+};
+
+export {auth, firestore, postToku, getAllToku, getUserToku, getMonthlyToku};
