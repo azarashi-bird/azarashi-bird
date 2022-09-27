@@ -17,8 +17,8 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
           </Text>
           <View style={styles.afterInnerContainer}>
             <ImageBackground
-              // source={require('../assets/icon-bg2.png')}
-              source={require('../assets/icon-bg.jpeg')}
+              source={require('../assets/icon-bg2.png')}
+              // source={require('../assets/icon-bg.jpeg')}
               style={styles.afterPostBg}
               imageStyle={{borderRadius: 50, opacity: 0.6}}>
               <Image
@@ -37,8 +37,8 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
           </Text>
           <View style={styles.afterInnerContainer}>
             <ImageBackground
-              // source={require('../assets/icon-bg2.png')}
-              source={require('../assets/icon-bg.jpeg')}
+              source={require('../assets/icon-bg2.png')}
+              // source={require('../assets/icon-bg.jpeg')}
               style={styles.afterPostBg2}
               imageStyle={{borderRadius: 50, opacity: 1}}>
               <Image
@@ -54,8 +54,8 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
       <>
         <View style={styles.afterInnerContainer}>
           <ImageBackground
-            // source={require('../assets/icon-bg2.png')}
-            source={require('../assets/icon-bg.jpeg')}
+            source={require('../assets/icon-bg2.png')}
+            // source={require('../assets/icon-bg.jpeg')}
             style={styles.afterPostBg3}
             imageStyle={{borderRadius: 50, opacity: 0.3}}>
             <Image
