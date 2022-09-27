@@ -151,25 +151,45 @@ const styles = StyleSheet.create({
     width: '50%',
     alignItems: 'center',
   },
+  // calender
   calender: {
-    width: '70%',
-    borderWidth: 1,
-    borderColor: 'gray',
+    width: '65%',
+    borderWidth: 0,
+    borderColor: 'white',
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
   calenderCell: {
     width: '20%',
-    height: 50,
+    height: 46,
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#dddddd',
+    borderRadius: 6,
+    borderWidth: 0.8,
+    borderColor: 'white',
   },
-  calenderCellEmpty: {
-    backgroundColor: 'inherit',
+  calenderCell0: {
+    backgroundColor: 'blue',
+    opacity: 0.03,
   },
-  calenderCellMarked: {
+  calenderCell1: {
     backgroundColor: 'orange',
+    opacity: 0.2,
+  },
+  calenderCell2: {
+    backgroundColor: 'orange',
+    opacity: 0.3,
+  },
+  calenderCell3: {
+    backgroundColor: 'orange',
+    opacity: 0.4,
+  },
+  calenderCell4: {
+    backgroundColor: 'orange',
+    opacity: 0.5,
+  },
+  calenderCell5: {
+    backgroundColor: 'orange',
+    opacity: 0.6,
   },
   calenderText: {
     display: 'none',
