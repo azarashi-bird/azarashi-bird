@@ -84,10 +84,10 @@ const getUserToku = async () => {
   return tokuList;
 };
 
-const getTargetToku = async (uid) => {
+const getTargetToku = async (userid) => {
   const tokuList = [];
   await tokuTable
-    .where('user_id', '==', uid)
+    .where('user_id', '==', userid)
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
