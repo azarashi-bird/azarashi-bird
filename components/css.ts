@@ -167,29 +167,25 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     borderWidth: 0.8,
     borderColor: 'white',
+    backgroundColor: 'orange',
   },
   calenderCell0: {
     backgroundColor: 'blue',
     opacity: 0.03,
   },
   calenderCell1: {
-    backgroundColor: 'orange',
     opacity: 0.2,
   },
   calenderCell2: {
-    backgroundColor: 'orange',
     opacity: 0.3,
   },
   calenderCell3: {
-    backgroundColor: 'orange',
     opacity: 0.4,
   },
   calenderCell4: {
-    backgroundColor: 'orange',
     opacity: 0.5,
   },
   calenderCell5: {
-    backgroundColor: 'orange',
     opacity: 0.6,
   },
   calenderText: {
