@@ -120,7 +120,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button2: {
-    // width: '60%',
     padding: 10,
     borderRadius: 10,
     alignItems: 'center',
@@ -131,6 +130,7 @@ const styles = StyleSheet.create({
   FBMessage: {
     fontSize: 18,
     marginTop: 5,
+    lineHeight: 30,
   },
   suggestContainer: {
     alignItems: 'flex-start',
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
   },
   FBMessageContainer: {
     marginTop: 100,
+    alignItems: 'center',
   },
   buttonWrapper: {
     marginTop: 20,
@@ -175,8 +176,7 @@ const styles = StyleSheet.create({
     display: 'none',
   },
   afterButtonWrapper: {
-    left: 80,
-    bottom: 100,
+    bottom: 80,
     width: '50%',
     alignItems: 'center',
   },
@@ -189,38 +189,24 @@ const styles = StyleSheet.create({
     height: 300,
     width: 300,
     resizeMode: 'contain',
-    // borderRadius: 50,
-    // opacity: 0.6,
-
-    // backgroundColor:"rgba(255, 255, 255, 0.5)",    // overflow: "hidden"
-  },
-  afterPostBg2: {
-    height: 300,
-    width: 300,
-    resizeMode: 'contain',
-    // borderRadius: 50,
-    // opacity: 1,
-  },
-  afterPostBg3: {
-    height: 300,
-    width: 300,
-    resizeMode: 'contain',
-    // borderRadius: 50,
-    // opacity: 0.3,
-    // backgroundColor:"rgba(255, 255, 255, 0.3)",    // overflow: "hidden"
-  },
-  afterPostOpacity: {
-    backgroundColor: 'rgba(255,255,255,0.6)',
-  },
-  afterPostOpacity2: {
-    backgroundColor: 'rgba(255,255,255,0.3)',
   },
   afterInnerContainer: {
-    top: 100,
+    top: 45,
     position: 'relative',
     flex: 1,
-    // borderRadius: 50,
     overflow: 'hidden',
+  },
+  afterPostCount: {
+    fontWeight: 'bold',
+    fontSize: 22,
+  },
+  FBMessageSP: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginTop: 20,
+    marginLeft: 30,
+    marginRight: 30,
+    textAlign: 'center',
   },
 });
 
