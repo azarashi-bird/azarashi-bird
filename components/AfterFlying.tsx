@@ -12,15 +12,21 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
     if (tokuCount % 3 === 2) {
       return (
         <>
-          <Text style={styles.FBMessage}>
-            おや、{afterViews[Math.floor((tokuCount % 45) / 3)][1]}の様子が...?
+          <Text style={styles.FBMessageSP}>
+            <Text style={{textAlign: 'left'}}> おや、</Text>
+            {'\n'}
+            <Text style={{textAlign: 'center'}}>
+              {afterViews[Math.floor((tokuCount % 45) / 3)][1]}
+            </Text>
+            {'\n'}
+
+            <Text style={{textAlign: 'right'}}>の様子が...?</Text>
           </Text>
           <View style={styles.afterInnerContainer}>
             <ImageBackground
-              source={require('../assets/icon-bg2.png')}
-              // source={require('../assets/icon-bg.jpeg')}
+              source={require('../assets/icon-bg.jpeg')}
               style={styles.afterPostBg}
-              imageStyle={{borderRadius: 50, opacity: 0.6}}>
+              imageStyle={{borderRadius: 150, opacity: 0.3}}>
               <Image
                 source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
                 style={styles.afterPostIcon}
@@ -32,15 +38,18 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
     } else if (tokuCount % 3 === 0 && tokuCount !== 0) {
       return (
         <>
-          <Text style={styles.FBMessage}>
-            {afterViews[Math.floor((tokuCount % 45) / 3)][1]}に進化しました！
+          <Text style={styles.FBMessageSP}>
+            {afterViews[Math.floor((tokuCount % 45) / 3)][1]}
+            {'\n'}
+            に進化しました！
           </Text>
           <View style={styles.afterInnerContainer}>
             <ImageBackground
-              source={require('../assets/icon-bg2.png')}
-              // source={require('../assets/icon-bg.jpeg')}
-              style={styles.afterPostBg2}
-              imageStyle={{borderRadius: 50, opacity: 1}}>
+              // source={require('../assets/icon-bg2.png')}
+              source={require('../assets/icon-bg.jpeg')}
+              style={styles.afterPostBg}
+              imageStyle={{borderRadius: 150, opacity: 1}}>
+              {/* imageStyle={{opacity: 1}}> */}
               <Image
                 source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
                 style={styles.afterPostIcon}
@@ -52,12 +61,15 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
     }
     return (
       <>
+        <Text style={styles.FBMessageSP}>
+          あなたの来世は{'\n'}
+          {afterViews[Math.floor((tokuCount % 45) / 3)][1]}
+        </Text>
         <View style={styles.afterInnerContainer}>
           <ImageBackground
             source={require('../assets/icon-bg2.png')}
-            // source={require('../assets/icon-bg.jpeg')}
-            style={styles.afterPostBg3}
-            imageStyle={{borderRadius: 50, opacity: 0.3}}>
+            style={styles.afterPostBg}
+            imageStyle={{opacity: 1}}>
             <Image
               source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
               style={styles.afterPostIcon}
@@ -69,25 +81,14 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
   }
   return (
     <View style={styles.FBMessageContainer}>
-      <Text style={styles.FBMessage}>おめでとう！🎉</Text>
+      <Text style={styles.FBMessage}>🎉🎉おめでとう🎉🎉</Text>
       <Text style={styles.FBMessage}>
-        今日世界で{allTokus}羽の鳥が放たれました。
+        今日世界で<Text style={styles.afterPostCount}>{allTokus}羽</Text>
+        の鳥が放たれました。
       </Text>
       {setMessage()}
-      {/* <View style={styles.afterInnerContainer}>
-      <ImageBackground source={require('../assets/icon-bg.jpeg')}
-        style={styles.afterPostBg} >
-        <Image
-        source={afterViews[Math.floor(tokuCount % 45 / 3)][0]}
-        style={styles.afterPostIcon} /> 
-        </ImageBackground>
-      
-      </View> */}
       <View style={styles.afterButtonWrapper}>
-        <Button
-          mode="contained"
-          // style={styles.button2}
-          onPress={() => navigation.goBack()}>
+        <Button mode="contained" onPress={() => navigation.goBack()}>
           やったね🙌
         </Button>
       </View>
