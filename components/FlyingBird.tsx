@@ -23,6 +23,7 @@ const FlyingBird = ({navigation, route}) => {
   const getALlUsersToku = async () => {
     const dataOfAllTokus = await getAllToku();
     //今（Thu Sep 06 2012 09:04:30 GMT+0900）
+    console.log({dataOfAllTokus});
     const _d = new Date();
     //同日の0時0分0秒
     const d = new Date(_d.getFullYear(), _d.getMonth(), _d.getDate(), 0, 0, 0);
@@ -31,6 +32,7 @@ const FlyingBird = ({navigation, route}) => {
       return obj.createdAt.toDate() > d;
     });
     setAllTokus(todayTokus.length);
+    console.log({allTokus});
   };
 
   useLayoutEffect(() => {
@@ -75,7 +77,11 @@ const FlyingBird = ({navigation, route}) => {
               </View>
             </>
           ) : (
-            <AfterFlying navigation={navigation} allTokus={allTokus} />
+            <AfterFlying
+              navigation={navigation}
+              allTokus={allTokus}
+              tokuCount={tokuCount}
+            />
           )}
         </View>
       </SafeAreaView>

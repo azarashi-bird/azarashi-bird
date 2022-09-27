@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
   },
   logContainer: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: '#F6F3CF',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -120,7 +120,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button2: {
-    // width: '60%',
     padding: 10,
     borderRadius: 10,
     alignItems: 'center',
@@ -131,6 +130,7 @@ const styles = StyleSheet.create({
   FBMessage: {
     fontSize: 18,
     marginTop: 5,
+    lineHeight: 30,
   },
   suggestContainer: {
     alignItems: 'flex-start',
@@ -144,12 +144,89 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   FBMessageContainer: {
-    marginTop: 50,
+    marginTop: 100,
+    alignItems: 'center',
   },
   buttonWrapper: {
     marginTop: 20,
     width: '50%',
     alignItems: 'center',
+  },
+  // calender
+  calender: {
+    width: '65%',
+    borderWidth: 0,
+    borderColor: 'white',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  calenderCell: {
+    width: '20%',
+    height: 46,
+    alignItems: 'center',
+    borderRadius: 6,
+    borderWidth: 0.8,
+    borderColor: 'white',
+  },
+  calenderCell0: {
+    backgroundColor: 'blue',
+    opacity: 0.03,
+  },
+  calenderCell1: {
+    backgroundColor: 'orange',
+    opacity: 0.2,
+  },
+  calenderCell2: {
+    backgroundColor: 'orange',
+    opacity: 0.3,
+  },
+  calenderCell3: {
+    backgroundColor: 'orange',
+    opacity: 0.4,
+  },
+  calenderCell4: {
+    backgroundColor: 'orange',
+    opacity: 0.5,
+  },
+  calenderCell5: {
+    backgroundColor: 'orange',
+    opacity: 0.6,
+  },
+  calenderText: {
+    display: 'none',
+  },
+  afterButtonWrapper: {
+    bottom: 80,
+    width: '50%',
+    alignItems: 'center',
+  },
+  afterPostIcon: {
+    height: 300,
+    width: 300,
+    resizeMode: 'contain',
+  },
+  afterPostBg: {
+    height: 300,
+    width: 300,
+    resizeMode: 'contain',
+  },
+  afterInnerContainer: {
+    top: 45,
+    position: 'relative',
+    flex: 1,
+    overflow: 'hidden',
+  },
+  afterPostCount: {
+    fontWeight: 'bold',
+    fontSize: 22,
+  },
+  FBMessageSP: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginTop: 20,
+    marginLeft: 30,
+    marginRight: 30,
+    textAlign: 'center',
   },
 });
 
