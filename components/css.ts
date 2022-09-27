@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
   },
   logContainer: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: '#F6F3CF',
     alignItems: 'center',
     justifyContent: 'flex-start',
