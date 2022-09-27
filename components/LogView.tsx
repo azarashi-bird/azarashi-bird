@@ -1,4 +1,4 @@
-import {StyleSheet, View, Image} from 'react-native';
+import {StyleSheet, View, Image, ScrollView} from 'react-native';
 import {Text} from 'react-native-paper';
 import LogTable from './LogTable';
 import styles from './css';
@@ -27,7 +27,7 @@ export default function LogView() {
   // console.log({userTokus});
 
   return (
-    <View style={styles.logContainer}>
+    <ScrollView contentContainerStyle={styles.logContainer}>
       <Text style={styles.topContent} variant="titleLarge">
         あなたの来世
         <Text style={styles.strongText}>
@@ -43,6 +43,6 @@ export default function LogView() {
         <Text style={styles.strongText}>{userTokus.length}</Text>徳
       </Text>
       <LogTable userTokus={userTokus} />
-    </View>
+    </ScrollView>
   );
 }

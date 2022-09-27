@@ -1,4 +1,4 @@
-import {StyleSheet, View, Image} from 'react-native';
+import {StyleSheet, View, Image, ScrollView} from 'react-native';
 import {Text, DataTable} from 'react-native-paper';
 import styles from './css';
 import {getMonthlyToku, getUserToku} from '../firebase';
@@ -26,8 +26,9 @@ export default function Calender() {
     <>
       <Text>今月の徳</Text>
       <View style={styles.calender}>
-        {calenderData.map((element) => (
+        {calenderData.map((element, index) => (
           <View
+            key={index}
             style={[
               styles.calenderCell,
               element === 0
