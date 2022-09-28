@@ -29,7 +29,7 @@ export default function LogView() {
   // console.log({userTokus});
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={customStyles.logContainer}>
         <Text style={customStyles.topContent} variant="titleLarge">
           あなたの来世

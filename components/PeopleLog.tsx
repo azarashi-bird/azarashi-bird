@@ -49,7 +49,7 @@ export default function PeopleLog() {
   }
   // style外したため、要再設定
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       {/* <StatusBar animated={true} backgroundColor="#61dafb"></StatusBar> */}
       <ScrollView style={styles.peopleTable}>
         <Text style={styles.topContent}>みんなの徳</Text>
@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F6F3CF',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
+    // alignItems: 'center',
+    // justifyContent: 'flex-start',
   },
   topContent: {
     marginTop: 100,

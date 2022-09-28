@@ -18,7 +18,7 @@ const iphoneModel = iPhoneInch47()
   : iPhoneInch55()
   ? {inch: 5.5, width, height} // iPhone 8 Plus
   : iPhoneInch58()
-  ? {inch: 5.8, width, height}
+  ? {inch: 5.8, width, height} // iPhone 11 Pro (only ios 15.4, 2022/09/29)
   : iPhoneInch65()
   ? {inch: 6.5, width, height} // base, done
   : null;
@@ -377,6 +377,84 @@ export const customStyles = StyleSheet.create(
         },
 
         // Dictionary 5.5inch
+
+        dict: {
+          top: 50,
+          width: '95%',
+          alignItems: 'center',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+        },
+      }
+    : iphoneModel.inch === 5.8
+    ? {
+        // all 5.8inch
+
+        strongText: {
+          fontWeight: 'bold',
+          fontSize: 28,
+          top: 50,
+          marginBottom: 50,
+        },
+
+        // Top 5.8inch
+
+        appTitle: {
+          marginTop: 40,
+          marginBottom: 10,
+          fontSize: 30,
+          fontWeight: 'bold',
+        },
+        topBird: {
+          top: 150,
+          left: 95,
+          width: 180,
+          height: 230,
+        },
+        topCage: {
+          width: 380,
+          height: 400,
+          top: -200,
+        },
+
+        // FlyingBird 5.8 inch
+
+        flyingBird: {
+          top: 400,
+          left: 100,
+          width: 180,
+          height: 300,
+          resizeMode: 'contain',
+        },
+        FBCage: {
+          bottom: 90,
+          width: 380,
+          height: 530,
+        },
+        FBMessageContainer: {
+          marginTop: 40,
+          alignItems: 'center',
+        },
+        FBAfterButtonWrapper: {
+          bottom: 70,
+          width: '50%',
+          alignItems: 'center',
+        },
+
+        // LogView 5.8 inch
+
+        topContent: {
+          marginTop: 70,
+        },
+
+        logContainer: {
+          flexGrow: 1,
+          backgroundColor: '#F6F3CF',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+        },
+
+        // Dictionary 5.8inch
 
         dict: {
           top: 50,
