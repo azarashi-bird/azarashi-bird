@@ -31,21 +31,94 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
-
-  // not fixed
-
-  peopleTable: {
-    backgroundColor: '#F6F3CF',
-  },
   innerContainer: {
     position: 'relative',
     flex: 1,
   },
+  button1: {
+    // login
+    backgroundColor: '#0782f9',
+    width: '100%',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  button1Text: {
+    color: 'white',
+    fontWeight: '700',
+    fontSize: 16,
+  },
+  button2: {
+    padding: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 40,
+    fontSize: 18,
+    color: 'white',
+  },
+  buttonWrapper: {
+    marginTop: 20,
+    width: '50%',
+    alignItems: 'center',
+  },
+
+  // Top
+
   input: {
     width: '80%',
     margin: 10,
     marginBottom: 0,
   },
+  suggestContainer: {
+    alignItems: 'flex-start',
+    width: '80%',
+    backgroundColor: 'white',
+    marginTop: 0,
+    padding: 10,
+  },
+  suggestText: {
+    fontSize: 18,
+    marginTop: 5,
+  },
+
+  //// FlyingBird
+
+  FBMessage: {
+    fontSize: 18,
+    marginTop: 5,
+    lineHeight: 30,
+  },
+  FBMessageSP: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginTop: 20,
+    marginLeft: 30,
+    marginRight: 30,
+    textAlign: 'center',
+  },
+  afterPostIcon: {
+    height: 300,
+    width: 300,
+    resizeMode: 'contain',
+  },
+  afterPostBg: {
+    height: 300,
+    width: 300,
+    resizeMode: 'contain',
+  },
+  afterInnerContainer: {
+    top: 45,
+    position: 'relative',
+    flex: 1,
+    overflow: 'hidden',
+  },
+  afterPostCount: {
+    fontWeight: 'bold',
+    fontSize: 22,
+  },
+
+  // Profile
+
   mainImage: {
     height: 300,
     width: 300,
@@ -82,61 +155,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 40,
   },
-  button1: {
-    // login
-    backgroundColor: '#0782f9',
-    width: '100%',
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  button1Text: {
-    color: 'white',
-    fontWeight: '700',
-    fontSize: 16,
-  },
-  loginButtonOutline: {
-    backgroundColor: 'white',
-    marginTop: 5,
-    borderColor: '#0782F9',
-    borderWidth: 2,
-  },
-  loginButtonOutlineText: {
-    color: '#0782F9',
-    fontWeight: '700',
-    fontSize: 16,
-  },
-  button2: {
-    padding: 10,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginTop: 40,
-    fontSize: 18,
-    color: 'white',
-  },
-  FBMessage: {
-    fontSize: 18,
-    marginTop: 5,
-    lineHeight: 30,
-  },
-  suggestContainer: {
-    alignItems: 'flex-start',
-    width: '80%',
-    backgroundColor: 'white',
-    marginTop: 0,
-    padding: 10,
-  },
-  suggestText: {
-    fontSize: 18,
-    marginTop: 5,
-  },
 
-  buttonWrapper: {
-    marginTop: 20,
-    width: '50%',
-    alignItems: 'center',
-  },
-  // calender
+  //// calender
   calender: {
     width: '65%',
     borderWidth: 0,
@@ -179,40 +199,15 @@ const styles = StyleSheet.create({
   calenderText: {
     display: 'none',
   },
-  afterPostIcon: {
-    height: 300,
-    width: 300,
-    resizeMode: 'contain',
+
+  // People
+
+  peopleTable: {
+    backgroundColor: '#F6F3CF',
   },
-  afterPostBg: {
-    height: 300,
-    width: 300,
-    resizeMode: 'contain',
-  },
-  afterInnerContainer: {
-    top: 45,
-    position: 'relative',
-    flex: 1,
-    overflow: 'hidden',
-  },
-  afterPostCount: {
-    fontWeight: 'bold',
-    fontSize: 22,
-  },
-  FBMessageSP: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    marginTop: 20,
-    marginLeft: 30,
-    marginRight: 30,
-    textAlign: 'center',
-  },
-  // dict: {
-  //   width: '95%',
-  //   alignItems: 'center',
-  //   flexDirection: 'row',
-  //   flexWrap: 'wrap',
-  // },
+
+  // Dictionary
+
   dictItem: {
     width: '30%',
     margin: '1%',
@@ -224,6 +219,20 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     resizeMode: 'contain',
+  },
+
+  // login
+
+  loginButtonOutline: {
+    backgroundColor: 'white',
+    marginTop: 5,
+    borderColor: '#0782F9',
+    borderWidth: 2,
+  },
+  loginButtonOutlineText: {
+    color: '#0782F9',
+    fontWeight: '700',
+    fontSize: 16,
   },
 });
 
