@@ -224,6 +224,52 @@ const styles = StyleSheet.create({
     marginRight: 30,
     textAlign: 'center',
   },
+  //modal
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 18,
+    padding: 35,
+    opacity: 0.98,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalbutton: {
+    borderRadius: 13,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonClose: {
+    backgroundColor: 'orange',
+    opacity: 0.8,
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  modalText2: {
+    marginBottom: 15,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
 
 export default styles;

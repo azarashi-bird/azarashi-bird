@@ -38,11 +38,11 @@ export default function LogView() {
         source={afterViews[Math.floor((userTokus.length % 45) / 3)][0]}
         style={styles.mainImage}></Image>
       <Calender />
-      <Text style={styles.mainText} variant="titleLarge">
+      {/* <Text style={styles.mainText} variant="titleLarge">
         あなたの徳　
         <Text style={styles.strongText}>{userTokus.length}</Text>徳
       </Text>
-      <LogTable userTokus={userTokus} />
+      <LogTable userTokus={userTokus} /> */}
     </ScrollView>
   );
 }
