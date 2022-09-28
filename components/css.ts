@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
   },
   // calender
   calender: {
-    width: '65%',
+    width: '56%',
     borderWidth: 0,
     borderColor: 'white',
     flexDirection: 'row',
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   },
   calenderCell: {
     width: '20%',
-    height: 46,
+    height: 40,
     alignItems: 'center',
     borderRadius: 6,
     borderWidth: 0.8,

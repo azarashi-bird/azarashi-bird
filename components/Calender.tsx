@@ -85,7 +85,7 @@ export default function Calender() {
               <Pressable
                 style={[s.modalbutton, s.buttonClose]}
                 onPress={() => closeModal()}>
-                <Text style={s.textStyle}>Close</Text>
+                <Text style={s.textStyle}>close</Text>
               </Pressable>
             </View>
           </View>
