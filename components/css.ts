@@ -228,9 +228,23 @@ const styles = StyleSheet.create({
     marginRight: 30,
     textAlign: 'center',
   },
-  dictImage: {
-    height: 100,
+  dict: {
+    width: '95%',
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  dictItem: {
+    width: '30%',
+    margin: '1%',
+  },
+  dictItemName: {
+    width: '100%',
+  },
+  dictItemImage: {
     width: 100,
+    height: 100,
+    resizeMode: 'contain',
   },
 });
 
