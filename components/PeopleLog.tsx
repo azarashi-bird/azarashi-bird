@@ -5,10 +5,13 @@ import {DataTable, Button} from 'react-native-paper';
 import {getAllToku, getUserToku, getTargetToku} from '../firebase';
 import {useIsFocused} from '@react-navigation/native';
 import afterViews from './afterLifes';
+import {createStackNavigator} from '@react-navigation/stack';
+import {useNavigation} from '@react-navigation/native';
 // import styles from './css';
 // まだ独自のスタイル設定！！
 
 export default function PeopleLog() {
+  const isFocused = useIsFocused();
   const [allUserTokus, setAllUserTokus] = useState([]);
   const [targetTokus, setTargetTokus] = useState([]);
   // とりあえず0。もしかしたら表示の揺れがあるかも
@@ -16,8 +19,8 @@ export default function PeopleLog() {
   const [preImgIndex, setPreIndex] = useState([]);
   const [targetId, setTargetId] = useState([]);
   const [mainArr, setMainArr] = useState([]);
+  const navigation = useNavigation();
   // const [action, setAction] = useState(false);
-  const isFocused = useIsFocused();
   // const samplePeople = [
   //   ['img', 'username', '犬を助けた', '06/12'],
   //   ['img2', 'Moomin', '帽子を見つけてあげた', '06/10'],
@@ -136,47 +139,50 @@ export default function PeopleLog() {
     allSet();
   }, [isFocused]);
 
-  if (preImgIndex.length !== 0) {
-    console.log(preImgIndex, 'PRE');
-    console.log(mainArr[0], 'mainArr');
-    return (
-      <ScrollView style={styles.peopleTable}>
-        <Text style={styles.topContent}>みんなの徳</Text>
-        {/* <Button onPress={(() => setAction(true))}>reload</Button> */}
-        <DataTable style={styles.logs}>
-          {mainArr ? (
-            mainArr.map((tokuData, index) => {
-              // re-renderをアロー関数で回避...できてないので、どうにかする。
-              //
-              // () => setTargetId(tokuData[0]);
-              // console.log({tokuData})
-              return (
-                <DataTable.Row key={index}>
-                  <DataTable.Cell style={{}}>
-                    <Image
-                      source={afterViews[preImgIndex[0]][0]}
-                      style={styles.icon}></Image>
-                  </DataTable.Cell>
-                  <DataTable.Cell style={{right: 50}}>
-                    {tokuData[0]}
-                  </DataTable.Cell>
-                  <DataTable.Cell style={{}}>{tokuData[1]}</DataTable.Cell>
-                </DataTable.Row>
-              );
-            })
-          ) : (
-            <DataTable.Row>
-              <DataTable.Cell>画像</DataTable.Cell>
-              <DataTable.Cell>徳</DataTable.Cell>
-              <DataTable.Cell>00/00</DataTable.Cell>
-            </DataTable.Row>
-          )}
-        </DataTable>
-      </ScrollView>
-    );
-  } else {
-    return <Text>みんなの徳</Text>;
-  }
+  const submit = () => {
+    navigation.navigate('LogTable', {targetTokus: targetTokus});
+  };
+
+  // if (preImgIndex.length !== 0) {
+  // console.log(preImgIndex, 'PRE');
+  // console.log(mainArr[0], 'mainArr');
+  return (
+    <ScrollView style={styles.peopleTable}>
+      <Text style={styles.topContent}>みんなの徳</Text>
+      <Button onPress={submit}>reload</Button>
+      <DataTable style={styles.logs}>
+        {preImgIndex.length !== 0 ? (
+          mainArr.map((tokuData, index) => {
+            // re-renderをアロー関数で回避...できてないので、どうにかする。
+            //
+            // () => setTargetId(tokuData[0]);
+            // console.log({tokuData})
+            return (
+              <DataTable.Row key={index}>
+                <DataTable.Cell style={{}}>
+                  <Image
+                    source={afterViews[preImgIndex[0]][0]}
+                    style={styles.icon}></Image>
+                </DataTable.Cell>
+                <DataTable.Cell style={{right: 50}}>
+                  {tokuData[0]}
+                </DataTable.Cell>
+                <DataTable.Cell style={{}}>{tokuData[1]}</DataTable.Cell>
+              </DataTable.Row>
+            );
+          })
+        ) : (
+          <DataTable.Row>
+            <DataTable.Cell>画像</DataTable.Cell>
+            <DataTable.Cell>徳</DataTable.Cell>
+            <DataTable.Cell>00/00</DataTable.Cell>
+          </DataTable.Row>
+        )}
+      </DataTable>
+    </ScrollView>
+  );
+  // }
+  //   return <Text>みんなの徳</Text>;
 }
 
 const styles = StyleSheet.create({

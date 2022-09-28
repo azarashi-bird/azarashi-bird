@@ -58,7 +58,7 @@ export default function LogView() {
         あなたの徳　
         <Text style={styles.strongText}>{userTokus.length}</Text>徳
       </Text>
-      <LogTable userTokus={userTokus} />
+      {/* <LogTable userTokus={userTokus} /> */}
     </ScrollView>
   );
 }

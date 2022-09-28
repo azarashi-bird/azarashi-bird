@@ -1,8 +1,10 @@
 import {ScrollView, StyleSheet, View} from 'react-native';
-import {DataTable} from 'react-native-paper';
+import {DataTable, Text, Button} from 'react-native-paper';
 import styles from './css';
 
-export default function LogView({userTokus}) {
+export default function LogView({navigation, route}) {
+  const userTokus = route.params.targetTokus;
+
   const tokusArray = userTokus.map((obj) => {
     const array = [];
     array.push(obj.toku);
@@ -16,13 +18,15 @@ export default function LogView({userTokus}) {
   });
 
   return (
+    // <View>
     <ScrollView style={styles.tableContainer}>
+      <Text>徳テーブル</Text>
       <DataTable>
         <DataTable.Header>
           <DataTable.Title>徳</DataTable.Title>
           <DataTable.Title>日付</DataTable.Title>
         </DataTable.Header>
-        {tokusArray ? (
+        {tokusArray.length !== 0 ? (
           tokusArray.map((arr, index) => {
             return (
               <DataTable.Row key={index}>
@@ -38,6 +42,8 @@ export default function LogView({userTokus}) {
           </DataTable.Row>
         )}
       </DataTable>
+      <Button onPress={() => navigation.goBack()}>戻る</Button>
     </ScrollView>
+    // </View>
   );
 }
