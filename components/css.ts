@@ -8,9 +8,6 @@ import {
   iPhoneInch55,
   iPhoneInch58,
   iPhoneInch65,
-  iPad129,
-  iPad11,
-  iPad97,
 } from '../lib/iPhoneSize';
 
 const iphoneModel = iPhoneInch47()
