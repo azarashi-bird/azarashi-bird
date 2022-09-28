@@ -16,7 +16,7 @@ import {
 const iphoneModel = iPhoneInch47()
   ? {inch: 4.7, width, height} // iPhone SE 3rd
   : iPhoneInch55()
-  ? {inch: 5.5, width, height} // done
+  ? {inch: 5.5, width, height} // iPhone 8 Plus
   : iPhoneInch58()
   ? {inch: 5.8, width, height}
   : iPhoneInch65()
@@ -285,7 +285,7 @@ export const customStyles = StyleSheet.create(
           alignItems: 'center',
         },
 
-        // LogView 4,7 inch
+        // LogView 4.7 inch
 
         topContent: {
           marginTop: 70,
@@ -321,22 +321,65 @@ export const customStyles = StyleSheet.create(
 
         // Top 5.5inch
 
+        appTitle: {
+          marginTop: 40,
+          marginBottom: 10,
+          fontSize: 30,
+          fontWeight: 'bold',
+        },
         topBird: {
-          top: 100,
-          left: 85,
-          width: 200,
-          height: 250,
+          top: 150,
+          left: 95,
+          width: 180,
+          height: 230,
         },
         topCage: {
           width: 380,
           height: 400,
-          top: -260,
+          top: -200,
+        },
+
+        // FlyingBird 5.5 inch
+
+        flyingBird: {
+          top: 400,
+          left: 100,
+          width: 180,
+          height: 300,
+          resizeMode: 'contain',
+        },
+        FBCage: {
+          bottom: 90,
+          width: 380,
+          height: 530,
+        },
+        FBMessageContainer: {
+          marginTop: 40,
+          alignItems: 'center',
+        },
+        FBAfterButtonWrapper: {
+          bottom: 70,
+          width: '50%',
+          alignItems: 'center',
+        },
+
+        // LogView 5.5 inch
+
+        topContent: {
+          marginTop: 70,
+        },
+
+        logContainer: {
+          flexGrow: 1,
+          backgroundColor: '#F6F3CF',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
         },
 
         // Dictionary 5.5inch
 
         dict: {
-          top: 100,
+          top: 50,
           width: '95%',
           alignItems: 'center',
           flexDirection: 'row',
