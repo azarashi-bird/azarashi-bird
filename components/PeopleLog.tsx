@@ -13,6 +13,7 @@ export default function PeopleLog() {
   const [targetTokus, setTargetTokus] = useState([]);
   // とりあえず0。もしかしたら表示の揺れがあるかも
   const [imgIndex, setImgIndex] = useState([]);
+  const [preImgIndex, setPreIndex] = useState([]);
   const [targetId, setTargetId] = useState([]);
   const [mainArr, setMainArr] = useState([]);
   // const [action, setAction] = useState(false);
@@ -26,7 +27,7 @@ export default function PeopleLog() {
     const allList = async () => {
       const allUserDatas = await getAllToku();
       const shortList = allUserDatas.slice(0, 10);
-      console.log(shortList.length, 'NUM, 30');
+      console.log(shortList.length, 'NUM, 29');
       // ここでUserIDを変更して、
       /* ここでやらない方がいいかも
       shortList.map((obj) => {
@@ -38,7 +39,7 @@ export default function PeopleLog() {
         return obj
     })
     */
-      console.log(shortList.length, 'NUM2, 41');
+      // console.log(shortList, 'NUM2, 41');OK
 
       // console.log(targetId.length, "TARGET, 42")
       setAllUserTokus(shortList);
@@ -53,32 +54,58 @@ export default function PeopleLog() {
       // targetIDを全部とれた
       // console.log(targetId.length, "TARGET, 50")
     };
-    userList();
+    // userList(); 移動
     const targetList = async () => {
       const allTargetDatas = await getUserToku();
       setTargetTokus(allTargetDatas);
     };
-    allList();
-    targetList();
+    // allList();
+    // targetList(); 移動
     // --
     const getOnesTokuLength = async () => {
       const arr = [];
       for (let i = 0; i < 10; i++) {
-        // console.log(targetId, "IDS")
+        // console.log(targetId, "IDS 67") 取れてる
+        // 何回もgetTargetTokuしてるからだめ？
         const dataList = await getTargetToku(targetId[i]);
         const countList = dataList.length;
-        const realIndex = (countList % 45) / 3;
+        const realIndex = Math.floor((countList % 45) / 3);
         // countList取れる時と取れない時がある
-        console.log({realIndex});
+        // console.log({realIndex});
         // if(imgIndex.length < 10) {
         arr.push(realIndex);
+        // console.log(imgIndex, "imgIndex75")
+        // setImgIndex([...imgIndex, realIndex]);
 
         // }
       }
-      setImgIndex(arr);
-      console.log(imgIndex.length, 'IMGN');
+      // console.log(arr, "arr80")配列は取れてる
+      // setImgIndexがうまくいってない！
+      // setImgIndex(arr);
+      await setPreIndex((pre) => {
+        console.log(pre, '86before');
+        pre = arr;
+        return arr;
+      });
+      await setPreIndex((pre) => {
+        console.log(pre, '91after');
+        return pre;
+      });
+      /*
+      await setImgIndex((pre) => {
+        // console.log("ARR", pre)入ってない
+        pre = arr;
+        return pre;
+      });
+      await setImgIndex((pre) => {
+        // console.log("INNERARR", pre);入ってる
+        return pre;
+      });
+      */
+      // でない
+      // console.log(imgIndex, 'IMGN 82');
     };
-    getOnesTokuLength();
+    // getOnesTokuLength(); 移動
     // --
     const finalSet = async () => {
       const allTokuArr = await allUserTokus.map((obj) => obj.toku);
@@ -96,7 +123,6 @@ export default function PeopleLog() {
 
       // 全員のユーザー🆔
       // const allUserArr = allUserTokus.map((obj) => obj['user_id']);
-
       let allArr = [];
       for (let i = 0; i < 10; i++) {
         // setTargetId(allUserArr[i]);
@@ -111,12 +137,35 @@ export default function PeopleLog() {
 
         // }
       }
-      // console.log(allArr, "MAINARR")
+      // console.log(allArr, "MAINARR, 114")
       setMainArr(allArr);
     };
-    finalSet();
+    // finalSet(); 移動
     // --
+    const allSet = async () => {
+      // 移動
+      // 全員の徳のうち10件を保存
+      await allList();
+      // console.log({allUserTokus})
+      // userIDを配列に保存
+      await userList();
+      // console.log({targetId})
+      // targetList();
+      // 個人のIDから徳数を配列に保存
+      await getOnesTokuLength();
+      // mainArrとしてmapする配列をセット
+      await finalSet();
+      // このuserの徳を取得。後で遷移先に渡す
+      await targetList();
+    };
+    allSet();
   }, [isFocused]);
+
+  useEffect(() => {
+    setImgIndex(preImgIndex);
+    console.log(imgIndex, '158NowEffett');
+  }, [preImgIndex]);
+
   /*
   useLayoutEffect(() => {
     const allList = async () => {
