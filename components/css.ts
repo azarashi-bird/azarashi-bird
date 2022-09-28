@@ -1,4 +1,29 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+const {width, height} = Dimensions.get('window');
+
+// responsive
+
+import {
+  iPhoneInch47,
+  iPhoneInch55,
+  iPhoneInch58,
+  iPhoneInch65,
+  iPad129,
+  iPad11,
+  iPad97,
+} from '../lib/iPhoneSize';
+
+const iphoneModel = iPhoneInch47()
+  ? {inch: 4.7, width, height}
+  : iPhoneInch55()
+  ? {inch: 5.5, width, height} // done
+  : iPhoneInch58()
+  ? {inch: 5.8, width, height}
+  : iPhoneInch65()
+  ? {inch: 6.5, width, height}
+  : null;
+
+console.log('iPhone model:', iphoneModel);
 
 const styles = StyleSheet.create({
   container: {
@@ -56,10 +81,6 @@ const styles = StyleSheet.create({
   },
   mainText: {
     marginTop: 50,
-  },
-  strongText: {
-    fontWeight: 'bold',
-    fontSize: 28,
   },
   logContainer: {
     flexGrow: 1,
@@ -228,12 +249,12 @@ const styles = StyleSheet.create({
     marginRight: 30,
     textAlign: 'center',
   },
-  dict: {
-    width: '95%',
-    alignItems: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
+  // dict: {
+  //   width: '95%',
+  //   alignItems: 'center',
+  //   flexDirection: 'row',
+  //   flexWrap: 'wrap',
+  // },
   dictItem: {
     width: '30%',
     margin: '1%',
@@ -247,5 +268,66 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
 });
+
+export const customStyles = StyleSheet.create(
+  iphoneModel.inch === 5.5
+    ? {
+        // all
+
+        strongText: {
+          fontWeight: 'bold',
+          fontSize: 28,
+          top: 50,
+        },
+
+        // Top
+
+        topBird: {
+          top: 100,
+          left: 85,
+          width: 200,
+          height: 250,
+        },
+        topCage: {
+          width: 380,
+          height: 400,
+          top: -260,
+        },
+
+        // Dictionary
+
+        dict: {
+          top: 100,
+          width: '95%',
+          alignItems: 'center',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+        },
+      }
+    : {
+        // Top
+
+        topBird: {
+          top: 170,
+          left: 90,
+          width: 200,
+          height: 250,
+        },
+        topCage: {
+          width: 400,
+          height: 550,
+          top: -260,
+        },
+
+        // Dictionary
+
+        dict: {
+          width: '95%',
+          alignItems: 'center',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+        },
+      }
+);
 
 export default styles;

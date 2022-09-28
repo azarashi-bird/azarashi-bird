@@ -3,7 +3,7 @@ import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import {Button} from 'react-native-paper';
-import styles from './css';
+import styles, {customStyles} from './css';
 import {Suggest} from './Suggest';
 import {useState, useEffect} from 'react';
 import {postToku, getUserToku} from '../firebase';
@@ -70,11 +70,11 @@ const Top = ({navigation}) => {
               <View style={styles.innerContainer}>
                 <Image
                   source={require('../assets/homePage/bird.gif')}
-                  style={styles.topBird}
+                  style={customStyles.topBird}
                 />
                 <Image
                   source={require('../assets/homePage/cage.png')}
-                  style={styles.topCage}
+                  style={customStyles.topCage}
                 />
               </View>
             </>
