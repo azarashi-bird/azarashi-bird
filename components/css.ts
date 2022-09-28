@@ -20,18 +20,23 @@ const iphoneModel = iPhoneInch47()
   : iPhoneInch58()
   ? {inch: 5.8, width, height}
   : iPhoneInch65()
-  ? {inch: 6.5, width, height}
+  ? {inch: 6.5, width, height} // base, done
   : null;
 
 console.log('iPhone model:', iphoneModel);
 
 const styles = StyleSheet.create({
+  // all
+
   container: {
     flexGrow: 1,
     backgroundColor: '#F6F3CF',
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
+
+  // not fixed
+
   peopleTable: {
     backgroundColor: '#F6F3CF',
   },
@@ -272,7 +277,7 @@ const styles = StyleSheet.create({
 export const customStyles = StyleSheet.create(
   iphoneModel.inch === 5.5
     ? {
-        // all
+        // all 5.5inch
 
         strongText: {
           fontWeight: 'bold',
@@ -280,7 +285,7 @@ export const customStyles = StyleSheet.create(
           top: 50,
         },
 
-        // Top
+        // Top 5.5inch
 
         topBird: {
           top: 100,
@@ -294,7 +299,7 @@ export const customStyles = StyleSheet.create(
           top: -260,
         },
 
-        // Dictionary
+        // Dictionary 5.5inch
 
         dict: {
           top: 100,
@@ -305,7 +310,15 @@ export const customStyles = StyleSheet.create(
         },
       }
     : {
-        // Top
+        // all 6.5inch
+
+        strongText: {
+          fontWeight: 'bold',
+          fontSize: 28,
+          top: 30,
+        },
+
+        // Top 6.5inch
 
         topBird: {
           top: 170,
@@ -319,9 +332,10 @@ export const customStyles = StyleSheet.create(
           top: -260,
         },
 
-        // Dictionary
+        // Dictionary 6.5inch
 
         dict: {
+          top: 60,
           width: '95%',
           alignItems: 'center',
           flexDirection: 'row',
