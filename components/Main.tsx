@@ -13,7 +13,7 @@ export default function Main() {
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
 
-          if (route.name === 'Home') {
+          if (route.name === 'Top') {
             iconName = 'home';
           } else if (route.name === 'Log') {
             iconName = 'book';
@@ -26,7 +26,7 @@ export default function Main() {
         tabBarInactiveTintColor: 'gray',
         headerShown: false,
       })}>
-      <Tab.Screen name="Home" component={Top} />
+      <Tab.Screen name="Top" component={Top} />
       <Tab.Screen name="Log" component={LogView} />
       <Tab.Screen name="People" component={PeopleLog} />
     </Tab.Navigator>
