@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ScrollView, Text, View, Image, SafeAreaView} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View, Image} from 'react-native';
 import styles, {customStyles} from './css';
 import afterViews from './afterLifes';
 import {getUserToku} from '../firebase';

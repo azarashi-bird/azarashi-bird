@@ -1,6 +1,6 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View, Image} from 'react-native';
 import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import {Button} from 'react-native-paper';
 import styles, {customStyles} from './css';
@@ -37,18 +37,20 @@ const Top = ({navigation}) => {
   const submit = () => {
     setToku('');
     if (toku !== '') {
-      postToku(toku)
-        ? navigation.navigate('FlyingBird', {targetTokus: targetTokus})
-        : console.log('post failed!');
+      // postToku(toku)
+      //   ? navigation.navigate('FlyingBird', {targetTokus: targetTokus})
+      //   : console.log('post failed!');
+
+      navigation.navigate('FlyingBird', {targetTokus: targetTokus});
     } else {
       console.log('input is blank!');
     }
   };
   return (
     <PaperProvider>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <>
-          <Text style={styles.appTitle}>Birdonation</Text>
+          <Text style={customStyles.appTitle}>Birdonation</Text>
           {/* {console.log('toku:', toku)} */}
           <TextInput
             mode="outlined"
@@ -80,7 +82,7 @@ const Top = ({navigation}) => {
             </>
           )}
         </>
-      </View>
+      </SafeAreaView>
     </PaperProvider>
   );
 };

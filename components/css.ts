@@ -14,7 +14,7 @@ import {
 } from '../lib/iPhoneSize';
 
 const iphoneModel = iPhoneInch47()
-  ? {inch: 4.7, width, height}
+  ? {inch: 4.7, width, height} // iPhone SE 3rd
   : iPhoneInch55()
   ? {inch: 5.5, width, height} // done
   : iPhoneInch58()
@@ -40,28 +40,6 @@ const styles = StyleSheet.create({
   peopleTable: {
     backgroundColor: '#F6F3CF',
   },
-  bird: {
-    top: 450,
-    left: 100,
-    width: 200,
-    height: 250,
-    resizeMode: 'contain',
-  },
-  topBird: {
-    top: 170,
-    left: 90,
-    width: 200,
-    height: 250,
-  },
-  cage: {
-    width: 400,
-    height: 550,
-  },
-  topCage: {
-    width: 400,
-    height: 550,
-    top: -260,
-  },
   innerContainer: {
     position: 'relative',
     flex: 1,
@@ -71,14 +49,6 @@ const styles = StyleSheet.create({
     margin: 10,
     marginBottom: 0,
   },
-  appTitle: {
-    marginTop: 100,
-    fontSize: 30,
-    fontWeight: 'bold',
-  },
-  topContent: {
-    marginTop: 100,
-  },
   mainImage: {
     height: 300,
     width: 300,
@@ -86,12 +56,6 @@ const styles = StyleSheet.create({
   },
   mainText: {
     marginTop: 50,
-  },
-  logContainer: {
-    flexGrow: 1,
-    backgroundColor: '#F6F3CF',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
   },
   tableContainer: {
     margin: 8,
@@ -169,10 +133,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginTop: 5,
   },
-  FBMessageContainer: {
-    marginTop: 100,
-    alignItems: 'center',
-  },
+
   buttonWrapper: {
     marginTop: 20,
     width: '50%',
@@ -220,11 +181,6 @@ const styles = StyleSheet.create({
   },
   calenderText: {
     display: 'none',
-  },
-  afterButtonWrapper: {
-    bottom: 80,
-    width: '50%',
-    alignItems: 'center',
   },
   afterPostIcon: {
     height: 300,
@@ -275,7 +231,84 @@ const styles = StyleSheet.create({
 });
 
 export const customStyles = StyleSheet.create(
-  iphoneModel.inch === 5.5
+  iphoneModel.inch === 4.7
+    ? {
+        // all 4.7inch
+
+        strongText: {
+          fontWeight: 'bold',
+          fontSize: 28,
+          top: 40,
+          marginBottom: 40,
+        },
+
+        // Top 4.7inch
+
+        appTitle: {
+          marginTop: 40,
+          fontSize: 30,
+          fontWeight: 'bold',
+        },
+        topBird: {
+          top: 130,
+          left: 85,
+          width: 170,
+          height: 190,
+        },
+        topCage: {
+          width: 350,
+          height: 400,
+          top: -200,
+        },
+
+        // FlyingBird 4.7 inch
+
+        flyingBird: {
+          top: 430,
+          left: 80,
+          width: 180,
+          height: 200,
+          resizeMode: 'contain',
+        },
+        FBCage: {
+          top: -10,
+          width: 350,
+          height: 500,
+        },
+        FBMessageContainer: {
+          marginTop: 40,
+          alignItems: 'center',
+        },
+        FBAfterButtonWrapper: {
+          bottom: 30,
+          width: '50%',
+          alignItems: 'center',
+        },
+
+        // LogView 4,7 inch
+
+        topContent: {
+          marginTop: 70,
+        },
+
+        logContainer: {
+          flexGrow: 1,
+          backgroundColor: '#F6F3CF',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+        },
+
+        // Dictionary 4.7inch
+
+        dict: {
+          top: 50,
+          width: '95%',
+          alignItems: 'center',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+        },
+      }
+    : iphoneModel.inch === 5.5
     ? {
         // all 5.5inch
 
@@ -283,6 +316,7 @@ export const customStyles = StyleSheet.create(
           fontWeight: 'bold',
           fontSize: 28,
           top: 50,
+          marginBottom: 50,
         },
 
         // Top 5.5inch
@@ -316,6 +350,7 @@ export const customStyles = StyleSheet.create(
           fontWeight: 'bold',
           fontSize: 28,
           top: 30,
+          marginBottom: 30,
         },
 
         // Top 6.5inch
@@ -330,6 +365,20 @@ export const customStyles = StyleSheet.create(
           width: 400,
           height: 550,
           top: -260,
+        },
+
+        // Flying Bird 6.5 inch
+
+        flyingBird: {
+          top: 450,
+          left: 100,
+          width: 200,
+          height: 250,
+          resizeMode: 'contain',
+        },
+        FBCage: {
+          width: 400,
+          height: 550,
         },
 
         // Dictionary 6.5inch

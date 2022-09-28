@@ -1,7 +1,7 @@
 import {useEffect, useState, useLayoutEffect} from 'react';
 import {getAllToku} from '../firebase';
 import {View, Text, Image, ImageBackground} from 'react-native';
-import styles from './css';
+import styles, {customStyles} from './css';
 import {Button} from 'react-native-paper';
 import afterViews from './afterLifes';
 // 3プラスで変化
@@ -79,15 +79,16 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
       </>
     );
   }
+
   return (
-    <View style={styles.FBMessageContainer}>
+    <View style={customStyles.FBMessageContainer}>
       <Text style={styles.FBMessage}>🎉🎉おめでとう🎉🎉</Text>
       <Text style={styles.FBMessage}>
         今日世界で<Text style={styles.afterPostCount}>{allTokus}羽</Text>
         の鳥が放たれました。
       </Text>
       {setMessage()}
-      <View style={styles.afterButtonWrapper}>
+      <View style={customStyles.FBAfterButtonWrapper}>
         <Button mode="contained" onPress={() => navigation.goBack()}>
           やったね🙌
         </Button>
