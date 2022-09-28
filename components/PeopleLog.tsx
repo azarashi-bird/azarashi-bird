@@ -147,9 +147,13 @@ export default function PeopleLog() {
   // console.log(preImgIndex, 'PRE');
   // console.log(mainArr[0], 'mainArr');
   return (
-    <ScrollView style={styles.peopleTable}>
+    // <ScrollView style={styles.peopleTable}>
+    <View style={styles.container}>
+      <Button style={styles.myTokuButton} mode="contained" onPress={submit}>
+        自分の徳
+      </Button>
       <Text style={styles.topContent}>みんなの徳</Text>
-      <Button onPress={submit}>reload</Button>
+
       <DataTable style={styles.logs}>
         {preImgIndex.length !== 0 ? (
           mainArr.map((tokuData, index) => {
@@ -157,29 +161,33 @@ export default function PeopleLog() {
             //
             // () => setTargetId(tokuData[0]);
             // console.log({tokuData})
+            // console.log(preImgIndex, "PeopleLog163")
             return (
               <DataTable.Row key={index}>
                 <DataTable.Cell style={{}}>
                   <Image
-                    source={afterViews[preImgIndex[0]][0]}
+                    source={afterViews[preImgIndex[index]][0]}
                     style={styles.icon}></Image>
                 </DataTable.Cell>
                 <DataTable.Cell style={{right: 50}}>
                   {tokuData[0]}
                 </DataTable.Cell>
-                <DataTable.Cell style={{}}>{tokuData[1]}</DataTable.Cell>
+                <DataTable.Cell style={{left: 70}}>
+                  {tokuData[1]}
+                </DataTable.Cell>
               </DataTable.Row>
             );
           })
         ) : (
           <DataTable.Row>
             <DataTable.Cell>画像</DataTable.Cell>
-            <DataTable.Cell>徳</DataTable.Cell>
-            <DataTable.Cell>00/00</DataTable.Cell>
+            <DataTable.Cell style={{right: 50}}>徳</DataTable.Cell>
+            <DataTable.Cell style={{left: 70}}>00/00</DataTable.Cell>
           </DataTable.Row>
         )}
       </DataTable>
-    </ScrollView>
+      {/* </ScrollView> */}
+    </View>
   );
   // }
   //   return <Text>みんなの徳</Text>;
@@ -210,5 +218,10 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     resizeMode: 'contain',
+  },
+  myTokuButton: {
+    left: 100,
+    width: 115,
+    top: 80,
   },
 });
