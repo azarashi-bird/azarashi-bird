@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: '#F6F3CF',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -227,6 +227,24 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginRight: 30,
     textAlign: 'center',
+  },
+  dict: {
+    width: '95%',
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  dictItem: {
+    width: '30%',
+    margin: '1%',
+  },
+  dictItemName: {
+    width: '100%',
+  },
+  dictItemImage: {
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
   },
 });
 
