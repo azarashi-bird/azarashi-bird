@@ -20,7 +20,7 @@ const iphoneModel = iPhoneInch47()
   : iPhoneInch58()
   ? {inch: 5.8, width, height} // iPhone 11 Pro (only ios 15.4, 2022/09/29)
   : iPhoneInch65()
-  ? {inch: 6.5, width, height} // base, done
+  ? {inch: 6.5, width, height} // base(else), iPhone 11 Pro Max
   : null;
 
 console.log('iPhone model:', iphoneModel);
@@ -476,9 +476,15 @@ export const customStyles = StyleSheet.create(
 
         // Top 6.5inch
 
+        appTitle: {
+          marginTop: 60,
+          marginBottom: 10,
+          fontSize: 30,
+          fontWeight: 'bold',
+        },
         topBird: {
           top: 170,
-          left: 90,
+          left: 95,
           width: 200,
           height: 250,
         },
@@ -501,8 +507,30 @@ export const customStyles = StyleSheet.create(
           width: 400,
           height: 550,
         },
+        FBMessageContainer: {
+          marginTop: 40,
+          alignItems: 'center',
+        },
+        FBAfterButtonWrapper: {
+          bottom: 200,
+          width: '50%',
+          alignItems: 'center',
+        },
 
-        // Dictionary 6.5inch
+        // LogView 6.5 inch
+
+        topContent: {
+          marginTop: 70,
+        },
+
+        logContainer: {
+          flexGrow: 1,
+          backgroundColor: '#F6F3CF',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+        },
+
+        // Dictionary 6.5 inch
 
         dict: {
           top: 60,

@@ -54,7 +54,7 @@ const Top = ({navigation}) => {
           {/* {console.log('toku:', toku)} */}
           <TextInput
             mode="outlined"
-            label="input"
+            label="徳を入力してみよう"
             style={styles.input}
             value={toku}
             onChangeText={(Text) => setToku(Text)}
