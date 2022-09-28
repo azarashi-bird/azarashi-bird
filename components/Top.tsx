@@ -37,11 +37,9 @@ const Top = ({navigation}) => {
   const submit = () => {
     setToku('');
     if (toku !== '') {
-      // postToku(toku)
-      //   ? navigation.navigate('FlyingBird', {targetTokus: targetTokus})
-      //   : console.log('post failed!');
-
-      navigation.navigate('FlyingBird', {targetTokus: targetTokus});
+      postToku(toku)
+        ? navigation.navigate('FlyingBird', {targetTokus: targetTokus})
+        : console.log('post failed!');
     } else {
       console.log('input is blank!');
     }
