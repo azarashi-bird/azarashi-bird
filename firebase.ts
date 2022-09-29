@@ -39,7 +39,7 @@ const firestore = firebase.firestore();
 const tokuTable = firestore.collection('toku_table');
 
 const postToku = async (toku) => {
-  console.log('CALLED POSTTOKU');
+  // console.log('CALLED POSTTOKU');
   const uid = auth.currentUser?.uid;
   const value = {
     user_id: uid,
@@ -47,7 +47,7 @@ const postToku = async (toku) => {
     createdAt: new Date(),
   };
   await tokuTable.add(value);
-  //console.log('added to firebase!');
+  console.log('added to firebase!');
 };
 
 const getAllToku = async () => {
@@ -56,7 +56,7 @@ const getAllToku = async () => {
     .orderBy('createdAt', 'asc')
     .get()
     .then((querySnapshot) => {
-      console.log('CALLED GETALLTOKU');
+      // console.log('CALLED GETALLTOKU');
       querySnapshot.forEach((toku) => {
         tokuDiffList.push(toku.data());
       });
@@ -76,8 +76,6 @@ const getNewestToku = async (num) => {
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => {
-        // doc.data() is never undefined for query doc snapshots
-        // console.log(toku.id, ' => ', toku.data());
         tokuList.push(toku.data());
       });
     });
@@ -94,7 +92,6 @@ const getUserToku = async () => {
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
-  // console.log({uid})
   return tokuList;
 };
 
@@ -105,17 +102,15 @@ const getTargetToku = async (userid) => {
     .orderBy('createdAt', 'asc')
     .get()
     .then((querySnapshot) => {
-      console.log('CALLED GETUSERTOKU');
+      // console.log('CALLED GETUSERTOKU');
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
   return tokuList;
 };
 
 const getDailyToku = async () => {
-  console.log('called getDailyToku');
-  //今（Thu Sep 06 2012 09:04:30 GMT+0900）
+  // console.log('called getDailyToku');
   const _d = new Date();
-  //同日の0時0分0秒
   const d = new Date(_d.getFullYear(), _d.getMonth(), _d.getDate(), 0, 0, 0);
   const dailyTokuList = [];
   await tokuTable
@@ -137,7 +132,7 @@ function getLastDate(date) {
 }
 
 const getMonthlyToku = async () => {
-  console.log('CALLED GETMonTHLYTOKU');
+  // console.log('CALLED GETMonTHLYTOKU');
 
   const startDate = getFirstDate(new Date());
   const endDate = getLastDate(new Date());

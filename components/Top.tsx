@@ -75,7 +75,6 @@ const Top = ({navigation}) => {
       <SafeAreaView style={styles.container}>
         <>
           <Text style={customStyles.appTitle}>Birdonation</Text>
-          {/* {console.log('toku:', toku)} */}
           <TextInput
             mode="outlined"
             label="徳を入力してみよう"
