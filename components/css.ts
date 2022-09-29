@@ -64,6 +64,12 @@ const styles = StyleSheet.create({
     width: '50%',
     alignItems: 'center',
   },
+  logContainer: {
+    flexGrow: 1,
+    backgroundColor: '#F6F3CF',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  },
 
   // Top
 
@@ -161,7 +167,7 @@ const styles = StyleSheet.create({
 
   //// calender
   calender: {
-    width: '56%',
+    width: '73%',
     borderWidth: 0,
     borderColor: 'white',
     flexDirection: 'row',
@@ -169,12 +175,11 @@ const styles = StyleSheet.create({
   },
   calenderCell: {
     width: '20%',
-    height: 40,
+    height: 38,
     alignItems: 'center',
     borderRadius: 6,
     borderWidth: 0.8,
     borderColor: 'white',
-    backgroundColor: 'orange',
   },
   calenderCell0: {
     backgroundColor: 'blue',

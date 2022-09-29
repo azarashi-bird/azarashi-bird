@@ -55,9 +55,9 @@ const postToku = async (toku) => {
     toku: toku,
     createdAt: new Date(),
   };
-  console.log(value, 'postTokuValue');
+  //console.log(value, 'postTokuValue');
   await tokuTable.add(value);
-  console.log('added to firebase!');
+  //console.log('added to firebase!');
 };
 
 /* 
