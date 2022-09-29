@@ -49,7 +49,6 @@ export default function LogView() {
         )}
 
         <Calender />
-
       </ScrollView>
     </SafeAreaView>
   );

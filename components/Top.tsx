@@ -6,7 +6,7 @@ import {Button} from 'react-native-paper';
 import styles, {customStyles} from './css';
 import {Suggest} from './Suggest';
 import {useState, useEffect} from 'react';
-import {postToku, getUserToku} from '../firebase';
+import {postToku, getUserToku, getDailyToku} from '../firebase';
 import {useIsFocused} from '@react-navigation/native';
 
 // import {
@@ -20,13 +20,27 @@ const Top = ({navigation}) => {
   const [toku, setToku] = useState('');
   const [targetTokus, setTargetTokus] = useState(0);
 
+  const [dailyTokusCount, setDailyTokusCount] = useState(0); // とり飛ばした後のカウント表示用
+
+  const getDailyTokuCount = async () => {
+    if (dailyTokusCount === 0) {
+      const dailyTokus = await getDailyToku();
+      setDailyTokusCount(dailyTokus.length - 1);
+    }
+  };
+
   useEffect(() => {
+    // getUserTokuLengthは、userTable作ってあげれば読み込み節約できる気がする
     const getUserTokuLength = async () => {
       const userTokus = await getUserToku();
       const tokuLength = userTokus.length;
       setTargetTokus(tokuLength);
     };
-    getUserTokuLength();
+
+    if (isFocused) {
+      getUserTokuLength();
+      getDailyTokuCount();
+    }
   }, [isFocused]);
 
   const focus = () => {
@@ -45,8 +59,12 @@ const Top = ({navigation}) => {
   const submit = () => {
     setToku('');
     if (toku !== '') {
+      setDailyTokusCount(dailyTokusCount + 1);
       postToku(toku)
-        ? navigation.navigate('FlyingBird', {targetTokus: targetTokus})
+        ? navigation.navigate('FlyingBird', {
+            targetTokus: targetTokus,
+            dailyTokusCount: dailyTokusCount,
+          })
         : console.log('post failed!');
     } else {
       sendAlert();

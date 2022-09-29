@@ -1,5 +1,3 @@
-import {useEffect, useState, useLayoutEffect} from 'react';
-import {getAllToku} from '../firebase';
 import {View, Text, Image, ImageBackground} from 'react-native';
 import styles, {customStyles} from './css';
 import {Button} from 'react-native-paper';

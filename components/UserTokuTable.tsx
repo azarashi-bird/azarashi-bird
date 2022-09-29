@@ -3,8 +3,8 @@ import {DataTable, Text, Button} from 'react-native-paper';
 import {Provider as PaperProvider, TextInput, Card} from 'react-native-paper';
 import afterViews from './afterLifes';
 
-export default function UserTokutable({targetTokus}) {
-  const ImgIndex = Math.floor((targetTokus.length % 45) / 3);
+export default function UserTokutable({userTokus}) {
+  const ImgIndex = Math.floor((userTokus.length % 45) / 3);
   return (
     <ScrollView style={styles.tableContainer}>
       <DataTable>
@@ -15,8 +15,8 @@ export default function UserTokutable({targetTokus}) {
           <DataTable.Cell style={styles.cellB}>徳</DataTable.Cell>
           <DataTable.Cell style={styles.cellC}>日付</DataTable.Cell>
         </DataTable.Row>
-        {targetTokus.length !== 0 ? (
-          targetTokus.map((arr, index) => {
+        {userTokus.length !== 0 ? (
+          userTokus.map((arr, index) => {
             return (
               <DataTable.Row key={index}>
                 <DataTable.Cell style={styles.cellA}></DataTable.Cell>
