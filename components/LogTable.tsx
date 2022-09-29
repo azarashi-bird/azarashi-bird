@@ -9,6 +9,7 @@ import afterViews from './afterLifes';
 export default function LogView({navigation, route}) {
   const userTokus = route.params.targetTokus;
 
+  /* PeopleLogのtargetTokusでこの処理を実行
   const tokusArray = userTokus.map((obj) => {
     const array = [];
     array.push(obj.toku);
@@ -20,6 +21,7 @@ export default function LogView({navigation, route}) {
     array.push(formatted);
     return array;
   });
+  */
   const countTokus = userTokus.length;
   const imgIndex = Math.floor((countTokus % 45) / 3);
 

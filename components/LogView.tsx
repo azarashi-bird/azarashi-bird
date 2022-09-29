@@ -56,10 +56,10 @@ export default function LogView() {
         style={styles.mainImage}></Image> */}
 
         <Calender />
-        <Text style={styles.mainText} variant="titleLarge">
+        {/* <Text style={styles.mainText} variant="titleLarge">
           あなたの徳　
-          <Text style={styles.strongText}>{userTokus.length}</Text>徳
-        </Text>
+          <Text style={customStyles.strongText}>{userTokus.length}</Text>徳
+        </Text> */}
       </ScrollView>
     </SafeAreaView>
   );

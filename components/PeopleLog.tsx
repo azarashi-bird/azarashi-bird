@@ -5,6 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   Image,
+  View,
 } from 'react-native';
 
 import {Text} from 'react-native-paper';
@@ -14,6 +15,8 @@ import {useIsFocused} from '@react-navigation/native';
 import afterViews from './afterLifes';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/native';
+import PeopleTable from './PeopleTable';
+import UserTokutable from './UserTokuTable';
 // import styles from './css';
 // まだ独自のスタイル設定！！
 
@@ -26,6 +29,7 @@ export default function PeopleLog() {
   const [preImgIndex, setPreIndex] = useState([]);
   const [targetId, setTargetId] = useState([]);
   const [mainArr, setMainArr] = useState([]);
+  const [isAnyTokus, setIsAnyTokus] = useState('allToku');
   const navigation = useNavigation();
   // const [action, setAction] = useState(false);
   // const samplePeople = [
@@ -54,7 +58,18 @@ export default function PeopleLog() {
     // userList(); 移動
     const targetList = async () => {
       const allTargetDatas = await getUserToku();
-      setTargetTokus(allTargetDatas);
+      const fullArray = allTargetDatas.map((obj) => {
+        const array = [];
+        array.push(obj.toku);
+
+        const date = obj.createdAt.toDate();
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const formatted = ` ${month}/${day}`;
+        array.push(formatted);
+        return array;
+      });
+      setTargetTokus(fullArray);
     };
     // allList();
     // targetList(); 移動
@@ -146,52 +161,44 @@ export default function PeopleLog() {
     allSet();
   }, [isFocused]);
 
-  const submit = () => {
-    navigation.navigate('LogTable', {targetTokus: targetTokus});
-  };
+  // const submit = () => {
+  //   navigation.navigate('LogTable', {targetTokus: targetTokus});
+  // };
+
+  // let isAnyTokus = "allToku"
 
   // if (preImgIndex.length !== 0) {
   // console.log(preImgIndex, 'PRE');
   // console.log(mainArr[0], 'mainArr');
   return (
     <SafeAreaView style={styles.container}>
-      <Button style={styles.myTokuButton} mode="contained" onPress={submit}>
+      {/* <Button style={styles.myTokuButton} mode="contained" onPress={submit}>
         自分の徳
-      </Button>
-      <Text style={styles.topContent}>みんなの徳</Text>
-
-      <DataTable style={styles.logs}>
-        {preImgIndex.length !== 0 ? (
-          mainArr.map((tokuData, index) => {
-            // re-renderをアロー関数で回避...できてないので、どうにかする。
-            //
-            // () => setTargetId(tokuData[0]);
-            // console.log({tokuData})
-            // console.log(preImgIndex, "PeopleLog163")
-            return (
-              <DataTable.Row key={index}>
-                <DataTable.Cell style={{}}>
-                  <Image
-                    source={afterViews[preImgIndex[index]][0]}
-                    style={styles.icon}></Image>
-                </DataTable.Cell>
-                <DataTable.Cell style={{right: 50}}>
-                  {tokuData[0]}
-                </DataTable.Cell>
-                <DataTable.Cell style={{left: 70}}>
-                  {tokuData[1]}
-                </DataTable.Cell>
-              </DataTable.Row>
-            );
-          })
+      </Button> */}
+      <View style={{top: 80}}>
+        <Text style={styles.topText}>徳ろぐ</Text>
+        <View style={styles.tabView}>
+          <Text
+            style={styles.allToku}
+            onPress={() => {
+              setIsAnyTokus('allToku');
+            }}>
+            みんなの徳
+          </Text>
+          <Text
+            style={styles.ownToku}
+            onPress={() => {
+              setIsAnyTokus('ownToku');
+            }}>
+            じぶんの徳
+          </Text>
+        </View>
+        {isAnyTokus === 'allToku' ? (
+          <PeopleTable preImgIndex={preImgIndex} mainArr={mainArr} />
         ) : (
-          <DataTable.Row>
-            <DataTable.Cell>画像</DataTable.Cell>
-            <DataTable.Cell style={{right: 50}}>徳</DataTable.Cell>
-            <DataTable.Cell style={{left: 70}}>00/00</DataTable.Cell>
-          </DataTable.Row>
+          <UserTokutable targetTokus={targetTokus} />
         )}
-      </DataTable>
+      </View>
     </SafeAreaView>
   );
   // }
@@ -206,7 +213,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'flex-start',
   },
   topContent: {
-    marginTop: 100,
+    // marginTop: 100,
     marginBottom: 10,
     textAlign: 'center',
     fontSize: 30,
@@ -217,7 +224,8 @@ const styles = StyleSheet.create({
   logs: {
     backgroundColor: '#FFFF',
     width: 350,
-    margin: 20,
+    marginLeft: 20,
+    marginRight: 20,
   },
   icon: {
     width: 40,
@@ -227,6 +235,36 @@ const styles = StyleSheet.create({
   myTokuButton: {
     left: 100,
     width: 115,
-    top: 80,
+    // top: 80,
+  },
+  allToku: {
+    backgroundColor: 'white',
+    width: 175,
+    height: 40,
+    borderRadius: 10,
+    overflow: 'hidden',
+    padding: 10,
+    textAlign: 'center',
+    fontSize: 20,
+  },
+  ownToku: {
+    backgroundColor: 'orange',
+    width: 175,
+    height: 40,
+    borderRadius: 10,
+    overflow: 'hidden',
+    padding: 10,
+    textAlign: 'center',
+    fontSize: 20,
+  },
+  topText: {
+    fontSize: 30,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  tabView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
