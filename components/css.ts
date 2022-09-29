@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
 
   //// calender
   calender: {
-    width: '65%',
+    width: '56%',
     borderWidth: 0,
     borderColor: 'white',
     flexDirection: 'row',
@@ -169,34 +169,30 @@ const styles = StyleSheet.create({
   },
   calenderCell: {
     width: '20%',
-    height: 46,
+    height: 40,
     alignItems: 'center',
     borderRadius: 6,
     borderWidth: 0.8,
     borderColor: 'white',
+    backgroundColor: 'orange',
   },
   calenderCell0: {
     backgroundColor: 'blue',
     opacity: 0.03,
   },
   calenderCell1: {
-    backgroundColor: 'orange',
     opacity: 0.2,
   },
   calenderCell2: {
-    backgroundColor: 'orange',
     opacity: 0.3,
   },
   calenderCell3: {
-    backgroundColor: 'orange',
     opacity: 0.4,
   },
   calenderCell4: {
-    backgroundColor: 'orange',
     opacity: 0.5,
   },
   calenderCell5: {
-    backgroundColor: 'orange',
     opacity: 0.6,
   },
   calenderText: {
@@ -236,6 +232,52 @@ const styles = StyleSheet.create({
     color: '#0782F9',
     fontWeight: '700',
     fontSize: 16,
+  },
+  //modal
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 18,
+    padding: 35,
+    opacity: 0.98,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalbutton: {
+    borderRadius: 13,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonClose: {
+    backgroundColor: 'orange',
+    opacity: 0.8,
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  modalText2: {
+    marginBottom: 15,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 
