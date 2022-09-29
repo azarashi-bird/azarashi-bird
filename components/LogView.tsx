@@ -1,10 +1,9 @@
-import {StyleSheet, View, Image, ScrollView} from 'react-native';
+import {SafeAreaView, Image} from 'react-native';
 import {Text} from 'react-native-paper';
-import LogTable from './LogTable';
-import styles from './css';
+import styles, {customStyles} from './css';
 import afterViews from './afterLifes';
 import {getUserToku} from '../firebase';
-import {useEffect, useState} from 'react';
+import {useState, useLayoutEffect} from 'react';
 import {useIsFocused} from '@react-navigation/native';
 import Calender from './Calender';
 
@@ -15,34 +14,39 @@ userTokus.length % 15でエラーが出る人は、とりあえず5などベタ�
 
 export default function LogView() {
   const [userTokus, setUserTokus] = useState([]);
+  const [userLength, setUserLength] = useState(-1);
   const isFocused = useIsFocused();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const getUserTokus = async () => {
       const dataOfTokus = await getUserToku();
       setUserTokus(dataOfTokus);
+      setUserLength(dataOfTokus.length);
     };
     getUserTokus();
   }, [isFocused]);
-  // console.log({userTokus});
 
   return (
-    <ScrollView contentContainerStyle={styles.logContainer}>
-      <Text style={styles.topContent} variant="titleLarge">
+    <SafeAreaView style={styles.container}>
+      <Text style={customStyles.topContent} variant="titleLarge">
         あなたの来世
       </Text>
-      <Text style={styles.strongText}>
-        {afterViews[Math.floor((userTokus.length % 45) / 3)][1]}
-      </Text>
-      <Image
-        source={afterViews[Math.floor((userTokus.length % 45) / 3)][0]}
-        style={styles.mainImage}></Image>
+      {userLength < 0 ? (
+        <>
+          <Text style={{color: '#F6F3CF', height: 330}}>でも</Text>
+        </>
+      ) : (
+        <>
+          <Text style={customStyles.strongText}>
+            {afterViews[Math.floor((userLength % 45) / 3)][1]}
+          </Text>
+          <Image
+            source={afterViews[Math.floor((userLength % 45) / 3)][0]}
+            style={styles.mainImage}
+          />
+        </>
+      )}
       <Calender />
-      {/* <Text style={styles.mainText} variant="titleLarge">
-        あなたの徳　
-        <Text style={styles.strongText}>{userTokus.length}</Text>徳
-      </Text>
-      <LogTable userTokus={userTokus} /> */}
-    </ScrollView>
+    </SafeAreaView>
   );
 }

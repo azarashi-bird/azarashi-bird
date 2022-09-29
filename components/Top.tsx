@@ -1,9 +1,9 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View, Image} from 'react-native';
 import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import {Button} from 'react-native-paper';
-import styles from './css';
+import styles, {customStyles} from './css';
 import {Suggest} from './Suggest';
 import {useState, useEffect} from 'react';
 import {postToku, getUserToku} from '../firebase';
@@ -46,13 +46,13 @@ const Top = ({navigation}) => {
   };
   return (
     <PaperProvider>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <>
-          <Text style={styles.appTitle}>Birdonation</Text>
+          <Text style={customStyles.appTitle}>Birdonation</Text>
           {/* {console.log('toku:', toku)} */}
           <TextInput
             mode="outlined"
-            label="input"
+            label="徳を入力してみよう"
             style={styles.input}
             value={toku}
             onChangeText={(Text) => setToku(Text)}
@@ -70,17 +70,17 @@ const Top = ({navigation}) => {
               <View style={styles.innerContainer}>
                 <Image
                   source={require('../assets/homePage/bird.gif')}
-                  style={styles.topBird}
+                  style={customStyles.topBird}
                 />
                 <Image
                   source={require('../assets/homePage/cage.png')}
-                  style={styles.topCage}
+                  style={customStyles.topCage}
                 />
               </View>
             </>
           )}
         </>
-      </View>
+      </SafeAreaView>
     </PaperProvider>
   );
 };

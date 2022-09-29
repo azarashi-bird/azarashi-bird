@@ -7,7 +7,7 @@ import {
   Image,
 } from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
-import styles from './css';
+import styles, {customStyles} from './css';
 import AfterFlying from './AfterFlying';
 import {getAllToku} from '../firebase';
 
@@ -67,12 +67,15 @@ const FlyingBird = ({navigation, route}) => {
                 <Animated.Image
                   source={flyingImg}
                   style={[
-                    {...styles.bird, transform: [{translateY: altitude}]},
+                    {
+                      ...customStyles.flyingBird,
+                      transform: [{translateY: altitude}],
+                    },
                   ]}
                 />
                 <Image
                   source={require('../assets/homePage/cage.png')}
-                  style={styles.cage}
+                  style={customStyles.FBCage}
                 />
               </View>
             </>
