@@ -22,6 +22,10 @@ export default function Calender() {
 
   //calenderData
   let calenderData = Array(30).fill(0);
+  let calenderData2 = [
+    0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0,
+    1, 2, 3, 4, 5,
+  ];
 
   monthlyTokus.forEach((toku) => {
     calenderData[toku.createdAt.toDate().getDate() - 1]++;
@@ -61,7 +65,7 @@ export default function Calender() {
       <Text style={{fontSize: 21, marginBottom: 5}}>徳積みの記録</Text>
 
       <View style={s.calender}>
-        {calenderData.map((elem, index) => (
+        {calenderData2.map((elem, index) => (
           <Pressable
             onPress={() => {
               openModal();
@@ -69,11 +73,13 @@ export default function Calender() {
               setChosenToku(filteredToku(index + 1));
             }}
             key={index}
-            style={[s.calenderCell, elem <= 5 ? styleArr[elem] : styleArr[5]]}>
-            <Text>{index}</Text>
-          </Pressable>
+            style={[
+              s.calenderCell,
+              elem <= 5 ? styleArr[elem] : styleArr[5],
+            ]}></Pressable>
         ))}
       </View>
+
       <View>
         <Modal animationType="none" transparent={true} visible={modalVisible}>
           <View style={s.centeredView}>
