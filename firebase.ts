@@ -72,13 +72,16 @@ onPress={() => test()}
 */
 const getAllToku = async () => {
   const tokuList = [];
-  await tokuTable.get().then((querySnapshot) => {
-    querySnapshot.forEach((toku) => {
-      // doc.data() is never undefined for query doc snapshots
-      // console.log(toku.id, ' => ', toku.data());
-      tokuList.push(toku.data());
+  await tokuTable
+    .orderBy('createdAt', 'asc')
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((toku) => {
+        // doc.data() is never undefined for query doc snapshots
+        // console.log(toku.id, ' => ', toku.data());
+        tokuList.push(toku.data());
+      });
     });
-  });
   return tokuList;
 };
 
@@ -93,6 +96,7 @@ const getUserToku = async () => {
   const tokuList = [];
   await tokuTable
     .where('user_id', '==', uid)
+    .orderBy('createdAt', 'asc')
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
@@ -105,6 +109,7 @@ const getTargetToku = async (userid) => {
   const tokuList = [];
   await tokuTable
     .where('user_id', '==', userid)
+    .orderBy('createdAt', 'asc')
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
