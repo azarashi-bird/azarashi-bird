@@ -6,9 +6,10 @@ import {
   StyleSheet,
   Image,
   View,
+  Text,
 } from 'react-native';
 
-import {Text} from 'react-native-paper';
+// import {Text} from 'react-native-paper';
 import {DataTable, Button} from 'react-native-paper';
 import {getAllToku, getUserToku, getTargetToku} from '../firebase';
 import {useIsFocused} from '@react-navigation/native';
@@ -31,12 +32,7 @@ export default function PeopleLog() {
   const [mainArr, setMainArr] = useState([]);
   const [isAnyTokus, setIsAnyTokus] = useState('allToku');
   const navigation = useNavigation();
-  // const [action, setAction] = useState(false);
-  // const samplePeople = [
-  //   ['img', 'username', '犬を助けた', '06/12'],
-  //   ['img2', 'Moomin', '帽子を見つけてあげた', '06/10'],
-  //   ['img3', 'Sloth', '苗を植えた', '06/01'],
-  // ];
+
   useLayoutEffect(() => {
     const allList = async () => {
       const allUserDatas = await getAllToku();
@@ -161,21 +157,9 @@ export default function PeopleLog() {
     allSet();
   }, [isFocused]);
 
-  // const submit = () => {
-  //   navigation.navigate('LogTable', {targetTokus: targetTokus});
-  // };
-
-  // let isAnyTokus = "allToku"
-
-  // if (preImgIndex.length !== 0) {
-  // console.log(preImgIndex, 'PRE');
-  // console.log(mainArr[0], 'mainArr');
   return (
     <SafeAreaView style={styles.container}>
-      {/* <Button style={styles.myTokuButton} mode="contained" onPress={submit}>
-        自分の徳
-      </Button> */}
-      <View style={{top: 80}}>
+      <View style={styles.topView}>
         <Text style={styles.topText}>徳ろぐ</Text>
         <View style={styles.tabView}>
           <Text
@@ -201,41 +185,18 @@ export default function PeopleLog() {
       </View>
     </SafeAreaView>
   );
-  // }
-  //   return <Text>みんなの徳</Text>;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F6F3CF',
-    // alignItems: 'center',
-    // justifyContent: 'flex-start',
   },
-  topContent: {
-    // marginTop: 100,
-    marginBottom: 10,
-    textAlign: 'center',
-    fontSize: 30,
+  topView: {
+    top: 80,
   },
   peopleTable: {
     backgroundColor: '#F6F3CF',
-  },
-  logs: {
-    backgroundColor: '#FFFF',
-    width: 350,
-    marginLeft: 20,
-    marginRight: 20,
-  },
-  icon: {
-    width: 40,
-    height: 40,
-    resizeMode: 'contain',
-  },
-  myTokuButton: {
-    left: 100,
-    width: 115,
-    // top: 80,
   },
   allToku: {
     backgroundColor: 'white',
@@ -248,7 +209,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   ownToku: {
-    backgroundColor: 'orange',
+    backgroundColor: '#fddea5',
     width: 175,
     height: 40,
     borderRadius: 10,
