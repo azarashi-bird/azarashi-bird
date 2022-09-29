@@ -1,6 +1,6 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {StatusBar} from 'expo-status-bar';
-import {SafeAreaView, StyleSheet, Text, View, Image} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View, Image, Alert} from 'react-native';
 import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import {Button} from 'react-native-paper';
 import styles, {customStyles} from './css';
@@ -33,6 +33,14 @@ const Top = ({navigation}) => {
     setIsEntering(!isEntering);
   };
   const bluer = () => setIsEntering(!isEntering);
+  const sendAlert = () => {
+    Alert.alert('Error: blank', '徳を入力してください', [
+      {
+        text: 'OK',
+        onPress: () => console.log(''),
+      },
+    ]);
+  };
 
   const submit = () => {
     setToku('');
@@ -41,7 +49,7 @@ const Top = ({navigation}) => {
         ? navigation.navigate('FlyingBird', {targetTokus: targetTokus})
         : console.log('post failed!');
     } else {
-      console.log('input is blank!');
+      sendAlert();
     }
   };
   return (
