@@ -64,6 +64,12 @@ const styles = StyleSheet.create({
     width: '50%',
     alignItems: 'center',
   },
+  logContainer: {
+    flexGrow: 1,
+    backgroundColor: '#F6F3CF',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  },
 
   // Top
 
@@ -161,7 +167,7 @@ const styles = StyleSheet.create({
 
   //// calender
   calender: {
-    width: '65%',
+    width: '73%',
     borderWidth: 0,
     borderColor: 'white',
     flexDirection: 'row',
@@ -169,38 +175,29 @@ const styles = StyleSheet.create({
   },
   calenderCell: {
     width: '20%',
-    height: 46,
+    height: 38,
     alignItems: 'center',
     borderRadius: 6,
     borderWidth: 0.8,
     borderColor: 'white',
   },
   calenderCell0: {
-    backgroundColor: 'blue',
-    opacity: 0.03,
+    backgroundColor: 'rgba(0,0,255,0.05)',
   },
   calenderCell1: {
-    backgroundColor: 'orange',
-    opacity: 0.2,
+    backgroundColor: 'rgba(252,174,30,0.2)',
   },
   calenderCell2: {
-    backgroundColor: 'orange',
-    opacity: 0.3,
+    backgroundColor: 'rgba(252,174,30,0.3)',
   },
   calenderCell3: {
-    backgroundColor: 'orange',
-    opacity: 0.4,
+    backgroundColor: 'rgba(252,174,30,0.4)',
   },
   calenderCell4: {
-    backgroundColor: 'orange',
-    opacity: 0.5,
+    backgroundColor: 'rgba(252,174,30,0.5)',
   },
   calenderCell5: {
-    backgroundColor: 'orange',
-    opacity: 0.6,
-  },
-  calenderText: {
-    display: 'none',
+    backgroundColor: 'rgba(252,174,30,0.6)',
   },
 
   // People
@@ -236,6 +233,52 @@ const styles = StyleSheet.create({
     color: '#0782F9',
     fontWeight: '700',
     fontSize: 16,
+  },
+  //modal
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 18,
+    padding: 35,
+    opacity: 0.98,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalbutton: {
+    borderRadius: 13,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonClose: {
+    backgroundColor: 'orange',
+    opacity: 0.8,
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  modalText2: {
+    marginBottom: 15,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 
@@ -315,6 +358,7 @@ export const customStyles = StyleSheet.create(
           alignItems: 'center',
           flexDirection: 'row',
           flexWrap: 'wrap',
+          paddingBottom: 120,
         },
       }
     : iphoneModel.inch === 5.5
@@ -393,6 +437,7 @@ export const customStyles = StyleSheet.create(
           alignItems: 'center',
           flexDirection: 'row',
           flexWrap: 'wrap',
+          paddingBottom: 120,
         },
       }
     : iphoneModel.inch === 5.8
@@ -471,6 +516,7 @@ export const customStyles = StyleSheet.create(
           alignItems: 'center',
           flexDirection: 'row',
           flexWrap: 'wrap',
+          paddingBottom: 120,
         },
       }
     : {
@@ -547,6 +593,7 @@ export const customStyles = StyleSheet.create(
           alignItems: 'center',
           flexDirection: 'row',
           flexWrap: 'wrap',
+          paddingBottom: 120,
         },
       }
 );

@@ -47,17 +47,20 @@ const postToku = async (toku) => {
     createdAt: new Date(),
   };
   await tokuTable.add(value);
-  console.log('added to firebase!');
+  //console.log('added to firebase!');
 };
 
 const getAllToku = async () => {
   const tokuDiffList = [];
-  await tokuTable.get().then((querySnapshot) => {
-    console.log('CALLED GETALLTOKU');
-    querySnapshot.forEach((toku) => {
-      tokuDiffList.push(toku.data());
+  await tokuTable
+    .orderBy('createdAt', 'asc')
+    .get()
+    .then((querySnapshot) => {
+      console.log('CALLED GETALLTOKU');
+      querySnapshot.forEach((toku) => {
+        tokuDiffList.push(toku.data());
+      });
     });
-  });
   return tokuDiffList;
 };
 
@@ -66,6 +69,20 @@ const getUserToku = async () => {
   const tokuList = [];
   await tokuTable
     .where('user_id', '==', uid)
+    .orderBy('createdAt', 'asc')
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((toku) => tokuList.push(toku.data()));
+    });
+  // console.log({uid})
+  return tokuList;
+};
+
+const getTargetToku = async (userid) => {
+  const tokuList = [];
+  await tokuTable
+    .where('user_id', '==', userid)
+    .orderBy('createdAt', 'asc')
     .get()
     .then((querySnapshot) => {
       console.log('CALLED GETUSERTOKU');
@@ -126,4 +143,5 @@ export {
   getUserToku,
   getMonthlyToku,
   getDailyToku,
+  getTargetToku,
 };
