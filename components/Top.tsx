@@ -6,7 +6,7 @@ import {Button} from 'react-native-paper';
 import styles, {customStyles} from './css';
 import {Suggest} from './Suggest';
 import {useState, useEffect} from 'react';
-import {postToku, getUserToku} from '../firebase';
+import {postToku, getUserToku, getDailyToku} from '../firebase';
 import {useIsFocused} from '@react-navigation/native';
 
 // import {
@@ -16,18 +16,37 @@ import {useIsFocused} from '@react-navigation/native';
 
 const Top = ({navigation}) => {
   const isFocused = useIsFocused();
+  const [beTrue, setBeTrue] = useState(0); // isFocusedをtrueになった時だけ発火させる
   const [isEntering, setIsEntering] = useState(false);
   const [toku, setToku] = useState('');
   const [targetTokus, setTargetTokus] = useState(0);
 
+  const [dailyTokusCount, setDailyTokusCount] = useState(0); // とり飛ばした後のカウント表示用
+
+  const getDailyTokuCount = async () => {
+    if (dailyTokusCount === 0) {
+      const dailyTokus = await getDailyToku();
+      setDailyTokusCount(dailyTokus.length - 1);
+    }
+  };
+
   useEffect(() => {
+    if (isFocused) {
+      setBeTrue(beTrue + 1);
+    }
+  }, [isFocused]);
+
+  useEffect(() => {
+    // getUserTokuLengthは、userTable作ってあげれば読み込み節約できる気がする
     const getUserTokuLength = async () => {
       const userTokus = await getUserToku();
       const tokuLength = userTokus.length;
+      console.log(targetTokus, 'TARGET TOKUS TOP 27');
       setTargetTokus(tokuLength);
     };
     getUserTokuLength();
-  }, [isFocused]);
+    getDailyTokuCount();
+  }, [beTrue]);
 
   const focus = () => {
     setIsEntering(!isEntering);
@@ -37,8 +56,12 @@ const Top = ({navigation}) => {
   const submit = () => {
     setToku('');
     if (toku !== '') {
+      setDailyTokusCount(dailyTokusCount + 1);
       postToku(toku)
-        ? navigation.navigate('FlyingBird', {targetTokus: targetTokus})
+        ? navigation.navigate('FlyingBird', {
+            targetTokus: targetTokus,
+            dailyTokusCount: dailyTokusCount,
+          })
         : console.log('post failed!');
     } else {
       console.log('input is blank!');

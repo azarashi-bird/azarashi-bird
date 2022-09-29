@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useLayoutEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   Animated,
@@ -9,25 +9,15 @@ import {
 import {Provider as PaperProvider} from 'react-native-paper';
 import styles, {customStyles} from './css';
 import AfterFlying from './AfterFlying';
-import {getDailyToku} from '../firebase';
 
 const FlyingBird = ({navigation, route}) => {
   const altitude = useState(new Animated.Value(0))[0];
   const [isFlied, setIsFlied] = useState(false);
   const tokuCount = route.params.targetTokus + 1;
-  const [dailyTokusCount, setDailyTokusCount] = useState(0);
+  const dailyTokusCount = route.params.dailyTokusCount;
   const [flyingImg, setFlyingImg] = useState(
     require('../assets/homePage/bird.gif')
   );
-
-  const getDailyTokuCount = async () => {
-    // if (dailyTokusCount === 0) {
-    const dailyTokus = await getDailyToku();
-    setDailyTokusCount(dailyTokus.length);
-    // } else {
-    //   setDailyTokusCount(dailyTokusCount + 1);
-    // }
-  };
 
   useEffect(() => {
     if (tokuCount % 3 !== 0) {
@@ -35,8 +25,6 @@ const FlyingBird = ({navigation, route}) => {
     } else {
       setFlyingImg(require('../assets/homePage/mazuru-1.gif'));
     }
-    console.log(dailyTokusCount, 'DAILYTOKU COUNNT');
-    getDailyTokuCount();
   }, []);
 
   useEffect(() => {
