@@ -64,6 +64,26 @@ const getAllToku = async () => {
   return tokuDiffList;
 };
 
+/*
+  getNewestToku 引数の数最新の徳を取得する
+*/
+
+const getNewestToku = async (num) => {
+  const tokuList = [];
+  await tokuTable
+    .orderBy('createdAt', 'asc')
+    .limit(num)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((toku) => {
+        // doc.data() is never undefined for query doc snapshots
+        // console.log(toku.id, ' => ', toku.data());
+        tokuList.push(toku.data());
+      });
+    });
+  return tokuList;
+};
+
 const getUserToku = async () => {
   const uid = auth.currentUser?.uid;
   const tokuList = [];
@@ -144,4 +164,5 @@ export {
   getMonthlyToku,
   getDailyToku,
   getTargetToku,
+  getNewestToku,
 };

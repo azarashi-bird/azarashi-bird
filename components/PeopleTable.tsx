@@ -3,12 +3,12 @@ import {DataTable, Text, Button} from 'react-native-paper';
 import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import afterViews from './afterLifes';
 
-export default function PeopleTable({preImgIndex, mainArr}) {
+export default function PeopleTable({imgIndexArr, allTokus}) {
   return (
     <ScrollView style={styles.tableContainer}>
       <DataTable style={styles.logs}>
-        {preImgIndex.length !== 0 ? (
-          mainArr.map((tokuData, index) => {
+        {imgIndexArr.length !== 0 ? (
+          allTokus.map((tokuData, index) => {
             // re-renderをアロー関数で回避...できてないので、どうにかする。
             //
             // () => setTargetId(tokuData[0]);
@@ -18,7 +18,7 @@ export default function PeopleTable({preImgIndex, mainArr}) {
               <DataTable.Row key={index}>
                 <DataTable.Cell style={styles.cellD}>
                   <Image
-                    source={afterViews[preImgIndex[index]][0]}
+                    source={afterViews[imgIndexArr[index]][0]}
                     style={styles.icon}></Image>
                 </DataTable.Cell>
                 <DataTable.Cell style={styles.cellE}>

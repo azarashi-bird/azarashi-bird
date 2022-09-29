@@ -16,7 +16,6 @@ import {useIsFocused} from '@react-navigation/native';
 
 const Top = ({navigation}) => {
   const isFocused = useIsFocused();
-  const [beTrue, setBeTrue] = useState(0); // isFocusedをtrueになった時だけ発火させる
   const [isEntering, setIsEntering] = useState(false);
   const [toku, setToku] = useState('');
   const [targetTokus, setTargetTokus] = useState(0);
@@ -31,22 +30,18 @@ const Top = ({navigation}) => {
   };
 
   useEffect(() => {
-    if (isFocused) {
-      setBeTrue(beTrue + 1);
-    }
-  }, [isFocused]);
-
-  useEffect(() => {
     // getUserTokuLengthは、userTable作ってあげれば読み込み節約できる気がする
     const getUserTokuLength = async () => {
       const userTokus = await getUserToku();
       const tokuLength = userTokus.length;
-      console.log(targetTokus, 'TARGET TOKUS TOP 27');
       setTargetTokus(tokuLength);
     };
-    getUserTokuLength();
-    getDailyTokuCount();
-  }, [beTrue]);
+
+    if (isFocused) {
+      getUserTokuLength();
+      getDailyTokuCount();
+    }
+  }, [isFocused]);
 
   const focus = () => {
     setIsEntering(!isEntering);
