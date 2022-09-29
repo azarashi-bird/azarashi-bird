@@ -15,23 +15,28 @@ const FlyingBird = ({navigation, route}) => {
   const altitude = useState(new Animated.Value(0))[0];
   const [isFlied, setIsFlied] = useState(false);
   const tokuCount = route.params.targetTokus + 1;
-  const [allTokus, setAllTokus] = useState(0);
+  const [dailyTokusCount, setDailyTokusCount] = useState(0);
   const [flyingImg, setFlyingImg] = useState(
     require('../assets/homePage/bird.gif')
   );
 
-  const getALlUsersToku = async () => {
+  const getDailyTokuCount = async () => {
+    // if (dailyTokusCount === 0) {
     const dailyTokus = await getDailyToku();
-    setAllTokus(dailyTokus.length);
+    setDailyTokusCount(dailyTokus.length);
+    // } else {
+    //   setDailyTokusCount(dailyTokusCount + 1);
+    // }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (tokuCount % 3 !== 0) {
       setFlyingImg(require('../assets/homePage/bird.gif'));
     } else {
       setFlyingImg(require('../assets/homePage/mazuru-1.gif'));
     }
-    getALlUsersToku();
+    console.log(dailyTokusCount, 'DAILYTOKU COUNNT');
+    getDailyTokuCount();
   }, []);
 
   useEffect(() => {
@@ -72,7 +77,7 @@ const FlyingBird = ({navigation, route}) => {
           ) : (
             <AfterFlying
               navigation={navigation}
-              allTokus={allTokus}
+              allTokus={dailyTokusCount}
               tokuCount={tokuCount}
             />
           )}
