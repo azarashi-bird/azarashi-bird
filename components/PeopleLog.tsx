@@ -35,7 +35,7 @@ export default function PeopleLog() {
 
   useLayoutEffect(() => {
     const allList = async () => {
-      const allUserDatas = await getNewestToku(10);
+      const allUserDatas = await getNewestToku(20);
       // const shortList = allUserDatas.slice(0, 10);
       // console.log(shortList.length, 'NUM, 29');
       // console.log(shortList, 'NUM2, 41');OK
@@ -72,7 +72,7 @@ export default function PeopleLog() {
     // --
     const getOnesTokuLength = async () => {
       const arr = [];
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < allUserTokus.length; i++) {
         // console.log(targetId, "IDS 67") 取れてる
         // 何回もgetTargetTokuしてるからだめ？
         const dataList = await getTargetToku(targetId[i]);
@@ -126,7 +126,7 @@ export default function PeopleLog() {
       // console.log(preImgIndex, "105PRE")
       // 全員のユーザー🆔
       let allArr = [];
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < allUserTokus.length; i++) {
         // setTargetId(allUserArr[i]);
         // arr.push(imgIndex)
         let arr = [];
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F6F3CF',
   },
   topView: {
-    top: 80,
+    top: 60,
   },
   peopleTable: {
     backgroundColor: '#F6F3CF',
@@ -204,7 +204,9 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 10,
     overflow: 'hidden',
+    top: 5,
     padding: 10,
+    paddingBottom: 50,
     textAlign: 'center',
     fontSize: 20,
   },
@@ -214,7 +216,9 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 10,
     overflow: 'hidden',
+    top: 5,
     padding: 10,
+    paddingBottom: 50,
     textAlign: 'center',
     fontSize: 20,
   },
@@ -222,6 +226,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
     marginBottom: 20,
+    fontWeight: 'bold',
   },
   tabView: {
     flexDirection: 'row',

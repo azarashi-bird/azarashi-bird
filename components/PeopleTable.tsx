@@ -6,14 +6,9 @@ import afterViews from './afterLifes';
 export default function PeopleTable({preImgIndex, mainArr}) {
   return (
     <ScrollView style={styles.tableContainer}>
-      <DataTable style={styles.logs}>
+      <DataTable>
         {preImgIndex.length !== 0 ? (
           mainArr.map((tokuData, index) => {
-            // re-renderをアロー関数で回避...できてないので、どうにかする。
-            //
-            // () => setTargetId(tokuData[0]);
-            // console.log({tokuData})
-            // console.log(preImgIndex, "PeopleLog163")
             return (
               <DataTable.Row key={index}>
                 <DataTable.Cell style={styles.cellD}>
@@ -50,13 +45,8 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     width: 350,
-  },
-  logs: {
-    backgroundColor: '#FFFF',
-    width: 350,
-    marginLeft: 20,
-    marginRight: 20,
     height: 500,
+    paddingLeft: 10,
   },
   icon: {
     width: 40,
@@ -64,7 +54,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   cellD: {
-    right: 20,
+    right: 10,
   },
   cellE: {
     right: 50,
