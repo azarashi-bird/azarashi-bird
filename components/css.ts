@@ -8,17 +8,20 @@ import {
   iPhoneInch55,
   iPhoneInch58,
   iPhoneInch65,
+  iPad129,
+  iPad11,
+  iPad97,
 } from '../lib/iPhoneSize';
 
 const iphoneModel = iPhoneInch47()
-  ? {inch: 4.7, width, height} // iPhone SE 3rd
+  ? {model: 'iPhone SE 3rd, other', inch: 4.7, width, height} // iPhone SE 3rd
   : iPhoneInch55()
   ? {inch: 5.5, width, height} // iPhone 8 Plus
   : iPhoneInch58()
   ? {inch: 5.8, width, height} // iPhone 11 Pro (only ios 15.4, 2022/09/29)
   : iPhoneInch65()
   ? {inch: 6.5, width, height} // base(else), iPhone 11 Pro Max
-  : null;
+  : {inch: null, width: null, height: null};
 
 console.log('iPhone model:', iphoneModel);
 
