@@ -16,15 +16,15 @@ export default function PeopleTable({preImgIndex, mainArr}) {
             // console.log(preImgIndex, "PeopleLog163")
             return (
               <DataTable.Row key={index}>
-                <DataTable.Cell style={{right: 20}}>
+                <DataTable.Cell style={styles.cellD}>
                   <Image
                     source={afterViews[preImgIndex[index]][0]}
                     style={styles.icon}></Image>
                 </DataTable.Cell>
-                <DataTable.Cell style={{right: 50}}>
+                <DataTable.Cell style={styles.cellE}>
                   {tokuData[0]}
                 </DataTable.Cell>
-                <DataTable.Cell style={{left: 50}}>
+                <DataTable.Cell style={styles.cellF}>
                   {tokuData[1]}
                 </DataTable.Cell>
               </DataTable.Row>
@@ -32,11 +32,11 @@ export default function PeopleTable({preImgIndex, mainArr}) {
           })
         ) : (
           <DataTable.Row>
-            <DataTable.Cell style={{right: 20}}>
+            <DataTable.Cell style={styles.cellD}>
               <Image source={afterViews[3][0]} style={styles.icon}></Image>
             </DataTable.Cell>
-            <DataTable.Cell style={{right: 50}}>徳</DataTable.Cell>
-            <DataTable.Cell style={{left: 50}}>00/00</DataTable.Cell>
+            <DataTable.Cell style={styles.cellE}>徳</DataTable.Cell>
+            <DataTable.Cell style={styles.cellF}>日付</DataTable.Cell>
           </DataTable.Row>
         )}
       </DataTable>
@@ -56,10 +56,20 @@ const styles = StyleSheet.create({
     width: 350,
     marginLeft: 20,
     marginRight: 20,
+    height: 500,
   },
   icon: {
     width: 40,
     height: 40,
     resizeMode: 'contain',
+  },
+  cellD: {
+    right: 20,
+  },
+  cellE: {
+    right: 50,
+  },
+  cellF: {
+    left: 50,
   },
 });

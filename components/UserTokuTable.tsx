@@ -9,27 +9,27 @@ export default function UserTokutable({targetTokus}) {
     <ScrollView style={styles.tableContainer}>
       <DataTable>
         <DataTable.Row>
-          <DataTable.Cell style={{right: 10}}>
+          <DataTable.Cell style={styles.cellA}>
             <Image source={afterViews[ImgIndex][0]} style={styles.icon}></Image>
           </DataTable.Cell>
-          <DataTable.Cell style={{right: 50}}>徳</DataTable.Cell>
-          <DataTable.Cell style={{left: 50}}>日付</DataTable.Cell>
+          <DataTable.Cell style={styles.cellB}>徳</DataTable.Cell>
+          <DataTable.Cell style={styles.cellC}>日付</DataTable.Cell>
         </DataTable.Row>
         {targetTokus.length !== 0 ? (
           targetTokus.map((arr, index) => {
             return (
               <DataTable.Row key={index}>
-                <DataTable.Cell style={{right: 10}}></DataTable.Cell>
-                <DataTable.Cell style={{right: 50}}>{arr[0]}</DataTable.Cell>
-                <DataTable.Cell style={{left: 50}}>{arr[1]}</DataTable.Cell>
+                <DataTable.Cell style={styles.cellA}></DataTable.Cell>
+                <DataTable.Cell style={styles.cellB}>{arr[0]}</DataTable.Cell>
+                <DataTable.Cell style={styles.cellC}>{arr[1]}</DataTable.Cell>
               </DataTable.Row>
             );
           })
         ) : (
           <DataTable.Row>
-            <DataTable.Cell style={{right: 10}}></DataTable.Cell>
-            <DataTable.Cell style={{right: 50}}>徳</DataTable.Cell>
-            <DataTable.Cell style={{left: 50}}>00/00</DataTable.Cell>
+            <DataTable.Cell style={styles.cellA}></DataTable.Cell>
+            <DataTable.Cell style={styles.cellB}>徳を積んでね</DataTable.Cell>
+            <DataTable.Cell style={styles.cellC}>00/00</DataTable.Cell>
           </DataTable.Row>
         )}
       </DataTable>
@@ -39,18 +39,25 @@ export default function UserTokutable({targetTokus}) {
 
 const styles = StyleSheet.create({
   tableContainer: {
-    //   margin: 70,
-    // marginTop: 150,
-    // marginBottom: 100,
     marginLeft: 20,
     marginRight: 20,
-    backgroundColor: 'orange',
+    backgroundColor: '#fddea5',
     paddingLeft: 10,
     width: 350,
+    height: 500,
   },
   icon: {
     width: 40,
     height: 40,
     resizeMode: 'contain',
+  },
+  cellA: {
+    right: 10,
+  },
+  cellB: {
+    right: 50,
+  },
+  cellC: {
+    left: 50,
   },
 });
