@@ -7,7 +7,6 @@ import styles, {customStyles} from './css';
 import {Suggest} from './Suggest';
 import {useState, useEffect} from 'react';
 import {postToku, getUserToku, getDailyToku} from '../firebase';
-import {useIsFocused} from '@react-navigation/native';
 
 // import {
 //   MD3LightTheme as DefaultTheme,
@@ -15,7 +14,6 @@ import {useIsFocused} from '@react-navigation/native';
 // } from 'react-native-paper';
 
 const Top = ({navigation}) => {
-  const isFocused = useIsFocused();
   const [isEntering, setIsEntering] = useState(false);
   const [toku, setToku] = useState('');
   const [targetTokus, setTargetTokus] = useState(0);
@@ -23,29 +21,26 @@ const Top = ({navigation}) => {
   const [dailyTokusCount, setDailyTokusCount] = useState(0); // とり飛ばした後のカウント表示用
 
   const getDailyTokuCount = async () => {
-    if (dailyTokusCount === 0) {
-      const dailyTokus = await getDailyToku();
-      setDailyTokusCount(dailyTokus.length - 1);
-    }
+    const dailyTokus = await getDailyToku();
+    setDailyTokusCount(dailyTokus.length - 1);
+  };
+
+  const getUserTokuLength = async () => {
+    //imp user コレクションのuserPostCountを作れば読み込み回数減らせる？ 今だとgetUserTokuだとpostした徳数分読み込み発生
+    const userTokus = await getUserToku();
+    const tokuLength = userTokus.length;
+    setTargetTokus(tokuLength);
   };
 
   useEffect(() => {
-    // getUserTokuLengthは、userTable作ってあげれば読み込み節約できる気がする
-    const getUserTokuLength = async () => {
-      const userTokus = await getUserToku();
-      const tokuLength = userTokus.length;
-      setTargetTokus(tokuLength);
-    };
-
-    if (isFocused) {
-      getUserTokuLength();
-      getDailyTokuCount();
-    }
-  }, [isFocused]);
+    getUserTokuLength();
+    getDailyTokuCount();
+  }, []);
 
   const focus = () => {
     setIsEntering(!isEntering);
   };
+
   const bluer = () => setIsEntering(!isEntering);
   const sendAlert = () => {
     Alert.alert('Error: blank', '徳を入力してください', [
@@ -60,6 +55,7 @@ const Top = ({navigation}) => {
     setToku('');
     if (toku !== '') {
       setDailyTokusCount(dailyTokusCount + 1);
+      setTargetTokus(targetTokus + 1);
       postToku(toku)
         ? navigation.navigate('FlyingBird', {
             targetTokus: targetTokus,
