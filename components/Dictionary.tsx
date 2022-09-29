@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {ScrollView, Text, View, Image} from 'react-native';
-import styles from './css';
+import {SafeAreaView, ScrollView, Text, View, Image} from 'react-native';
+import styles, {customStyles} from './css';
 import afterViews from './afterLifes';
 import {getUserToku} from '../firebase';
 const unknown = require('../assets/afterLifes/unknown.png');
@@ -14,9 +14,9 @@ export default function Dictionary() {
     call();
   });
   return (
-    <View style={styles.container}>
-      <Text style={styles.strongText}>図鑑</Text>
-      <ScrollView contentContainerStyle={[styles.container, styles.dict]}>
+    <SafeAreaView style={styles.container}>
+      <Text style={customStyles.strongText}>図鑑</Text>
+      <ScrollView contentContainerStyle={[styles.container, customStyles.dict]}>
         {afterViews.map((element, index) => (
           <View style={styles.dictItem}>
             <Text style={styles.dictItemName}>
@@ -28,6 +28,6 @@ export default function Dictionary() {
           </View>
         ))}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

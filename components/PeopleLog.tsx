@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {ScrollView, StyleSheet, View, Image} from 'react-native';
+import {SafeAreaView, StatusBar, ScrollView, StyleSheet} from 'react-native';
 import {Text} from 'react-native-paper';
 import {DataTable} from 'react-native-paper';
 import {getAllToku} from '../firebase';
@@ -49,28 +49,31 @@ export default function PeopleLog() {
   }
   // style外したため、要再設定
   return (
-    <ScrollView style={styles.peopleTable}>
-      <Text style={styles.topContent}>みんなの徳</Text>
-      <DataTable style={styles.logs}>
-        {mainArr ? (
-          mainArr.map((tokuData, index) => {
-            return (
-              <DataTable.Row key={index}>
-                <DataTable.Cell>{tokuData[0]}</DataTable.Cell>
-                <DataTable.Cell>{tokuData[1]}</DataTable.Cell>
-              </DataTable.Row>
-            );
-          })
-        ) : (
-          <DataTable.Row>
-            <DataTable.Cell>画像</DataTable.Cell>
-            <DataTable.Cell>ユーザー名</DataTable.Cell>
-            <DataTable.Cell>徳</DataTable.Cell>
-            <DataTable.Cell>00/00</DataTable.Cell>
-          </DataTable.Row>
-        )}
-      </DataTable>
-    </ScrollView>
+    <SafeAreaView style={styles.container}>
+      {/* <StatusBar animated={true} backgroundColor="#61dafb"></StatusBar> */}
+      <ScrollView style={styles.peopleTable}>
+        <Text style={styles.topContent}>みんなの徳</Text>
+        <DataTable style={styles.logs}>
+          {mainArr ? (
+            mainArr.map((tokuData, index) => {
+              return (
+                <DataTable.Row key={index}>
+                  <DataTable.Cell>{tokuData[0]}</DataTable.Cell>
+                  <DataTable.Cell>{tokuData[1]}</DataTable.Cell>
+                </DataTable.Row>
+              );
+            })
+          ) : (
+            <DataTable.Row>
+              <DataTable.Cell>画像</DataTable.Cell>
+              <DataTable.Cell>ユーザー名</DataTable.Cell>
+              <DataTable.Cell>徳</DataTable.Cell>
+              <DataTable.Cell>00/00</DataTable.Cell>
+            </DataTable.Row>
+          )}
+        </DataTable>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -78,8 +81,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F6F3CF',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
+    // alignItems: 'center',
+    // justifyContent: 'flex-start',
   },
   topContent: {
     marginTop: 100,

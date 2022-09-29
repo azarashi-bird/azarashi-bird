@@ -1,9 +1,23 @@
 import {FlyingBird} from './components/FlyingBird';
-import {StyleSheet, Text, View} from 'react-native';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
 import {
   MD3LightTheme as DefaultTheme,
   Provider as PaperProvider,
 } from 'react-native-paper';
+
+// responsive
+
+// import {
+//   iPhoneInch47,
+//   iPhoneInch55,
+//   iPhoneInch58,
+//   iPhoneInch65,
+//   iPad129,
+//   iPad11,
+//   iPad97,
+// } from './lib/iPhoneSize';
+
+const {width, height} = Dimensions.get('window');
 
 // メモ：npm install @react-navigation/bottom-tabs
 import {NavigationContainer} from '@react-navigation/native';
@@ -48,19 +62,35 @@ export default function App() {
     //   </NavigationContainer>
     // </PaperProvider>
     <PaperProvider theme="{theme}">
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-          <Stack.Screen
-            options={{headerShown: false}}
-            name="Login"
-            component={LoginScreen}
-          />
-          <Stack.Screen name="Home" component={Main} />
-          <Stack.Screen name="Top" component={Top} />
-          <Stack.Screen name="FlyingBird" component={FlyingBird} />
-          <Stack.Screen name="AfterFlying" component={AfterFlying} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <>
+        {/* <View> */}
+        {/* {console.log(
+          iPhoneInch47()
+            ? `iPhone 6, 7, 8, SE(第2世代)です。 width: ${width}, height: ${height}`
+            : iPhoneInch55()
+            ? `iPhone 6s, 7Plus, 8Plusです。 width: ${width}, height: ${height}`
+            : iPhoneInch58()
+            ? `iPhone x, xs, 11Proです。 width: ${width}, height: ${height}`
+            : iPhoneInch65()
+            ? `iPhone xr, xsMax, 11, 11proMaxです。 width: ${width}, height: ${height}`
+            : null
+        )} */}
+        {/* <Text>nothing</Text> */}
+        {/* </View> */}
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Screen
+              options={{headerShown: false}}
+              name="Login"
+              component={LoginScreen}
+            />
+            <Stack.Screen name="Home" component={Main} />
+            <Stack.Screen name="Top" component={Top} />
+            <Stack.Screen name="FlyingBird" component={FlyingBird} />
+            <Stack.Screen name="AfterFlying" component={AfterFlying} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </>
     </PaperProvider>
   );
 }

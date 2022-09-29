@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {ScrollView} from 'react-native';
 import {DataTable} from 'react-native-paper';
 import styles from './css';
 
