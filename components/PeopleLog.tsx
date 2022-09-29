@@ -23,7 +23,6 @@ export default function PeopleLog() {
     };
     allList();
   }, [isFocused]);
-  // console.log({allUserTokus});
 
   // mapで配列を作ると配列の中身が順不同になったので、要素ごとに配列を作成中。
   // index番号で結びつける
@@ -39,7 +38,6 @@ export default function PeopleLog() {
     return formatted;
   });
   // 全員のユーザー🆔
-  const allUserArr = allUserTokus.map((obj) => obj['user_id']);
   const mainArr = [];
   for (let i = 0; i < allTokuArr.length; i++) {
     let arr = [];

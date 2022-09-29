@@ -51,14 +51,14 @@ const postToku = async (toku) => {
 };
 
 const getAllToku = async () => {
-  const tokuList = [];
+  const tokuDiffList = [];
   await tokuTable.get().then((querySnapshot) => {
     console.log('CALLED GETALLTOKU');
     querySnapshot.forEach((toku) => {
-      tokuList.push(toku.data());
+      tokuDiffList.push(toku.data());
     });
   });
-  return tokuList;
+  return tokuDiffList;
 };
 
 const getUserToku = async () => {
@@ -72,6 +72,23 @@ const getUserToku = async () => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
   return tokuList;
+};
+
+const getDailyToku = async () => {
+  console.log('called getDailyToku');
+  //今（Thu Sep 06 2012 09:04:30 GMT+0900）
+  const _d = new Date();
+  //同日の0時0分0秒
+  const d = new Date(_d.getFullYear(), _d.getMonth(), _d.getDate(), 0, 0, 0);
+  const dailyTokuList = [];
+  await tokuTable
+    .orderBy('createdAt', 'asc')
+    .where('createdAt', '>=', d)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((toku) => dailyTokuList.push(toku.data()));
+    });
+  return dailyTokuList;
 };
 
 function getFirstDate(date) {
@@ -101,4 +118,12 @@ const getMonthlyToku = async () => {
   return tokuList;
 };
 
-export {auth, firestore, postToku, getAllToku, getUserToku, getMonthlyToku};
+export {
+  auth,
+  firestore,
+  postToku,
+  getAllToku,
+  getUserToku,
+  getMonthlyToku,
+  getDailyToku,
+};
