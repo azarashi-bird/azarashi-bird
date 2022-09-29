@@ -315,6 +315,7 @@ export const customStyles = StyleSheet.create(
           alignItems: 'center',
           flexDirection: 'row',
           flexWrap: 'wrap',
+          paddingBottom: 120,
         },
       }
     : iphoneModel.inch === 5.5
@@ -393,6 +394,7 @@ export const customStyles = StyleSheet.create(
           alignItems: 'center',
           flexDirection: 'row',
           flexWrap: 'wrap',
+          paddingBottom: 120,
         },
       }
     : iphoneModel.inch === 5.8
@@ -471,6 +473,7 @@ export const customStyles = StyleSheet.create(
           alignItems: 'center',
           flexDirection: 'row',
           flexWrap: 'wrap',
+          paddingBottom: 120,
         },
       }
     : {
@@ -547,6 +550,7 @@ export const customStyles = StyleSheet.create(
           alignItems: 'center',
           flexDirection: 'row',
           flexWrap: 'wrap',
+          paddingBottom: 120,
         },
       }
 );
