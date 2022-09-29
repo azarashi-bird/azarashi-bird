@@ -3,16 +3,20 @@ import {SafeAreaView, ScrollView, Text, View, Image} from 'react-native';
 import styles, {customStyles} from './css';
 import afterViews from './afterLifes';
 import {getUserToku} from '../firebase';
+import {useIsFocused} from '@react-navigation/native';
+
 const unknown = require('../assets/afterLifes/unknown.png');
 export default function Dictionary() {
   const [score, setScore] = useState(0);
+  const isFocused = useIsFocused();
+
   useEffect(() => {
     async function call() {
       const userTokus = await getUserToku();
       setScore(Math.floor((userTokus.length % 45) / 3));
     }
     call();
-  });
+  }, [isFocused]);
   return (
     <SafeAreaView style={styles.container}>
       <Text style={customStyles.strongText}>図鑑</Text>
