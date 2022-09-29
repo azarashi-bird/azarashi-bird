@@ -56,7 +56,6 @@ export default function PeopleLog() {
       const imgIndex = Math.floor((dataList.length % 45) / 3);
       result.push(imgIndex);
     }
-    console.log(result, 'IMG INDEX LIST');
     return result;
   };
 
@@ -70,12 +69,12 @@ export default function PeopleLog() {
     setImgIndexArr(indexArr);
   };
 
-  useEffect(() => {
-    const allSet = async () => {
-      await allList();
-      await targetList();
-    };
+  const allSet = async () => {
+    await allList();
+    await targetList();
+  };
 
+  useEffect(() => {
     // タブを開いた時の動作
     if (isFocused) {
       allSet();
