@@ -182,26 +182,22 @@ const styles = StyleSheet.create({
     borderColor: 'white',
   },
   calenderCell0: {
-    backgroundColor: 'blue',
-    opacity: 0.03,
+    backgroundColor: 'rgba(0,0,255,0.05)',
   },
   calenderCell1: {
-    opacity: 0.2,
+    backgroundColor: 'rgba(252,174,30,0.2)',
   },
   calenderCell2: {
-    opacity: 0.3,
+    backgroundColor: 'rgba(252,174,30,0.3)',
   },
   calenderCell3: {
-    opacity: 0.4,
+    backgroundColor: 'rgba(252,174,30,0.4)',
   },
   calenderCell4: {
-    opacity: 0.5,
+    backgroundColor: 'rgba(252,174,30,0.5)',
   },
   calenderCell5: {
-    opacity: 0.6,
-  },
-  calenderText: {
-    display: 'none',
+    backgroundColor: 'rgba(252,174,30,0.6)',
   },
 
   // People
