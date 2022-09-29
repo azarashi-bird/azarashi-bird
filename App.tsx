@@ -27,6 +27,7 @@ import Top from './components/Top';
 import Main from './components/Main';
 import {LogBox} from 'react-native';
 import AfterFlying from './components/AfterFlying';
+import LogTable from './components/LogTable';
 
 LogBox.ignoreAllLogs();
 
@@ -88,6 +89,7 @@ export default function App() {
             <Stack.Screen name="Top" component={Top} />
             <Stack.Screen name="FlyingBird" component={FlyingBird} />
             <Stack.Screen name="AfterFlying" component={AfterFlying} />
+            <Stack.Screen name="LogTable" component={LogTable} />
           </Stack.Navigator>
         </NavigationContainer>
       </>

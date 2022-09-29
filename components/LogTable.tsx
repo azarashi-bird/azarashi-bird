@@ -1,8 +1,15 @@
-import {ScrollView} from 'react-native';
-import {DataTable} from 'react-native-paper';
-import styles from './css';
+import {ScrollView, StyleSheet, View, Image} from 'react-native';
+import {DataTable, Text, Button} from 'react-native-paper';
+import {Provider as PaperProvider, TextInput} from 'react-native-paper';
+import UserTokutable from './UserTokuTable';
+import afterViews from './afterLifes';
 
-export default function LogView({userTokus}) {
+// import styles from './css';
+
+export default function LogView({navigation, route}) {
+  const userTokus = route.params.targetTokus;
+
+  /* PeopleLogのtargetTokusでこの処理を実行
   const tokusArray = userTokus.map((obj) => {
     const array = [];
     array.push(obj.toku);
@@ -14,30 +21,44 @@ export default function LogView({userTokus}) {
     array.push(formatted);
     return array;
   });
+  */
+  const countTokus = userTokus.length;
+  const imgIndex = Math.floor((countTokus % 45) / 3);
 
   return (
-    <ScrollView style={styles.tableContainer}>
-      <DataTable>
-        <DataTable.Header>
-          <DataTable.Title>徳</DataTable.Title>
-          <DataTable.Title>日付</DataTable.Title>
-        </DataTable.Header>
-        {tokusArray ? (
-          tokusArray.map((arr, index) => {
-            return (
-              <DataTable.Row key={index}>
-                <DataTable.Cell>{arr[0]}</DataTable.Cell>
-                <DataTable.Cell>{arr[1]}</DataTable.Cell>
-              </DataTable.Row>
-            );
-          })
-        ) : (
-          <DataTable.Row>
-            <DataTable.Cell>徳</DataTable.Cell>
-            <DataTable.Cell>00/00</DataTable.Cell>
-          </DataTable.Row>
-        )}
-      </DataTable>
-    </ScrollView>
+    <View style={styles.logContainer}>
+      <Image source={afterViews[imgIndex][0]} style={styles.icon}></Image>
+      <Text style={styles.tokuTableText}>あなたの徳</Text>
+      <UserTokutable tokusArray={tokusArray} />
+      <Button
+        style={styles.backButton}
+        mode="contained"
+        onPress={() => navigation.goBack()}>
+        みんなの徳に戻る
+      </Button>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  tokuTableText: {
+    top: 100,
+    fontWeight: 'bold',
+    fontSize: 25,
+  },
+  logContainer: {
+    flexGrow: 1,
+    backgroundColor: '#F6F3CF',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  },
+  backButton: {
+    bottom: 80,
+  },
+  icon: {
+    top: 100,
+    width: 40,
+    height: 40,
+    resizeMode: 'contain',
+  },
+});

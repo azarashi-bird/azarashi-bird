@@ -101,6 +101,18 @@ const getUserToku = async () => {
   return tokuList;
 };
 
+const getTargetToku = async (userid) => {
+  const tokuList = [];
+  await tokuTable
+    .where('user_id', '==', userid)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((toku) => tokuList.push(toku.data()));
+    });
+  // console.log({uid})
+  return tokuList;
+};
+
 function getFirstDate(date) {
   return new Date(date.getFullYear(), date.getMonth(), 1);
 }
@@ -128,4 +140,12 @@ const getMonthlyToku = async () => {
   return tokuList;
 };
 
-export {auth, firestore, postToku, getAllToku, getUserToku, getMonthlyToku};
+export {
+  auth,
+  firestore,
+  postToku,
+  getAllToku,
+  getUserToku,
+  getMonthlyToku,
+  getTargetToku,
+};
