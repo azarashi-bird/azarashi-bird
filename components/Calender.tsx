@@ -9,6 +9,8 @@ export default function Calender() {
   const [chosenToku, setChosenToku] = useState([]);
   const [chosenDay, setChosenDay] = useState(0);
   const [modalVisible, setModalVisible] = useState(false);
+  const [pictureIndex, setPictureIndex] = useState(0);
+  const [evolved, setEvolved] = useState(false);
 
   useEffect(() => {
     async function setTokus() {
@@ -57,6 +59,7 @@ export default function Calender() {
   return (
     <>
       <Text style={{fontSize: 21, marginBottom: 5}}>徳積みの記録</Text>
+
       <View style={s.calender}>
         {calenderData.map((elem, index) => (
           <Pressable
@@ -66,10 +69,9 @@ export default function Calender() {
               setChosenToku(filteredToku(index + 1));
             }}
             key={index}
-            style={[
-              s.calenderCell,
-              elem <= 5 ? styleArr[elem] : styleArr[5],
-            ]}></Pressable>
+            style={[s.calenderCell, elem <= 5 ? styleArr[elem] : styleArr[5]]}>
+            <Text>{index}</Text>
+          </Pressable>
         ))}
       </View>
       <View>
