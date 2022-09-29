@@ -26,7 +26,6 @@ export default function LogView() {
     };
     getUserTokus();
   }, [isFocused]);
-  // console.log({userTokus});
 
   return (
     <SafeAreaView style={styles.container}>

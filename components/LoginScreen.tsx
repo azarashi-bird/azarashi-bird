@@ -11,7 +11,7 @@ import {
 
 import styles from './css';
 
-import {auth, postToku, getAllToku} from '../firebase';
+import {auth} from '../firebase';
 
 type RootStackParamList = {
   Home: undefined;
@@ -51,10 +51,6 @@ const LoginScreen = () => {
       .catch((error) => alert(error.message));
   };
 
-  // postToku の引数に使ってる仮データ
-  const userId = '12345';
-  const toku = 'niwasouzi';
-
   return (
     <KeyboardAvoidingView style={styles.loginContainer} behavior="padding">
       <View style={styles.loginInputContainer}>
@@ -83,12 +79,6 @@ const LoginScreen = () => {
           style={[styles.button1, styles.loginButtonOutline]}>
           <Text style={styles.loginButtonOutlineText}>Register</Text>
         </TouchableOpacity>
-
-        {/* <TouchableOpacity
-          onPress={async () => console.log(await getAllToku())}
-          style={styles.button1}>
-          <Text style={styles.button1Text}>TEST</Text>
-        </TouchableOpacity> */}
       </View>
     </KeyboardAvoidingView>
   );

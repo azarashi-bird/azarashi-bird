@@ -16,8 +16,6 @@ import {
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-// const firebaseConfig = ENV;
-
 const firebaseConfig = {
   apiKey,
   authDomain,
@@ -38,55 +36,30 @@ if (firebase.apps.length === 0) {
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-
 const tokuTable = firestore.collection('toku_table');
 
-/* 
-　徳をPost 使い方
-  onPress={() => {
-    postToku(toku);
-  }}
-  */
-
 const postToku = async (toku) => {
+  console.log('CALLED POSTTOKU');
   const uid = auth.currentUser?.uid;
   const value = {
     user_id: uid,
     toku: toku,
     createdAt: new Date(),
   };
-  console.log(value, 'postTokuValue');
   await tokuTable.add(value);
   console.log('added to firebase!');
 };
 
-/* 
-  getAllToku  返ってくる物(UerId,Toku,Date)
-  const test = async () => {
-    const list = await getAllToku();
-    console.log(list[0].createdAt, 'risuto');
-  };
-
-onPress={() => test()}
-
-*/
 const getAllToku = async () => {
   const tokuList = [];
   await tokuTable.get().then((querySnapshot) => {
+    console.log('CALLED GETALLTOKU');
     querySnapshot.forEach((toku) => {
-      // doc.data() is never undefined for query doc snapshots
-      // console.log(toku.id, ' => ', toku.data());
       tokuList.push(toku.data());
     });
   });
   return tokuList;
 };
-
-/* getTokuById
-
-const userTokus = await getUserToku();
-const userTokuNUmber = userTokus.length;
-*/
 
 const getUserToku = async () => {
   const uid = auth.currentUser?.uid;
@@ -95,9 +68,9 @@ const getUserToku = async () => {
     .where('user_id', '==', uid)
     .get()
     .then((querySnapshot) => {
+      console.log('CALLED GETUSERTOKU');
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
-  // console.log({uid})
   return tokuList;
 };
 
@@ -110,11 +83,12 @@ function getLastDate(date) {
 }
 
 const getMonthlyToku = async () => {
+  console.log('CALLED GETMonTHLYTOKU');
+
   const startDate = getFirstDate(new Date());
   const endDate = getLastDate(new Date());
   const uid = auth.currentUser?.uid;
   const tokuList = [];
-
   await tokuTable
     .where('user_id', '==', uid)
     .orderBy('createdAt', 'asc')
@@ -124,7 +98,6 @@ const getMonthlyToku = async () => {
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
-
   return tokuList;
 };
 
