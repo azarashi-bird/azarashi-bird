@@ -1,10 +1,9 @@
 import {SafeAreaView, Image, ScrollView} from 'react-native';
 import {Text} from 'react-native-paper';
-import LogTable from './LogTable';
 import styles, {customStyles} from './css';
 import afterViews from './afterLifes';
 import {getUserToku} from '../firebase';
-import {useEffect, useState, useLayoutEffect} from 'react';
+import {useState, useLayoutEffect} from 'react';
 import {useIsFocused} from '@react-navigation/native';
 import Calender from './Calender';
 
@@ -26,11 +25,10 @@ export default function LogView() {
     };
     getUserTokus();
   }, [isFocused]);
-  // console.log({userTokus});
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={customStyles.logContainer}>
+      <ScrollView contentContainerStyle={styles.logContainer}>
         <Text style={customStyles.topContent} variant="titleLarge">
           あなたの来世
         </Text>
@@ -45,21 +43,13 @@ export default function LogView() {
             </Text>
             <Image
               source={afterViews[Math.floor((userLength % 45) / 3)][0]}
-              style={styles.mainImage}></Image>
+              style={styles.mainImage}
+            />
           </>
         )}
-        {/* <Text style={styles.strongText}>
-        {afterViews[Math.floor((userLength % 45) / 3)][1]}
-      </Text>
-      <Image
-        source={afterViews[Math.floor((userLength % 45) / 3)][0]}
-        style={styles.mainImage}></Image> */}
 
         <Calender />
-        {/* <Text style={styles.mainText} variant="titleLarge">
-          あなたの徳　
-          <Text style={customStyles.strongText}>{userTokus.length}</Text>徳
-        </Text> */}
+
       </ScrollView>
     </SafeAreaView>
   );

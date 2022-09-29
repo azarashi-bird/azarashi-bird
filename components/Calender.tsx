@@ -1,18 +1,16 @@
-import {StyleSheet, View, Image, ScrollView} from 'react-native';
-import {Text, DataTable} from 'react-native-paper';
+import {Text, View, Modal, Pressable} from 'react-native';
 import styles from './css';
-import {getMonthlyToku, getUserToku} from '../firebase';
+const s = styles;
+import {getMonthlyToku} from '../firebase';
 import {useEffect, useState} from 'react';
 
 export default function Calender() {
   const [monthlyTokus, setMonthlyTokus] = useState([]);
-
-  let calenderData = Array(30).fill(0);
-  //サーバー5万件超えたので、色が反映される方にしてます(後でなおす)
-  let calenderData2 = [
-    0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 5, 3, 6, 7, 0, 4, 3, 2, 1, 4, 5, 3, 2, 1, 1,
-    2, 0, 1, 2, 3,
-  ];
+  const [chosenToku, setChosenToku] = useState([]);
+  const [chosenDay, setChosenDay] = useState(0);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [pictureIndex, setPictureIndex] = useState(0);
+  const [evolved, setEvolved] = useState(false);
 
   useEffect(() => {
     async function setTokus() {
@@ -22,35 +20,74 @@ export default function Calender() {
     setTokus();
   }, []);
 
+  //calenderData
+  let calenderData = Array(30).fill(0);
+
   monthlyTokus.forEach((toku) => {
     calenderData[toku.createdAt.toDate().getDate() - 1]++;
   });
-  // console.log(calenderData); <- this is logged twice
+
+  const formattedTokus = monthlyTokus.map((obj) => {
+    const day = obj.createdAt.toDate().getDate();
+    const toku = obj.toku;
+    const formatArr = {day, toku};
+    return formatArr;
+  });
+
+  const filteredToku = (num) =>
+    formattedTokus.filter((obj) => obj.day === num).map((obj) => obj.toku);
+
+  const styleArr = [
+    s.calenderCell0,
+    s.calenderCell1,
+    s.calenderCell2,
+    s.calenderCell3,
+    s.calenderCell4,
+    s.calenderCell5,
+  ];
+
+  function openModal() {
+    setModalVisible(true);
+  }
+
+  function closeModal() {
+    setModalVisible(false);
+  }
+
+  const listedToku = chosenToku.map((toku) => <Text>{toku + ' \n'}</Text>);
 
   return (
     <>
-      <Text style={{fontSize: 22, marginBottom: 5}}>徳積み カレンダー</Text>
-      <View style={styles.calender}>
-        {calenderData2.map((element, index) => (
-          <View
+      <Text style={{fontSize: 21, marginBottom: 5}}>徳積みの記録</Text>
+
+      <View style={s.calender}>
+        {calenderData.map((elem, index) => (
+          <Pressable
+            onPress={() => {
+              openModal();
+              setChosenDay(index + 1);
+              setChosenToku(filteredToku(index + 1));
+            }}
             key={index}
-            style={[
-              styles.calenderCell,
-              element === 0
-                ? styles.calenderCell0
-                : element === 1
-                ? styles.calenderCell1
-                : element === 2
-                ? styles.calenderCell2
-                : element === 3
-                ? styles.calenderCell3
-                : element === 4
-                ? styles.calenderCell4
-                : styles.calenderCell5,
-            ]}>
-            <Text style={styles.calenderText}>{element}</Text>
-          </View>
+            style={[s.calenderCell, elem <= 5 ? styleArr[elem] : styleArr[5]]}>
+            <Text>{index}</Text>
+          </Pressable>
         ))}
+      </View>
+      <View>
+        <Modal animationType="none" transparent={true} visible={modalVisible}>
+          <View style={s.centeredView}>
+            <View style={s.modalView}>
+              <Text style={s.modalText2}>{chosenDay}日の徳分</Text>
+              <Text style={s.modalText}>{listedToku}</Text>
+              <Pressable
+                style={[s.modalbutton, s.buttonClose]}
+                onPress={() => closeModal()}>
+                <Text style={s.textStyle}>close</Text>
+              </Pressable>
+            </View>
+          </View>
+        </Modal>
       </View>
     </>
   );
