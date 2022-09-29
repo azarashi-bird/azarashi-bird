@@ -11,12 +11,7 @@ import {
 
 // import {Text} from 'react-native-paper';
 import {DataTable, Button} from 'react-native-paper';
-import {
-  getAllToku,
-  getUserToku,
-  getTargetToku,
-  getNewestToku,
-} from '../firebase';
+import {getUserToku, getTargetToku, getNewestToku} from '../firebase';
 import {useIsFocused} from '@react-navigation/native';
 import afterViews from './afterLifes';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -31,7 +26,6 @@ export default function PeopleLog() {
   const [userTokus, setUserTokus] = useState([]);
   const [imgIndexArr, setImgIndexArr] = useState([]);
   const [allTokus, setAllTokus] = useState([]);
-
   const [isAnyTokus, setIsAnyTokus] = useState('allToku');
   const navigation = useNavigation();
   const GETLIMIT = 10;
@@ -48,6 +42,7 @@ export default function PeopleLog() {
       return array;
     });
   };
+
   const targetList = async () => {
     const allTargetDatas = await getUserToku();
     const fullArray = dataToArr(allTargetDatas);
@@ -68,10 +63,10 @@ export default function PeopleLog() {
   const allList = async () => {
     const allTokusDataLimited = await getNewestToku(GETLIMIT);
     const allTokuArr = dataToArr(allTokusDataLimited);
-    setAllTokus(allTokuArr);
     const idArr = allTokusDataLimited.map((obj) => obj.user_id);
     const indexArr = await getImgIndexArr(idArr);
 
+    setAllTokus(allTokuArr);
     setImgIndexArr(indexArr);
   };
 
@@ -123,7 +118,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F6F3CF',
   },
   topView: {
-    top: 80,
+    top: 60,
   },
   peopleTable: {
     backgroundColor: '#F6F3CF',
@@ -134,7 +129,9 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 10,
     overflow: 'hidden',
+    top: 5,
     padding: 10,
+    paddingBottom: 50,
     textAlign: 'center',
     fontSize: 20,
   },
@@ -144,7 +141,9 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 10,
     overflow: 'hidden',
+    top: 5,
     padding: 10,
+    paddingBottom: 50,
     textAlign: 'center',
     fontSize: 20,
   },
@@ -152,6 +151,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
     marginBottom: 20,
+    fontWeight: 'bold',
   },
   tabView: {
     flexDirection: 'row',

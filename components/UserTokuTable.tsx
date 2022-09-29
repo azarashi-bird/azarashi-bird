@@ -1,6 +1,6 @@
 import {ScrollView, StyleSheet, View, Image} from 'react-native';
 import {DataTable, Text, Button} from 'react-native-paper';
-import {Provider as PaperProvider, TextInput} from 'react-native-paper';
+import {Provider as PaperProvider, TextInput, Card} from 'react-native-paper';
 import afterViews from './afterLifes';
 
 export default function UserTokutable({userTokus}) {
