@@ -1,5 +1,12 @@
 import {useEffect, useState, useLayoutEffect} from 'react';
-import {ScrollView, StyleSheet, View, Image} from 'react-native';
+import {
+  SafeAreaView,
+  StatusBar,
+  ScrollView,
+  StyleSheet,
+  Image,
+} from 'react-native';
+
 import {Text} from 'react-native-paper';
 import {DataTable, Button} from 'react-native-paper';
 import {getAllToku, getUserToku, getTargetToku} from '../firebase';
@@ -147,8 +154,7 @@ export default function PeopleLog() {
   // console.log(preImgIndex, 'PRE');
   // console.log(mainArr[0], 'mainArr');
   return (
-    // <ScrollView style={styles.peopleTable}>
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Button style={styles.myTokuButton} mode="contained" onPress={submit}>
         自分の徳
       </Button>
@@ -186,8 +192,7 @@ export default function PeopleLog() {
           </DataTable.Row>
         )}
       </DataTable>
-      {/* </ScrollView> */}
-    </View>
+    </SafeAreaView>
   );
   // }
   //   return <Text>みんなの徳</Text>;
@@ -197,8 +202,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F6F3CF',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
+    // alignItems: 'center',
+    // justifyContent: 'flex-start',
   },
   topContent: {
     marginTop: 100,

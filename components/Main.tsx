@@ -4,6 +4,7 @@ import Top from './Top';
 import PeopleLog from './PeopleLog';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Ionicons} from '@expo/vector-icons';
+import Dictionary from './Dictionary';
 
 export default function Main() {
   return (
@@ -13,12 +14,14 @@ export default function Main() {
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
 
-          if (route.name === 'Home') {
+          if (route.name === 'Top') {
             iconName = 'home';
-          } else if (route.name === 'Log') {
-            iconName = 'book';
+          } else if (route.name === 'Profile') {
+            iconName = 'person';
           } else if (route.name === 'People') {
             iconName = 'people-outline';
+          } else if (route.name === 'Dictionary') {
+            iconName = 'book';
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -26,9 +29,10 @@ export default function Main() {
         tabBarInactiveTintColor: 'gray',
         headerShown: false,
       })}>
-      <Tab.Screen name="Home" component={Top} />
-      <Tab.Screen name="Log" component={LogView} />
+      <Tab.Screen name="Top" component={Top} />
+      <Tab.Screen name="Profile" component={LogView} />
       <Tab.Screen name="People" component={PeopleLog} />
+      <Tab.Screen name="Dictionary" component={Dictionary} />
     </Tab.Navigator>
   );
 }

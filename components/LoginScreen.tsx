@@ -3,7 +3,6 @@ import {useNavigation} from '@react-navigation/core';
 import React, {useState, useEffect} from 'react';
 import {
   KeyboardAvoidingView,
-  StyleSheet,
   Text,
   TextInput,
   View,

@@ -1,7 +1,7 @@
-import {StyleSheet, View, Image, ScrollView} from 'react-native';
+import {SafeAreaView, Image, ScrollView} from 'react-native';
 import {Text} from 'react-native-paper';
 import LogTable from './LogTable';
-import styles from './css';
+import styles, {customStyles} from './css';
 import afterViews from './afterLifes';
 import {getUserToku} from '../firebase';
 import {useEffect, useState, useLayoutEffect} from 'react';
@@ -29,36 +29,38 @@ export default function LogView() {
   // console.log({userTokus});
 
   return (
-    <ScrollView contentContainerStyle={styles.logContainer}>
-      <Text style={styles.topContent} variant="titleLarge">
-        あなたの来世
-      </Text>
-      {userLength < 0 ? (
-        <>
-          <Text style={{color: '#F6F3CF', height: 330}}>でも</Text>
-        </>
-      ) : (
-        <>
-          <Text style={styles.strongText}>
-            {afterViews[Math.floor((userLength % 45) / 3)][1]}
-          </Text>
-          <Image
-            source={afterViews[Math.floor((userLength % 45) / 3)][0]}
-            style={styles.mainImage}></Image>
-        </>
-      )}
-      {/* <Text style={styles.strongText}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={customStyles.logContainer}>
+        <Text style={customStyles.topContent} variant="titleLarge">
+          あなたの来世
+        </Text>
+        {userLength < 0 ? (
+          <>
+            <Text style={{color: '#F6F3CF', height: 330}}>でも</Text>
+          </>
+        ) : (
+          <>
+            <Text style={customStyles.strongText}>
+              {afterViews[Math.floor((userLength % 45) / 3)][1]}
+            </Text>
+            <Image
+              source={afterViews[Math.floor((userLength % 45) / 3)][0]}
+              style={styles.mainImage}></Image>
+          </>
+        )}
+        {/* <Text style={styles.strongText}>
         {afterViews[Math.floor((userLength % 45) / 3)][1]}
       </Text>
       <Image
         source={afterViews[Math.floor((userLength % 45) / 3)][0]}
         style={styles.mainImage}></Image> */}
-      <Calender />
-      <Text style={styles.mainText} variant="titleLarge">
-        あなたの徳　
-        <Text style={styles.strongText}>{userTokus.length}</Text>徳
-      </Text>
-      {/* <LogTable userTokus={userTokus} /> */}
-    </ScrollView>
+
+        <Calender />
+        <Text style={styles.mainText} variant="titleLarge">
+          あなたの徳　
+          <Text style={styles.strongText}>{userTokus.length}</Text>徳
+        </Text>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
