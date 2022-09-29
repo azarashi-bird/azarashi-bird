@@ -22,7 +22,7 @@ export default function Dictionary() {
       <Text style={customStyles.strongText}>図鑑</Text>
       <ScrollView contentContainerStyle={[styles.container, customStyles.dict]}>
         {afterViews.map((element, index) => (
-          <View style={styles.dictItem}>
+          <View key={index} style={styles.dictItem}>
             <Text style={styles.dictItemName}>
               {score >= index ? element[1] : '???'}
             </Text>
