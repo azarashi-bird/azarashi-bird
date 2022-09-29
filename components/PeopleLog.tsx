@@ -11,7 +11,7 @@ import {
 
 // import {Text} from 'react-native-paper';
 import {DataTable, Button} from 'react-native-paper';
-import {getAllToku, getUserToku, getTargetToku} from '../firebase';
+import {getNewestToku, getUserToku, getTargetToku} from '../firebase';
 import {useIsFocused} from '@react-navigation/native';
 import afterViews from './afterLifes';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -35,11 +35,11 @@ export default function PeopleLog() {
 
   useLayoutEffect(() => {
     const allList = async () => {
-      const allUserDatas = await getAllToku();
-      const shortList = allUserDatas.slice(0, 10);
+      const allUserDatas = await getNewestToku(10);
+      // const shortList = allUserDatas.slice(0, 10);
       // console.log(shortList.length, 'NUM, 29');
       // console.log(shortList, 'NUM2, 41');OK
-      setAllUserTokus(shortList);
+      setAllUserTokus(allUserDatas);
     };
     const userList = async () => {
       const arr = [];
