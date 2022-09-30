@@ -74,6 +74,7 @@ const Top = ({navigation}) => {
     }
   };
 
+  //info buttonの設置：　urlのリンクに飛ばすfunction
   const url =
     'https://routineworks.notion.site/birdonation-88f775fa5c9e485784b52d32dafa2ddc';
   const openLink = () => {
@@ -122,12 +123,14 @@ const Top = ({navigation}) => {
               </View>
             </>
           )}
+
+          {/* infoボタン作成 リンクには飛ぶけど、width/heightが上手くいかない*/}
           <Pressable
             style={styles.infoButton}
             onPress={() => {
               openLink();
             }}>
-            <Text style={styles.infoIcon}>i</Text>
+            <Text style={styles.infoIcon}>リンクに飛ぶ</Text>
           </Pressable>
         </>
       </SafeAreaView>
