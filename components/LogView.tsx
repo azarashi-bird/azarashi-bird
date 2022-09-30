@@ -2,7 +2,7 @@ import {SafeAreaView, Image, ScrollView} from 'react-native';
 import {Text} from 'react-native-paper';
 import styles, {customStyles} from './css';
 import afterViews from './afterLifes';
-import {getUserToku} from '../firebase';
+import {getUserPostCount, auth} from '../firebase';
 import {useState, useLayoutEffect} from 'react';
 import {useIsFocused} from '@react-navigation/native';
 import Calender from './Calender';
@@ -13,24 +13,17 @@ userTokus.length % 15でエラーが出る人は、とりあえず5などベタ�
 */
 
 export default function LogView() {
-  const [userTokus, setUserTokus] = useState([]);
   const [userLength, setUserLength] = useState(-1);
   const isFocused = useIsFocused();
-  const [lastRead, setLastRead] = useState(new Date(1970, 0, 1));
 
-  const getUserTokus = async () => {
-    const dataOfTokus = await getUserToku(lastRead);
-    const newUserTokus = userTokus.concat(dataOfTokus);
-
-    setUserTokus(newUserTokus);
-    setUserLength(newUserTokus.length);
-    setLastRead(new Date());
+  const getUserTokuLength = async () => {
+    const count = await getUserPostCount(auth.currentUser?.uid);
+    setUserLength(count);
   };
 
-  // createBottomTabNavigator 値渡しできたらこれする必要ない そのままTOPの値を使いたい、、、、
   useLayoutEffect(() => {
     if (isFocused) {
-      getUserTokus();
+      getUserTokuLength();
     }
   }, [isFocused]);
 
