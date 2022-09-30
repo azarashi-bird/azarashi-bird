@@ -1,6 +1,5 @@
-// const ISDEBUG = true;
-const ISDEBUG = false;
-
+let ISDEBUG = false;
+// ISDEBUG = true;
 // Import the functions you need from the SDKs you need
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -86,14 +85,11 @@ const getNewestToku = async (num) => {
   return tokuList;
 };
 
-
 /*
   descにしたい！
 */
 
-
 const getUserToku = async (afterThisTime = new Date(1970, 0, 1)) => {
-
   const uid = auth.currentUser?.uid;
   const tokuList = [];
   await tokuTable
