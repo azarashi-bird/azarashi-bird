@@ -200,10 +200,104 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(252,174,30,0.6)',
   },
 
-  // People
+  // PeopleLog
 
   peopleTable: {
     backgroundColor: '#F6F3CF',
+  },
+  peopleContainer: {
+    flex: 1,
+    backgroundColor: '#F6F3CF',
+  },
+  topView: {
+    top: 60,
+  },
+  allToku: {
+    backgroundColor: 'white',
+    width: 175,
+    height: 40,
+    borderRadius: 10,
+    overflow: 'hidden',
+    top: 5,
+    padding: 10,
+    paddingBottom: 50,
+    textAlign: 'center',
+    fontSize: 20,
+  },
+  ownToku: {
+    backgroundColor: '#fddea5',
+    width: 175,
+    height: 40,
+    borderRadius: 10,
+    overflow: 'hidden',
+    top: 5,
+    padding: 10,
+    paddingBottom: 50,
+    textAlign: 'center',
+    fontSize: 20,
+  },
+  topText: {
+    fontSize: 30,
+    textAlign: 'center',
+    marginBottom: 20,
+    fontWeight: 'bold',
+  },
+  tabView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bottomTextA: {
+    backgroundColor: 'white',
+    width: 350,
+    height: 20,
+    marginLeft: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
+    bottom: 10,
+  },
+  bottomTextB: {
+    backgroundColor: '#fddea5',
+    width: 350,
+    height: 20,
+    marginLeft: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
+    bottom: 10,
+  },
+
+  // PeopleTable
+  peopleTableContainer: {
+    backgroundColor: '#fff',
+    marginLeft: 20,
+    marginRight: 20,
+    width: 350,
+    height: 500,
+    paddingLeft: 10,
+  },
+  icon: {
+    width: 40,
+    height: 40,
+    resizeMode: 'contain',
+  },
+  cellA: {
+    right: 10,
+  },
+  cellB: {
+    right: 50,
+  },
+  cellC: {
+    left: 50,
+  },
+
+  // UserTokuTable
+  userTableContainer: {
+    marginLeft: 20,
+    marginRight: 20,
+    backgroundColor: '#fddea5',
+    paddingLeft: 10,
+    width: 350,
+    height: 500,
   },
 
   // Dictionary
@@ -350,6 +444,98 @@ export const customStyles = StyleSheet.create(
           justifyContent: 'flex-start',
         },
 
+        // PeopleLog 4.7 inch
+
+        topView: {
+          top: 40,
+        },
+        allToku: {
+          backgroundColor: 'white',
+          width: 150,
+          height: 40,
+          borderRadius: 10,
+          overflow: 'hidden',
+          top: 20,
+          padding: 10,
+          paddingBottom: 50,
+          marginLeft: 4,
+          textAlign: 'center',
+          fontSize: 20,
+        },
+        ownToku: {
+          backgroundColor: '#fddea5',
+          width: 150,
+          height: 40,
+          borderRadius: 10,
+          overflow: 'hidden',
+          top: 20,
+          padding: 10,
+          paddingBottom: 50,
+
+          textAlign: 'center',
+          fontSize: 20,
+        },
+        topText: {
+          fontSize: 30,
+          textAlign: 'center',
+          marginBottom: 20,
+          fontWeight: 'bold',
+        },
+        bottomTextA: {
+          backgroundColor: 'white',
+          width: 300,
+          height: 20,
+          marginLeft: 40,
+          borderRadius: 10,
+          overflow: 'hidden',
+          bottom: 10,
+        },
+        bottomTextB: {
+          backgroundColor: '#fddea5',
+          width: 300,
+          height: 20,
+          marginLeft: 40,
+          borderRadius: 10,
+          overflow: 'hidden',
+          bottom: 10,
+        },
+
+        // PeopleTable 4.7 inch
+
+        peopleTableContainer: {
+          backgroundColor: '#fff',
+          marginLeft: 40,
+          marginRight: 20,
+          width: 300,
+          height: 400,
+          paddingLeft: 10,
+        },
+        icon: {
+          width: 40,
+          height: 40,
+          resizeMode: 'contain',
+        },
+        cellA: {
+          right: 10,
+        },
+        cellB: {
+          right: 40,
+        },
+        cellC: {
+          left: 50,
+        },
+
+        // UserTokuTable 4.7 inch
+
+        userTableContainer: {
+          backgroundColor: '#fddea5',
+          marginLeft: 40,
+          marginRight: 20,
+          width: 300,
+          height: 400,
+          paddingLeft: 10,
+        },
+
         // Dictionary 4.7inch
 
         dict: {
@@ -427,6 +613,98 @@ export const customStyles = StyleSheet.create(
           backgroundColor: '#F6F3CF',
           alignItems: 'center',
           justifyContent: 'flex-start',
+        },
+
+        // PeopleLog 5.5 inch
+
+        topView: {
+          top: 40,
+        },
+        allToku: {
+          backgroundColor: 'white',
+          width: 170,
+          height: 40,
+          borderRadius: 10,
+          overflow: 'hidden',
+          top: 10,
+          padding: 10,
+          paddingBottom: 50,
+          marginLeft: 5,
+          textAlign: 'center',
+          fontSize: 20,
+        },
+        ownToku: {
+          backgroundColor: '#fddea5',
+          width: 170,
+          height: 40,
+          borderRadius: 10,
+          overflow: 'hidden',
+          top: 10,
+          padding: 10,
+          paddingBottom: 50,
+
+          textAlign: 'center',
+          fontSize: 20,
+        },
+        topText: {
+          fontSize: 30,
+          textAlign: 'center',
+          marginBottom: 20,
+          fontWeight: 'bold',
+        },
+        bottomTextA: {
+          backgroundColor: 'white',
+          width: 340,
+          height: 20,
+          marginLeft: 40,
+          borderRadius: 10,
+          overflow: 'hidden',
+          bottom: 10,
+        },
+        bottomTextB: {
+          backgroundColor: '#fddea5',
+          width: 340,
+          height: 20,
+          marginLeft: 40,
+          borderRadius: 10,
+          overflow: 'hidden',
+          bottom: 10,
+        },
+
+        // PeopleTable 5.5 inch
+
+        peopleTableContainer: {
+          backgroundColor: '#fff',
+          marginLeft: 40,
+          marginRight: 20,
+          width: 340,
+          height: 470,
+          paddingLeft: 10,
+        },
+        icon: {
+          width: 40,
+          height: 40,
+          resizeMode: 'contain',
+        },
+        cellA: {
+          right: 10,
+        },
+        cellB: {
+          right: 50,
+        },
+        cellC: {
+          left: 60,
+        },
+
+        // UserTokuTable 5.5 inch
+
+        userTableContainer: {
+          backgroundColor: '#fddea5',
+          marginLeft: 40,
+          marginRight: 20,
+          width: 340,
+          height: 470,
+          paddingLeft: 10,
         },
 
         // Dictionary 5.5inch
@@ -508,6 +786,98 @@ export const customStyles = StyleSheet.create(
           justifyContent: 'flex-start',
         },
 
+        // PeopleLog 5.8 inch
+
+        topView: {
+          top: 40,
+        },
+        allToku: {
+          backgroundColor: 'white',
+          width: 165,
+          height: 40,
+          borderRadius: 10,
+          overflow: 'hidden',
+          top: 10,
+          padding: 10,
+          paddingBottom: 50,
+          marginLeft: 5,
+          textAlign: 'center',
+          fontSize: 20,
+        },
+        ownToku: {
+          backgroundColor: '#fddea5',
+          width: 165,
+          height: 40,
+          borderRadius: 10,
+          overflow: 'hidden',
+          top: 10,
+          padding: 10,
+          paddingBottom: 50,
+
+          textAlign: 'center',
+          fontSize: 20,
+        },
+        topText: {
+          fontSize: 30,
+          textAlign: 'center',
+          marginBottom: 20,
+          fontWeight: 'bold',
+        },
+        bottomTextA: {
+          backgroundColor: 'white',
+          width: 330,
+          height: 20,
+          marginLeft: 25,
+          borderRadius: 10,
+          overflow: 'hidden',
+          bottom: 10,
+        },
+        bottomTextB: {
+          backgroundColor: '#fddea5',
+          width: 330,
+          height: 20,
+          marginLeft: 25,
+          borderRadius: 10,
+          overflow: 'hidden',
+          bottom: 10,
+        },
+
+        // PeopleTable 5.8 inch
+
+        peopleTableContainer: {
+          backgroundColor: '#fff',
+          marginLeft: 25,
+          marginRight: 20,
+          width: 330,
+          height: 490,
+          paddingLeft: 10,
+        },
+        icon: {
+          width: 40,
+          height: 40,
+          resizeMode: 'contain',
+        },
+        cellA: {
+          right: 10,
+        },
+        cellB: {
+          right: 50,
+        },
+        cellC: {
+          left: 60,
+        },
+
+        // UserTokuTable 5.8 inch
+
+        userTableContainer: {
+          backgroundColor: '#fddea5',
+          marginLeft: 25,
+          marginRight: 20,
+          width: 330,
+          height: 490,
+          paddingLeft: 10,
+        },
+
         // Dictionary 5.8inch
 
         dict: {
@@ -583,6 +953,106 @@ export const customStyles = StyleSheet.create(
           backgroundColor: '#F6F3CF',
           alignItems: 'center',
           justifyContent: 'flex-start',
+        },
+
+        // PeopleLog 6.5 inch
+
+        peopleTable: {
+          backgroundColor: '#F6F3CF',
+        },
+        peopleContainer: {
+          flex: 1,
+          backgroundColor: '#F6F3CF',
+        },
+        topView: {
+          top: 60,
+        },
+        allToku: {
+          backgroundColor: 'white',
+          width: 175,
+          height: 40,
+          borderRadius: 10,
+          overflow: 'hidden',
+          top: 5,
+          padding: 10,
+          paddingBottom: 50,
+          textAlign: 'center',
+          fontSize: 20,
+        },
+        ownToku: {
+          backgroundColor: '#fddea5',
+          width: 175,
+          height: 40,
+          borderRadius: 10,
+          overflow: 'hidden',
+          top: 5,
+          padding: 10,
+          paddingBottom: 50,
+          textAlign: 'center',
+          fontSize: 20,
+        },
+        topText: {
+          fontSize: 30,
+          textAlign: 'center',
+          marginBottom: 20,
+          fontWeight: 'bold',
+        },
+        tabView: {
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+        bottomTextA: {
+          backgroundColor: 'white',
+          width: 350,
+          height: 20,
+          marginLeft: 32,
+          borderRadius: 10,
+          overflow: 'hidden',
+          bottom: 10,
+        },
+        bottomTextB: {
+          backgroundColor: '#fddea5',
+          width: 350,
+          height: 20,
+          marginLeft: 32,
+          borderRadius: 10,
+          overflow: 'hidden',
+          bottom: 10,
+        },
+
+        // PeopleTable 6.5 inch
+        peopleTableContainer: {
+          backgroundColor: '#fff',
+          marginLeft: 32,
+          marginRight: 20,
+          width: 350,
+          height: 550,
+          paddingLeft: 10,
+        },
+        icon: {
+          width: 40,
+          height: 40,
+          resizeMode: 'contain',
+        },
+        cellA: {
+          right: 10,
+        },
+        cellB: {
+          right: 60,
+        },
+        cellC: {
+          left: 60,
+        },
+
+        // UserTokuTable 6.5 inch
+        userTableContainer: {
+          backgroundColor: '#fddea5',
+          marginLeft: 32,
+          marginRight: 20,
+          width: 350,
+          height: 550,
+          paddingLeft: 10,
         },
 
         // Dictionary 6.5 inch
