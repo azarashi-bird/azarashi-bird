@@ -1,5 +1,5 @@
-// const ISDEBUG = true;
-const ISDEBUG = false;
+const ISDEBUG = true;
+// const ISDEBUG = false;
 
 // Import the functions you need from the SDKs you need
 import firebase from 'firebase/app';

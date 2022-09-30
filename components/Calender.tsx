@@ -22,10 +22,10 @@ export default function Calender() {
 
   //calenderData
   let calenderData = Array(30).fill(0);
-  let calenderData2 = [
-    0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0,
-    1, 2, 3, 4, 5,
-  ];
+  // let calenderData2 = [
+  //   0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0,
+  //   1, 2, 3, 4, 5,
+  // ];
 
   monthlyTokus.forEach((toku) => {
     calenderData[toku.createdAt.toDate().getDate() - 1]++;
@@ -65,7 +65,7 @@ export default function Calender() {
       <Text style={{fontSize: 21, marginBottom: 5}}>徳積みの記録</Text>
 
       <View style={s.calender}>
-        {calenderData2.map((elem, index) => (
+        {calenderData.map((elem, index) => (
           <Pressable
             onPress={() => {
               openModal();
