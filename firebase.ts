@@ -68,6 +68,7 @@ const getAllToku = async () => {
 
 /*
   getNewestToku 引数の数最新の徳を取得する
+  descにしたい！
 */
 
 const getNewestToku = async (num) => {
@@ -85,7 +86,14 @@ const getNewestToku = async (num) => {
   return tokuList;
 };
 
+
+/*
+  descにしたい！
+*/
+
+
 const getUserToku = async (afterThisTime = new Date(1970, 0, 1)) => {
+
   const uid = auth.currentUser?.uid;
   const tokuList = [];
   await tokuTable

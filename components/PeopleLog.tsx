@@ -18,8 +18,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/native';
 import PeopleTable from './PeopleTable';
 import UserTokutable from './UserTokuTable';
-// import styles from './css';
-// まだ独自のスタイル設定！！
+import styles, {customStyles} from './css';
 
 export default function PeopleLog() {
   const isFocused = useIsFocused();
@@ -82,19 +81,19 @@ export default function PeopleLog() {
   }, [isFocused]);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.topView}>
-        <Text style={styles.topText}>徳ろぐ</Text>
+    <SafeAreaView style={styles.peopleContainer}>
+      <View style={[styles.topView, customStyles.topView]}>
+        <Text style={[styles.topText, customStyles.topText]}>徳ろぐ</Text>
         <View style={styles.tabView}>
           <Text
-            style={styles.allToku}
+            style={[styles.allToku, customStyles.allToku]}
             onPress={() => {
               setIsAnyTokus('allToku');
             }}>
             みんなの徳
           </Text>
           <Text
-            style={styles.ownToku}
+            style={[styles.ownToku, customStyles.ownToku]}
             onPress={() => {
               setIsAnyTokus('ownToku');
             }}>
@@ -107,77 +106,11 @@ export default function PeopleLog() {
           <UserTokutable userTokus={userTokus} />
         )}
         {isAnyTokus === 'allToku' ? (
-          <Text style={styles.bottomTextA}></Text>
+          <Text style={[styles.bottomTextA, customStyles.bottomTextA]}></Text>
         ) : (
-          <Text style={styles.bottomTextB}></Text>
+          <Text style={[styles.bottomTextB, customStyles.bottomTextB]}></Text>
         )}
       </View>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F6F3CF',
-  },
-  topView: {
-    top: 60,
-  },
-  peopleTable: {
-    backgroundColor: '#F6F3CF',
-  },
-  allToku: {
-    backgroundColor: 'white',
-    width: 175,
-    height: 40,
-    borderRadius: 10,
-    overflow: 'hidden',
-    top: 5,
-    padding: 10,
-    paddingBottom: 50,
-    textAlign: 'center',
-    fontSize: 20,
-  },
-  ownToku: {
-    backgroundColor: '#fddea5',
-    width: 175,
-    height: 40,
-    borderRadius: 10,
-    overflow: 'hidden',
-    top: 5,
-    padding: 10,
-    paddingBottom: 50,
-    textAlign: 'center',
-    fontSize: 20,
-  },
-  topText: {
-    fontSize: 30,
-    textAlign: 'center',
-    marginBottom: 20,
-    fontWeight: 'bold',
-  },
-  tabView: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  bottomTextA: {
-    backgroundColor: 'white',
-    width: 350,
-    height: 20,
-    marginLeft: 20,
-    borderRadius: 10,
-    overflow: 'hidden',
-    bottom: 10,
-  },
-  bottomTextB: {
-    backgroundColor: '#fddea5',
-    width: 350,
-    height: 20,
-    marginLeft: 20,
-    borderRadius: 10,
-    overflow: 'hidden',
-    bottom: 10,
-  },
-});
