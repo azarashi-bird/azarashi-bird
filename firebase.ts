@@ -73,7 +73,7 @@ const getAllToku = async () => {
 const getNewestToku = async (num) => {
   const tokuList = [];
   await tokuTable
-    .orderBy('createdAt', 'asc')
+    .orderBy('createdAt', 'desc')
     .limit(num)
     .get()
     .then((querySnapshot) => {
@@ -94,7 +94,7 @@ const getUserToku = async (afterThisTime = new Date(1970, 0, 1)) => {
   const tokuList = [];
   await tokuTable
     .where('user_id', '==', uid)
-    .orderBy('createdAt', 'asc')
+    .orderBy('createdAt', 'desc')
     .where('createdAt', '>=', afterThisTime)
     .get()
     .then((querySnapshot) => {
