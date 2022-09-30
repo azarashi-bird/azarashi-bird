@@ -1,6 +1,13 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {StatusBar} from 'expo-status-bar';
-import {SafeAreaView, StyleSheet, Text, View, Image} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Pressable,
+} from 'react-native';
 import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import {Button} from 'react-native-paper';
 import styles, {customStyles} from './css';
@@ -79,6 +86,9 @@ const Top = ({navigation}) => {
               </View>
             </>
           )}
+          <Pressable style={styles.button2}>
+            <Text>i</Text>
+          </Pressable>
         </>
       </SafeAreaView>
     </PaperProvider>
