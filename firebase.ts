@@ -1,3 +1,6 @@
+// const ISDEBUG = true;
+const ISDEBUG = false;
+
 // Import the functions you need from the SDKs you need
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -46,7 +49,7 @@ const postToku = async (toku) => {
     createdAt: new Date(),
   };
   await tokuTable.add(value);
-  console.log('added to firebase!');
+  if (ISDEBUG) console.log('added to firebase!');
 };
 
 const getAllToku = async () => {
@@ -59,7 +62,7 @@ const getAllToku = async () => {
         tokuDiffList.push(toku.data());
       });
     });
-  // console.log('CALLED GETALLTOKU. read count:' , tokuDiffList.length);
+  if (ISDEBUG) console.log('CALLED GETALL read count:', tokuDiffList.length);
   return tokuDiffList;
 };
 
@@ -78,7 +81,7 @@ const getNewestToku = async (num) => {
         tokuList.push(toku.data());
       });
     });
-  // console.log('called newestToku. read count:' , tokuList.length);
+  if (ISDEBUG) console.log('called newestToku. read count:', tokuList.length);
   return tokuList;
 };
 
@@ -93,7 +96,7 @@ const getUserToku = async (afterThisTime = new Date(1970, 0, 1)) => {
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
-  // console.log('getUserTOku was called tokuList count:::::', tokuList.length);
+  if (ISDEBUG) console.log('getUserTOku read count:::::', tokuList.length);
   return tokuList;
 };
 
@@ -106,7 +109,7 @@ const getTargetToku = async (userid) => {
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
-  // console.log('CALLED GETUSERTOKU. count:::::', tokuList.length);
+  if (ISDEBUG) console.log('CALLED GETUSERTOKU. count:::::', tokuList.length);
   return tokuList;
 };
 
@@ -121,7 +124,7 @@ const getDailyToku = async () => {
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => dailyTokuList.push(toku.data()));
     });
-  // console.log('called getDailyToku. COUNT::::', dailyTokuList.length);
+  if (ISDEBUG) console.log('called DailyToku. COUNT::::', dailyTokuList.length);
   return dailyTokuList;
 };
 
@@ -147,7 +150,7 @@ const getMonthlyToku = async () => {
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
-  // console.log('CALLED GETMonTHLYTOKU. COUNT:::::', tokuList.length);
+  if (ISDEBUG) console.log('CALLED TMonTHLYTOKU. COUNT:', tokuList.length);
   return tokuList;
 };
 
