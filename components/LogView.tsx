@@ -16,7 +16,6 @@ export default function LogView() {
   const [userTokus, setUserTokus] = useState([]);
   const [userLength, setUserLength] = useState(-1);
   const isFocused = useIsFocused();
-
   const [lastRead, setLastRead] = useState(new Date(1970, 0, 1));
 
   const getUserTokus = async () => {
