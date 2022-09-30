@@ -127,18 +127,18 @@ const getUserToku = async (afterThisTime = new Date(1970, 0, 1)) => {
   return tokuList;
 };
 
-const getTargetToku = async (userid) => {
-  const tokuList = [];
-  await tokuTable
-    .where('user_id', '==', userid)
-    .orderBy('createdAt', 'asc')
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((toku) => tokuList.push(toku.data()));
-    });
-  if (ISDEBUG) console.log('CALLED GETUSERTOKU. count:::::', tokuList.length);
-  return tokuList;
-};
+// const getTargetToku = async (userid) => {
+//   const tokuList = [];
+//   await tokuTable
+//     .where('user_id', '==', userid)
+//     .orderBy('createdAt', 'asc')
+//     .get()
+//     .then((querySnapshot) => {
+//       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
+//     });
+//   if (ISDEBUG) console.log('CALLED GETUSERTOKU. count:::::', tokuList.length);
+//   return tokuList;
+// };
 
 const getDailyToku = async () => {
   const _d = new Date();
@@ -182,11 +182,11 @@ export {
   auth,
   firestore,
   postToku,
-  getAllToku,
+  getAllToku, // これもusersコレクション作り終わったら不要になる
   getUserToku,
   getMonthlyToku,
   getDailyToku,
-  getTargetToku,
+  // getTargetToku,
   getNewestToku,
   incUserPostCount,
   getUserPostCount,
