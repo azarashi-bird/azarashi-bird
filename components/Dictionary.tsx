@@ -10,13 +10,24 @@ export default function Dictionary() {
   const [score, setScore] = useState(0);
   const isFocused = useIsFocused();
 
+  const [userTokus, setUserTokus] = useState([]);
+  const [lastRead, setLastRead] = useState(new Date(1970, 0, 1));
+
+  const getUserTokus = async () => {
+    const dataOfTokus = await getUserToku(lastRead);
+    const newUserTokus = userTokus.concat(dataOfTokus);
+
+    setUserTokus(newUserTokus);
+    setScore(Math.floor((newUserTokus.length % 45) / 3));
+    setLastRead(new Date());
+  };
+
   useEffect(() => {
-    async function call() {
-      const userTokus = await getUserToku();
-      setScore(Math.floor((userTokus.length % 45) / 3));
+    if (isFocused) {
+      getUserTokus();
     }
-    call();
   }, [isFocused]);
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={customStyles.strongText}>図鑑</Text>
