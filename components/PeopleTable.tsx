@@ -35,6 +35,7 @@ export default function PeopleTable({imgIndexArr, allTokus}) {
           </DataTable.Row>
         )}
       </DataTable>
+      {/* <Text style={styles.bottomText}></Text> */}
     </ScrollView>
   );
 }
@@ -62,4 +63,7 @@ const styles = StyleSheet.create({
   cellF: {
     left: 50,
   },
+  // bottomText: {
+  //   backgroundColor: "blue"
+  // }
 });
