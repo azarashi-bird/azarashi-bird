@@ -4,6 +4,18 @@ import {
   MD3LightTheme as DefaultTheme,
   Provider as PaperProvider,
 } from 'react-native-paper';
+import {getAllToku, incUserPostCount} from './firebase';
+
+// toku_tableの中身をusersに転記していく　usersを作ってから1回目だけ読み込ませる
+const setUsersCollection = async () => {
+  const allTokus = await getAllToku();
+  console.log(allTokus);
+  for (const toku of allTokus) {
+    await incUserPostCount(toku.user_id);
+  }
+  console.log('SERUSER COLLECTION CALLED PLZ CALL ONLY ONCE');
+};
+// setUsersCollection();
 
 // responsive
 

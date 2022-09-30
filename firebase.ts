@@ -60,7 +60,13 @@ const getUserPostCount = async (uid) => {
   const ref = USRSTABLE.doc(uid);
   const doc = await ref.get();
   if (ISDEBUG) console.log(uid, 'POST COUNT CASLLED');
-  return doc.data().postCount;
+  if (doc.exists) {
+    return doc.data().postCount;
+    // ドキュメントが存在している
+  } else {
+    // ドキュメントがまだ存在していない
+    return 0;
+  }
 };
 
 const postToku = async (toku) => {

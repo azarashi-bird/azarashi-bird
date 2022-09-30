@@ -37,20 +37,7 @@ const Top = ({navigation}) => {
     setTargetTokus(count);
   };
 
-  // 一回だけこれを呼んでほしいです（usersコレクションのドキュメントが更新されたらコメントアウトしてください）
-  const setUsersCollection = async () => {
-    const allTokus = await getAllToku();
-    for (const toku of allTokus) {
-      await incUserPostCount(toku.user_id);
-    }
-    console.log('SERUSER COLLECTION CALLED PLZ CALL ONLY ONCE');
-  };
-
   useEffect(() => {
-    // 新しく作ったuser collectionにgetAllTokuで取得したtokusからデータの流し込みを行いたい
-    // 一度データを流し込み終わったらコメントアウトして！！！
-    // setUsersCollection();
-
     getUserTokuLength();
     getDailyTokuCount();
   }, []);
