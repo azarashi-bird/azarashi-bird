@@ -53,7 +53,7 @@ const incUserPostCount = async (uid) => {
     // ドキュメントがまだ存在していない
     await ref.set({postCount: 1});
   }
-  console.log('INCUSERPOST COUNT CALLED');
+  if (ISDEBUG) console.log(uid, 'INCUSERPOST COUNT CALLED');
 };
 
 const postToku = async (toku) => {
