@@ -1,5 +1,5 @@
-const ISDEBUG = true;
-// const ISDEBUG = false;
+// const ISDEBUG = true;
+const ISDEBUG = false;
 
 // Import the functions you need from the SDKs you need
 import firebase from 'firebase/app';
@@ -128,24 +128,21 @@ const getDailyToku = async () => {
   return dailyTokuList;
 };
 
-function getFirstDate(date) {
-  return new Date(date.getFullYear(), date.getMonth(), 1);
-}
-
-function getLastDate(date) {
-  return new Date(date.getFullYear(), date.getMonth() + 1, 0);
-}
-
 const getMonthlyToku = async () => {
-  const startDate = getFirstDate(new Date());
-  const endDate = getLastDate(new Date());
+  const now = new Date();
+  const thisMonth = now.getMonth();
+  const thisYear = now.getFullYear();
+
+  const startThisMonth = new Date(thisYear, thisMonth, 1); // 2022/09/01 00:00:00(nihonzikan)
+  const startNextMonth = new Date(thisYear, thisMonth + 1, 1); // 2022/10/01 00:00:00(nihonzikan)
   const uid = auth.currentUser?.uid;
+
   const tokuList = [];
   await tokuTable
     .where('user_id', '==', uid)
     .orderBy('createdAt', 'asc')
-    .startAt(startDate)
-    .endAt(endDate)
+    .where('createdAt', '>=', startThisMonth)
+    .where('createdAt', '<', startNextMonth)
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));

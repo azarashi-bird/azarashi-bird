@@ -58,7 +58,9 @@ export default function Calender() {
     setModalVisible(false);
   }
 
-  const listedToku = chosenToku.map((toku) => <Text>{toku + ' \n'}</Text>);
+  const listedToku = chosenToku.map((toku, index) => (
+    <Text key={index}>{toku + ' \n'}</Text>
+  ));
 
   return (
     <>
