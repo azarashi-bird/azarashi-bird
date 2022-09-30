@@ -1,5 +1,5 @@
 let ISDEBUG = false;
-// ISDEBUG = true;
+ISDEBUG = true;
 // Import the functions you need from the SDKs you need
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -54,6 +54,13 @@ const incUserPostCount = async (uid) => {
     await ref.set({postCount: 1});
   }
   if (ISDEBUG) console.log(uid, 'INCUSERPOST COUNT CALLED');
+};
+
+const getUserPostCount = async (uid) => {
+  const ref = USRSTABLE.doc(uid);
+  const doc = await ref.get();
+  if (ISDEBUG) console.log(uid, 'POST COUNT CASLLED', doc.data().postCount);
+  return doc.data().postCount;
 };
 
 const postToku = async (toku) => {
@@ -182,4 +189,5 @@ export {
   getTargetToku,
   getNewestToku,
   incUserPostCount,
+  getUserPostCount,
 };

@@ -9,10 +9,10 @@ import {useState, useEffect} from 'react';
 import {
   auth,
   postToku,
-  getUserToku,
   getDailyToku,
   getAllToku,
   incUserPostCount,
+  getUserPostCount,
 } from '../firebase';
 
 // import {
@@ -33,10 +33,8 @@ const Top = ({navigation}) => {
   };
 
   const getUserTokuLength = async () => {
-    //imp user コレクションのuserPostCountを作れば読み込み回数減らせる？ 今だとgetUserTokuだとpostした徳数分読み込み発生
-    const userTokus = await getUserToku();
-    const tokuLength = userTokus.length;
-    setTargetTokus(tokuLength);
+    const count = await getUserPostCount(auth.currentUser?.uid);
+    setTargetTokus(count);
   };
 
   // 一回だけこれを呼んでほしいです（usersコレクションのドキュメントが更新されたらコメントアウトしてください）
