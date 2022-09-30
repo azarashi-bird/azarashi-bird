@@ -6,7 +6,13 @@ import {Button} from 'react-native-paper';
 import styles, {customStyles} from './css';
 import {Suggest} from './Suggest';
 import {useState, useEffect} from 'react';
-import {postToku, getUserToku, getDailyToku} from '../firebase';
+import {
+  postToku,
+  getUserToku,
+  getDailyToku,
+  getAllToku,
+  incUserPostCount,
+} from '../firebase';
 
 // import {
 //   MD3LightTheme as DefaultTheme,
@@ -32,7 +38,20 @@ const Top = ({navigation}) => {
     setTargetTokus(tokuLength);
   };
 
+  // 一回だけこれを呼んでほしいです（usersコレクションのドキュメントが更新されたらコメントアウトしてください）
+  const setUsersCollection = async () => {
+    const allTokus = await getAllToku();
+    allTokus.forEach((toku) => {
+      incUserPostCount(toku.user_id);
+    });
+    console.log('SERUSER COLLECTION CALLED PLZ CALL ONLY ONCE');
+  };
+
   useEffect(() => {
+    // 新しく作ったuser collectionにgetAllTokuで取得したtokusからデータの流し込みを行いたい
+    // 一度データを流し込み終わったらコメントアウトして！！！
+    setUsersCollection();
+
     getUserTokuLength();
     getDailyTokuCount();
   }, []);

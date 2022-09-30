@@ -39,6 +39,22 @@ if (firebase.apps.length === 0) {
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 const tokuTable = firestore.collection('toku_table');
+const USRSTABLE = firestore.collection('users');
+const increment = firebase.firestore.FieldValue.increment(1);
+
+const incUserPostCount = async (uid) => {
+  const ref = USRSTABLE.doc(uid);
+  const doc = await ref.get();
+
+  if (doc.exists) {
+    // ドキュメントが存在している
+    await ref.update({postCount: increment});
+  } else {
+    // ドキュメントがまだ存在していない
+    await ref.set({postCount: 1});
+  }
+  console.log('INCUSERPOST COUNT CALLED');
+};
 
 const postToku = async (toku) => {
   const uid = auth.currentUser?.uid;
@@ -165,4 +181,5 @@ export {
   getDailyToku,
   getTargetToku,
   getNewestToku,
+  incUserPostCount,
 };
