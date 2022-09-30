@@ -106,6 +106,11 @@ export default function PeopleLog() {
         ) : (
           <UserTokutable userTokus={userTokus} />
         )}
+        {isAnyTokus === 'allToku' ? (
+          <Text style={styles.bottomTextA}></Text>
+        ) : (
+          <Text style={styles.bottomTextB}></Text>
+        )}
       </View>
     </SafeAreaView>
   );
@@ -156,5 +161,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  bottomTextA: {
+    backgroundColor: 'white',
+    width: 350,
+    height: 20,
+    marginLeft: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
+    bottom: 10,
+  },
+  bottomTextB: {
+    backgroundColor: '#fddea5',
+    width: 350,
+    height: 20,
+    marginLeft: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
+    bottom: 10,
   },
 });
