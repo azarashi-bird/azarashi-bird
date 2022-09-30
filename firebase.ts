@@ -1,3 +1,6 @@
+// const ISDEBUG = true;
+const ISDEBUG = false;
+
 // Import the functions you need from the SDKs you need
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -39,7 +42,6 @@ const firestore = firebase.firestore();
 const tokuTable = firestore.collection('toku_table');
 
 const postToku = async (toku) => {
-  // console.log('CALLED POSTTOKU');
   const uid = auth.currentUser?.uid;
   const value = {
     user_id: uid,
@@ -47,7 +49,7 @@ const postToku = async (toku) => {
     createdAt: new Date(),
   };
   await tokuTable.add(value);
-  console.log('added to firebase!');
+  if (ISDEBUG) console.log('added to firebase!');
 };
 
 const getAllToku = async () => {
@@ -56,11 +58,11 @@ const getAllToku = async () => {
     .orderBy('createdAt', 'asc')
     .get()
     .then((querySnapshot) => {
-      // console.log('CALLED GETALLTOKU');
       querySnapshot.forEach((toku) => {
         tokuDiffList.push(toku.data());
       });
     });
+  if (ISDEBUG) console.log('CALLED GETALL read count:', tokuDiffList.length);
   return tokuDiffList;
 };
 
@@ -80,23 +82,29 @@ const getNewestToku = async (num) => {
         tokuList.push(toku.data());
       });
     });
+  if (ISDEBUG) console.log('called newestToku. read count:', tokuList.length);
   return tokuList;
 };
+
 
 /*
   descにしたい！
 */
 
-const getUserToku = async () => {
+
+const getUserToku = async (afterThisTime = new Date(1970, 0, 1)) => {
+
   const uid = auth.currentUser?.uid;
   const tokuList = [];
   await tokuTable
     .where('user_id', '==', uid)
     .orderBy('createdAt', 'asc')
+    .where('createdAt', '>=', afterThisTime)
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
+  if (ISDEBUG) console.log('getUserTOku read count:::::', tokuList.length);
   return tokuList;
 };
 
@@ -107,14 +115,13 @@ const getTargetToku = async (userid) => {
     .orderBy('createdAt', 'asc')
     .get()
     .then((querySnapshot) => {
-      // console.log('CALLED GETUSERTOKU');
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
+  if (ISDEBUG) console.log('CALLED GETUSERTOKU. count:::::', tokuList.length);
   return tokuList;
 };
 
 const getDailyToku = async () => {
-  // console.log('called getDailyToku');
   const _d = new Date();
   const d = new Date(_d.getFullYear(), _d.getMonth(), _d.getDate(), 0, 0, 0);
   const dailyTokuList = [];
@@ -125,6 +132,7 @@ const getDailyToku = async () => {
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => dailyTokuList.push(toku.data()));
     });
+  if (ISDEBUG) console.log('called DailyToku. COUNT::::', dailyTokuList.length);
   return dailyTokuList;
 };
 
@@ -137,8 +145,6 @@ function getLastDate(date) {
 }
 
 const getMonthlyToku = async () => {
-  // console.log('CALLED GETMonTHLYTOKU');
-
   const startDate = getFirstDate(new Date());
   const endDate = getLastDate(new Date());
   const uid = auth.currentUser?.uid;
@@ -152,6 +158,7 @@ const getMonthlyToku = async () => {
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
+  if (ISDEBUG) console.log('CALLED TMonTHLYTOKU. COUNT:', tokuList.length);
   return tokuList;
 };
 

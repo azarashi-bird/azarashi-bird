@@ -17,13 +17,22 @@ export default function LogView() {
   const [userLength, setUserLength] = useState(-1);
   const isFocused = useIsFocused();
 
+  const [lastRead, setLastRead] = useState(new Date(1970, 0, 1));
+
+  const getUserTokus = async () => {
+    const dataOfTokus = await getUserToku(lastRead);
+    const newUserTokus = userTokus.concat(dataOfTokus);
+
+    setUserTokus(newUserTokus);
+    setUserLength(newUserTokus.length);
+    setLastRead(new Date());
+  };
+
+  // createBottomTabNavigator 値渡しできたらこれする必要ない そのままTOPの値を使いたい、、、、
   useLayoutEffect(() => {
-    const getUserTokus = async () => {
-      const dataOfTokus = await getUserToku();
-      setUserTokus(dataOfTokus);
-      setUserLength(dataOfTokus.length);
-    };
-    getUserTokus();
+    if (isFocused) {
+      getUserTokus();
+    }
   }, [isFocused]);
 
   return (
