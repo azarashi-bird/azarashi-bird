@@ -22,7 +22,7 @@ const Top = ({navigation}) => {
 
   const getDailyTokuCount = async () => {
     const dailyTokus = await getDailyToku();
-    setDailyTokusCount(dailyTokus.length - 1);
+    setDailyTokusCount(dailyTokus.length);
   };
 
   const getUserTokuLength = async () => {
