@@ -124,13 +124,17 @@ const Top = ({navigation}) => {
             </>
           )}
 
-          {/* infoボタン作成 リンクには飛ぶけど、width/heightが上手くいかない*/}
+          {/* infoボタン作成 リンクには飛ぶけど、アイコンが真っ白になる＆大きさを変えると消える*/}
           <Pressable
             style={styles.infoButton}
             onPress={() => {
               openLink();
             }}>
-            <Text style={styles.infoIcon}>リンクに飛ぶ</Text>
+            <Image
+              style={styles.infoIcon}
+              source={require('../assets/homePage/infoButton.png')}
+            />
+            {/* <Text style={styles.infoIcon}>i</Text> */}
           </Pressable>
         </>
       </SafeAreaView>

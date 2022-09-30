@@ -1,4 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native';
+import {white} from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 const {width, height} = Dimensions.get('window');
 
 // responsive
@@ -166,10 +167,12 @@ const styles = StyleSheet.create({
   },
   infoButton: {
     backgroundColor: 'white',
+    height: 200,
+    width: 200,
   },
 
   infoIcon: {
-    fontSize: 100,
+    fontSize: 50,
     padding: 20,
   },
 
