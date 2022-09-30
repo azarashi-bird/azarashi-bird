@@ -8,7 +8,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import {auth, firestore} from '../firebase';
+import {auth} from '../firebase';
 import styles from './css';
 
 type RootStackParamList = {

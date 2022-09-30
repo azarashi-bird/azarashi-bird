@@ -3,22 +3,17 @@ import {DataTable, Text, Button} from 'react-native-paper';
 import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import afterViews from './afterLifes';
 
-export default function PeopleTable({preImgIndex, mainArr}) {
+export default function PeopleTable({imgIndexArr, allTokus}) {
   return (
     <ScrollView style={styles.tableContainer}>
-      <DataTable style={styles.logs}>
-        {preImgIndex.length !== 0 ? (
-          mainArr.map((tokuData, index) => {
-            // re-renderをアロー関数で回避...できてないので、どうにかする。
-            //
-            // () => setTargetId(tokuData[0]);
-            // console.log({tokuData})
-            // console.log(preImgIndex, "PeopleLog163")
+      <DataTable>
+        {imgIndexArr.length !== 0 ? (
+          allTokus.map((tokuData, index) => {
             return (
               <DataTable.Row key={index}>
                 <DataTable.Cell style={styles.cellD}>
                   <Image
-                    source={afterViews[preImgIndex[index]][0]}
+                    source={afterViews[imgIndexArr[index]][0]}
                     style={styles.icon}></Image>
                 </DataTable.Cell>
                 <DataTable.Cell style={styles.cellE}>
@@ -40,6 +35,7 @@ export default function PeopleTable({preImgIndex, mainArr}) {
           </DataTable.Row>
         )}
       </DataTable>
+      {/* <Text style={styles.bottomText}></Text> */}
     </ScrollView>
   );
 }
@@ -50,13 +46,8 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     width: 350,
-  },
-  logs: {
-    backgroundColor: '#FFFF',
-    width: 350,
-    marginLeft: 20,
-    marginRight: 20,
     height: 500,
+    paddingLeft: 10,
   },
   icon: {
     width: 40,
@@ -64,7 +55,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   cellD: {
-    right: 20,
+    right: 10,
   },
   cellE: {
     right: 50,
@@ -72,4 +63,7 @@ const styles = StyleSheet.create({
   cellF: {
     left: 50,
   },
+  // bottomText: {
+  //   backgroundColor: "blue"
+  // }
 });
