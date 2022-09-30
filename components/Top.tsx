@@ -1,6 +1,14 @@
-import {createStackNavigator} from '@react-navigation/stack';
 import {StatusBar} from 'expo-status-bar';
-import {SafeAreaView, StyleSheet, Text, View, Image, Alert} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Alert,
+  Pressable,
+  Linking,
+} from 'react-native';
 import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import {Button} from 'react-native-paper';
 import styles, {customStyles} from './css';
@@ -17,7 +25,6 @@ const Top = ({navigation}) => {
   const [isEntering, setIsEntering] = useState(false);
   const [toku, setToku] = useState('');
   const [targetTokus, setTargetTokus] = useState(0);
-
   const [dailyTokusCount, setDailyTokusCount] = useState(0); // とり飛ばした後のカウント表示用
 
   const getDailyTokuCount = async () => {
@@ -66,6 +73,21 @@ const Top = ({navigation}) => {
       sendAlert();
     }
   };
+
+  const url =
+    'https://routineworks.notion.site/birdonation-88f775fa5c9e485784b52d32dafa2ddc';
+  const openLink = () => {
+    Linking.canOpenURL(url)
+      .then((supported) => {
+        if (!supported) {
+          console.log('無効なURLです: ' + url);
+        } else {
+          return Linking.openURL(url);
+        }
+      })
+      .catch((err) => console.error('URLを開けませんでした。', err));
+  };
+
   return (
     <PaperProvider>
       <SafeAreaView style={styles.container}>
@@ -100,8 +122,12 @@ const Top = ({navigation}) => {
               </View>
             </>
           )}
-          <Pressable style={styles.button2}>
-            <Text>i</Text>
+          <Pressable
+            style={styles.infoButton}
+            onPress={() => {
+              openLink();
+            }}>
+            <Text style={styles.infoIcon}>i</Text>
           </Pressable>
         </>
       </SafeAreaView>

@@ -164,6 +164,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 40,
   },
+  infoButton: {
+    backgroundColor: 'white',
+  },
+
+  infoIcon: {
+    fontSize: 100,
+    padding: 20,
+  },
 
   //// calender
   calender: {
