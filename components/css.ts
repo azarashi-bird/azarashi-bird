@@ -973,6 +973,18 @@ export const customStyles = StyleSheet.create(
           height: 550,
           top: -260,
         },
+        // infoButton
+        infoImg: {
+          width: 50,
+          height: 50,
+          left: 160,
+        },
+        infoButton: {
+          backgroundColor: 'red',
+          opacity: 0,
+          height: 40,
+          width: 40,
+        },
 
         // Flying Bird 6.1 inch
 
