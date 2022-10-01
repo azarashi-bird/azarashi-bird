@@ -4,7 +4,7 @@ const s = styles;
 import {getMonthlyToku} from '../firebase';
 import {useEffect, useState} from 'react';
 
-export default function Calender() {
+export default function Calender({userLength}) {
   const [monthlyTokus, setMonthlyTokus] = useState([]);
   const [chosenToku, setChosenToku] = useState([]);
   const [chosenDay, setChosenDay] = useState(0);
@@ -12,13 +12,19 @@ export default function Calender() {
   const [pictureIndex, setPictureIndex] = useState(0);
   const [evolved, setEvolved] = useState(false);
 
+  const [lastUpdate, setLastUpdate] = useState(undefined);
+
   useEffect(() => {
     async function setTokus() {
-      const target = await getMonthlyToku();
-      setMonthlyTokus(target);
+      const diff = await getMonthlyToku(lastUpdate);
+      const newTokus = monthlyTokus.concat(diff);
+      setMonthlyTokus(newTokus);
+      setLastUpdate(new Date());
     }
-    setTokus();
-  }, []);
+    if (userLength !== -1) {
+      setTokus();
+    }
+  }, [userLength]);
 
   //calenderData
   let calenderData = Array(30).fill(0);
