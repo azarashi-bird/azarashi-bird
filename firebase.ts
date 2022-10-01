@@ -99,11 +99,13 @@ const getAllToku = async () => {
   descにしたい！
 */
 
-const getNewestToku = async (num) => {
+const getNewestToku = async (num, afterThisTime) => {
+  afterThisTime = afterThisTime ? afterThisTime : new Date(1970, 0, 1);
   const tokuList = [];
   await tokuTable
     .orderBy('createdAt', 'desc')
     .limit(num)
+    .where('createdAt', '>=', afterThisTime)
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => {
@@ -118,7 +120,9 @@ const getNewestToku = async (num) => {
   descにしたい！
 */
 
-const getUserToku = async (afterThisTime = new Date(1970, 0, 1)) => {
+const getUserToku = async (afterThisTime) => {
+  afterThisTime = afterThisTime ? afterThisTime : new Date(1970, 0, 1);
+  console.log(afterThisTime, 'AFTERETHIS TIME GETUSERTOKU');
   const uid = auth.currentUser?.uid;
   const tokuList = [];
   await tokuTable

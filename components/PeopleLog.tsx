@@ -23,10 +23,14 @@ import styles, {customStyles} from './css';
 export default function PeopleLog() {
   const isFocused = useIsFocused();
   const [userTokus, setUserTokus] = useState([]);
-  const [imgIndexArr, setImgIndexArr] = useState([]);
+  const [countArr, setCountArr] = useState([]);
   const [allTokus, setAllTokus] = useState([]);
   const [isAnyTokus, setIsAnyTokus] = useState('allToku');
   const navigation = useNavigation();
+
+  const [allTokuData, setAllTokuData] = useState([]);
+  const [lastUpdate, setLastUpdate] = useState(undefined);
+
   const GETLIMIT = 10;
 
   const dataToArr = (datas) => {
@@ -43,9 +47,10 @@ export default function PeopleLog() {
   };
 
   const targetList = async () => {
-    const allTargetDatas = await getUserToku();
-    const fullArray = dataToArr(allTargetDatas);
-    setUserTokus(fullArray);
+    const userTokuDiff = await getUserToku(lastUpdate);
+    const diffArr = dataToArr(userTokuDiff);
+    const userTokuAll = userTokus.concat(diffArr);
+    setUserTokus(userTokuAll);
   };
 
   const idArrToPostCountArr = async (idArr) => {
@@ -64,19 +69,22 @@ export default function PeopleLog() {
   };
 
   const allList = async () => {
-    const allTokusDataLimited = await getNewestToku(GETLIMIT);
+    const diff = await getNewestToku(GETLIMIT, lastUpdate);
+    const allTokusDataLimited = allTokuData.concat(diff);
+    setAllTokuData(allTokusDataLimited);
+
     const allTokuArr = dataToArr(allTokusDataLimited);
     const idArr = allTokusDataLimited.map((obj) => obj.user_id);
     const countArr = await idArrToPostCountArr(idArr);
-    const indexArr = countArr.map((count) => Math.floor((count % 45) / 3));
 
     setAllTokus(allTokuArr);
-    setImgIndexArr(indexArr);
+    setCountArr(countArr);
   };
 
   const allSet = async () => {
     await allList();
     await targetList();
+    setLastUpdate(new Date());
   };
 
   useEffect(() => {
@@ -106,7 +114,7 @@ export default function PeopleLog() {
           </Text>
         </View>
         {isAnyTokus === 'allToku' ? (
-          <PeopleTable imgIndexArr={imgIndexArr} allTokus={allTokus} />
+          <PeopleTable countArr={countArr} allTokus={allTokus} />
         ) : (
           <UserTokutable userTokus={userTokus} />
         )}
