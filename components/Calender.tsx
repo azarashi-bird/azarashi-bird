@@ -70,9 +70,11 @@ export default function Calender() {
         {calenderData.map((elem, index) => (
           <Pressable
             onPress={() => {
-              openModal();
-              setChosenDay(index + 1);
-              setChosenToku(filteredToku(index + 1));
+              if (elem > 0) {
+                openModal();
+                setChosenDay(index + 1);
+                setChosenToku(filteredToku(index + 1));
+              }
             }}
             key={index}
             style={[
