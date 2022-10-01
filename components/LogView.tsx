@@ -49,7 +49,7 @@ export default function LogView() {
           </>
         )}
 
-        <Calender />
+        <Calender userLength={userLength} />
       </ScrollView>
     </SafeAreaView>
   );

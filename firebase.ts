@@ -161,12 +161,15 @@ const getDailyToku = async () => {
   return dailyTokuList;
 };
 
-const getMonthlyToku = async () => {
+const getMonthlyToku = async (afterThisTime) => {
   const now = new Date();
   const thisMonth = now.getMonth();
   const thisYear = now.getFullYear();
 
-  const startThisMonth = new Date(thisYear, thisMonth, 1); // 2022/09/01 00:00:00(nihonzikan)
+  const startThisMonth = afterThisTime
+    ? afterThisTime
+    : new Date(thisYear, thisMonth, 1); // 2022/09/01 00:00:00(nihonzikan)
+
   const startNextMonth = new Date(thisYear, thisMonth + 1, 1); // 2022/10/01 00:00:00(nihonzikan)
   const uid = auth.currentUser?.uid;
 
