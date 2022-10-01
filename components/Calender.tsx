@@ -22,10 +22,10 @@ export default function Calender() {
 
   //calenderData
   let calenderData = Array(30).fill(0);
-  let calenderData2 = [
-    0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0,
-    1, 2, 3, 4, 5,
-  ];
+  // let calenderData2 = [
+  //   0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0,
+  //   1, 2, 3, 4, 5,
+  // ];
 
   monthlyTokus.forEach((toku) => {
     calenderData[toku.createdAt.toDate().getDate() - 1]++;
@@ -58,7 +58,9 @@ export default function Calender() {
     setModalVisible(false);
   }
 
-  const listedToku = chosenToku.map((toku) => <Text>{toku + ' \n'}</Text>);
+  const listedToku = chosenToku.map((toku, index) => (
+    <Text key={index}>{toku + ' \n'}</Text>
+  ));
 
   return (
     <>
