@@ -171,17 +171,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 40,
   },
-  // infoButton
-  infoButton: {
-    backgroundColor: 'white',
-    height: 200,
-    width: 200,
-  },
-
-  infoIcon: {
-    fontSize: 50,
-    padding: 20,
-  },
 
   //// calender
   calender: {
@@ -1352,6 +1341,19 @@ export const customStyles = StyleSheet.create(
           width: 400,
           height: 550,
           top: -260,
+        },
+        // infoButton
+        infoImg: {
+          width: 60,
+          height: 60,
+          left: 170,
+          bottom: 10,
+        },
+        infoButton: {
+          backgroundColor: 'red',
+          opacity: 0,
+          height: 50,
+          width: 50,
         },
 
         // Flying Bird 6.5 inch
