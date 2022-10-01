@@ -143,7 +143,7 @@ const Top = ({navigation}) => {
             resizeMode="contain"
             style={customStyles.infoImg}>
             <Pressable
-              style={[styles.infoButton, customStyles.infoButton]}
+              style={customStyles.infoButton}
               onPress={() => {
                 openLink();
               }}
