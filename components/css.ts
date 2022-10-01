@@ -27,7 +27,7 @@ const iphoneModel = iPhoneInch47()
   : iPhoneInch65()
   ? {inch: 6.5, width, height} // base(else), iPhone 11 Pro Max
   : iPhoneInch67()
-  ? {inch: 6.7, width, height} // iPhone12, 12Pro, 13, 13Pro
+  ? {inch: 6.7, width, height} // iPhone12 Pro Max, 13 Pro Max, 14 Pro Max
   : {inch: null, width: null, height: null};
 
 console.log('iPhone model:', iphoneModel);
@@ -171,6 +171,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 40,
   },
+  // infoButton
   infoButton: {
     backgroundColor: 'white',
     height: 200,
@@ -422,6 +423,23 @@ export const customStyles = StyleSheet.create(
           width: 350,
           height: 400,
           top: -200,
+        },
+        // infoButton
+        infoImg: {
+          width: 50,
+          height: 50,
+          left: 150,
+        },
+        infoButton: {
+          backgroundColor: 'red',
+          opacity: 0,
+          height: 40,
+          width: 40,
+        },
+
+        infoIcon: {
+          fontSize: 50,
+          padding: 20,
         },
 
         // FlyingBird 4.7 inch

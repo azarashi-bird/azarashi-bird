@@ -8,6 +8,7 @@ import {
   Alert,
   Pressable,
   Linking,
+  ImageBackground,
 } from 'react-native';
 import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import {Button} from 'react-native-paper';
@@ -125,17 +126,29 @@ const Top = ({navigation}) => {
           )}
 
           {/* infoボタン作成 リンクには飛ぶけど、アイコンが真っ白になる＆大きさを変えると消える*/}
+          {/*
           <Pressable
-            style={styles.infoButton}
+            style={[styles.infoButton, customStyles.infoButton]}
             onPress={() => {
               openLink();
             }}>
             <Image
-              style={styles.infoIcon}
+              style={[styles.infoIcon, customStyles.infoButton]}
               source={require('../assets/homePage/infoButton.png')}
             />
-            {/* <Text style={styles.infoIcon}>i</Text> */}
           </Pressable>
+          */}
+          <ImageBackground
+            source={require('../assets/homePage/infoButton.png')}
+            resizeMode="contain"
+            style={customStyles.infoImg}>
+            <Pressable
+              style={[styles.infoButton, customStyles.infoButton]}
+              onPress={() => {
+                openLink();
+              }}
+            />
+          </ImageBackground>
         </>
       </SafeAreaView>
     </PaperProvider>
