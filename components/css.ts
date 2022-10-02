@@ -1,4 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native';
+import {white} from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 const {width, height} = Dimensions.get('window');
 
 // responsive
@@ -26,7 +27,7 @@ const iphoneModel = iPhoneInch47()
   : iPhoneInch65()
   ? {inch: 6.5, width, height} // base(else), iPhone 11 Pro Max
   : iPhoneInch67()
-  ? {inch: 6.7, width, height} // iPhone12, 12Pro, 13, 13Pro
+  ? {inch: 6.7, width, height} // iPhone12 Pro Max, 13 Pro Max, 14 Pro Max
   : {inch: null, width: null, height: null};
 
 console.log('iPhone model:', iphoneModel);
@@ -412,6 +413,18 @@ export const customStyles = StyleSheet.create(
           height: 400,
           top: -200,
         },
+        // infoButton
+        infoImg: {
+          width: 50,
+          height: 50,
+          left: 150,
+        },
+        infoButton: {
+          backgroundColor: 'red',
+          opacity: 0,
+          height: 40,
+          width: 40,
+        },
 
         // FlyingBird 4.7 inch
 
@@ -582,6 +595,18 @@ export const customStyles = StyleSheet.create(
           width: 380,
           height: 400,
           top: -200,
+        },
+        // infoButton
+        infoImg: {
+          width: 50,
+          height: 50,
+          left: 170,
+        },
+        infoButton: {
+          backgroundColor: 'red',
+          opacity: 0,
+          height: 40,
+          width: 40,
         },
 
         // FlyingBird 5.5 inch
@@ -754,6 +779,18 @@ export const customStyles = StyleSheet.create(
           height: 400,
           top: -200,
         },
+        // infoButton
+        infoImg: {
+          width: 50,
+          height: 50,
+          left: 150,
+        },
+        infoButton: {
+          backgroundColor: 'red',
+          opacity: 0,
+          height: 40,
+          width: 40,
+        },
 
         // FlyingBird 5.8 inch
 
@@ -924,6 +961,18 @@ export const customStyles = StyleSheet.create(
           width: 400,
           height: 550,
           top: -260,
+        },
+        // infoButton
+        infoImg: {
+          width: 50,
+          height: 50,
+          left: 160,
+        },
+        infoButton: {
+          backgroundColor: 'red',
+          opacity: 0,
+          height: 40,
+          width: 40,
         },
 
         // Flying Bird 6.1 inch
@@ -1103,6 +1152,19 @@ export const customStyles = StyleSheet.create(
           height: 550,
           top: -260,
         },
+        // infoButton
+        infoImg: {
+          width: 60,
+          height: 60,
+          left: 170,
+          bottom: 15,
+        },
+        infoButton: {
+          backgroundColor: 'red',
+          opacity: 0,
+          height: 50,
+          width: 50,
+        },
 
         // Flying Bird 6.7 inch
 
@@ -1279,6 +1341,19 @@ export const customStyles = StyleSheet.create(
           width: 400,
           height: 550,
           top: -260,
+        },
+        // infoButton
+        infoImg: {
+          width: 60,
+          height: 60,
+          left: 170,
+          bottom: 10,
+        },
+        infoButton: {
+          backgroundColor: 'red',
+          opacity: 0,
+          height: 50,
+          width: 50,
         },
 
         // Flying Bird 6.5 inch
