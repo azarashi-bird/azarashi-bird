@@ -125,19 +125,6 @@ const Top = ({navigation}) => {
             </>
           )}
 
-          {/* infoボタン作成 リンクには飛ぶけど、アイコンが真っ白になる＆大きさを変えると消える*/}
-          {/*
-          <Pressable
-            style={[styles.infoButton, customStyles.infoButton]}
-            onPress={() => {
-              openLink();
-            }}>
-            <Image
-              style={[styles.infoIcon, customStyles.infoButton]}
-              source={require('../assets/homePage/infoButton.png')}
-            />
-          </Pressable>
-          */}
           <ImageBackground
             source={require('../assets/homePage/infoButton.png')}
             resizeMode="contain"
