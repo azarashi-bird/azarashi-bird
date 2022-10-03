@@ -36,22 +36,23 @@ export default function LogView() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.logContainer}>
-        <Text style={customStyles.topContent} variant="titleLarge">
+      <ScrollView
+        contentContainerStyle={{...styles.inner, ...styles.logContainer}}>
+        <Text style={styles.h2} variant="titleLarge">
           あなたの来世
         </Text>
         {userLength < 0 ? (
           <>
-            <Text style={{color: '#F6F3CF', height: 330}}>でも</Text>
+            <Text>Loading...</Text>
           </>
         ) : (
           <>
-            <Text style={customStyles.strongText}>
+            <Text style={styles.h1}>
               {afterViews[Math.floor((userLength % 45) / 3)][1]}
             </Text>
             <Image
               source={afterViews[Math.floor((userLength % 45) / 3)][0]}
-              style={styles.mainImage}
+              style={customStyles.avatar}
             />
           </>
         )}

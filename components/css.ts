@@ -38,6 +38,37 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
+
+  inner: {
+    top: 30,
+    bottom: 30,
+  },
+
+  h1: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+
+  h2: {
+    fontSize: 25,
+    lineHeight: 37,
+    marginBottom: 10,
+  },
+
+  p: {
+    fontSize: 18,
+    lineHeight: 30,
+  },
+
+  strong: {
+    fontSize: 18,
+    lineHeight: 30,
+    fontWeight: 'bold',
+  },
+
+  // ↑ done
+
   innerContainer: {
     position: 'relative',
     flex: 1,
@@ -132,11 +163,6 @@ const styles = StyleSheet.create({
 
   // Profile
 
-  mainImage: {
-    height: 300,
-    width: 300,
-    resizeMode: 'contain',
-  },
   mainText: {
     marginTop: 50,
   },
@@ -385,12 +411,12 @@ export const customStyles = StyleSheet.create(
     ? {
         // all 4.7inch
 
-        strongText: {
-          fontWeight: 'bold',
-          fontSize: 28,
-          top: 40,
-          marginBottom: 40,
-        },
+        // strongText: {
+        //   fontWeight: 'bold',
+        //   fontSize: 28,
+        //   // top: 40,
+        //   marginBottom: 40,
+        // },
 
         // Top 4.7inch
 
@@ -447,10 +473,21 @@ export const customStyles = StyleSheet.create(
           alignItems: 'center',
         },
 
-        // LogView 4.7 inch
+        // Profile 4.7 inch
 
-        topContent: {
-          marginTop: 70,
+        // topContent: {
+        //   // marginBottom: 10
+        // },
+
+        avatar: {
+          height: 250,
+          width: 250,
+          resizeMode: 'contain',
+          marginBottom: 10,
+        },
+
+        profileContainer: {
+          marginBottom: 30,
         },
 
         logContainer: {
