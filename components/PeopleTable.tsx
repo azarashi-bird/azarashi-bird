@@ -13,15 +13,15 @@ export default function PeopleTable({imgIndexArr, allTokus}) {
           allTokus.map((tokuData, index) => {
             return (
               <DataTable.Row key={index}>
-                <DataTable.Cell style={[styles.cellA, customStyles.cellA]}>
+                <DataTable.Cell style={styles.cellA}>
                   <Image
                     source={afterViews[imgIndexArr[index]][0]}
                     style={styles.icon}></Image>
                 </DataTable.Cell>
-                <DataTable.Cell style={[styles.cellB, customStyles.cellB]}>
+                <DataTable.Cell style={styles.cellB}>
                   <Text>{tokuData[0]}</Text>
                 </DataTable.Cell>
-                <DataTable.Cell style={[styles.cellC, customStyles.cellC]}>
+                <DataTable.Cell style={styles.cellC}>
                   <Text>{tokuData[1]}</Text>
                 </DataTable.Cell>
               </DataTable.Row>

@@ -122,20 +122,19 @@ const Top = ({navigation}) => {
                   style={customStyles.topCage}
                 />
               </View>
+              <ImageBackground
+                source={require('../assets/homePage/infoButton.png')}
+                resizeMode="contain"
+                style={customStyles.infoImg}>
+                <Pressable
+                  style={customStyles.infoButton}
+                  onPress={() => {
+                    openLink();
+                  }}
+                />
+              </ImageBackground>
             </>
           )}
-
-          <ImageBackground
-            source={require('../assets/homePage/infoButton.png')}
-            resizeMode="contain"
-            style={customStyles.infoImg}>
-            <Pressable
-              style={customStyles.infoButton}
-              onPress={() => {
-                openLink();
-              }}
-            />
-          </ImageBackground>
         </View>
       </SafeAreaView>
     </PaperProvider>

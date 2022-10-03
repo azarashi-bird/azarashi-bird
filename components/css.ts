@@ -457,8 +457,8 @@ export const customStyles = StyleSheet.create(
         // Top 4.7inch
 
         topBird: {
-          top: 120,
-          left: 85,
+          top: 140,
+          left: 80,
           width: 150,
           height: 170,
         },
@@ -469,6 +469,7 @@ export const customStyles = StyleSheet.create(
         },
         // infoButton
         infoImg: {
+          top: 330,
           width: 50,
           height: 50,
           left: 150,
@@ -594,15 +595,6 @@ export const customStyles = StyleSheet.create(
           width: 40,
           height: 40,
           resizeMode: 'contain',
-        },
-        cellA: {
-          // right: 10,
-        },
-        cellB: {
-          // right: 40,
-        },
-        cellC: {
-          // left: 50,
         },
 
         // UserTokuTable 4.7 inch
