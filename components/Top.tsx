@@ -67,13 +67,14 @@ const Top = ({navigation}) => {
   const submit = () => {
     setToku('');
     if (toku !== '') {
-      setDailyTokusCount(dailyTokusCount + 1);
+      const newCount = dailyTokusCount + 1;
+      setDailyTokusCount(newCount);
       setTargetTokus(targetTokus + 1);
       incUserPostCount(auth.currentUser?.uid);
       postToku(toku)
         ? navigation.navigate('FlyingBird', {
             targetTokus: targetTokus,
-            dailyTokusCount: dailyTokusCount,
+            dailyTokusCount: newCount,
           })
         : console.log('post failed!');
     } else {
