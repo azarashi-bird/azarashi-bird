@@ -30,19 +30,21 @@ export default function Dictionary() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={customStyles.strongText}>図鑑</Text>
-      <ScrollView contentContainerStyle={[styles.container, customStyles.dict]}>
-        {afterViews.map((element, index) => (
-          <View key={index} style={styles.dictItem}>
-            <Text style={styles.dictItemName}>
-              {score >= index ? element[1] : '???'}
-            </Text>
-            <Image
-              source={score >= index ? element[0] : unknown}
-              style={styles.dictItemImage}></Image>
-          </View>
-        ))}
-      </ScrollView>
+      <View style={styles.inner}>
+        <Text style={styles.h1}>図鑑</Text>
+        <ScrollView contentContainerStyle={[customStyles.dict]}>
+          {afterViews.map((element, index) => (
+            <View key={index} style={styles.dictItem}>
+              <Text style={styles.dictItemName}>
+                {score >= index ? element[1] : '???'}
+              </Text>
+              <Image
+                source={score >= index ? element[0] : unknown}
+                style={styles.dictItemImage}></Image>
+            </View>
+          ))}
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }

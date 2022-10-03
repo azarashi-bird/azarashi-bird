@@ -611,7 +611,7 @@ export const customStyles = StyleSheet.create(
         // Dictionary 4.7inch
 
         dict: {
-          top: 50,
+          top: 20,
           width: '95%',
           alignItems: 'center',
           flexDirection: 'row',
