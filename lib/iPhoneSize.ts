@@ -15,13 +15,6 @@ const Inch65_HEIGHT = 896; // iPhone xr, xsMax, 11, 11proMax
 const Inch67_WIDTH = 428; // iPhone 12ProMax, 14Plus
 const Inch67_HEIGHT = 926; // iPhone 12ProMax, 14Plus
 
-const IPAD_PRO_129_WIDTH = 1024; // iPad 12.9
-const IPAD_PRO_129_HEIGHT = 1366; // iPad 12.9
-const IPAD_PRO_11_WIDTH = 1112; // iPad 11
-const IPAD_PRO_11_HEIGHT = 834; // iPad 11
-const IPAD_PRO_97_WIDTH = 768; // iPad 9.7
-const IPAD_PRO_97_HEIGHT = 1024; // iPad 9.7
-
 const {width, height} = Dimensions.get('window');
 
 // iPhone 6, 7, 8, SE(第2世代)対応
@@ -51,19 +44,4 @@ export const iPhoneInch65 = () => {
 // iPhone 12ProMax, 14Plus対応
 export const iPhoneInch67 = () => {
   return width === Inch67_WIDTH && height === Inch67_HEIGHT;
-};
-
-// iPad 12.9対応
-export const iPad129 = () => {
-  return width === IPAD_PRO_129_WIDTH && height === IPAD_PRO_129_HEIGHT;
-};
-
-// iPad 11対応
-export const iPad11 = () => {
-  return width === IPAD_PRO_11_WIDTH && height === IPAD_PRO_11_HEIGHT;
-};
-
-// iPad 9.7対応
-export const iPad97 = () => {
-  return width === IPAD_PRO_97_WIDTH && height === IPAD_PRO_97_HEIGHT;
 };
