@@ -187,7 +187,7 @@ const getMonthlyToku = async (afterThisTime) => {
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
-  if (ISDEBUG) console.log('CALLED TMonTHLYTOKU. COUNT:', tokuList.length);
+  // if (ISDEBUG) console.log('CALLED TMonTHLYTOKU. COUNT:', tokuList.length);
   return tokuList;
 };
 
