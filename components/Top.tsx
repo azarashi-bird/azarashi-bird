@@ -15,7 +15,14 @@ import {Button} from 'react-native-paper';
 import styles, {customStyles} from './css';
 import {Suggest} from './Suggest';
 import {useState, useEffect} from 'react';
-import {postToku, getUserToku, getDailyToku} from '../firebase';
+import {
+  auth,
+  postToku,
+  getDailyToku,
+  getAllToku,
+  incUserPostCount,
+  getUserPostCount,
+} from '../firebase';
 
 // import {
 //   MD3LightTheme as DefaultTheme,
@@ -34,10 +41,8 @@ const Top = ({navigation}) => {
   };
 
   const getUserTokuLength = async () => {
-    //imp user コレクションのuserPostCountを作れば読み込み回数減らせる？ 今だとgetUserTokuだとpostした徳数分読み込み発生
-    const userTokus = await getUserToku();
-    const tokuLength = userTokus.length;
-    setTargetTokus(tokuLength);
+    const count = await getUserPostCount(auth.currentUser?.uid);
+    setTargetTokus(count);
   };
 
   useEffect(() => {
@@ -64,6 +69,7 @@ const Top = ({navigation}) => {
     if (toku !== '') {
       setDailyTokusCount(dailyTokusCount + 1);
       setTargetTokus(targetTokus + 1);
+      incUserPostCount(auth.currentUser?.uid);
       postToku(toku)
         ? navigation.navigate('FlyingBird', {
             targetTokus: targetTokus,

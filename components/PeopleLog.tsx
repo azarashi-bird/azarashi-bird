@@ -11,7 +11,7 @@ import {
 
 // import {Text} from 'react-native-paper';
 import {DataTable, Button} from 'react-native-paper';
-import {getUserToku, getTargetToku, getNewestToku} from '../firebase';
+import {getUserToku, getNewestToku, getUserPostCount} from '../firebase';
 import {useIsFocused} from '@react-navigation/native';
 import afterViews from './afterLifes';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -27,6 +27,10 @@ export default function PeopleLog() {
   const [allTokus, setAllTokus] = useState([]);
   const [isAnyTokus, setIsAnyTokus] = useState('allToku');
   const navigation = useNavigation();
+
+  // const [allTokuData, setAllTokuData] = useState([]);
+  // const [lastUpdate, setLastUpdate] = useState(undefined);
+
   const GETLIMIT = 10;
 
   const dataToArr = (datas) => {
@@ -46,35 +50,50 @@ export default function PeopleLog() {
     const allTargetDatas = await getUserToku();
     const fullArray = dataToArr(allTargetDatas);
     setUserTokus(fullArray);
+    // const userTokuDiff = await getUserToku(lastUpdate);
+    // const diffArr = dataToArr(userTokuDiff);
+    // const userTokuAll = userTokus.concat(diffArr);
+    // setUserTokus(userTokuAll);
   };
 
-  const getImgIndexArr = async (idArr) => {
+  const idArrToPostCountArr = async (idArr) => {
+    const kyassyu = {};
     const result = [];
-    for (const ele of idArr) {
-      const dataList = await getTargetToku(ele);
-      const imgIndex = Math.floor((dataList.length % 45) / 3);
-      result.push(imgIndex);
+    for (const id of idArr) {
+      if (id in kyassyu) {
+        result.push(kyassyu[id]);
+      } else {
+        const count = await getUserPostCount(id);
+        kyassyu[id] = count;
+        result.push(count);
+      }
     }
     return result;
   };
 
   const allList = async () => {
+    // const diff = await getNewestToku(GETLIMIT, lastUpdate);
+    // const allTokusDataLimited = allTokuData.concat(diff);
+    // setAllTokuData(allTokusDataLimited);
+
     const allTokusDataLimited = await getNewestToku(GETLIMIT);
+
     const allTokuArr = dataToArr(allTokusDataLimited);
     const idArr = allTokusDataLimited.map((obj) => obj.user_id);
-    const indexArr = await getImgIndexArr(idArr);
+    const countArr = await idArrToPostCountArr(idArr);
+    const imgIndexArr = countArr.map((count) => Math.floor((count % 45) / 3));
 
     setAllTokus(allTokuArr);
-    setImgIndexArr(indexArr);
+    setImgIndexArr(imgIndexArr);
   };
 
   const allSet = async () => {
     await allList();
     await targetList();
+    // setLastUpdate(new Date());
   };
 
   useEffect(() => {
-    // タブを開いた時の動作
     if (isFocused) {
       allSet();
     }
