@@ -19,10 +19,10 @@ export default function PeopleTable({imgIndexArr, allTokus}) {
                     style={styles.icon}></Image>
                 </DataTable.Cell>
                 <DataTable.Cell style={[styles.cellB, customStyles.cellB]}>
-                  {tokuData[0]}
+                  <Text>{tokuData[0]}</Text>
                 </DataTable.Cell>
                 <DataTable.Cell style={[styles.cellC, customStyles.cellC]}>
-                  {tokuData[1]}
+                  <Text>{tokuData[1]}</Text>
                 </DataTable.Cell>
               </DataTable.Row>
             );

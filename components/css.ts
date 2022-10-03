@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: '#F6F3CF',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
   },
 
   inner: {
     top: 30,
     bottom: 30,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
 
   h1: {
@@ -296,9 +296,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginLeft: 20,
     marginRight: 20,
-    width: 350,
+    // width: 350,
+    width: 500,
     height: 500,
-    paddingLeft: 10,
+    // paddingLeft: 10,
   },
   icon: {
     width: 40,
@@ -306,13 +307,27 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   cellA: {
-    right: 10,
+    // right: 10,
+    // width: '10%',
+    // paddingLeft: 1,
+    flex: 1,
+    // backgroundColor: 'yellow',
   },
   cellB: {
-    right: 50,
+    // right: 50,
+    // width: '80%',
+    paddingLeft: 10,
+    flex: 4,
+    // backgroundColor: 'red',
+    // flexShrink: 1,
+    // flexDirection: 'row',
   },
   cellC: {
-    left: 50,
+    // left: 50,
+    // width: '10%',
+    // paddingLeft: 1,
+    flex: 1,
+    // backgroundColor: 'blue',
   },
 
   // UserTokuTable
@@ -441,21 +456,16 @@ export const customStyles = StyleSheet.create(
 
         // Top 4.7inch
 
-        appTitle: {
-          marginTop: 40,
-          fontSize: 30,
-          fontWeight: 'bold',
-        },
         topBird: {
-          top: 130,
+          top: 120,
           left: 85,
-          width: 170,
-          height: 190,
+          width: 150,
+          height: 170,
         },
         topCage: {
-          width: 350,
-          height: 400,
-          top: -200,
+          width: 320,
+          height: 380,
+          top: -180,
         },
         // infoButton
         infoImg: {
@@ -578,7 +588,7 @@ export const customStyles = StyleSheet.create(
           marginRight: 20,
           width: 300,
           height: 400,
-          paddingLeft: 10,
+          // paddingLeft: 10,
         },
         icon: {
           width: 40,
@@ -586,13 +596,13 @@ export const customStyles = StyleSheet.create(
           resizeMode: 'contain',
         },
         cellA: {
-          right: 10,
+          // right: 10,
         },
         cellB: {
-          right: 40,
+          // right: 40,
         },
         cellC: {
-          left: 50,
+          // left: 50,
         },
 
         // UserTokuTable 4.7 inch
@@ -630,12 +640,6 @@ export const customStyles = StyleSheet.create(
 
         // Top 5.5inch
 
-        appTitle: {
-          marginTop: 40,
-          marginBottom: 10,
-          fontSize: 30,
-          fontWeight: 'bold',
-        },
         topBird: {
           top: 150,
           left: 95,
@@ -813,12 +817,6 @@ export const customStyles = StyleSheet.create(
 
         // Top 5.8inch
 
-        appTitle: {
-          marginTop: 40,
-          marginBottom: 10,
-          fontSize: 30,
-          fontWeight: 'bold',
-        },
         topBird: {
           top: 150,
           left: 95,
@@ -996,12 +994,6 @@ export const customStyles = StyleSheet.create(
 
         // Top 6.1inch
 
-        appTitle: {
-          marginTop: 60,
-          marginBottom: 10,
-          fontSize: 30,
-          fontWeight: 'bold',
-        },
         topBird: {
           top: 170,
           left: 95,
@@ -1186,12 +1178,6 @@ export const customStyles = StyleSheet.create(
 
         // Top 6.7inch
 
-        appTitle: {
-          marginTop: 60,
-          marginBottom: 10,
-          fontSize: 30,
-          fontWeight: 'bold',
-        },
         topBird: {
           top: 170,
           left: 95,
@@ -1376,12 +1362,6 @@ export const customStyles = StyleSheet.create(
 
         // Top 6.5inch
 
-        appTitle: {
-          marginTop: 60,
-          marginBottom: 10,
-          fontSize: 30,
-          fontWeight: 'bold',
-        },
         topBird: {
           top: 170,
           left: 95,

@@ -93,8 +93,8 @@ const Top = ({navigation}) => {
   return (
     <PaperProvider>
       <SafeAreaView style={styles.container}>
-        <>
-          <Text style={customStyles.appTitle}>Birdonation</Text>
+        <View style={styles.inner}>
+          <Text style={styles.h1}>Birdonation</Text>
           <TextInput
             mode="outlined"
             label="徳を入力してみよう"
@@ -136,7 +136,7 @@ const Top = ({navigation}) => {
               }}
             />
           </ImageBackground>
-        </>
+        </View>
       </SafeAreaView>
     </PaperProvider>
   );
