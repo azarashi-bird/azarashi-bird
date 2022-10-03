@@ -28,8 +28,8 @@ export default function PeopleLog() {
   const [isAnyTokus, setIsAnyTokus] = useState('allToku');
   const navigation = useNavigation();
 
-  const [allTokuData, setAllTokuData] = useState([]);
-  const [lastUpdate, setLastUpdate] = useState(undefined);
+  // const [allTokuData, setAllTokuData] = useState([]);
+  // const [lastUpdate, setLastUpdate] = useState(undefined);
 
   const GETLIMIT = 10;
 
@@ -47,10 +47,13 @@ export default function PeopleLog() {
   };
 
   const targetList = async () => {
-    const userTokuDiff = await getUserToku(lastUpdate);
-    const diffArr = dataToArr(userTokuDiff);
-    const userTokuAll = userTokus.concat(diffArr);
-    setUserTokus(userTokuAll);
+    const allTargetDatas = await getUserToku();
+    const fullArray = dataToArr(allTargetDatas);
+    setUserTokus(fullArray);
+    // const userTokuDiff = await getUserToku(lastUpdate);
+    // const diffArr = dataToArr(userTokuDiff);
+    // const userTokuAll = userTokus.concat(diffArr);
+    // setUserTokus(userTokuAll);
   };
 
   const idArrToPostCountArr = async (idArr) => {
@@ -69,9 +72,11 @@ export default function PeopleLog() {
   };
 
   const allList = async () => {
-    const diff = await getNewestToku(GETLIMIT, lastUpdate);
-    const allTokusDataLimited = allTokuData.concat(diff);
-    setAllTokuData(allTokusDataLimited);
+    // const diff = await getNewestToku(GETLIMIT, lastUpdate);
+    // const allTokusDataLimited = allTokuData.concat(diff);
+    // setAllTokuData(allTokusDataLimited);
+
+    const allTokusDataLimited = await getNewestToku(GETLIMIT);
 
     const allTokuArr = dataToArr(allTokusDataLimited);
     const idArr = allTokusDataLimited.map((obj) => obj.user_id);
@@ -85,7 +90,7 @@ export default function PeopleLog() {
   const allSet = async () => {
     await allList();
     await targetList();
-    setLastUpdate(new Date());
+    // setLastUpdate(new Date());
   };
 
   useEffect(() => {
