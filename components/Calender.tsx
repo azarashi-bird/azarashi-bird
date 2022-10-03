@@ -1,5 +1,5 @@
 import {Text, View, Modal, Pressable} from 'react-native';
-import styles from './css';
+import styles, {customStyles} from './css';
 const s = styles;
 import {getMonthlyToku} from '../firebase';
 import {useEffect, useState} from 'react';
@@ -64,9 +64,9 @@ export default function Calender() {
 
   return (
     <>
-      <Text style={{fontSize: 21, marginBottom: 5}}>徳積みの記録</Text>
+      <Text style={styles.h2}>徳積みの記録</Text>
 
-      <View style={s.calender}>
+      <View style={customStyles.calender}>
         {calenderData.map((elem, index) => (
           <Pressable
             onPress={() => {
@@ -78,7 +78,7 @@ export default function Calender() {
             }}
             key={index}
             style={[
-              s.calenderCell,
+              customStyles.calenderCell,
               elem <= 5 ? styleArr[elem] : styleArr[5],
             ]}></Pressable>
         ))}
