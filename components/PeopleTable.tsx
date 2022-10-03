@@ -4,9 +4,7 @@ import {Provider as PaperProvider, TextInput} from 'react-native-paper';
 import afterViews from './afterLifes';
 import styles, {customStyles} from './css';
 
-export default function PeopleTable({countArr, allTokus}) {
-  const imgIndexArr = countArr.map((count) => Math.floor((count % 45) / 3));
-
+export default function PeopleTable({imgIndexArr, allTokus}) {
   return (
     <ScrollView
       style={[styles.peopleTableContainer, customStyles.peopleTableContainer]}>

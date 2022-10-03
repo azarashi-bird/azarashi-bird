@@ -23,7 +23,7 @@ import styles, {customStyles} from './css';
 export default function PeopleLog() {
   const isFocused = useIsFocused();
   const [userTokus, setUserTokus] = useState([]);
-  const [countArr, setCountArr] = useState([]);
+  const [imgIndexArr, setImgIndexArr] = useState([]);
   const [allTokus, setAllTokus] = useState([]);
   const [isAnyTokus, setIsAnyTokus] = useState('allToku');
   const navigation = useNavigation();
@@ -76,9 +76,10 @@ export default function PeopleLog() {
     const allTokuArr = dataToArr(allTokusDataLimited);
     const idArr = allTokusDataLimited.map((obj) => obj.user_id);
     const countArr = await idArrToPostCountArr(idArr);
+    const imgIndexArr = countArr.map((count) => Math.floor((count % 45) / 3));
 
     setAllTokus(allTokuArr);
-    setCountArr(countArr);
+    setImgIndexArr(imgIndexArr);
   };
 
   const allSet = async () => {
@@ -114,7 +115,7 @@ export default function PeopleLog() {
           </Text>
         </View>
         {isAnyTokus === 'allToku' ? (
-          <PeopleTable countArr={countArr} allTokus={allTokus} />
+          <PeopleTable imgIndexArr={imgIndexArr} allTokus={allTokus} />
         ) : (
           <UserTokutable userTokus={userTokus} />
         )}
