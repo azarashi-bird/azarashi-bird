@@ -22,6 +22,7 @@ import {
   getAllToku,
   incUserPostCount,
   getUserPostCount,
+  pushUserEvoleDay,
 } from '../firebase';
 
 // import {
@@ -76,6 +77,10 @@ const Top = ({navigation}) => {
             dailyTokusCount: dailyTokusCount,
           })
         : console.log('post failed!');
+      // 変化タイミング
+      // if((targetTokus + 1) % 3 === 0) {
+      pushUserEvoleDay();
+      // }
     } else {
       sendAlert();
     }

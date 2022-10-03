@@ -1,5 +1,5 @@
 const afterViews = [
-  [require('../assets/afterLifes/wifi.png'), '弱々しいWiFi'],
+  [require('../assets/afterLifes/wifi.png'), '弱々しいWi-Fi'],
   [require('../assets/afterLifes/sugi.gif'), '猛威を振るう杉花粉'],
   [require('../assets/afterLifes/syoyu.png'), '醤油のタレビン'],
   [require('../assets/afterLifes/oyashirazu.png'), '斜めに生える親知らず'],
