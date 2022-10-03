@@ -12,7 +12,7 @@ userTokus.length % 15でエラーが出る人は、とりあえず5などベタ�
 対処お願いします。
 */
 
-export default function LogView() {
+export default function Profile() {
   const [userTokus, setUserTokus] = useState([]);
   const [userLength, setUserLength] = useState(-1);
   const isFocused = useIsFocused();
@@ -37,7 +37,7 @@ export default function LogView() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
-        contentContainerStyle={{...styles.inner, ...styles.logContainer}}>
+        contentContainerStyle={{...styles.inner, ...styles.profileContainer}}>
         <Text style={styles.h2} variant="titleLarge">
           あなたの来世
         </Text>

@@ -6,8 +6,7 @@ import styles, {customStyles} from './css';
 
 export default function PeopleTable({imgIndexArr, allTokus}) {
   return (
-    <ScrollView
-      style={[styles.peopleTableContainer, customStyles.peopleTableContainer]}>
+    <ScrollView style={{...styles.logTable, ...styles.peopleTokuTable}}>
       <DataTable>
         {imgIndexArr.length !== 0 ? (
           allTokus.map((tokuData, index) => {

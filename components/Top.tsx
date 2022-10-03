@@ -112,7 +112,7 @@ const Top = ({navigation}) => {
                   徳を積む
                 </Button>
               </View>
-              <View style={styles.innerContainer}>
+              <View style={styles.birdInCageContainer}>
                 <Image
                   source={require('../assets/homePage/bird.gif')}
                   style={customStyles.topBird}

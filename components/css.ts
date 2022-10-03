@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
   // all
 
   container: {
-    flexGrow: 1,
     backgroundColor: '#F6F3CF',
+    flexGrow: 1,
   },
 
   inner: {
@@ -67,42 +67,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  logContainer: {
-    flexGrow: 1,
-    backgroundColor: '#F6F3CF',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
+  // ↓ あんまり整理できてない
 
-  // Profile
-
-  //// Calender
-
-  calenderCell0: {
-    backgroundColor: 'rgba(0,0,255,0.05)',
-  },
-  calenderCell1: {
-    backgroundColor: 'rgba(252,174,30,0.2)',
-  },
-  calenderCell2: {
-    backgroundColor: 'rgba(252,174,30,0.3)',
-  },
-  calenderCell3: {
-    backgroundColor: 'rgba(252,174,30,0.4)',
-  },
-  calenderCell4: {
-    backgroundColor: 'rgba(252,174,30,0.5)',
-  },
-  calenderCell5: {
-    backgroundColor: 'rgba(252,174,30,0.6)',
-  },
-
-  // ↑ done
-
-  innerContainer: {
-    position: 'relative',
-    flex: 1,
-  },
   button1: {
     // login
     backgroundColor: '#0782f9',
@@ -129,23 +95,19 @@ const styles = StyleSheet.create({
     width: '50%',
     alignItems: 'center',
   },
-  // logContainer: {
-  //   flexGrow: 1,
-  //   backgroundColor: '#F6F3CF',
-  //   alignItems: 'center',
-  //   justifyContent: 'flex-start',
-  // },
+
+  // ↑ あんまり整理できてない
 
   // Top
 
   input: {
-    width: '80%',
+    width: '70%',
     margin: 10,
     marginBottom: 0,
   },
   suggestContainer: {
     alignItems: 'flex-start',
-    width: '80%',
+    width: '70%',
     backgroundColor: 'white',
     marginTop: 0,
     padding: 10,
@@ -154,13 +116,17 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginTop: 5,
   },
+  birdInCageContainer: {
+    position: 'relative',
+    flex: 1,
+  },
 
   //// FlyingBird
 
-  FBMessage: {
-    fontSize: 18,
-    marginTop: 5,
-    lineHeight: 30,
+  //// AfterFlying
+
+  FBMessageInner: {
+    alignItems: 'center',
   },
   FBMessageSP: {
     fontSize: 25,
@@ -180,11 +146,10 @@ const styles = StyleSheet.create({
     width: 300,
     resizeMode: 'contain',
   },
-  afterInnerContainer: {
-    top: 45,
-    position: 'relative',
+  avatarContainer: {
+    marginTop: 30,
     flex: 1,
-    overflow: 'hidden',
+    backgroundColor: 'red',
   },
   afterPostCount: {
     fontWeight: 'bold',
@@ -193,16 +158,88 @@ const styles = StyleSheet.create({
 
   // Profile
 
-  mainText: {
-    marginTop: 50,
+  profileContainer: {
+    flexGrow: 1,
+    backgroundColor: '#F6F3CF',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
-  tableContainer: {
-    margin: 8,
+
+  //// Calender
+
+  calenderCell0: {
+    backgroundColor: 'rgba(0,0,255,0.05)',
+  },
+  calenderCell1: {
+    backgroundColor: 'rgba(252,174,30,0.2)',
+  },
+  calenderCell2: {
+    backgroundColor: 'rgba(252,174,30,0.3)',
+  },
+  calenderCell3: {
+    backgroundColor: 'rgba(252,174,30,0.4)',
+  },
+  calenderCell4: {
+    backgroundColor: 'rgba(252,174,30,0.5)',
+  },
+  calenderCell5: {
+    backgroundColor: 'rgba(252,174,30,0.6)',
+  },
+
+  // Log
+
+  logTable: {
+    marginLeft: 25,
+    marginRight: 20,
+    width: 300,
+    height: 400,
+  },
+  userTokuTable: {
+    backgroundColor: '#fddea5',
+  },
+  peopleTokuTable: {
     backgroundColor: '#fff',
-    paddingRight: 10,
-    paddingLeft: 10,
-    width: 350,
   },
+  userBottomRadius: {
+    backgroundColor: 'white',
+    width: 300,
+    height: 20,
+    marginLeft: 25,
+    marginRight: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
+    bottom: 10,
+  },
+  peopleBottomRadius: {
+    backgroundColor: '#fddea5',
+    width: 300,
+    height: 20,
+    marginLeft: 25,
+    marginRight: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
+    bottom: 10,
+  },
+  icon: {
+    width: 40,
+    height: 40,
+    resizeMode: 'contain',
+  },
+  cellA: {
+    flex: 1,
+  },
+  cellB: {
+    paddingLeft: 10,
+    flex: 4,
+  },
+  cellC: {
+    flex: 1,
+  },
+
+  // Dictionary
+
+  // login
+
   loginContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -225,18 +262,8 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
 
-  // PeopleLog
+  // ↑ done
 
-  peopleTable: {
-    backgroundColor: '#F6F3CF',
-  },
-  peopleContainer: {
-    flex: 1,
-    backgroundColor: '#F6F3CF',
-  },
-  topView: {
-    top: 60,
-  },
   allToku: {
     backgroundColor: 'white',
     width: 175,
@@ -272,73 +299,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  bottomTextA: {
-    backgroundColor: 'white',
-    width: 350,
-    height: 20,
-    marginLeft: 20,
-    borderRadius: 10,
-    overflow: 'hidden',
-    bottom: 10,
-  },
-  bottomTextB: {
-    backgroundColor: '#fddea5',
-    width: 350,
-    height: 20,
-    marginLeft: 20,
-    borderRadius: 10,
-    overflow: 'hidden',
-    bottom: 10,
-  },
 
   // PeopleTable
-  peopleTableContainer: {
-    backgroundColor: '#fff',
-    marginLeft: 20,
-    marginRight: 20,
-    // width: 350,
-    width: 500,
-    height: 500,
-    // paddingLeft: 10,
-  },
-  icon: {
-    width: 40,
-    height: 40,
-    resizeMode: 'contain',
-  },
-  cellA: {
-    // right: 10,
-    // width: '10%',
-    // paddingLeft: 1,
-    flex: 1,
-    // backgroundColor: 'yellow',
-  },
-  cellB: {
-    // right: 50,
-    // width: '80%',
-    paddingLeft: 10,
-    flex: 4,
-    // backgroundColor: 'red',
-    // flexShrink: 1,
-    // flexDirection: 'row',
-  },
-  cellC: {
-    // left: 50,
-    // width: '10%',
-    // paddingLeft: 1,
-    flex: 1,
-    // backgroundColor: 'blue',
-  },
-
-  // UserTokuTable
-  userTableContainer: {
-    marginLeft: 20,
-    marginRight: 20,
-    backgroundColor: '#fddea5',
-    paddingLeft: 10,
-    width: 350,
-    height: 500,
-  },
 
   // Dictionary
 
@@ -475,7 +437,6 @@ export const customStyles = StyleSheet.create(
           left: 150,
         },
         infoButton: {
-          backgroundColor: 'red',
           opacity: 0,
           height: 40,
           width: 40,
@@ -495,12 +456,10 @@ export const customStyles = StyleSheet.create(
           width: 350,
           height: 500,
         },
-        FBMessageContainer: {
-          marginTop: 40,
-          alignItems: 'center',
-        },
+
         FBAfterButtonWrapper: {
-          bottom: 30,
+          // bottom: 10,
+          top: 350,
           width: '50%',
           alignItems: 'center',
         },
@@ -527,9 +486,6 @@ export const customStyles = StyleSheet.create(
 
         // PeopleLog 4.7 inch
 
-        topView: {
-          top: 40,
-        },
         allToku: {
           backgroundColor: 'white',
           width: 150,
@@ -694,10 +650,6 @@ export const customStyles = StyleSheet.create(
         // },
 
         // PeopleLog 5.5 inch
-
-        topView: {
-          top: 40,
-        },
         allToku: {
           backgroundColor: 'white',
           width: 170,
@@ -872,9 +824,6 @@ export const customStyles = StyleSheet.create(
 
         // PeopleLog 5.8 inch
 
-        topView: {
-          top: 40,
-        },
         allToku: {
           backgroundColor: 'white',
           width: 165,
@@ -1054,9 +1003,6 @@ export const customStyles = StyleSheet.create(
         peopleContainer: {
           flex: 1,
           backgroundColor: '#F6F3CF',
-        },
-        topView: {
-          top: 60,
         },
         allToku: {
           backgroundColor: 'white',
@@ -1240,9 +1186,6 @@ export const customStyles = StyleSheet.create(
           flex: 1,
           backgroundColor: '#F6F3CF',
         },
-        topView: {
-          top: 60,
-        },
         allToku: {
           backgroundColor: 'white',
           width: 175,
@@ -1424,9 +1367,7 @@ export const customStyles = StyleSheet.create(
           flex: 1,
           backgroundColor: '#F6F3CF',
         },
-        topView: {
-          top: 60,
-        },
+
         allToku: {
           backgroundColor: 'white',
           width: 175,
