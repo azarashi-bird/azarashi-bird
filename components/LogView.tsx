@@ -24,8 +24,6 @@ export default function LogView() {
   useLayoutEffect(() => {
     if (isFocused) {
       getUserTokuLength();
-
-      // console.log(evolDay, "37EVOLDAY===")
     }
   }, [isFocused]);
 
