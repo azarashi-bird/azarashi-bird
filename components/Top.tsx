@@ -60,7 +60,6 @@ const Top = ({navigation}) => {
     Alert.alert('Error: blank', '徳を入力してください', [
       {
         text: 'OK',
-        onPress: () => console.log(''),
       },
     ]);
   };
