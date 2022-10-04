@@ -77,7 +77,11 @@ const getUserEvoleDay = async () => {
   const ref = USRSTABLE.doc(uid);
   const doc = await ref.get();
   if (ISDEBUG) console.log('getUserEvoleDay called');
-  return doc.data().date_array;
+  if (doc.exists) {
+    return doc.data().date_array;
+  } else {
+    return [];
+  }
 };
 
 const getUserPostCount = async (uid) => {
@@ -207,7 +211,7 @@ const getMonthlyToku = async (afterThisTime) => {
     .then((querySnapshot) => {
       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
     });
-  // if (ISDEBUG) console.log('CALLED TMonTHLYTOKU. COUNT:', tokuList.length);
+  if (ISDEBUG) console.log('CALLED TMonTHLYTOKU. COUNT:', tokuList.length);
   return tokuList;
 };
 
