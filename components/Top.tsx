@@ -94,7 +94,7 @@ const Top = ({navigation}) => {
     <PaperProvider>
       <SafeAreaView style={styles.container}>
         <View style={styles.inner}>
-          <Text style={styles.h1}>Birdonation</Text>
+          <Text style={[styles.h1, customStyles.h1]}>Birdonation</Text>
           <TextInput
             mode="outlined"
             label="徳を入力してみよう"

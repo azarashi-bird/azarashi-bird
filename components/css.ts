@@ -6,7 +6,7 @@ const {width, height} = Dimensions.get('window');
 
 import {
   iPhoneInch47, // done
-  iPhoneInch55,
+  iPhoneInch55, // done
   iPhoneInch58,
   iPhoneInch61,
   iPhoneInch65,
@@ -586,171 +586,111 @@ export const customStyles = StyleSheet.create(
       }
     : iphoneModel.inch === 5.8
     ? {
-        // all 5.8inch
-
-        strongText: {
-          fontWeight: 'bold',
-          fontSize: 28,
-          top: 50,
-          marginBottom: 50,
-        },
-
         // Top 5.8inch
 
         topBird: {
-          top: 150,
+          top: 160,
           left: 95,
           width: 180,
-          height: 230,
+          height: 210,
         },
         topCage: {
-          width: 400,
-          height: 500,
-          top: -200,
+          width: 380,
+          height: 450,
+          top: -210,
         },
-        // infoButton
+
+        //// infoButton  5.8inch
+
         infoImg: {
+          top: 420,
           width: 50,
           height: 50,
           left: 150,
         },
         infoButton: {
-          backgroundColor: 'red',
           opacity: 0,
           height: 40,
           width: 40,
         },
 
-        // FlyingBird 5.8 inch
+        //// FlyingBird 5.8 inch
 
         flyingBird: {
           top: 400,
           left: 100,
-          width: 180,
-          height: 300,
+          width: 220,
+          height: 240,
           resizeMode: 'contain',
         },
         FBCage: {
-          bottom: 90,
-          width: 380,
-          height: 530,
+          left: 10,
+          // top: 20,
+          bottom: 100,
+          width: 400,
+          height: 600,
         },
-        FBMessageContainer: {
-          marginTop: 40,
-          alignItems: 'center',
-        },
+
         FBAfterButtonWrapper: {
-          bottom: 70,
+          // bottom: 10,
+          top: 350,
           width: '50%',
           alignItems: 'center',
         },
 
-        // LogView 5.8 inch
+        // Profile 5.8 inch
 
-        topContent: {
-          marginTop: 70,
+        profileContainer: {
+          marginBottom: 30,
         },
 
-        // logContainer: {
-        //   flexGrow: 1,
-        //   backgroundColor: '#F6F3CF',
-        //   alignItems: 'center',
-        //   justifyContent: 'flex-start',
-        // },
+        //// calender 5.8 inch
 
-        // PeopleLog 5.8 inch
-
-        allToku: {
-          backgroundColor: 'white',
-          width: 165,
-          height: 40,
-          borderRadius: 10,
-          overflow: 'hidden',
-          top: 10,
-          padding: 10,
-          paddingBottom: 50,
-          marginLeft: 5,
-          textAlign: 'center',
-          fontSize: 20,
+        calender: {
+          width: '85%',
+          borderWidth: 0,
+          borderColor: 'white',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
         },
-        ownToku: {
-          backgroundColor: '#fddea5',
-          width: 165,
-          height: 40,
-          borderRadius: 10,
-          overflow: 'hidden',
-          top: 10,
-          padding: 10,
-          paddingBottom: 50,
-
-          textAlign: 'center',
-          fontSize: 20,
+        calenderCell: {
+          width: '20%',
+          height: 60,
+          alignItems: 'center',
+          borderRadius: 6,
+          borderWidth: 0.8,
+          borderColor: 'white',
         },
 
-        bottomTextA: {
-          backgroundColor: 'white',
-          width: 330,
-          height: 20,
-          marginLeft: 25,
-          borderRadius: 10,
-          overflow: 'hidden',
-          bottom: 10,
-        },
-        bottomTextB: {
-          backgroundColor: '#fddea5',
-          width: 330,
-          height: 20,
-          marginLeft: 25,
-          borderRadius: 10,
-          overflow: 'hidden',
-          bottom: 10,
+        // Profile 5.8 inch
+
+        avatar: {
+          height: 250,
+          width: 250,
+          resizeMode: 'contain',
+          marginBottom: 10,
         },
 
-        // PeopleTable 5.8 inch
+        // Log 5.8 inch
 
         peopleTableContainer: {
           backgroundColor: '#fff',
-          marginLeft: 25,
+          marginLeft: 40,
           marginRight: 20,
-          width: 330,
-          height: 490,
-          paddingLeft: 10,
-        },
-        icon: {
-          width: 40,
-          height: 40,
-          resizeMode: 'contain',
-        },
-        cellA: {
-          right: 10,
-        },
-        cellB: {
-          right: 50,
-        },
-        cellC: {
-          left: 60,
-        },
-
-        // UserTokuTable 5.8 inch
-
-        userTableContainer: {
-          backgroundColor: '#fddea5',
-          marginLeft: 25,
-          marginRight: 20,
-          width: 330,
-          height: 490,
-          paddingLeft: 10,
+          width: 300,
+          height: 400,
+          // paddingLeft: 10,
         },
 
         // Dictionary 5.8inch
 
-        dict: {
-          top: 50,
-          width: '95%',
+        dictItemsContainer: {
+          top: 20,
+          width: '100%',
           alignItems: 'center',
           flexDirection: 'row',
           flexWrap: 'wrap',
-          paddingBottom: 120,
+          // paddingBottom: 120,
         },
       }
     : iphoneModel.inch === 6.1
