@@ -82,3 +82,28 @@ export const ENV = {
 ```bash
 $ npm run ios
 ```
+
+## How to use birdonation
+
+### Login or Resister
+
+1. start app
+2. if you don't have birdonation account, you input your e-mail address and password, then you submit "Resister" button. If you have birdonation account, you input your resisted e-mail address and password, then you submit "Login" button.
+
+### Home
+
+On the Home(ホーム) page, there are a bird in the cage and a text input field for entering virtues. After entering a virtue or tapping the example of the virtue displayed when you tap the text input field, press the "徳を登録" button.
+When you register a virtue, the bird will fly away from the cage, and the total number of virtues resisted in the world on that day and your current next life will be displayed. You have "やったね!" button will return you to the home screen where you can enter your virtues.
+
+### Form of Next Life
+
+On the Form of Next Life(来世の姿) page, the total number of virtues you have accumulated so far and your current form of your next life are shown.
+Below that is a calendar represented by squares, and the color of the calendar changes according to the number of virtues you have accumulated in a day. On days when the form of the next life is changed, a stamp of the changed form of the next life is stamped, and by clicking on a square, a pop-up window shows the details of the virtues accumulated on that day. The pop-up is closed by pressing the "close" button.
+
+### Log
+
+On the Log(記録) page, you can see the latest 20 virtues accumulated by users others and the log of virtues accumulated by yourself by switching tabs. You can also see what the forms of next life like for users others by icons.
+
+### Pictorial book of Next Life
+
+On the Pictorial book of Next Life(来世図鑑), you can see the next life that you have passed through. The next life that you have not yet passed through is hidden with the image "???" and unknown images are hidden.
