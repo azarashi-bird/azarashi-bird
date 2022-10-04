@@ -10,7 +10,7 @@ export default function Calender({userLength, isFocused}) {
   const [chosenToku, setChosenToku] = useState([]);
   const [chosenDay, setChosenDay] = useState(0);
   const [modalVisible, setModalVisible] = useState(false);
-  const [calenderData, setCalenderData] = useState([]);
+  const [moreInfoCalenderData, setMoreInfoCalenderData] = useState([]);
   const [thisMData, setThisMData] = useState([]);
 
   const [lastUpdate, setLastUpdate] = useState(undefined);
@@ -30,7 +30,8 @@ export default function Calender({userLength, isFocused}) {
   // calenderDataを、[[calenderdata, index, boolean]]にする？
   const emptyArr = () => {
     let predata = Array(30).fill([0, null, null]);
-    setCalenderData(predata);
+    // predata = [[0, null, null], ...];
+    setMoreInfoCalenderData(predata);
   };
 
   const evolutionList = (evolDay) => {
@@ -54,25 +55,31 @@ export default function Calender({userLength, isFocused}) {
   const getEvolDay = async () => {
     const evolArr = await getUserEvoleDay();
     const userEvol = evolArr.map((data) => data.toDate());
-    console.log(userEvol, 'EVOLARRR');
+    // console.log(userEvol, 'EVOLARRR');
     return userEvol;
   };
 
   useEffect(() => {
     if (isFocused) {
       emptyArr();
-      console.log(monthlyTokus, 'MONTHLYTOKU');
+      // console.log(monthlyTokus, 'MONTHLYTOKU');
       const arr = getEvolDay().then((arr) => {
         evolutionList(arr);
       });
     }
   }, [isFocused]);
 
+  // console.log(calenderData, "bofore FOREACH")
+
+  let calenderData = Array(30).fill(0);
   monthlyTokus.forEach((toku) => {
-    calenderData[toku.createdAt.toDate().getDate() - 1][0]++;
+    // [0, null, null]の0を変化させたい？
+    calenderData[toku.createdAt.toDate().getDate() - 1]++;
   });
 
-  const moreInfoCalender = calenderData.map((arr, index) => {
+  const moreInfoCalender = moreInfoCalenderData.map((arr, index) => {
+    // arr => [数字, null, null]
+    arr[0] = calenderData[index];
     for (let x = thisMData.length - 1; x > -1; x--) {
       if (thisMData[x][1] === index + 1) {
         const resultArr = [];
@@ -85,6 +92,8 @@ export default function Calender({userLength, isFocused}) {
     // arr[calender色, imgIndex, 変化の日]or[calender色, null, null]
     return arr;
   });
+
+  console.log(moreInfoCalender, 'MOREINFO CALENFER');
 
   const formattedTokus = monthlyTokus.map((obj) => {
     const day = obj.createdAt.toDate().getDate();
