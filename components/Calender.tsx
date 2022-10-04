@@ -39,7 +39,7 @@ export default function Calender({userLength, isFocused}) {
     const thisMonth = now.getMonth();
     const thisYear = now.getFullYear();
     const firstThisMonth = new Date(thisYear, thisMonth, 1);
-    evolDay.forEach((data, index) => {
+    const evolData = evolDay.map((data, index) => {
       if (firstThisMonth < data) {
         const arr = [];
         // 変化したとき、0ではなく1に進化した日を記録するのでindex + 1
@@ -47,9 +47,11 @@ export default function Calender({userLength, isFocused}) {
         arr.push(data.getDate());
         // [変化imgIndex, 日付]がarr
         // 今月分の変化thisMData[arr, arr, arr]
-        setThisMData([...thisMData, arr]);
+        return arr;
       }
+      return [NaN, NaN];
     });
+    setThisMData(evolData);
   };
 
   const getEvolDay = async () => {
@@ -87,8 +89,8 @@ export default function Calender({userLength, isFocused}) {
         return resultArr;
       }
     }
-    // arr[calender色, imgIndex, 変化の日]or[calender色, null, null]
     return [calenderData[index], null, null];
+    // arr[calender色, imgIndex, 変化の日]or[calender色, null, null]
   });
 
   const formattedTokus = monthlyTokus.map((obj) => {
@@ -121,6 +123,8 @@ export default function Calender({userLength, isFocused}) {
   const listedToku = chosenToku.map((toku, index) => (
     <Text key={index}>{toku + ' \n'}</Text>
   ));
+
+  // console.log(moreInfoCalender, "MOREINFO")
 
   return (
     <>
