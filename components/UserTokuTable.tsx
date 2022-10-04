@@ -7,7 +7,12 @@ import styles, {customStyles} from './css';
 export default function UserTokutable({userTokus}) {
   const ImgIndex = Math.floor((userTokus.length % 45) / 3);
   return (
-    <ScrollView style={{...styles.logTable, ...styles.userTokuTable}}>
+    <ScrollView
+      style={{
+        ...styles.logTable,
+        ...customStyles.logTable,
+        ...styles.userTokuTable,
+      }}>
       <DataTable>
         <DataTable.Row>
           <DataTable.Cell style={[styles.cellA, customStyles.cellA]}>
