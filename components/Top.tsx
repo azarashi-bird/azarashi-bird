@@ -105,8 +105,8 @@ const Top = ({navigation}) => {
   return (
     <PaperProvider>
       <SafeAreaView style={styles.container}>
-        <>
-          <Text style={customStyles.appTitle}>Birdonation</Text>
+        <View style={[styles.inner, customStyles.inner]}>
+          <Text style={[styles.h1, customStyles.h1]}>Birdonation</Text>
           <TextInput
             mode="outlined"
             label="徳を入力してみよう"
@@ -114,7 +114,9 @@ const Top = ({navigation}) => {
             value={toku}
             onChangeText={(Text) => setToku(Text)}
             onFocus={focus}
-            onBlur={bluer}></TextInput>
+            onBlur={bluer}
+            selectionColor="orange"
+            activeOutlineColor="orange"></TextInput>
           {isEntering ? (
             <Suggest setToku={setToku} />
           ) : (
@@ -123,11 +125,11 @@ const Top = ({navigation}) => {
                 <Button
                   mode="contained"
                   onPress={submit}
-                  contentStyle={{backgroundColor: '#EDB767'}}>
+                  contentStyle={{backgroundColor: 'orange'}}>
                   徳を積む
                 </Button>
               </View>
-              <View style={styles.innerContainer}>
+              <View style={styles.birdInCageContainer}>
                 <Image
                   source={require('../assets/homePage/bird.gif')}
                   style={customStyles.topBird}
@@ -137,21 +139,20 @@ const Top = ({navigation}) => {
                   style={customStyles.topCage}
                 />
               </View>
+              <ImageBackground
+                source={require('../assets/homePage/infoButton.png')}
+                resizeMode="contain"
+                style={[styles.infoImg, customStyles.infoImg]}>
+                <Pressable
+                  style={[styles.infoButton, customStyles.infoButton]}
+                  onPress={() => {
+                    openLink();
+                  }}
+                />
+              </ImageBackground>
             </>
           )}
-
-          <ImageBackground
-            source={require('../assets/homePage/infoButton.png')}
-            resizeMode="contain"
-            style={customStyles.infoImg}>
-            <Pressable
-              style={customStyles.infoButton}
-              onPress={() => {
-                openLink();
-              }}
-            />
-          </ImageBackground>
-        </>
+        </View>
       </SafeAreaView>
     </PaperProvider>
   );

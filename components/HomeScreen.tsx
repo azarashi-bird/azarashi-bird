@@ -1,13 +1,7 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/core';
 import react from 'react';
-import {
-  SafeAreaView,
-  TouchableOpacity,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {SafeAreaView, TouchableOpacity, Text} from 'react-native';
 import {auth} from '../firebase';
 import styles from './css';
 

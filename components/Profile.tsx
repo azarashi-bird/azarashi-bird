@@ -12,7 +12,7 @@ userTokus.length % 15でエラーが出る人は、とりあえず5などベタ�
 対処お願いします。
 */
 
-export default function LogView() {
+export default function Profile() {
   const [userLength, setUserLength] = useState(-1);
   const isFocused = useIsFocused();
 
@@ -29,22 +29,23 @@ export default function LogView() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.logContainer}>
-        <Text style={customStyles.topContent} variant="titleLarge">
+      <ScrollView
+        contentContainerStyle={[styles.inner, styles.profileContainer]}>
+        <Text style={[styles.h2, customStyles.h2]} variant="titleLarge">
           あなたの来世
         </Text>
         {userLength < 0 ? (
           <>
-            <Text style={{color: '#F6F3CF', height: 330}}>でも</Text>
+            <Text>Loading...</Text>
           </>
         ) : (
           <>
-            <Text style={customStyles.strongText}>
-              {afterViews[Math.floor((userLength % 45) / 3) || 0][1]}
+            <Text style={[styles.h1, customStyles.h1]}>
+              {afterViews[Math.floor((userLength % 45) / 3)][1]}
             </Text>
             <Image
-              source={afterViews[Math.floor((userLength % 45) / 3) || 0][0]}
-              style={styles.mainImage}
+              source={afterViews[Math.floor((userLength % 45) / 3)][0]}
+              style={styles.avatar}
             />
           </>
         )}

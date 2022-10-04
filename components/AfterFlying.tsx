@@ -1,4 +1,4 @@
-import {View, Text, Image, ImageBackground} from 'react-native';
+import {SafeAreaView, View, Text, Image, ImageBackground} from 'react-native';
 import styles, {customStyles} from './css';
 import {Button} from 'react-native-paper';
 import afterViews from './afterLifes';
@@ -20,7 +20,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
 
             <Text style={{textAlign: 'right'}}>の様子が...?</Text>
           </Text>
-          <View style={styles.afterInnerContainer}>
+          <View style={styles.avatarContainer}>
             <ImageBackground
               source={require('../assets/icon-bg.jpeg')}
               style={styles.afterPostBg}
@@ -41,7 +41,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
             {'\n'}
             に進化しました！
           </Text>
-          <View style={styles.afterInnerContainer}>
+          <View style={styles.avatarContainer}>
             <ImageBackground
               // source={require('../assets/icon-bg2.png')}
               source={require('../assets/icon-bg.jpeg')}
@@ -63,7 +63,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
           あなたの来世は{'\n'}
           {afterViews[Math.floor((tokuCount % 45) / 3) || 0][1]}
         </Text>
-        <View style={styles.afterInnerContainer}>
+        <View style={styles.avatarContainer}>
           <ImageBackground
             source={require('../assets/icon-bg2.png')}
             style={styles.afterPostBg}
@@ -79,21 +79,23 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
   }
 
   return (
-    <View style={customStyles.FBMessageContainer}>
-      <Text style={styles.FBMessage}>🎉🎉おめでとう🎉🎉</Text>
-      <Text style={styles.FBMessage}>
-        今日世界で<Text style={styles.afterPostCount}>{allTokus}羽</Text>
-        の鳥が放たれました。
-      </Text>
-      {setMessage()}
-      <View style={customStyles.FBAfterButtonWrapper}>
-        <Button
-          mode="contained"
-          onPress={() => navigation.goBack()}
-          contentStyle={{backgroundColor: '#EDB767'}}>
-          やったね🙌
-        </Button>
+    <SafeAreaView style={styles.container}>
+      <View style={[styles.inner, customStyles.inner, styles.FBMessageInner]}>
+        <Text style={[styles.p, customStyles.p]}>🎉🎉おめでとう🎉🎉</Text>
+        <Text style={[styles.p, customStyles.p]}>
+          今日世界で<Text style={styles.afterPostCount}>{allTokus}羽</Text>
+          の鳥が放たれました。
+        </Text>
+        {setMessage()}
+        <View style={styles.FBAfterButtonWrapper}>
+          <Button
+            mode="contained"
+            onPress={() => navigation.goBack()}
+            contentStyle={{backgroundColor: 'orange'}}>
+            やったね❤️
+          </Button>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
