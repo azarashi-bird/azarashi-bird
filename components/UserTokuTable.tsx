@@ -11,7 +11,9 @@ export default function UserTokutable({userTokus}) {
       <DataTable>
         <DataTable.Row>
           <DataTable.Cell style={[styles.cellA, customStyles.cellA]}>
-            <Image source={afterViews[ImgIndex][0]} style={styles.icon}></Image>
+            <Image
+              source={afterViews[ImgIndex][0]}
+              style={styles.logIcon}></Image>
           </DataTable.Cell>
           <DataTable.Cell style={[styles.cellB, customStyles.cellB]}>
             徳

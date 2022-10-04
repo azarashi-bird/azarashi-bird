@@ -86,14 +86,14 @@ export default function PeopleLog() {
         <Text style={styles.h1}>徳ろぐ</Text>
         <View style={styles.tabView}>
           <Text
-            style={[styles.allToku, customStyles.allToku]}
+            style={[styles.peopleTokuButton]}
             onPress={() => {
               setIsAnyTokus('allToku');
             }}>
             みんなの徳
           </Text>
           <Text
-            style={[styles.ownToku, customStyles.ownToku]}
+            style={[styles.ownTokuButton, customStyles.ownToku]}
             onPress={() => {
               setIsAnyTokus('ownToku');
             }}>

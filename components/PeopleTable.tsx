@@ -15,7 +15,7 @@ export default function PeopleTable({imgIndexArr, allTokus}) {
                 <DataTable.Cell style={styles.cellA}>
                   <Image
                     source={afterViews[imgIndexArr[index]][0]}
-                    style={styles.icon}></Image>
+                    style={styles.logIcon}></Image>
                 </DataTable.Cell>
                 <DataTable.Cell style={styles.cellB}>
                   <Text>{tokuData[0]}</Text>
@@ -29,7 +29,7 @@ export default function PeopleTable({imgIndexArr, allTokus}) {
         ) : (
           <DataTable.Row>
             <DataTable.Cell style={[styles.cellA, customStyles.cellA]}>
-              <Image source={afterViews[3][0]} style={styles.icon}></Image>
+              <Image source={afterViews[3][0]} style={styles.logIcon}></Image>
             </DataTable.Cell>
             <DataTable.Cell style={[styles.cellB, customStyles.cellB]}>
               徳

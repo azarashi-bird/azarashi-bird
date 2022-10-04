@@ -32,7 +32,7 @@ export default function Dictionary() {
     <SafeAreaView style={styles.container}>
       <View style={styles.inner}>
         <Text style={styles.h1}>図鑑</Text>
-        <ScrollView contentContainerStyle={[customStyles.dict]}>
+        <ScrollView contentContainerStyle={[customStyles.dictItemsContainer]}>
           {afterViews.map((element, index) => (
             <View key={index} style={styles.dictItem}>
               <Text style={styles.dictItemName}>

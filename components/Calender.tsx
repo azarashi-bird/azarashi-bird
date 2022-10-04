@@ -88,12 +88,12 @@ export default function Calender() {
         <Modal animationType="none" transparent={true} visible={modalVisible}>
           <View style={s.centeredView}>
             <View style={s.modalView}>
-              <Text style={s.modalText2}>{chosenDay}日の徳分</Text>
+              <Text style={s.modalTextBold}>{chosenDay}日の徳分</Text>
               <Text style={s.modalText}>{listedToku}</Text>
               <Pressable
-                style={[s.modalbutton, s.buttonClose]}
+                style={[s.modalButton, s.closeButton]}
                 onPress={() => closeModal()}>
-                <Text style={s.textStyle}>close</Text>
+                <Text style={s.closeButtonText}>close</Text>
               </Pressable>
             </View>
           </View>

@@ -186,6 +186,53 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(252,174,30,0.6)',
   },
 
+  ////// modal
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 18,
+    padding: 35,
+    opacity: 0.98,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalButton: {
+    borderRadius: 13,
+    padding: 10,
+    elevation: 2,
+  },
+  closeButton: {
+    backgroundColor: 'orange',
+    opacity: 0.8,
+  },
+  closeButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  modalTextBold: {
+    marginBottom: 15,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+
   // Log
 
   logTable: {
@@ -199,6 +246,54 @@ const styles = StyleSheet.create({
   },
   peopleTokuTable: {
     backgroundColor: '#fff',
+  },
+  tabView: {
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  peopleTokuButton: {
+    marginLeft: 25,
+    backgroundColor: 'white',
+    width: 150,
+    height: 40,
+    borderRadius: 10,
+    overflow: 'hidden',
+    top: 5,
+    padding: 10,
+    paddingBottom: 50,
+    // marginLeft: 4,
+    textAlign: 'center',
+    fontSize: 20,
+  },
+  ownTokuButton: {
+    marginRight: 20,
+    backgroundColor: '#fddea5',
+    width: 150,
+    height: 40,
+    borderRadius: 10,
+    overflow: 'hidden',
+    top: 5,
+    padding: 10,
+    paddingBottom: 50,
+    textAlign: 'center',
+    fontSize: 20,
+  },
+  logIcon: {
+    width: 40,
+    height: 40,
+    resizeMode: 'contain',
+  },
+  cellA: {
+    flex: 1,
+  },
+  cellB: {
+    paddingLeft: 10,
+    flex: 4,
+  },
+  cellC: {
+    flex: 1,
   },
   userBottomRadius: {
     backgroundColor: 'white',
@@ -220,23 +315,21 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     bottom: 10,
   },
-  icon: {
-    width: 40,
-    height: 40,
-    resizeMode: 'contain',
-  },
-  cellA: {
-    flex: 1,
-  },
-  cellB: {
-    paddingLeft: 10,
-    flex: 4,
-  },
-  cellC: {
-    flex: 1,
-  },
 
   // Dictionary
+
+  dictItem: {
+    width: '30%',
+    margin: '1%',
+  },
+  dictItemName: {
+    width: '100%',
+  },
+  dictItemImage: {
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
+  },
 
   // login
 
@@ -261,64 +354,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 40,
   },
-
-  // ↑ done
-
-  allToku: {
-    backgroundColor: 'white',
-    width: 175,
-    height: 40,
-    borderRadius: 10,
-    overflow: 'hidden',
-    top: 5,
-    padding: 10,
-    paddingBottom: 50,
-    textAlign: 'center',
-    fontSize: 20,
-  },
-  ownToku: {
-    backgroundColor: '#fddea5',
-    width: 175,
-    height: 40,
-    borderRadius: 10,
-    overflow: 'hidden',
-    top: 5,
-    padding: 10,
-    paddingBottom: 50,
-    textAlign: 'center',
-    fontSize: 20,
-  },
-  topText: {
-    fontSize: 30,
-    textAlign: 'center',
-    marginBottom: 20,
-    fontWeight: 'bold',
-  },
-  tabView: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  // PeopleTable
-
-  // Dictionary
-
-  dictItem: {
-    width: '30%',
-    margin: '1%',
-  },
-  dictItemName: {
-    width: '100%',
-  },
-  dictItemImage: {
-    width: 100,
-    height: 100,
-    resizeMode: 'contain',
-  },
-
-  // login
-
   loginButtonOutline: {
     backgroundColor: 'white',
     marginTop: 5,
@@ -330,92 +365,11 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
   },
-  //modal
-  centeredView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 22,
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: 'white',
-    borderRadius: 18,
-    padding: 35,
-    opacity: 0.98,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  modalbutton: {
-    borderRadius: 13,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonClose: {
-    backgroundColor: 'orange',
-    opacity: 0.8,
-  },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: 'center',
-  },
-  modalText2: {
-    marginBottom: 15,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
 });
 
 export const customStyles = StyleSheet.create(
   iphoneModel.inch === 4.7
     ? {
-        // Profile 4.7 inch
-
-        profileContainer: {
-          marginBottom: 30,
-        },
-
-        //// calender
-
-        calender: {
-          width: '85%',
-          borderWidth: 0,
-          borderColor: 'white',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-        },
-        calenderCell: {
-          width: '20%',
-          height: 50,
-          alignItems: 'center',
-          borderRadius: 6,
-          borderWidth: 0.8,
-          borderColor: 'white',
-        },
-
-        // ↑ done
-
-        // all 4.7inch
-
-        // strongText: {
-        //   fontWeight: 'bold',
-        //   fontSize: 28,
-        //   // top: 40,
-        //   marginBottom: 40,
-        // },
-
         // Top 4.7inch
 
         topBird: {
@@ -429,7 +383,9 @@ export const customStyles = StyleSheet.create(
           height: 380,
           top: -180,
         },
-        // infoButton
+
+        //// infoButton  4.7inch
+
         infoImg: {
           top: 330,
           width: 50,
@@ -442,7 +398,7 @@ export const customStyles = StyleSheet.create(
           width: 40,
         },
 
-        // FlyingBird 4.7 inch
+        //// FlyingBird 4.7 inch
 
         flyingBird: {
           top: 430,
@@ -466,9 +422,29 @@ export const customStyles = StyleSheet.create(
 
         // Profile 4.7 inch
 
-        // topContent: {
-        //   // marginBottom: 10
-        // },
+        profileContainer: {
+          marginBottom: 30,
+        },
+
+        //// calender 4.7 inch
+
+        calender: {
+          width: '85%',
+          borderWidth: 0,
+          borderColor: 'white',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+        },
+        calenderCell: {
+          width: '20%',
+          height: 60,
+          alignItems: 'center',
+          borderRadius: 6,
+          borderWidth: 0.8,
+          borderColor: 'white',
+        },
+
+        // Profile 4.7 inch
 
         avatar: {
           height: 250,
@@ -477,67 +453,7 @@ export const customStyles = StyleSheet.create(
           marginBottom: 10,
         },
 
-        // logContainer: {
-        //   flexGrow: 1,
-        //   backgroundColor: '#F6F3CF',
-        //   alignItems: 'center',
-        //   justifyContent: 'flex-start',
-        // },
-
-        // PeopleLog 4.7 inch
-
-        allToku: {
-          backgroundColor: 'white',
-          width: 150,
-          height: 40,
-          borderRadius: 10,
-          overflow: 'hidden',
-          top: 20,
-          padding: 10,
-          paddingBottom: 50,
-          marginLeft: 4,
-          textAlign: 'center',
-          fontSize: 20,
-        },
-        ownToku: {
-          backgroundColor: '#fddea5',
-          width: 150,
-          height: 40,
-          borderRadius: 10,
-          overflow: 'hidden',
-          top: 20,
-          padding: 10,
-          paddingBottom: 50,
-
-          textAlign: 'center',
-          fontSize: 20,
-        },
-        topText: {
-          fontSize: 30,
-          textAlign: 'center',
-          marginBottom: 20,
-          fontWeight: 'bold',
-        },
-        bottomTextA: {
-          backgroundColor: 'white',
-          width: 300,
-          height: 20,
-          marginLeft: 40,
-          borderRadius: 10,
-          overflow: 'hidden',
-          bottom: 10,
-        },
-        bottomTextB: {
-          backgroundColor: '#fddea5',
-          width: 300,
-          height: 20,
-          marginLeft: 40,
-          borderRadius: 10,
-          overflow: 'hidden',
-          bottom: 10,
-        },
-
-        // PeopleTable 4.7 inch
+        // Log 4.7 inch
 
         peopleTableContainer: {
           backgroundColor: '#fff',
@@ -547,32 +463,16 @@ export const customStyles = StyleSheet.create(
           height: 400,
           // paddingLeft: 10,
         },
-        icon: {
-          width: 40,
-          height: 40,
-          resizeMode: 'contain',
-        },
-
-        // UserTokuTable 4.7 inch
-
-        userTableContainer: {
-          backgroundColor: '#fddea5',
-          marginLeft: 40,
-          marginRight: 20,
-          width: 300,
-          height: 400,
-          paddingLeft: 10,
-        },
 
         // Dictionary 4.7inch
 
-        dict: {
+        dictItemsContainer: {
           top: 20,
-          width: '95%',
+          width: '100%',
           alignItems: 'center',
           flexDirection: 'row',
           flexWrap: 'wrap',
-          paddingBottom: 120,
+          // paddingBottom: 120,
         },
       }
     : iphoneModel.inch === 5.5
@@ -675,12 +575,6 @@ export const customStyles = StyleSheet.create(
 
           textAlign: 'center',
           fontSize: 20,
-        },
-        topText: {
-          fontSize: 30,
-          textAlign: 'center',
-          marginBottom: 20,
-          fontWeight: 'bold',
         },
         bottomTextA: {
           backgroundColor: 'white',
@@ -850,12 +744,7 @@ export const customStyles = StyleSheet.create(
           textAlign: 'center',
           fontSize: 20,
         },
-        topText: {
-          fontSize: 30,
-          textAlign: 'center',
-          marginBottom: 20,
-          fontWeight: 'bold',
-        },
+
         bottomTextA: {
           backgroundColor: 'white',
           width: 330,
@@ -1028,12 +917,7 @@ export const customStyles = StyleSheet.create(
           textAlign: 'center',
           fontSize: 20,
         },
-        topText: {
-          fontSize: 30,
-          textAlign: 'center',
-          marginBottom: 20,
-          fontWeight: 'bold',
-        },
+
         tabView: {
           flexDirection: 'row',
           justifyContent: 'center',
@@ -1210,12 +1094,7 @@ export const customStyles = StyleSheet.create(
           textAlign: 'center',
           fontSize: 20,
         },
-        topText: {
-          fontSize: 30,
-          textAlign: 'center',
-          marginBottom: 20,
-          fontWeight: 'bold',
-        },
+
         tabView: {
           flexDirection: 'row',
           justifyContent: 'center',
@@ -1391,12 +1270,6 @@ export const customStyles = StyleSheet.create(
           paddingBottom: 50,
           textAlign: 'center',
           fontSize: 20,
-        },
-        topText: {
-          fontSize: 30,
-          textAlign: 'center',
-          marginBottom: 20,
-          fontWeight: 'bold',
         },
         tabView: {
           flexDirection: 'row',
