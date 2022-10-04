@@ -120,7 +120,10 @@ const Top = ({navigation}) => {
           ) : (
             <>
               <View style={styles.buttonWrapper}>
-                <Button mode="contained" onPress={submit}>
+                <Button
+                  mode="contained"
+                  onPress={submit}
+                  contentStyle={{backgroundColor: '#EDB767'}}>
                   徳を積む
                 </Button>
               </View>

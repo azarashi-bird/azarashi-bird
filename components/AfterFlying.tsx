@@ -87,7 +87,10 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
       </Text>
       {setMessage()}
       <View style={customStyles.FBAfterButtonWrapper}>
-        <Button mode="contained" onPress={() => navigation.goBack()}>
+        <Button
+          mode="contained"
+          onPress={() => navigation.goBack()}
+          contentStyle={{backgroundColor: '#EDB767'}}>
           やったね🙌
         </Button>
       </View>
