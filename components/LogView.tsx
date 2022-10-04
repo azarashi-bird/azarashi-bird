@@ -24,6 +24,8 @@ export default function LogView() {
   useLayoutEffect(() => {
     if (isFocused) {
       getUserTokuLength();
+
+      // console.log(evolDay, "37EVOLDAY===")
     }
   }, [isFocused]);
 
@@ -40,16 +42,16 @@ export default function LogView() {
         ) : (
           <>
             <Text style={customStyles.strongText}>
-              {afterViews[Math.floor((userLength % 45) / 3)][1]}
+              {afterViews[Math.floor((userLength % 45) / 3) || 0][1]}
             </Text>
             <Image
-              source={afterViews[Math.floor((userLength % 45) / 3)][0]}
+              source={afterViews[Math.floor((userLength % 45) / 3) || 0][0]}
               style={styles.mainImage}
             />
           </>
         )}
 
-        <Calender userLength={userLength} />
+        <Calender userLength={userLength} isFocused={isFocused} />
       </ScrollView>
     </SafeAreaView>
   );

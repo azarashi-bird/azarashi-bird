@@ -56,6 +56,30 @@ const incUserPostCount = async (uid) => {
   if (ISDEBUG) console.log(uid, 'INCUSERPOST COUNT CALLED');
 };
 
+// userテーブルに、配列を作る。変化した日を配列にプッシュし、その日に対応するindex番号が画像index
+const pushUserEvoleDay = async () => {
+  const uid = auth.currentUser?.uid;
+  const ref = USRSTABLE.doc(uid);
+  const doc = await ref.get();
+  const date = new Date();
+  if (doc.exists) {
+    await ref.update({
+      date_array: firebase.firestore.FieldValue.arrayUnion(date),
+    });
+  } else {
+    await ref.set({date_array: [date]});
+  }
+  if (ISDEBUG) console.log('PushUserEvoluDay called');
+};
+
+const getUserEvoleDay = async () => {
+  const uid = auth.currentUser?.uid;
+  const ref = USRSTABLE.doc(uid);
+  const doc = await ref.get();
+  if (ISDEBUG) console.log('getUserEvoleDay called');
+  return doc.data().date_array;
+};
+
 const getUserPostCount = async (uid) => {
   const ref = USRSTABLE.doc(uid);
   const doc = await ref.get();
@@ -196,6 +220,8 @@ export {
   getMonthlyToku,
   getDailyToku,
   // getTargetToku,
+  pushUserEvoleDay,
+  getUserEvoleDay,
   getNewestToku,
   incUserPostCount,
   getUserPostCount,

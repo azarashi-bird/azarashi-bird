@@ -22,6 +22,7 @@ import {
   getAllToku,
   incUserPostCount,
   getUserPostCount,
+  pushUserEvoleDay,
 } from '../firebase';
 
 // import {
@@ -77,6 +78,11 @@ const Top = ({navigation}) => {
             dailyTokusCount: newCount,
           })
         : console.log('post failed!');
+      // 変化タイミング
+      if ((targetTokus + 1) % 3 === 0) {
+        pushUserEvoleDay();
+        console.log('PUSH!!=====');
+      }
     } else {
       sendAlert();
     }
@@ -115,7 +121,10 @@ const Top = ({navigation}) => {
           ) : (
             <>
               <View style={styles.buttonWrapper}>
-                <Button mode="contained" onPress={submit}>
+                <Button
+                  mode="contained"
+                  onPress={submit}
+                  contentStyle={{backgroundColor: '#EDB767'}}>
                   徳を積む
                 </Button>
               </View>
