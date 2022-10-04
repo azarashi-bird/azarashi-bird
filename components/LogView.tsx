@@ -2,7 +2,7 @@ import {SafeAreaView, Image, ScrollView} from 'react-native';
 import {Text} from 'react-native-paper';
 import styles, {customStyles} from './css';
 import afterViews from './afterLifes';
-import {getUserPostCount, auth, getUserEvoleDay} from '../firebase';
+import {getUserPostCount, auth} from '../firebase';
 import {useState, useLayoutEffect} from 'react';
 import {useIsFocused} from '@react-navigation/native';
 import Calender from './Calender';
@@ -14,7 +14,6 @@ userTokus.length % 15でエラーが出る人は、とりあえず5などベタ�
 
 export default function LogView() {
   const [userLength, setUserLength] = useState(-1);
-  const [evolDay, setEvolDay] = useState([]);
   const isFocused = useIsFocused();
 
   const getUserTokuLength = async () => {
@@ -22,18 +21,11 @@ export default function LogView() {
     setUserLength(count);
   };
 
-  const getEvolDay = async () => {
-    const evolArr = await getUserEvoleDay();
-    const userEvol = evolArr.map((data) => data.toDate());
-    console.log(userEvol, 'EVOLARRR');
-    setEvolDay(userEvol);
-  };
-
   useLayoutEffect(() => {
     if (isFocused) {
       getUserTokuLength();
 
-      getEvolDay();
+      // console.log(evolDay, "37EVOLDAY===")
     }
   }, [isFocused]);
 
@@ -50,16 +42,16 @@ export default function LogView() {
         ) : (
           <>
             <Text style={customStyles.strongText}>
-              {afterViews[Math.floor((userLength % 45) / 3)][1]}
+              {afterViews[Math.floor((userLength % 45) / 3) || 0][1]}
             </Text>
             <Image
-              source={afterViews[Math.floor((userLength % 45) / 3)][0]}
+              source={afterViews[Math.floor((userLength % 45) / 3) || 0][0]}
               style={styles.mainImage}
             />
           </>
         )}
 
-        <Calender userLength={userLength} evolDay={evolDay} />
+        <Calender userLength={userLength} isFocused={isFocused} />
       </ScrollView>
     </SafeAreaView>
   );

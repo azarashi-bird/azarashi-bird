@@ -78,9 +78,10 @@ const Top = ({navigation}) => {
           })
         : console.log('post failed!');
       // 変化タイミング
-      // if((targetTokus + 1) % 3 === 0) {
-      pushUserEvoleDay();
-      // }
+      if ((targetTokus + 1) % 3 === 0) {
+        pushUserEvoleDay();
+        console.log('PUSH!!=====');
+      }
     } else {
       sendAlert();
     }

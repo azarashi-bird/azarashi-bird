@@ -1,5 +1,5 @@
 let ISDEBUG = false;
-// ISDEBUG = true;
+ISDEBUG = true;
 // Import the functions you need from the SDKs you need
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -69,12 +69,14 @@ const pushUserEvoleDay = async () => {
   } else {
     await ref.set({date_array: [date]});
   }
+  if (ISDEBUG) console.log('PushUserEvoluDay called');
 };
 
 const getUserEvoleDay = async () => {
   const uid = auth.currentUser?.uid;
   const ref = USRSTABLE.doc(uid);
   const doc = await ref.get();
+  if (ISDEBUG) console.log('getUserEvoleDay called');
   return doc.data().date_array;
 };
 
