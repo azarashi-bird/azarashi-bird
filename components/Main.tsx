@@ -1,4 +1,4 @@
-import LogView from './LogView';
+import Profile from './Profile';
 const Tab = createBottomTabNavigator();
 import Top from './Top';
 import PeopleLog from './PeopleLog';
@@ -18,7 +18,7 @@ export default function Main() {
             iconName = 'home';
           } else if (route.name === 'Profile') {
             iconName = 'person';
-          } else if (route.name === 'People') {
+          } else if (route.name === 'Log') {
             iconName = 'people-outline';
           } else if (route.name === 'Dictionary') {
             iconName = 'book';
@@ -30,8 +30,8 @@ export default function Main() {
         headerShown: false,
       })}>
       <Tab.Screen name="Top" component={Top} />
-      <Tab.Screen name="Profile" component={LogView} />
-      <Tab.Screen name="People" component={PeopleLog} />
+      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Log" component={PeopleLog} />
       <Tab.Screen name="Dictionary" component={Dictionary} />
     </Tab.Navigator>
   );

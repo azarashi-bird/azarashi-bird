@@ -100,19 +100,19 @@ export default function PeopleLog() {
   }, [isFocused]);
 
   return (
-    <SafeAreaView style={styles.peopleContainer}>
-      <View style={[styles.topView, customStyles.topView]}>
-        <Text style={[styles.topText, customStyles.topText]}>徳ろぐ</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={[styles.inner, customStyles.inner]}>
+        <Text style={[styles.h1, customStyles.h1]}>徳ろぐ</Text>
         <View style={styles.tabView}>
           <Text
-            style={[styles.allToku, customStyles.allToku]}
+            style={[styles.peopleTokuButton, customStyles.peopleTokuButton]}
             onPress={() => {
               setIsAnyTokus('allToku');
             }}>
             みんなの徳
           </Text>
           <Text
-            style={[styles.ownToku, customStyles.ownToku]}
+            style={[styles.ownTokuButton, customStyles.ownTokuButton]}
             onPress={() => {
               setIsAnyTokus('ownToku');
             }}>
@@ -125,9 +125,17 @@ export default function PeopleLog() {
           <UserTokutable userTokus={userTokus} />
         )}
         {isAnyTokus === 'allToku' ? (
-          <Text style={[styles.bottomTextA, customStyles.bottomTextA]}></Text>
+          <Text
+            style={[
+              styles.userBottomRadius,
+              customStyles.userBottomRadius,
+            ]}></Text>
         ) : (
-          <Text style={[styles.bottomTextB, customStyles.bottomTextB]}></Text>
+          <Text
+            style={[
+              styles.peopleBottomRadius,
+              customStyles.userBottomRadius,
+            ]}></Text>
         )}
       </View>
     </SafeAreaView>

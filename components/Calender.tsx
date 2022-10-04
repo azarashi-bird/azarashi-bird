@@ -1,5 +1,5 @@
 import {Text, View, Modal, Pressable, Image} from 'react-native';
-import styles from './css';
+import styles, {customStyles} from './css';
 const s = styles;
 import {getMonthlyToku, getUserEvoleDay} from '../firebase';
 import {useEffect, useState, useLayoutEffect} from 'react';
@@ -124,9 +124,9 @@ export default function Calender({userLength, isFocused}) {
 
   return (
     <>
-      <Text style={{fontSize: 21, marginBottom: 5}}>徳積みの記録</Text>
+      <Text style={[styles.h2, customStyles.h2]}>徳積みの記録</Text>
 
-      <View style={s.calender}>
+      <View style={[styles.calender, customStyles.calender]}>
         {moreInfoCalender.map((elem, index) => {
           if (elem[1] !== null) {
             return (
@@ -173,12 +173,12 @@ export default function Calender({userLength, isFocused}) {
         <Modal animationType="none" transparent={true} visible={modalVisible}>
           <View style={s.centeredView}>
             <View style={s.modalView}>
-              <Text style={s.modalText2}>{chosenDay}日の徳分</Text>
+              <Text style={s.modalTextBold}>{chosenDay}日の徳分</Text>
               <Text style={s.modalText}>{listedToku}</Text>
               <Pressable
-                style={[s.modalbutton, s.buttonClose]}
+                style={[s.modalButton, s.closeButton]}
                 onPress={() => closeModal()}>
-                <Text style={s.textStyle}>close</Text>
+                <Text style={s.closeButtonText}>close</Text>
               </Pressable>
             </View>
           </View>
