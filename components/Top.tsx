@@ -115,8 +115,8 @@ const Top = ({navigation}) => {
             onChangeText={(Text) => setToku(Text)}
             onFocus={focus}
             onBlur={bluer}
-            selectionColor="orange"
-            activeOutlineColor="orange"></TextInput>
+            selectionColor="rgba(255, 165, 0, 0.8)"
+            activeOutlineColor="rgba(255, 165, 0, 0.8)"></TextInput>
           {isEntering ? (
             <Suggest setToku={setToku} />
           ) : (
@@ -125,7 +125,7 @@ const Top = ({navigation}) => {
                 <Button
                   mode="contained"
                   onPress={submit}
-                  contentStyle={{backgroundColor: 'orange'}}>
+                  contentStyle={{backgroundColor: 'rgba(255, 165, 0, 0.8)'}}>
                   徳を積む
                 </Button>
               </View>
