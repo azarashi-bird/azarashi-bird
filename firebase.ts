@@ -39,6 +39,59 @@ if (firebase.apps.length === 0) {
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 const tokuTable = firestore.collection('toku_table');
+const USRSTABLE = firestore.collection('users');
+const increment = firebase.firestore.FieldValue.increment(1);
+
+const incUserPostCount = async (uid) => {
+  const ref = USRSTABLE.doc(uid);
+  const doc = await ref.get();
+
+  if (doc.exists) {
+    // ドキュメントが存在している
+    await ref.update({postCount: increment});
+  } else {
+    // ドキュメントがまだ存在していない
+    await ref.set({postCount: 1});
+  }
+  if (ISDEBUG) console.log(uid, 'INCUSERPOST COUNT CALLED');
+};
+
+// userテーブルに、配列を作る。変化した日を配列にプッシュし、その日に対応するindex番号が画像index
+const pushUserEvoleDay = async () => {
+  const uid = auth.currentUser?.uid;
+  const ref = USRSTABLE.doc(uid);
+  const doc = await ref.get();
+  const date = new Date();
+  if (doc.exists) {
+    await ref.update({
+      date_array: firebase.firestore.FieldValue.arrayUnion(date),
+    });
+  } else {
+    await ref.set({date_array: [date]});
+  }
+  if (ISDEBUG) console.log('PushUserEvoluDay called');
+};
+
+const getUserEvoleDay = async () => {
+  const uid = auth.currentUser?.uid;
+  const ref = USRSTABLE.doc(uid);
+  const doc = await ref.get();
+  if (ISDEBUG) console.log('getUserEvoleDay called');
+  return doc.data().date_array;
+};
+
+const getUserPostCount = async (uid) => {
+  const ref = USRSTABLE.doc(uid);
+  const doc = await ref.get();
+  if (ISDEBUG) console.log(uid, 'POST COUNT CASLLED');
+  if (doc.exists) {
+    return doc.data().postCount;
+    // ドキュメントが存在している
+  } else {
+    // ドキュメントがまだ存在していない
+    return 0;
+  }
+};
 
 const postToku = async (toku) => {
   const uid = auth.currentUser?.uid;
@@ -104,18 +157,18 @@ const getUserToku = async (afterThisTime = new Date(1970, 0, 1)) => {
   return tokuList;
 };
 
-const getTargetToku = async (userid) => {
-  const tokuList = [];
-  await tokuTable
-    .where('user_id', '==', userid)
-    .orderBy('createdAt', 'asc')
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((toku) => tokuList.push(toku.data()));
-    });
-  if (ISDEBUG) console.log('CALLED GETUSERTOKU. count:::::', tokuList.length);
-  return tokuList;
-};
+// const getTargetToku = async (userid) => {
+//   const tokuList = [];
+//   await tokuTable
+//     .where('user_id', '==', userid)
+//     .orderBy('createdAt', 'asc')
+//     .get()
+//     .then((querySnapshot) => {
+//       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
+//     });
+//   if (ISDEBUG) console.log('CALLED GETUSERTOKU. count:::::', tokuList.length);
+//   return tokuList;
+// };
 
 const getDailyToku = async () => {
   const _d = new Date();
@@ -132,38 +185,15 @@ const getDailyToku = async () => {
   return dailyTokuList;
 };
 
-function getFirstDate(date) {
-  return new Date(date.getFullYear(), date.getMonth(), 1);
-}
-
-function getLastDate(date) {
-  return new Date(date.getFullYear(), date.getMonth() + 1, 0);
-}
-
-// const getMonthlyToku = async () => {
-//   const startDate = getFirstDate(new Date());
-//   const endDate = getLastDate(new Date());
-//   const uid = auth.currentUser?.uid;
-//   const tokuList = [];
-//   await tokuTable
-//     .where('user_id', '==', uid)
-//     .orderBy('createdAt', 'asc')
-//     .startAt(startDate)
-//     .endAt(endDate)
-//     .get()
-//     .then((querySnapshot) => {
-//       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
-//     });
-//   if (ISDEBUG) console.log('CALLED TMonTHLYTOKU. COUNT:', tokuList.length);
-//   return tokuList;
-// };
-
-const getMonthlyToku = async () => {
+const getMonthlyToku = async (afterThisTime) => {
   const now = new Date();
   const thisMonth = now.getMonth();
   const thisYear = now.getFullYear();
 
-  const startThisMonth = new Date(thisYear, thisMonth, 1); // 2022/09/01 00:00:00(nihonzikan)
+  const startThisMonth = afterThisTime
+    ? afterThisTime
+    : new Date(thisYear, thisMonth, 1); // 2022/09/01 00:00:00(nihonzikan)
+
   const startNextMonth = new Date(thisYear, thisMonth + 1, 1); // 2022/10/01 00:00:00(nihonzikan)
   const uid = auth.currentUser?.uid;
 
@@ -185,10 +215,14 @@ export {
   auth,
   firestore,
   postToku,
-  getAllToku,
+  getAllToku, // これもusersコレクション作り終わったら不要になる
   getUserToku,
   getMonthlyToku,
   getDailyToku,
-  getTargetToku,
+  // getTargetToku,
+  pushUserEvoleDay,
+  getUserEvoleDay,
   getNewestToku,
+  incUserPostCount,
+  getUserPostCount,
 };

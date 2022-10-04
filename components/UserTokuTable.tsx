@@ -5,7 +5,7 @@ import afterViews from './afterLifes';
 import styles, {customStyles} from './css';
 
 export default function UserTokutable({userTokus}) {
-  const ImgIndex = Math.floor((userTokus.length % 45) / 3);
+  const ImgIndex = Math.floor((userTokus.length % 45) / 3) || 0;
   return (
     <ScrollView
       style={{

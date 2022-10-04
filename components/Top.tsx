@@ -15,7 +15,15 @@ import {Button} from 'react-native-paper';
 import styles, {customStyles} from './css';
 import {Suggest} from './Suggest';
 import {useState, useEffect} from 'react';
-import {postToku, getUserToku, getDailyToku} from '../firebase';
+import {
+  auth,
+  postToku,
+  getDailyToku,
+  getAllToku,
+  incUserPostCount,
+  getUserPostCount,
+  pushUserEvoleDay,
+} from '../firebase';
 
 // import {
 //   MD3LightTheme as DefaultTheme,
@@ -34,10 +42,8 @@ const Top = ({navigation}) => {
   };
 
   const getUserTokuLength = async () => {
-    //imp user コレクションのuserPostCountを作れば読み込み回数減らせる？ 今だとgetUserTokuだとpostした徳数分読み込み発生
-    const userTokus = await getUserToku();
-    const tokuLength = userTokus.length;
-    setTargetTokus(tokuLength);
+    const count = await getUserPostCount(auth.currentUser?.uid);
+    setTargetTokus(count);
   };
 
   useEffect(() => {
@@ -62,14 +68,21 @@ const Top = ({navigation}) => {
   const submit = () => {
     setToku('');
     if (toku !== '') {
-      setDailyTokusCount(dailyTokusCount + 1);
+      const newCount = dailyTokusCount + 1;
+      setDailyTokusCount(newCount);
       setTargetTokus(targetTokus + 1);
+      incUserPostCount(auth.currentUser?.uid);
       postToku(toku)
         ? navigation.navigate('FlyingBird', {
             targetTokus: targetTokus,
-            dailyTokusCount: dailyTokusCount,
+            dailyTokusCount: newCount,
           })
         : console.log('post failed!');
+      // 変化タイミング
+      if ((targetTokus + 1) % 3 === 0) {
+        pushUserEvoleDay();
+        console.log('PUSH!!=====');
+      }
     } else {
       sendAlert();
     }
@@ -102,13 +115,18 @@ const Top = ({navigation}) => {
             value={toku}
             onChangeText={(Text) => setToku(Text)}
             onFocus={focus}
-            onBlur={bluer}></TextInput>
+            onBlur={bluer}
+            selectionColor="orange"
+            activeOutlineColor="orange"></TextInput>
           {isEntering ? (
             <Suggest setToku={setToku} />
           ) : (
             <>
               <View style={styles.buttonWrapper}>
-                <Button mode="contained" onPress={submit}>
+                <Button
+                  mode="contained"
+                  onPress={submit}
+                  contentStyle={{backgroundColor: 'orange'}}>
                   徳を積む
                 </Button>
               </View>
