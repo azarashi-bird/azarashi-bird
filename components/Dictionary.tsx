@@ -4,7 +4,6 @@ import styles, {customStyles} from './css';
 import afterViews from './afterLifes';
 import {getUserPostCount, auth} from '../firebase';
 import {useIsFocused} from '@react-navigation/native';
-import ContentOfDict from './ContentOfDict';
 
 const unknown = require('../assets/afterLifes/unknown.png');
 export default function Dictionary() {
@@ -38,7 +37,6 @@ export default function Dictionary() {
             </View>
           ))}
         </ScrollView>
-        {/* <ContentOfDict score={score}/> */}
       </View>
     </SafeAreaView>
   );
