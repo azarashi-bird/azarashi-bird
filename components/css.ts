@@ -9,7 +9,7 @@ import {
   iPhoneInch55, // done
   iPhoneInch58, // done
   iPhoneInch61, // done
-  iPhoneInch65,
+  iPhoneInch65, // done
   iPhoneInch67,
 } from '../lib/iPhoneSize';
 
@@ -22,7 +22,7 @@ const iphoneModel = iPhoneInch47()
   : iPhoneInch61()
   ? {inch: 6.1, width, height} // iPhone12, 12Pro, 13, 13Pro
   : iPhoneInch65()
-  ? {inch: 6.5, width, height} // base(else), iPhone 11 Pro Max
+  ? {inch: 6.5, width, height} // iPhone 11 Pro Max
   : iPhoneInch67()
   ? {inch: 6.7, width, height} // iPhone12 Pro Max, 13 Pro Max, 14 Pro Max
   : {inch: null, width: null, height: null};
@@ -952,179 +952,155 @@ export const customStyles = StyleSheet.create(
         },
       }
     : {
-        // all 6.5inch
+        // all 6.7 inch
 
-        strongText: {
-          fontWeight: 'bold',
-          fontSize: 28,
-          top: 30,
-          marginBottom: 30,
+        inner: {
+          top: 40,
+          bottom: 40,
+          alignItems: 'center',
+          justifyContent: 'flex-start',
         },
 
-        // Top 6.5inch
+        h1: {
+          fontSize: 34,
+          fontWeight: 'bold',
+          marginBottom: 15,
+        },
+
+        h2: {
+          fontSize: 31,
+          lineHeight: 48,
+          marginBottom: 10,
+        },
+
+        p: {
+          fontSize: 24,
+          lineHeight: 36,
+        },
+
+        strong: {
+          fontSize: 24,
+          lineHeight: 36,
+          fontWeight: 'bold',
+        },
+
+        // Top 6.7inch
 
         topBird: {
-          top: 170,
+          top: 160,
           left: 95,
-          width: 200,
+          width: 220,
           height: 250,
         },
         topCage: {
-          width: 400,
-          height: 550,
-          top: -260,
+          width: 420,
+          height: 490,
+          top: -240,
         },
-        // infoButton
+
+        //// infoButton  6.7inch
+
         infoImg: {
+          top: 490,
           width: 60,
           height: 60,
-          left: 170,
-          bottom: 10,
+          left: 150,
         },
         infoButton: {
           backgroundColor: 'red',
           opacity: 0,
-          height: 50,
-          width: 50,
+          height: 70,
+          width: 70,
         },
 
-        // Flying Bird 6.5 inch
+        //// FlyingBird 6.7 inch
 
         flyingBird: {
-          top: 450,
+          top: 500,
           left: 100,
-          width: 200,
-          height: 250,
+          width: 220,
+          height: 240,
           resizeMode: 'contain',
         },
         FBCage: {
+          left: 10,
+          // top: 20,
+          bottom: 10,
           width: 400,
-          height: 550,
+          height: 600,
         },
-        FBMessageContainer: {
-          marginTop: 40,
-          alignItems: 'center',
-        },
+
         FBAfterButtonWrapper: {
-          bottom: 200,
+          // bottom: 10,
+          top: 350,
           width: '50%',
           alignItems: 'center',
         },
 
-        // LogView 6.5 inch
+        // Profile 6.7 inch
 
-        topContent: {
-          marginTop: 70,
+        profileContainer: {
+          marginBottom: 30,
         },
 
-        // logContainer: {
-        //   flexGrow: 1,
-        //   backgroundColor: '#F6F3CF',
-        //   alignItems: 'center',
-        //   justifyContent: 'flex-start',
-        // },
+        //// calender 6.7 inch
 
-        // PeopleLog 6.5 inch
-
-        peopleTable: {
-          backgroundColor: '#F6F3CF',
-        },
-        peopleContainer: {
-          flex: 1,
-          backgroundColor: '#F6F3CF',
-        },
-
-        allToku: {
-          backgroundColor: 'white',
-          width: 175,
-          height: 40,
-          borderRadius: 10,
-          overflow: 'hidden',
-          top: 5,
-          padding: 10,
-          paddingBottom: 50,
-          textAlign: 'center',
-          fontSize: 20,
-        },
-        ownToku: {
-          backgroundColor: '#fddea5',
-          width: 175,
-          height: 40,
-          borderRadius: 10,
-          overflow: 'hidden',
-          top: 5,
-          padding: 10,
-          paddingBottom: 50,
-          textAlign: 'center',
-          fontSize: 20,
-        },
-        tabView: {
+        calender: {
+          width: '90%',
+          borderWidth: 0,
+          borderColor: 'white',
           flexDirection: 'row',
-          justifyContent: 'center',
+          flexWrap: 'wrap',
+        },
+        calenderCell: {
+          width: '20%',
+          height: 60,
           alignItems: 'center',
-        },
-        bottomTextA: {
-          backgroundColor: 'white',
-          width: 350,
-          height: 20,
-          marginLeft: 32,
-          borderRadius: 10,
-          overflow: 'hidden',
-          bottom: 10,
-        },
-        bottomTextB: {
-          backgroundColor: '#fddea5',
-          width: 350,
-          height: 20,
-          marginLeft: 32,
-          borderRadius: 10,
-          overflow: 'hidden',
-          bottom: 10,
+          borderRadius: 6,
+          borderWidth: 0.8,
+          borderColor: 'white',
         },
 
-        // PeopleTable 6.5 inch
-        peopleTableContainer: {
-          backgroundColor: '#fff',
-          marginLeft: 32,
-          marginRight: 20,
-          width: 350,
-          height: 550,
-          paddingLeft: 10,
-        },
-        icon: {
-          width: 40,
-          height: 40,
+        // Profile 6.7 inch
+
+        avatar: {
+          height: 250,
+          width: 250,
           resizeMode: 'contain',
-        },
-        cellA: {
-          right: 10,
-        },
-        cellB: {
-          right: 60,
-        },
-        cellC: {
-          left: 60,
+          marginBottom: 10,
         },
 
-        // UserTokuTable 6.5 inch
-        userTableContainer: {
-          backgroundColor: '#fddea5',
-          marginLeft: 32,
+        // Log 6.7 inch
+
+        logTable: {
+          marginLeft: 25,
           marginRight: 20,
           width: 350,
           height: 550,
-          paddingLeft: 10,
         },
 
-        // Dictionary 6.5 inch
+        peopleTokuButton: {
+          width: 175,
+        },
+        ownTokuButton: {
+          width: 175,
+        },
+        userBottomRadius: {
+          width: 350,
+        },
+        peopleBottomRadius: {
+          width: 350,
+        },
 
-        dict: {
-          top: 60,
-          width: '95%',
+        // Dictionary 6.7inch
+
+        dictItemsContainer: {
+          top: 20,
+          width: '100%',
           alignItems: 'center',
           flexDirection: 'row',
           flexWrap: 'wrap',
-          paddingBottom: 120,
+          // paddingBottom: 120,
         },
       }
 );
