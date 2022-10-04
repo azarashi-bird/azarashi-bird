@@ -75,7 +75,6 @@ export default function Calender({userLength, isFocused}) {
     // [0, null, null]の0を変化させたい？
     calenderData[toku.createdAt.toDate().getDate() - 1]++;
   });
-  console.log(calenderData, 'CALENDERDATA82');
 
   const moreInfoCalender = moreInfoCalenderData.map((arr, index) => {
     // arr => [数字, null, null]
@@ -91,8 +90,6 @@ export default function Calender({userLength, isFocused}) {
     // arr[calender色, imgIndex, 変化の日]or[calender色, null, null]
     return [calenderData[index], null, null];
   });
-
-  console.log(moreInfoCalender, 'MOREINFO CALENFER');
 
   const formattedTokus = monthlyTokus.map((obj) => {
     const day = obj.createdAt.toDate().getDate();
