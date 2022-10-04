@@ -24,8 +24,6 @@ export default function Profile() {
   useLayoutEffect(() => {
     if (isFocused) {
       getUserTokuLength();
-
-      // console.log(evolDay, "37EVOLDAY===")
     }
   }, [isFocused]);
 
