@@ -366,11 +366,6 @@ const styles = StyleSheet.create({
   dictItemName: {
     width: '100%',
   },
-  dictItemImage: {
-    width: 100,
-    height: 100,
-    resizeMode: 'contain',
-  },
 
   // login
 
@@ -451,6 +446,14 @@ export const customStyles = StyleSheet.create(
           width: 350,
           height: 500,
         },
+
+        // Dictionary
+        dictItemImage: {
+          width: 65,
+          height: 65,
+          left: 20,
+          resizeMode: 'contain',
+        },
       }
     : iphoneModel.inch === 5.5
     ? {
@@ -503,6 +506,14 @@ export const customStyles = StyleSheet.create(
           width: 300,
           height: 470,
         },
+
+        // Dictionary
+        dictItemImage: {
+          width: 90,
+          height: 90,
+          left: 20,
+          resizeMode: 'contain',
+        },
       }
     : iphoneModel.inch === 5.8
     ? {
@@ -554,6 +565,14 @@ export const customStyles = StyleSheet.create(
           marginRight: 20,
           width: 300,
           height: 500,
+        },
+
+        // Dictionary
+        dictItemImage: {
+          width: 90,
+          height: 90,
+          left: 10,
+          resizeMode: 'contain',
         },
       }
     : iphoneModel.inch === 6.1
@@ -628,6 +647,14 @@ export const customStyles = StyleSheet.create(
           marginRight: 20,
           width: 300,
           height: 500,
+        },
+
+        // Dictionary
+        dictItemImage: {
+          width: 95,
+          height: 95,
+          left: 10,
+          resizeMode: 'contain',
         },
       }
     : iphoneModel.inch === 6.5
@@ -724,6 +751,14 @@ export const customStyles = StyleSheet.create(
         },
         peopleBottomRadius: {
           width: 350,
+        },
+
+        // Dictionary
+        dictItemImage: {
+          width: 105,
+          height: 105,
+          left: 10,
+          resizeMode: 'contain',
         },
       }
     : {
@@ -822,6 +857,14 @@ export const customStyles = StyleSheet.create(
         },
         peopleBottomRadius: {
           width: 350,
+        },
+
+        // Dictionary
+        dictItemImage: {
+          width: 105,
+          height: 105,
+          left: 10,
+          resizeMode: 'contain',
         },
       }
 );
