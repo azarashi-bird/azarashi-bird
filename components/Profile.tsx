@@ -27,6 +27,10 @@ export default function Profile() {
     }
   }, [isFocused]);
 
+  // Math.max(Math.floor((userLength % 45) / 3), 0)
+  // [Math.floor((userLength % 45) / 3)]
+  // の結果が負にならないようにしたい
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -41,11 +45,13 @@ export default function Profile() {
         ) : (
           <>
             <Text style={[styles.h1, customStyles.h1]}>
-              {afterViews[Math.floor((userLength % 45) / 3)][1]}
+              {afterViews[Math.max(Math.floor((userLength % 45) / 3), 0)][1]}
             </Text>
             <Image
-              source={afterViews[Math.floor((userLength % 45) / 3)][0]}
-              style={[styles.avatar]}
+              source={
+                afterViews[Math.max(Math.floor((userLength % 45) / 3), 0)][0]
+              }
+              style={styles.avatar}
             />
           </>
         )}

@@ -14,7 +14,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
             <Text style={{textAlign: 'left'}}> おや、</Text>
             {'\n'}
             <Text style={{textAlign: 'center'}}>
-              {afterViews[Math.floor((tokuCount % 45) / 3) || 0][1]}
+              {afterViews[Math.floor((tokuCount % 45) / 3)][1]}
             </Text>
             {'\n'}
 
@@ -26,7 +26,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
               style={styles.afterPostBg}
               imageStyle={{borderRadius: 150, opacity: 0.3}}>
               <Image
-                source={afterViews[Math.floor((tokuCount % 45) / 3) || 0][0]}
+                source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
                 style={styles.afterPostIcon}
               />
             </ImageBackground>
@@ -37,7 +37,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
       return (
         <>
           <Text style={styles.FBMessageSP}>
-            {afterViews[Math.floor((tokuCount % 45) / 3) || 0][1]}
+            {afterViews[Math.floor((tokuCount % 45) / 3)][1]}
             {'\n'}
             に進化しました！
           </Text>
@@ -49,7 +49,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
               imageStyle={{borderRadius: 150, opacity: 1}}>
               {/* imageStyle={{opacity: 1}}> */}
               <Image
-                source={afterViews[Math.floor((tokuCount % 45) / 3) || 0][0]}
+                source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
                 style={styles.afterPostIcon}
               />
             </ImageBackground>
@@ -61,7 +61,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
       <>
         <Text style={styles.FBMessageSP}>
           あなたの来世は{'\n'}
-          {afterViews[Math.floor((tokuCount % 45) / 3) || 0][1]}
+          {afterViews[Math.floor((tokuCount % 45) / 3)][1]}
         </Text>
         <View style={styles.avatarContainer}>
           <ImageBackground
@@ -69,7 +69,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
             style={styles.afterPostBg}
             imageStyle={{opacity: 1}}>
             <Image
-              source={afterViews[Math.floor((tokuCount % 45) / 3) || 0][0]}
+              source={afterViews[Math.floor((tokuCount % 45) / 3)][0]}
               style={styles.afterPostIcon}
             />
           </ImageBackground>
