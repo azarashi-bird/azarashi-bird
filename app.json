@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "azarashi-bird",
+    "name": "birdonation",
     "slug": "azarashi-bird",
-    "version": "1.1.0",
+    "version": "1.2.5",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -16,7 +16,7 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "birdonation"
     },
     "android": {
