@@ -54,7 +54,10 @@ export default function Calender({userLength, isFocused}) {
 
   const getEvolDay = async () => {
     const evolArr = await getUserEvoleDay();
-    const userEvol = evolArr.map((data) => data.toDate());
+    let userEvol = [];
+    if (evolArr.length !== 0) {
+      userEvol = evolArr.map((data) => data.toDate());
+    }
     // console.log(userEvol, 'EVOLARRR');
     return userEvol;
   };
@@ -76,21 +79,21 @@ export default function Calender({userLength, isFocused}) {
     // [0, null, null]の0を変化させたい？
     calenderData[toku.createdAt.toDate().getDate() - 1]++;
   });
+  console.log(calenderData, 'CALENDERDATA82');
 
   const moreInfoCalender = moreInfoCalenderData.map((arr, index) => {
     // arr => [数字, null, null]
-    arr[0] = calenderData[index];
     for (let x = thisMData.length - 1; x > -1; x--) {
       if (thisMData[x][1] === index + 1) {
         const resultArr = [];
-        resultArr.push(arr[0]);
+        resultArr.push(calenderData[index]);
         resultArr.push(thisMData[x][0]);
         resultArr.push(thisMData[x][1]);
         return resultArr;
       }
     }
     // arr[calender色, imgIndex, 変化の日]or[calender色, null, null]
-    return arr;
+    return [calenderData[index], null, null];
   });
 
   console.log(moreInfoCalender, 'MOREINFO CALENFER');
