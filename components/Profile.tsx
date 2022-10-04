@@ -45,7 +45,7 @@ export default function Profile() {
             </Text>
             <Image
               source={afterViews[Math.floor((userLength % 45) / 3)][0]}
-              style={styles.avatar}
+              style={[styles.avatar]}
             />
           </>
         )}

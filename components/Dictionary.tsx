@@ -33,7 +33,7 @@ export default function Dictionary() {
               </Text>
               <Image
                 source={score >= index ? element[0] : unknown}
-                style={styles.dictItemImage}></Image>
+                style={customStyles.dictItemImage}></Image>
             </View>
           ))}
         </ScrollView>
