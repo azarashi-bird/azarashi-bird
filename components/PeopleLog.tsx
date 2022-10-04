@@ -82,18 +82,18 @@ export default function PeopleLog() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.inner}>
+      <View style={[styles.inner, customStyles.inner]}>
         <Text style={styles.h1}>徳ろぐ</Text>
         <View style={styles.tabView}>
           <Text
-            style={[styles.peopleTokuButton]}
+            style={[styles.peopleTokuButton, customStyles.peopleTokuButton]}
             onPress={() => {
               setIsAnyTokus('allToku');
             }}>
             みんなの徳
           </Text>
           <Text
-            style={[styles.ownTokuButton, customStyles.ownToku]}
+            style={[styles.ownTokuButton, customStyles.ownTokuButton]}
             onPress={() => {
               setIsAnyTokus('ownToku');
             }}>
@@ -106,9 +106,17 @@ export default function PeopleLog() {
           <UserTokutable userTokus={userTokus} />
         )}
         {isAnyTokus === 'allToku' ? (
-          <Text style={[styles.userBottomRadius]}></Text>
+          <Text
+            style={[
+              styles.userBottomRadius,
+              customStyles.userBottomRadius,
+            ]}></Text>
         ) : (
-          <Text style={[styles.peopleBottomRadius]}></Text>
+          <Text
+            style={[
+              styles.peopleBottomRadius,
+              customStyles.userBottomRadius,
+            ]}></Text>
         )}
       </View>
     </SafeAreaView>

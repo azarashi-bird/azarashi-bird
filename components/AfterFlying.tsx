@@ -80,7 +80,7 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{...styles.inner, ...styles.FBMessageInner}}>
+      <View style={[styles.inner, customStyles.inner, styles.FBMessageInner]}>
         <Text style={styles.p}>🎉🎉おめでとう🎉🎉</Text>
         <Text style={styles.p}>
           今日世界で<Text style={styles.afterPostCount}>{allTokus}羽</Text>

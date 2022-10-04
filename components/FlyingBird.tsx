@@ -46,7 +46,7 @@ const FlyingBird = ({navigation, route}) => {
         <View>
           {!isFlied ? (
             <>
-              <View style={styles.innerContainer}>
+              <View>
                 <Animated.Image
                   source={flyingImg}
                   style={[

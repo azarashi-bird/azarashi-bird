@@ -37,7 +37,7 @@ export default function Profile() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
-        contentContainerStyle={{...styles.inner, ...styles.profileContainer}}>
+        contentContainerStyle={[styles.inner, styles.profileContainer]}>
         <Text style={styles.h2} variant="titleLarge">
           あなたの来世
         </Text>

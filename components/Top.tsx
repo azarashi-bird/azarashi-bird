@@ -93,7 +93,7 @@ const Top = ({navigation}) => {
   return (
     <PaperProvider>
       <SafeAreaView style={styles.container}>
-        <View style={styles.inner}>
+        <View style={[styles.inner, customStyles.inner]}>
           <Text style={[styles.h1, customStyles.h1]}>Birdonation</Text>
           <TextInput
             mode="outlined"
