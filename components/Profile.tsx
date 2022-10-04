@@ -38,7 +38,7 @@ export default function Profile() {
     <SafeAreaView style={styles.container}>
       <ScrollView
         contentContainerStyle={[styles.inner, styles.profileContainer]}>
-        <Text style={styles.h2} variant="titleLarge">
+        <Text style={[styles.h2, customStyles.h2]} variant="titleLarge">
           あなたの来世
         </Text>
         {userLength < 0 ? (
@@ -47,12 +47,12 @@ export default function Profile() {
           </>
         ) : (
           <>
-            <Text style={styles.h1}>
+            <Text style={[styles.h1, customStyles.h1]}>
               {afterViews[Math.floor((userLength % 45) / 3)][1]}
             </Text>
             <Image
               source={afterViews[Math.floor((userLength % 45) / 3)][0]}
-              style={customStyles.avatar}
+              style={styles.avatar}
             />
           </>
         )}

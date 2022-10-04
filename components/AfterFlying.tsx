@@ -81,13 +81,13 @@ export default function AfterFlying({navigation, allTokus, tokuCount}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={[styles.inner, customStyles.inner, styles.FBMessageInner]}>
-        <Text style={styles.p}>🎉🎉おめでとう🎉🎉</Text>
-        <Text style={styles.p}>
+        <Text style={[styles.p, customStyles.p]}>🎉🎉おめでとう🎉🎉</Text>
+        <Text style={[styles.p, customStyles.p]}>
           今日世界で<Text style={styles.afterPostCount}>{allTokus}羽</Text>
           の鳥が放たれました。
         </Text>
         {setMessage()}
-        <View style={customStyles.FBAfterButtonWrapper}>
+        <View style={styles.FBAfterButtonWrapper}>
           <Button mode="contained" onPress={() => navigation.goBack()}>
             やったね🙌
           </Button>

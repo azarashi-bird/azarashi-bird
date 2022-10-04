@@ -1,15 +1,12 @@
 import {StyleSheet, Dimensions} from 'react-native';
-import {white} from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 const {width, height} = Dimensions.get('window');
 
-// responsive
-
 import {
-  iPhoneInch47, // done
-  iPhoneInch55, // done
-  iPhoneInch58, // done
-  iPhoneInch61, // done
-  iPhoneInch65, // done
+  iPhoneInch47,
+  iPhoneInch55,
+  iPhoneInch58,
+  iPhoneInch61,
+  iPhoneInch65,
   iPhoneInch67,
 } from '../lib/iPhoneSize';
 
@@ -120,11 +117,27 @@ const styles = StyleSheet.create({
     position: 'relative',
     flex: 1,
   },
+  infoImg: {
+    left: 150,
+  },
+  infoButton: {
+    opacity: 0,
+    backgroundColor: 'red',
+  },
 
   //// FlyingBird
 
+  flyingBird: {
+    resizeMode: 'contain',
+  },
+
   //// AfterFlying
 
+  FBAfterButtonWrapper: {
+    top: 350,
+    width: '50%',
+    alignItems: 'center',
+  },
   FBMessageInner: {
     alignItems: 'center',
   },
@@ -146,6 +159,12 @@ const styles = StyleSheet.create({
     width: 300,
     resizeMode: 'contain',
   },
+  avatar: {
+    height: 250,
+    width: 250,
+    resizeMode: 'contain',
+    marginBottom: 10,
+  },
   avatarContainer: {
     marginTop: 30,
     flex: 1,
@@ -163,10 +182,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#F6F3CF',
     alignItems: 'center',
     justifyContent: 'flex-start',
+    marginBottom: 30,
   },
 
   //// Calender
 
+  calender: {
+    width: '85%',
+    borderWidth: 0,
+    borderColor: 'white',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  calenderCell: {
+    width: '20%',
+    height: 60,
+    alignItems: 'center',
+    borderRadius: 6,
+    borderWidth: 0.8,
+    borderColor: 'white',
+  },
   calenderCell0: {
     backgroundColor: 'rgba(0,0,255,0.05)',
   },
@@ -263,7 +298,6 @@ const styles = StyleSheet.create({
     top: 5,
     padding: 10,
     paddingBottom: 50,
-    // marginLeft: 4,
     textAlign: 'center',
     fontSize: 20,
   },
@@ -318,6 +352,13 @@ const styles = StyleSheet.create({
 
   // Dictionary
 
+  dictItemsContainer: {
+    top: 20,
+    width: '100%',
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
   dictItem: {
     width: '30%',
     margin: '1%',
@@ -393,7 +434,6 @@ export const customStyles = StyleSheet.create(
           left: 150,
         },
         infoButton: {
-          opacity: 0,
           height: 40,
           width: 40,
         },
@@ -405,65 +445,11 @@ export const customStyles = StyleSheet.create(
           left: 80,
           width: 180,
           height: 200,
-          resizeMode: 'contain',
         },
         FBCage: {
           top: -10,
           width: 350,
           height: 500,
-        },
-
-        FBAfterButtonWrapper: {
-          // bottom: 10,
-          top: 350,
-          width: '50%',
-          alignItems: 'center',
-        },
-
-        // Profile 4.7 inch
-
-        profileContainer: {
-          marginBottom: 30,
-        },
-
-        //// calender 4.7 inch
-
-        calender: {
-          width: '85%',
-          borderWidth: 0,
-          borderColor: 'white',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-        },
-        calenderCell: {
-          width: '20%',
-          height: 60,
-          alignItems: 'center',
-          borderRadius: 6,
-          borderWidth: 0.8,
-          borderColor: 'white',
-        },
-
-        // Profile 4.7 inch
-
-        avatar: {
-          height: 250,
-          width: 250,
-          resizeMode: 'contain',
-          marginBottom: 10,
-        },
-
-        // Log 4.7 inch
-
-        // Dictionary 4.7inch
-
-        dictItemsContainer: {
-          top: 20,
-          width: '100%',
-          alignItems: 'center',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          // paddingBottom: 120,
         },
       }
     : iphoneModel.inch === 5.5
@@ -488,10 +474,8 @@ export const customStyles = StyleSheet.create(
           top: 390,
           width: 50,
           height: 50,
-          left: 150,
         },
         infoButton: {
-          opacity: 0,
           height: 40,
           width: 40,
         },
@@ -503,67 +487,21 @@ export const customStyles = StyleSheet.create(
           left: 100,
           width: 220,
           height: 240,
-          resizeMode: 'contain',
         },
         FBCage: {
           left: 10,
-          // top: 20,
           bottom: 100,
           width: 400,
           height: 600,
         },
 
-        FBAfterButtonWrapper: {
-          // bottom: 10,
-          top: 350,
-          width: '50%',
-          alignItems: 'center',
-        },
-
-        // Profile 5.5 inch
-
-        profileContainer: {
-          marginBottom: 30,
-        },
-
-        //// calender 5.5 inch
-
-        calender: {
-          width: '85%',
-          borderWidth: 0,
-          borderColor: 'white',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-        },
-        calenderCell: {
-          width: '20%',
-          height: 60,
-          alignItems: 'center',
-          borderRadius: 6,
-          borderWidth: 0.8,
-          borderColor: 'white',
-        },
-
-        // Profile 5.5 inch
-
-        avatar: {
-          height: 250,
-          width: 250,
-          resizeMode: 'contain',
-          marginBottom: 10,
-        },
-
         // Log 5.5 inch
 
-        // Dictionary 5.5inch
-
-        dictItemsContainer: {
-          top: 20,
-          width: '100%',
-          alignItems: 'center',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          // paddingBottom: 120,
+        logTable: {
+          marginLeft: 25,
+          marginRight: 20,
+          width: 300,
+          height: 470,
         },
       }
     : iphoneModel.inch === 5.8
@@ -588,10 +526,8 @@ export const customStyles = StyleSheet.create(
           top: 420,
           width: 50,
           height: 50,
-          left: 150,
         },
         infoButton: {
-          opacity: 0,
           height: 40,
           width: 40,
         },
@@ -603,67 +539,21 @@ export const customStyles = StyleSheet.create(
           left: 100,
           width: 220,
           height: 240,
-          resizeMode: 'contain',
         },
         FBCage: {
           left: 10,
-          // top: 20,
           bottom: 100,
           width: 400,
           height: 600,
         },
 
-        FBAfterButtonWrapper: {
-          // bottom: 10,
-          top: 350,
-          width: '50%',
-          alignItems: 'center',
-        },
-
-        // Profile 5.8 inch
-
-        profileContainer: {
-          marginBottom: 30,
-        },
-
-        //// calender 5.8 inch
-
-        calender: {
-          width: '85%',
-          borderWidth: 0,
-          borderColor: 'white',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-        },
-        calenderCell: {
-          width: '20%',
-          height: 60,
-          alignItems: 'center',
-          borderRadius: 6,
-          borderWidth: 0.8,
-          borderColor: 'white',
-        },
-
-        // Profile 5.8 inch
-
-        avatar: {
-          height: 250,
-          width: 250,
-          resizeMode: 'contain',
-          marginBottom: 10,
-        },
-
         // Log 5.8 inch
 
-        // Dictionary 5.8inch
-
-        dictItemsContainer: {
-          top: 20,
-          width: '100%',
-          alignItems: 'center',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          // paddingBottom: 120,
+        logTable: {
+          marginLeft: 25,
+          marginRight: 20,
+          width: 300,
+          height: 500,
         },
       }
     : iphoneModel.inch === 6.1
@@ -672,7 +562,6 @@ export const customStyles = StyleSheet.create(
 
         h1: {
           fontSize: 30,
-          fontWeight: 'bold',
           marginBottom: 15,
         },
 
@@ -713,10 +602,8 @@ export const customStyles = StyleSheet.create(
           top: 440,
           width: 50,
           height: 50,
-          left: 150,
         },
         infoButton: {
-          opacity: 0,
           height: 40,
           width: 40,
         },
@@ -728,74 +615,19 @@ export const customStyles = StyleSheet.create(
           left: 100,
           width: 220,
           height: 240,
-          resizeMode: 'contain',
         },
         FBCage: {
           left: 10,
-          // top: 20,
           bottom: 100,
           width: 400,
           height: 600,
         },
-
-        FBAfterButtonWrapper: {
-          // bottom: 10,
-          top: 350,
-          width: '50%',
-          alignItems: 'center',
-        },
-
-        // Profile 6.1 inch
-
-        profileContainer: {
-          marginBottom: 30,
-        },
-
-        //// calender 6.1 inch
-
-        calender: {
-          width: '85%',
-          borderWidth: 0,
-          borderColor: 'white',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-        },
-        calenderCell: {
-          width: '20%',
-          height: 60,
-          alignItems: 'center',
-          borderRadius: 6,
-          borderWidth: 0.8,
-          borderColor: 'white',
-        },
-
-        // Profile 6.1 inch
-
-        avatar: {
-          height: 250,
-          width: 250,
-          resizeMode: 'contain',
-          marginBottom: 10,
-        },
-
-        // Log 6.1 inch
 
         logTable: {
           marginLeft: 25,
           marginRight: 20,
           width: 300,
           height: 500,
-        },
-
-        // Dictionary 6.1inch
-
-        dictItemsContainer: {
-          top: 20,
-          width: '100%',
-          alignItems: 'center',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          // paddingBottom: 120,
         },
       }
     : iphoneModel.inch === 6.5
@@ -852,11 +684,8 @@ export const customStyles = StyleSheet.create(
           top: 460,
           width: 60,
           height: 60,
-          left: 150,
         },
         infoButton: {
-          backgroundColor: 'red',
-          opacity: 0,
           height: 70,
           width: 70,
         },
@@ -868,7 +697,6 @@ export const customStyles = StyleSheet.create(
           left: 100,
           width: 220,
           height: 240,
-          resizeMode: 'contain',
         },
         FBCage: {
           left: 10,
@@ -877,48 +705,6 @@ export const customStyles = StyleSheet.create(
           width: 400,
           height: 600,
         },
-
-        FBAfterButtonWrapper: {
-          // bottom: 10,
-          top: 350,
-          width: '50%',
-          alignItems: 'center',
-        },
-
-        // Profile 6.5 inch
-
-        profileContainer: {
-          marginBottom: 30,
-        },
-
-        //// calender 6.5 inch
-
-        calender: {
-          width: '85%',
-          borderWidth: 0,
-          borderColor: 'white',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-        },
-        calenderCell: {
-          width: '20%',
-          height: 60,
-          alignItems: 'center',
-          borderRadius: 6,
-          borderWidth: 0.8,
-          borderColor: 'white',
-        },
-
-        // Profile 6.5 inch
-
-        avatar: {
-          height: 250,
-          width: 250,
-          resizeMode: 'contain',
-          marginBottom: 10,
-        },
-
-        // Log 6.5 inch
 
         logTable: {
           marginLeft: 25,
@@ -938,17 +724,6 @@ export const customStyles = StyleSheet.create(
         },
         peopleBottomRadius: {
           width: 350,
-        },
-
-        // Dictionary 6.5inch
-
-        dictItemsContainer: {
-          top: 20,
-          width: '100%',
-          alignItems: 'center',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          // paddingBottom: 120,
         },
       }
     : {
@@ -1004,11 +779,8 @@ export const customStyles = StyleSheet.create(
           top: 490,
           width: 60,
           height: 60,
-          left: 150,
         },
         infoButton: {
-          backgroundColor: 'red',
-          opacity: 0,
           height: 70,
           width: 70,
         },
@@ -1020,57 +792,17 @@ export const customStyles = StyleSheet.create(
           left: 100,
           width: 220,
           height: 240,
-          resizeMode: 'contain',
         },
         FBCage: {
           left: 10,
-          // top: 20,
           bottom: 10,
           width: 400,
           height: 600,
         },
 
-        FBAfterButtonWrapper: {
-          // bottom: 10,
-          top: 350,
-          width: '50%',
-          alignItems: 'center',
-        },
-
-        // Profile 6.7 inch
-
-        profileContainer: {
-          marginBottom: 30,
-        },
-
-        //// calender 6.7 inch
-
         calender: {
           width: '90%',
-          borderWidth: 0,
-          borderColor: 'white',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
         },
-        calenderCell: {
-          width: '20%',
-          height: 60,
-          alignItems: 'center',
-          borderRadius: 6,
-          borderWidth: 0.8,
-          borderColor: 'white',
-        },
-
-        // Profile 6.7 inch
-
-        avatar: {
-          height: 250,
-          width: 250,
-          resizeMode: 'contain',
-          marginBottom: 10,
-        },
-
-        // Log 6.7 inch
 
         logTable: {
           marginLeft: 25,
@@ -1090,17 +822,6 @@ export const customStyles = StyleSheet.create(
         },
         peopleBottomRadius: {
           width: 350,
-        },
-
-        // Dictionary 6.7inch
-
-        dictItemsContainer: {
-          top: 20,
-          width: '100%',
-          alignItems: 'center',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          // paddingBottom: 120,
         },
       }
 );

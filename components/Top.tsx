@@ -125,9 +125,9 @@ const Top = ({navigation}) => {
               <ImageBackground
                 source={require('../assets/homePage/infoButton.png')}
                 resizeMode="contain"
-                style={customStyles.infoImg}>
+                style={[styles.infoImg, customStyles.infoImg]}>
                 <Pressable
-                  style={customStyles.infoButton}
+                  style={[styles.infoButton, customStyles.infoButton]}
                   onPress={() => {
                     openLink();
                   }}

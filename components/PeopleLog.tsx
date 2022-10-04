@@ -83,7 +83,7 @@ export default function PeopleLog() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={[styles.inner, customStyles.inner]}>
-        <Text style={styles.h1}>徳ろぐ</Text>
+        <Text style={[styles.h1, customStyles.h1]}>徳ろぐ</Text>
         <View style={styles.tabView}>
           <Text
             style={[styles.peopleTokuButton, customStyles.peopleTokuButton]}

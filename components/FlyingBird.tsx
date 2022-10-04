@@ -51,6 +51,7 @@ const FlyingBird = ({navigation, route}) => {
                   source={flyingImg}
                   style={[
                     {
+                      ...styles.flyingBird,
                       ...customStyles.flyingBird,
                       transform: [{translateY: altitude}],
                     },

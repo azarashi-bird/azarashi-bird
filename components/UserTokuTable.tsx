@@ -15,43 +15,29 @@ export default function UserTokutable({userTokus}) {
       }}>
       <DataTable>
         <DataTable.Row>
-          <DataTable.Cell style={[styles.cellA, customStyles.cellA]}>
+          <DataTable.Cell style={styles.cellA}>
             <Image
               source={afterViews[ImgIndex][0]}
               style={styles.logIcon}></Image>
           </DataTable.Cell>
-          <DataTable.Cell style={[styles.cellB, customStyles.cellB]}>
-            徳
-          </DataTable.Cell>
-          <DataTable.Cell style={[styles.cellC, customStyles.cellC]}>
-            日付
-          </DataTable.Cell>
+          <DataTable.Cell style={styles.cellB}>徳</DataTable.Cell>
+          <DataTable.Cell style={styles.cellC}>日付</DataTable.Cell>
         </DataTable.Row>
         {userTokus.length !== 0 ? (
           userTokus.map((arr, index) => {
             return (
               <DataTable.Row key={index}>
-                <DataTable.Cell
-                  style={[styles.cellA, customStyles.cellA]}></DataTable.Cell>
-                <DataTable.Cell style={[styles.cellB, customStyles.cellB]}>
-                  {arr[0]}
-                </DataTable.Cell>
-                <DataTable.Cell style={[styles.cellC, customStyles.cellC]}>
-                  {arr[1]}
-                </DataTable.Cell>
+                <DataTable.Cell style={styles.cellA}></DataTable.Cell>
+                <DataTable.Cell style={styles.cellB}>{arr[0]}</DataTable.Cell>
+                <DataTable.Cell style={styles.cellC}>{arr[1]}</DataTable.Cell>
               </DataTable.Row>
             );
           })
         ) : (
           <DataTable.Row>
-            <DataTable.Cell
-              style={[styles.cellA, customStyles.cellA]}></DataTable.Cell>
-            <DataTable.Cell style={[styles.cellB, customStyles.cellB]}>
-              徳を積んでね
-            </DataTable.Cell>
-            <DataTable.Cell style={[styles.cellC, customStyles.cellC]}>
-              00/00
-            </DataTable.Cell>
+            <DataTable.Cell style={styles.cellA}></DataTable.Cell>
+            <DataTable.Cell style={styles.cellB}>徳を積んでね</DataTable.Cell>
+            <DataTable.Cell style={styles.cellC}>00/00</DataTable.Cell>
           </DataTable.Row>
         )}
       </DataTable>

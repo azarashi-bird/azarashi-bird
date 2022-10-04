@@ -64,9 +64,9 @@ export default function Calender() {
 
   return (
     <>
-      <Text style={styles.h2}>徳積みの記録</Text>
+      <Text style={[styles.h2, customStyles.h2]}>徳積みの記録</Text>
 
-      <View style={customStyles.calender}>
+      <View style={[styles.calender, customStyles.calender]}>
         {calenderData.map((elem, index) => (
           <Pressable
             onPress={() => {
@@ -78,7 +78,7 @@ export default function Calender() {
             }}
             key={index}
             style={[
-              customStyles.calenderCell,
+              styles.calenderCell,
               elem <= 5 ? styleArr[elem] : styleArr[5],
             ]}></Pressable>
         ))}

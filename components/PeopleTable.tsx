@@ -33,15 +33,11 @@ export default function PeopleTable({imgIndexArr, allTokus}) {
           })
         ) : (
           <DataTable.Row>
-            <DataTable.Cell style={[styles.cellA, customStyles.cellA]}>
+            <DataTable.Cell style={styles.cellA}>
               <Image source={afterViews[3][0]} style={styles.logIcon}></Image>
             </DataTable.Cell>
-            <DataTable.Cell style={[styles.cellB, customStyles.cellB]}>
-              徳
-            </DataTable.Cell>
-            <DataTable.Cell style={[styles.cellC, customStyles.cellC]}>
-              日付
-            </DataTable.Cell>
+            <DataTable.Cell style={styles.cellB}>徳</DataTable.Cell>
+            <DataTable.Cell style={styles.cellC}>日付</DataTable.Cell>
           </DataTable.Row>
         )}
       </DataTable>
