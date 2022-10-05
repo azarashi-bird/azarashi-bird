@@ -51,7 +51,7 @@ export default function Profile() {
               source={
                 afterViews[Math.max(Math.floor((userLength % 45) / 3), 0)][0]
               }
-              style={styles.avatar}
+              style={[styles.avatar, customStyles.avatar]}
             />
           </>
         )}

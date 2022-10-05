@@ -32,12 +32,14 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#F6F3CF',
     flexGrow: 1,
+    flex: 1,
   },
 
   inner: {
     top: 30,
     bottom: 30,
     alignItems: 'center',
+    paddingBottom: 100,
     justifyContent: 'flex-start',
   },
 
@@ -188,7 +190,7 @@ const styles = StyleSheet.create({
   //// Calender
 
   calender: {
-    width: '85%',
+    width: '80%',
     borderWidth: 0,
     borderColor: 'white',
     flexDirection: 'row',
@@ -358,6 +360,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
+    paddingBottom: 100,
   },
   dictItem: {
     width: '30%',
@@ -447,10 +450,29 @@ export const customStyles = StyleSheet.create(
           height: 500,
         },
 
-        // Dictionary
+        // Profile
+
+        avatar: {
+          height: 200,
+          width: 200,
+          resizeMode: 'contain',
+          marginBottom: 10,
+        },
+
+        //// Calender
+
+        calender: {
+          width: '78%',
+        },
+        calenderCell: {
+          width: '20%',
+          height: 55,
+        },
+
+        // Dictionary 4.7 inch
         dictItemImage: {
-          width: 65,
-          height: 65,
+          width: 63,
+          height: 63,
           left: 20,
           resizeMode: 'contain',
         },
@@ -651,8 +673,8 @@ export const customStyles = StyleSheet.create(
 
         // Dictionary
         dictItemImage: {
-          width: 95,
-          height: 95,
+          width: 85,
+          height: 85,
           left: 10,
           resizeMode: 'contain',
         },

@@ -145,10 +145,14 @@ export default function Calender({userLength, isFocused}) {
                 key={index}
                 style={[
                   s.calenderCell,
+                  customStyles.calenderCell,
                   elem[0] <= 5 ? styleArr[elem[0]] : styleArr[5],
                 ]}>
                 <Image
-                  style={{width: '100%', height: '100%', resizeMode: 'contain'}}
+                  style={[
+                    {width: '100%', height: '100%', resizeMode: 'contain'},
+                    customStyles.calenderCell,
+                  ]}
                   source={afterViews[elem[1]][0]}
                 />
               </Pressable>
@@ -167,6 +171,7 @@ export default function Calender({userLength, isFocused}) {
                 style={[
                   s.calenderCell,
                   elem[0] <= 5 ? styleArr[elem[0]] : styleArr[5],
+                  customStyles.calenderCell,
                 ]}></Pressable>
             );
           }
