@@ -151,7 +151,6 @@ export default function Calender({userLength, isFocused}) {
                 <Image
                   style={[
                     {width: '100%', height: '100%', resizeMode: 'contain'},
-                    customStyles.calenderCell,
                   ]}
                   source={afterViews[elem[1]][0]}
                 />
