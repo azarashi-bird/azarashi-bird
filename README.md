@@ -107,3 +107,7 @@ On the Log(記録) page, you can see the latest 20 virtues accumulated by users 
 ### Pictorial book of Next Life
 
 On the Pictorial book of Next Life(来世図鑑), you can see the next life that you have passed through. The next life that you have not yet passed through is hidden with the image "???" and unknown images are hidden.
+
+## Thanks for illustrations
+
+free illustrations collection "フリイラくん" (https://furiirakun.com/)
