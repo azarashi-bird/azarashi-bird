@@ -42,8 +42,7 @@ export default function Calender({userLength, isFocused}) {
     const evolData = evolDay.map((data, index) => {
       if (firstThisMonth < data) {
         const arr = [];
-        // 変化したとき、0ではなく1に進化した日を記録するのでindex + 1
-        arr.push(index + 1);
+        arr.push(index < 17 ? (index % 17) + 1 : index % 17);
         arr.push(data.getDate());
         // [変化imgIndex, 日付]がarr
         // 今月分の変化thisMData[arr, arr, arr]

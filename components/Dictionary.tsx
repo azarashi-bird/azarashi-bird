@@ -12,7 +12,7 @@ export default function Dictionary() {
 
   const getUserTokuScore = async () => {
     const count = await getUserPostCount(auth.currentUser?.uid);
-    setScore(Math.floor((count % 45) / 3));
+    setScore(Math.floor((count % 54) / 3));
   };
 
   useEffect(() => {
