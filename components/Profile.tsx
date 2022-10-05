@@ -45,11 +45,11 @@ export default function Profile() {
         ) : (
           <>
             <Text style={[styles.h1, customStyles.h1]}>
-              {afterViews[Math.max(Math.floor((userLength % 45) / 3), 0)][1]}
+              {afterViews[Math.max(Math.floor((userLength % 54) / 3), 0)][1]}
             </Text>
             <Image
               source={
-                afterViews[Math.max(Math.floor((userLength % 45) / 3), 0)][0]
+                afterViews[Math.max(Math.floor((userLength % 54) / 3), 0)][0]
               }
               style={[styles.avatar, customStyles.avatar]}
             />

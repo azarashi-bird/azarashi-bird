@@ -81,7 +81,7 @@ export default function PeopleLog() {
     const allTokuArr = dataToArr(allTokusDataLimited);
     const idArr = allTokusDataLimited.map((obj) => obj.user_id);
     const countArr = await idArrToPostCountArr(idArr);
-    const imgIndexArr = countArr.map((count) => Math.floor((count % 45) / 3));
+    const imgIndexArr = countArr.map((count) => Math.floor((count % 54) / 3));
 
     setAllTokus(allTokuArr);
     setImgIndexArr(imgIndexArr);
