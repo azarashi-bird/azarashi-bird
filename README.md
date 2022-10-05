@@ -58,23 +58,22 @@ $ npm init
 
 6. Use Firebase Authentication and Firestore Database.
 
-7. make .ENV.local
+7. make .env
 
 ```bash
-$ touch .ENV.local
+$ touch .env
 ```
 
-8. Copy & paste config from Firebase project setting at .ENV.local
+8. Copy & paste config from Firebase project setting at .env
 
 ```bash
-export const ENV = {
-    FIREBASE_API_KEY=XXXXXXXXXX
-    FIREBASE_AUTH_DOMAIN=XXXXXXXXXX
-    FIREBASE_PROJECT_ID=XXXXXXXXXX
-    FIREBASE_STORAGE_BUCKET=XXXXXXXXXX
-    FIREBASE_MESSAGING_SENDER_ID=XXXXXXXXXX
-    FIREBASE_APP_ID=XXXXXXXXXX
-    }
+apiKey=XXXXXXXXXX
+authDomain=XXXXXXXXXX
+projectId=XXXXXXXXXX
+storageBucket=XXXXXXXXXX
+messagingSenderId=XXXXXXXXXX
+appId=XXXXXXXXXX
+databaseURL=XXXXXXXXXX
 ```
 
 9. Run
