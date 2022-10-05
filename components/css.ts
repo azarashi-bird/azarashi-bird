@@ -447,10 +447,12 @@ export const customStyles = StyleSheet.create(
           height: 500,
         },
 
-        // Dictionary
+        //// Calender
+
+        // Dictionary 4.7 inch
         dictItemImage: {
-          width: 65,
-          height: 65,
+          width: 63,
+          height: 63,
           left: 20,
           resizeMode: 'contain',
         },
