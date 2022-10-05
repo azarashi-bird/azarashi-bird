@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#F6F3CF',
     flexGrow: 1,
-    flex: 1,
   },
 
   inner: {
