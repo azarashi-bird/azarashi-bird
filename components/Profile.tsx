@@ -27,8 +27,8 @@ export default function Profile() {
     }
   }, [isFocused]);
 
-  // Math.max(Math.floor((userLength % 45) / 3), 0)
-  // [Math.floor((userLength % 45) / 3)]
+  // Math.max(Math.floor((userLength % 54) / 3), 0)
+  // [Math.floor((userLength % 54) / 3)]
   // の結果が負にならないようにしたい
 
   return (
