@@ -1,5 +1,5 @@
 let ISDEBUG = false;
-// ISDEBUG = true;
+ISDEBUG = true;
 // Import the functions you need from the SDKs you need
 
 import {getApps, getApp, initializeApp, FirebaseApp} from 'firebase/app';
@@ -64,9 +64,19 @@ const USERS = 'users';
 
 const incUserPostCount = async (uid) => {
   const usersRef = doc(firestore, USERS, uid);
-  await updateDoc(usersRef, {
-    postCount: increment(1),
-  });
+  const docSnap = await getDoc(usersRef);
+  if (docSnap.exists()) {
+    if (ISDEBUG) console.log('INCUSERPOST', docSnap.data);
+    await updateDoc(usersRef, {
+      postCount: increment(1),
+    });
+  } else {
+    if (ISDEBUG) console.log('create USER DOCMENT');
+    await setDoc(usersRef, {
+      postCount: increment(1),
+    });
+  }
+
   // const ref = USRSTABLE.doc(uid);
   // const doc = await ref.get();
 
