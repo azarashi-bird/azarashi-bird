@@ -19,7 +19,6 @@ import {
   auth,
   postToku,
   getDailyToku,
-  // getAllToku,
   incUserPostCount,
   getUserPostCount,
   pushUserEvoleDay,
