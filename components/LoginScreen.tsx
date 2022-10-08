@@ -12,6 +12,10 @@ import {
 import styles from './css';
 
 import {auth} from '../firebase';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
 type RootStackParamList = {
   Home: undefined;
@@ -32,8 +36,7 @@ const LoginScreen = () => {
   }, []);
 
   const handleSignUp = () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log('Registered in with: ', user.email);
@@ -42,8 +45,7 @@ const LoginScreen = () => {
   };
 
   const handleLogin = () => {
-    auth
-      .signInWithEmailAndPassword(email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log('Logged in with: ', user.email);
