@@ -40,8 +40,6 @@ import Main from './components/Main';
 import {LogBox} from 'react-native';
 import AfterFlying from './components/AfterFlying';
 
-LogBox.ignoreAllLogs();
-
 const theme = {
   ...DefaultTheme,
   roundness: 2,
