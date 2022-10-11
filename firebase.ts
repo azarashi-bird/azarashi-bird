@@ -1,9 +1,28 @@
 let ISDEBUG = false;
 // ISDEBUG = true;
-// Import the functions you need from the SDKs you need
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
+
+import {getApps, getApp, initializeApp} from 'firebase/app';
+import {getAuth, initializeAuth} from 'firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import {getReactNativePersistence} from 'firebase/auth/react-native';
+
+import {
+  doc,
+  setDoc,
+  increment,
+  getFirestore,
+  updateDoc,
+  arrayUnion,
+  getDocs,
+  collection,
+  query,
+  where,
+  orderBy,
+  limit,
+  getDoc,
+} from 'firebase/firestore';
+
 import {
   apiKey,
   authDomain,
@@ -29,70 +48,71 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-let app;
-if (firebase.apps.length === 0) {
-  app = firebase.initializeApp(firebaseConfig);
-} else {
-  app = firebase.app();
-}
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-const auth = firebase.auth();
-const firestore = firebase.firestore();
-const tokuTable = firestore.collection('toku_table');
-const USRSTABLE = firestore.collection('users');
-const increment = firebase.firestore.FieldValue.increment(1);
+initializeAuth(app, {
+  persistence: getReactNativePersistence(AsyncStorage),
+});
+
+const auth = getAuth(app);
+const firestore = getFirestore(app);
+const TOKUS = 'toku_table';
+const USERS = 'users';
 
 const incUserPostCount = async (uid) => {
-  const ref = USRSTABLE.doc(uid);
-  const doc = await ref.get();
-
-  if (doc.exists) {
-    // ドキュメントが存在している
-    await ref.update({postCount: increment});
+  const usersRef = doc(firestore, USERS, uid);
+  const docSnap = await getDoc(usersRef);
+  if (docSnap.exists()) {
+    if (ISDEBUG) console.log('INCUSERPOSTCOUNT', uid);
+    await updateDoc(usersRef, {
+      postCount: increment(1),
+    });
   } else {
-    // ドキュメントがまだ存在していない
-    await ref.set({postCount: 1});
+    if (ISDEBUG) console.log('create USER DOCMENT');
+    await setDoc(usersRef, {
+      postCount: increment(1),
+    });
   }
-  if (ISDEBUG) console.log(uid, 'INCUSERPOST COUNT CALLED');
 };
 
 // userテーブルに、配列を作る。変化した日を配列にプッシュし、その日に対応するindex番号が画像index
 const pushUserEvoleDay = async () => {
   const uid = auth.currentUser?.uid;
-  const ref = USRSTABLE.doc(uid);
-  const doc = await ref.get();
+  const usersRef = doc(firestore, USERS, uid);
   const date = new Date();
-  if (doc.exists) {
-    await ref.update({
-      date_array: firebase.firestore.FieldValue.arrayUnion(date),
+  if (usersRef) {
+    await updateDoc(usersRef, {
+      date_array: arrayUnion(date),
     });
   } else {
-    await ref.set({date_array: [date]});
+    await setDoc(usersRef, {
+      date_array: arrayUnion(date),
+    });
   }
   if (ISDEBUG) console.log('PushUserEvoluDay called');
 };
 
 const getUserEvoleDay = async () => {
   const uid = auth.currentUser?.uid;
-  const ref = USRSTABLE.doc(uid);
-  const doc = await ref.get();
-  if (ISDEBUG) console.log('getUserEvoleDay called');
-  if (doc.exists) {
-    return doc.data().date_array;
+  const docRef = doc(firestore, USERS, uid);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    if (ISDEBUG) console.log('return evolDay:', docSnap.data().date_array);
+    return docSnap.data().date_array;
   } else {
+    if (ISDEBUG) console.log('fail getUserEvolDay');
     return [];
   }
 };
 
 const getUserPostCount = async (uid) => {
-  const ref = USRSTABLE.doc(uid);
-  const doc = await ref.get();
-  if (ISDEBUG) console.log(uid, 'POST COUNT CASLLED');
-  if (doc.exists) {
-    return doc.data().postCount;
-    // ドキュメントが存在している
+  const docRef = doc(firestore, USERS, uid);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    if (ISDEBUG) console.log('return postCount:', docSnap.data().postCount);
+    return docSnap.data().postCount;
   } else {
-    // ドキュメントがまだ存在していない
+    if (ISDEBUG) console.log('fail getUserPostCount');
     return 0;
   }
 };
@@ -104,22 +124,9 @@ const postToku = async (toku) => {
     toku: toku,
     createdAt: new Date(),
   };
-  await tokuTable.add(value);
+  const doc_name = Date.now() + uid;
+  await setDoc(doc(firestore, TOKUS, doc_name), value);
   if (ISDEBUG) console.log('added to firebase!');
-};
-
-const getAllToku = async () => {
-  const tokuDiffList = [];
-  await tokuTable
-    .orderBy('createdAt', 'asc')
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((toku) => {
-        tokuDiffList.push(toku.data());
-      });
-    });
-  if (ISDEBUG) console.log('CALLED GETALL read count:', tokuDiffList.length);
-  return tokuDiffList;
 };
 
 /*
@@ -129,15 +136,12 @@ const getAllToku = async () => {
 
 const getNewestToku = async (num) => {
   const tokuList = [];
-  await tokuTable
-    .orderBy('createdAt', 'desc')
-    .limit(num)
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((toku) => {
-        tokuList.push(toku.data());
-      });
-    });
+
+  const tokuRef = collection(firestore, TOKUS);
+  const q = query(tokuRef, orderBy('createdAt', 'desc'), limit(num));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => tokuList.push(doc.data()));
+
   if (ISDEBUG) console.log('called newestToku. read count:', tokuList.length);
   return tokuList;
 };
@@ -149,42 +153,34 @@ const getNewestToku = async (num) => {
 const getUserToku = async (afterThisTime = new Date(1970, 0, 1)) => {
   const uid = auth.currentUser?.uid;
   const tokuList = [];
-  await tokuTable
-    .where('user_id', '==', uid)
-    .orderBy('createdAt', 'desc')
-    .where('createdAt', '>=', afterThisTime)
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((toku) => tokuList.push(toku.data()));
-    });
+  const tokuRef = collection(firestore, TOKUS);
+  const q = query(
+    tokuRef,
+    where('user_id', '==', uid),
+    orderBy('createdAt', 'desc'),
+    where('createdAt', '>=', afterThisTime)
+  );
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => tokuList.push(doc.data()));
+
   if (ISDEBUG) console.log('getUserTOku read count:::::', tokuList.length);
   return tokuList;
 };
-
-// const getTargetToku = async (userid) => {
-//   const tokuList = [];
-//   await tokuTable
-//     .where('user_id', '==', userid)
-//     .orderBy('createdAt', 'asc')
-//     .get()
-//     .then((querySnapshot) => {
-//       querySnapshot.forEach((toku) => tokuList.push(toku.data()));
-//     });
-//   if (ISDEBUG) console.log('CALLED GETUSERTOKU. count:::::', tokuList.length);
-//   return tokuList;
-// };
 
 const getDailyToku = async () => {
   const _d = new Date();
   const d = new Date(_d.getFullYear(), _d.getMonth(), _d.getDate(), 0, 0, 0);
   const dailyTokuList = [];
-  await tokuTable
-    .orderBy('createdAt', 'asc')
-    .where('createdAt', '>=', d)
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((toku) => dailyTokuList.push(toku.data()));
-    });
+
+  const tokuRef = collection(firestore, TOKUS);
+  const q = query(
+    tokuRef,
+    orderBy('createdAt', 'asc'),
+    where('createdAt', '>=', d)
+  );
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => dailyTokuList.push(doc.data()));
+
   if (ISDEBUG) console.log('called DailyToku. COUNT::::', dailyTokuList.length);
   return dailyTokuList;
 };
@@ -202,15 +198,18 @@ const getMonthlyToku = async (afterThisTime) => {
   const uid = auth.currentUser?.uid;
 
   const tokuList = [];
-  await tokuTable
-    .where('user_id', '==', uid)
-    .orderBy('createdAt', 'asc')
-    .where('createdAt', '>=', startThisMonth)
-    .where('createdAt', '<', startNextMonth)
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((toku) => tokuList.push(toku.data()));
-    });
+
+  const tokuRef = collection(firestore, TOKUS);
+  const q = query(
+    tokuRef,
+    where('user_id', '==', uid),
+    orderBy('createdAt', 'asc'),
+    where('createdAt', '>=', startThisMonth),
+    where('createdAt', '<', startNextMonth)
+  );
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => tokuList.push(doc.data()));
+
   if (ISDEBUG) console.log('CALLED TMonTHLYTOKU. COUNT:', tokuList.length);
   return tokuList;
 };
@@ -219,11 +218,9 @@ export {
   auth,
   firestore,
   postToku,
-  getAllToku, // これもusersコレクション作り終わったら不要になる
   getUserToku,
   getMonthlyToku,
   getDailyToku,
-  // getTargetToku,
   pushUserEvoleDay,
   getUserEvoleDay,
   getNewestToku,

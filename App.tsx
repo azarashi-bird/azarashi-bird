@@ -4,17 +4,17 @@ import {
   MD3LightTheme as DefaultTheme,
   Provider as PaperProvider,
 } from 'react-native-paper';
-import {getAllToku, incUserPostCount} from './firebase';
+import {incUserPostCount} from './firebase';
 
 // toku_tableの中身をusersに転記していく　usersを作ってから1回目だけ読み込ませる
-const setUsersCollection = async () => {
-  const allTokus = await getAllToku();
-  console.log(allTokus);
-  for (const toku of allTokus) {
-    await incUserPostCount(toku.user_id);
-  }
-  console.log('SERUSER COLLECTION CALLED PLZ CALL ONLY ONCE');
-};
+// const setUsersCollection = async () => {
+//   const allTokus = await getAllToku();
+//   console.log(allTokus);
+//   for (const toku of allTokus) {
+//     await incUserPostCount(toku.user_id);
+//   }
+//   console.log('SERUSER COLLECTION CALLED PLZ CALL ONLY ONCE');
+// };
 // setUsersCollection();
 
 // responsive
@@ -39,8 +39,6 @@ import Top from './components/Top';
 import Main from './components/Main';
 import {LogBox} from 'react-native';
 import AfterFlying from './components/AfterFlying';
-
-LogBox.ignoreAllLogs();
 
 const theme = {
   ...DefaultTheme,
